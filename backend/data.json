@@ -1,0 +1,502 @@
+{
+  "teams": [
+    {
+      "slug": "arizona-cardinals",
+      "name": "Arizona Cardinals",
+      "city": "Glendale",
+      "abbr": "ARI",
+      "division": "NFC West",
+      "venue": "State Farm Stadium",
+      "state": "AZ",
+      "color": "#97233F"
+    },
+    {
+      "slug": "atlanta-falcons",
+      "name": "Atlanta Falcons",
+      "city": "Atlanta",
+      "abbr": "ATL",
+      "division": "NFC South",
+      "venue": "Mercedes-Benz Stadium",
+      "state": "GA",
+      "color": "#A71930"
+    },
+    {
+      "slug": "baltimore-ravens",
+      "name": "Baltimore Ravens",
+      "city": "Baltimore",
+      "abbr": "BAL",
+      "division": "AFC North",
+      "venue": "M&T Bank Stadium",
+      "state": "MD",
+      "color": "#241773"
+    },
+    {
+      "slug": "buffalo-bills",
+      "name": "Buffalo Bills",
+      "city": "Buffalo",
+      "abbr": "BUF",
+      "division": "AFC East",
+      "venue": "Highmark Stadium",
+      "state": "NY",
+      "color": "#00338D"
+    },
+    {
+      "slug": "carolina-panthers",
+      "name": "Carolina Panthers",
+      "city": "Charlotte",
+      "abbr": "CAR",
+      "division": "NFC South",
+      "venue": "Bank of America Stadium",
+      "state": "NC",
+      "color": "#0085CA"
+    },
+    {
+      "slug": "chicago-bears",
+      "name": "Chicago Bears",
+      "city": "Chicago",
+      "abbr": "CHI",
+      "division": "NFC North",
+      "venue": "Soldier Field",
+      "state": "IL",
+      "color": "#0B162A"
+    },
+    {
+      "slug": "cincinnati-bengals",
+      "name": "Cincinnati Bengals",
+      "city": "Cincinnati",
+      "abbr": "CIN",
+      "division": "AFC North",
+      "venue": "Paycor Stadium",
+      "state": "OH",
+      "color": "#FB4F14"
+    },
+    {
+      "slug": "cleveland-browns",
+      "name": "Cleveland Browns",
+      "city": "Cleveland",
+      "abbr": "CLE",
+      "division": "AFC North",
+      "venue": "Huntington Bank Field",
+      "state": "OH",
+      "color": "#311D00"
+    },
+    {
+      "slug": "dallas-cowboys",
+      "name": "Dallas Cowboys",
+      "city": "Arlington",
+      "abbr": "DAL",
+      "division": "NFC East",
+      "venue": "AT&T Stadium",
+      "state": "TX",
+      "color": "#041E42"
+    },
+    {
+      "slug": "denver-broncos",
+      "name": "Denver Broncos",
+      "city": "Denver",
+      "abbr": "DEN",
+      "division": "AFC West",
+      "venue": "Empower Field at Mile High",
+      "state": "CO",
+      "color": "#FB4F14"
+    },
+    {
+      "slug": "detroit-lions",
+      "name": "Detroit Lions",
+      "city": "Detroit",
+      "abbr": "DET",
+      "division": "NFC North",
+      "venue": "Ford Field",
+      "state": "MI",
+      "color": "#0076B6"
+    },
+    {
+      "slug": "green-bay-packers",
+      "name": "Green Bay Packers",
+      "city": "Green Bay",
+      "abbr": "GB",
+      "division": "NFC North",
+      "venue": "Lambeau Field",
+      "state": "WI",
+      "color": "#203731"
+    },
+    {
+      "slug": "houston-texans",
+      "name": "Houston Texans",
+      "city": "Houston",
+      "abbr": "HOU",
+      "division": "AFC South",
+      "venue": "NRG Stadium",
+      "state": "TX",
+      "color": "#03202F"
+    },
+    {
+      "slug": "indianapolis-colts",
+      "name": "Indianapolis Colts",
+      "city": "Indianapolis",
+      "abbr": "IND",
+      "division": "AFC South",
+      "venue": "Lucas Oil Stadium",
+      "state": "IN",
+      "color": "#002C5F"
+    },
+    {
+      "slug": "jacksonville-jaguars",
+      "name": "Jacksonville Jaguars",
+      "city": "Jacksonville",
+      "abbr": "JAX",
+      "division": "AFC South",
+      "venue": "EverBank Stadium",
+      "state": "FL",
+      "color": "#101820"
+    },
+    {
+      "slug": "kansas-city-chiefs",
+      "name": "Kansas City Chiefs",
+      "city": "Kansas City",
+      "abbr": "KC",
+      "division": "AFC West",
+      "venue": "GEHA Field at Arrowhead Stadium",
+      "state": "MO",
+      "color": "#E31837"
+    },
+    {
+      "slug": "las-vegas-raiders",
+      "name": "Las Vegas Raiders",
+      "city": "Las Vegas",
+      "abbr": "LV",
+      "division": "AFC West",
+      "venue": "Allegiant Stadium",
+      "state": "NV",
+      "color": "#000000"
+    },
+    {
+      "slug": "los-angeles-chargers",
+      "name": "Los Angeles Chargers",
+      "city": "Los Angeles",
+      "abbr": "LAC",
+      "division": "AFC West",
+      "venue": "SoFi Stadium",
+      "state": "CA",
+      "color": "#0080C6"
+    },
+    {
+      "slug": "los-angeles-rams",
+      "name": "Los Angeles Rams",
+      "city": "Inglewood",
+      "abbr": "LAR",
+      "division": "NFC West",
+      "venue": "SoFi Stadium",
+      "state": "CA",
+      "color": "#003594"
+    },
+    {
+      "slug": "miami-dolphins",
+      "name": "Miami Dolphins",
+      "city": "Miami Gardens",
+      "abbr": "MIA",
+      "division": "AFC East",
+      "venue": "Hard Rock Stadium",
+      "state": "FL",
+      "color": "#008E97"
+    },
+    {
+      "slug": "minnesota-vikings",
+      "name": "Minnesota Vikings",
+      "city": "Minneapolis",
+      "abbr": "MIN",
+      "division": "NFC North",
+      "venue": "U.S. Bank Stadium",
+      "state": "MN",
+      "color": "#4F2683"
+    },
+    {
+      "slug": "new-england-patriots",
+      "name": "New England Patriots",
+      "city": "Foxborough",
+      "abbr": "NE",
+      "division": "AFC East",
+      "venue": "Gillette Stadium",
+      "state": "MA",
+      "color": "#002244"
+    },
+    {
+      "slug": "new-orleans-saints",
+      "name": "New Orleans Saints",
+      "city": "New Orleans",
+      "abbr": "NO",
+      "division": "NFC South",
+      "venue": "Caesars Superdome",
+      "state": "LA",
+      "color": "#D3BC8D"
+    },
+    {
+      "slug": "new-york-giants",
+      "name": "New York Giants",
+      "city": "East Rutherford",
+      "abbr": "NYG",
+      "division": "NFC East",
+      "venue": "MetLife Stadium",
+      "state": "NJ",
+      "color": "#0B2265"
+    },
+    {
+      "slug": "new-york-jets",
+      "name": "New York Jets",
+      "city": "East Rutherford",
+      "abbr": "NYJ",
+      "division": "AFC East",
+      "venue": "MetLife Stadium",
+      "state": "NJ",
+      "color": "#125740"
+    },
+    {
+      "slug": "philadelphia-eagles",
+      "name": "Philadelphia Eagles",
+      "city": "Philadelphia",
+      "abbr": "PHI",
+      "division": "NFC East",
+      "venue": "Lincoln Financial Field",
+      "state": "PA",
+      "color": "#004C54"
+    },
+    {
+      "slug": "pittsburgh-steelers",
+      "name": "Pittsburgh Steelers",
+      "city": "Pittsburgh",
+      "abbr": "PIT",
+      "division": "AFC North",
+      "venue": "Acrisure Stadium",
+      "state": "PA",
+      "color": "#FFB612"
+    },
+    {
+      "slug": "san-francisco-49ers",
+      "name": "San Francisco 49ers",
+      "city": "Santa Clara",
+      "abbr": "SF",
+      "division": "NFC West",
+      "venue": "Levi's Stadium",
+      "state": "CA",
+      "color": "#AA0000"
+    },
+    {
+      "slug": "seattle-seahawks",
+      "name": "Seattle Seahawks",
+      "city": "Seattle",
+      "abbr": "SEA",
+      "division": "NFC West",
+      "venue": "Lumen Field",
+      "state": "WA",
+      "color": "#002244"
+    },
+    {
+      "slug": "tampa-bay-buccaneers",
+      "name": "Tampa Bay Buccaneers",
+      "city": "Tampa",
+      "abbr": "TB",
+      "division": "NFC South",
+      "venue": "Raymond James Stadium",
+      "state": "FL",
+      "color": "#D50A0A"
+    },
+    {
+      "slug": "tennessee-titans",
+      "name": "Tennessee Titans",
+      "city": "Nashville",
+      "abbr": "TEN",
+      "division": "AFC South",
+      "venue": "Nissan Stadium",
+      "state": "TN",
+      "color": "#0C2340"
+    },
+    {
+      "slug": "washington-commanders",
+      "name": "Washington Commanders",
+      "city": "Landover",
+      "abbr": "WAS",
+      "division": "NFC East",
+      "venue": "Northwest Stadium",
+      "state": "MD",
+      "color": "#5A1414"
+    }
+  ],
+  "gamePairs": [
+    [
+      "kansas-city-chiefs",
+      "buffalo-bills",
+      "2026-10-04",
+      "1:00 PM",
+      "High",
+      "Division battle"
+    ],
+    [
+      "dallas-cowboys",
+      "philadelphia-eagles",
+      "2026-10-04",
+      "4:25 PM",
+      "Premium",
+      "Rivalry atmosphere"
+    ],
+    [
+      "san-francisco-49ers",
+      "seattle-seahawks",
+      "2026-10-11",
+      "8:20 PM",
+      "High",
+      "Division battle"
+    ],
+    [
+      "green-bay-packers",
+      "chicago-bears",
+      "2026-10-18",
+      "1:00 PM",
+      "Premium",
+      "Historic rivalry"
+    ],
+    [
+      "baltimore-ravens",
+      "pittsburgh-steelers",
+      "2026-10-25",
+      "1:00 PM",
+      "Premium",
+      "Physical rivalry"
+    ],
+    [
+      "miami-dolphins",
+      "new-york-jets",
+      "2026-11-01",
+      "1:00 PM",
+      "Medium",
+      "Division matchup"
+    ],
+    [
+      "atlanta-falcons",
+      "new-orleans-saints",
+      "2026-11-08",
+      "1:00 PM",
+      "High",
+      "Division rivalry"
+    ],
+    [
+      "buffalo-bills",
+      "new-england-patriots",
+      "2026-11-15",
+      "4:25 PM",
+      "High",
+      "Division matchup"
+    ],
+    [
+      "denver-broncos",
+      "kansas-city-chiefs",
+      "2026-11-22",
+      "4:05 PM",
+      "High",
+      "Division battle"
+    ],
+    [
+      "philadelphia-eagles",
+      "new-york-giants",
+      "2026-11-29",
+      "1:00 PM",
+      "Medium",
+      "Division matchup"
+    ],
+    [
+      "detroit-lions",
+      "green-bay-packers",
+      "2026-12-06",
+      "4:25 PM",
+      "High",
+      "Division battle"
+    ],
+    [
+      "houston-texans",
+      "jacksonville-jaguars",
+      "2026-12-13",
+      "1:00 PM",
+      "Medium",
+      "Division matchup"
+    ],
+    [
+      "los-angeles-rams",
+      "san-francisco-49ers",
+      "2026-12-20",
+      "4:25 PM",
+      "High",
+      "NFC West matchup"
+    ],
+    [
+      "cincinnati-bengals",
+      "cleveland-browns",
+      "2026-12-20",
+      "1:00 PM",
+      "Medium",
+      "In-state rivalry"
+    ],
+    [
+      "tampa-bay-buccaneers",
+      "carolina-panthers",
+      "2026-12-27",
+      "1:00 PM",
+      "Medium",
+      "Division matchup"
+    ],
+    [
+      "minnesota-vikings",
+      "detroit-lions",
+      "2027-01-03",
+      "1:00 PM",
+      "High",
+      "Division battle"
+    ],
+    [
+      "arizona-cardinals",
+      "los-angeles-rams",
+      "2026-10-04",
+      "4:05 PM",
+      "Medium",
+      "NFC West matchup"
+    ],
+    [
+      "indianapolis-colts",
+      "houston-texans",
+      "2026-10-11",
+      "1:00 PM",
+      "High",
+      "Division matchup"
+    ],
+    [
+      "las-vegas-raiders",
+      "denver-broncos",
+      "2026-10-18",
+      "4:05 PM",
+      "High",
+      "AFC West matchup"
+    ],
+    [
+      "los-angeles-chargers",
+      "kansas-city-chiefs",
+      "2026-10-25",
+      "4:25 PM",
+      "Premium",
+      "High-demand matchup"
+    ],
+    [
+      "tennessee-titans",
+      "jacksonville-jaguars",
+      "2026-11-08",
+      "1:00 PM",
+      "Medium",
+      "Division matchup"
+    ],
+    [
+      "washington-commanders",
+      "philadelphia-eagles",
+      "2026-11-15",
+      "1:00 PM",
+      "High",
+      "NFC East matchup"
+    ]
+  ]
+}
