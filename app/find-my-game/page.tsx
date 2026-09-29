@@ -54,13 +54,33 @@ function startingPrice(game: Game) {
   return 55;
 }
 
+const demandRank: Record<Game["demand"], number> = {
+  Premium: 4,
+  High: 3,
+  Medium: 2,
+  Low: 1,
+};
+
+function demandClass(demand: Game["demand"]) {
+  if (demand === "Premium") return "premium";
+  if (demand === "High") return "high";
+  if (demand === "Medium") return "medium";
+  return "low";
+}
+
 export default function FindMyGamePage() {
   const [prefs, setPrefs] =
     useState<Preferences>(DEFAULT_PREFERENCES);
+
   const [games, setGames] = useState<Game[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [showFilters, setShowFilters] = useState(true);
+
+  const [sortBy, setSortBy] =
+    useState<"recommended" | "price" | "demand">(
+      "recommended"
+    );
 
   useEffect(() => {
     async function loadGames() {
@@ -91,22 +111,63 @@ export default function FindMyGamePage() {
   const results = useMemo(() => {
     if (games.length === 0) return [];
 
-    return personalizedGames(games as any, prefs).slice(
-      0,
-      8
+    const personalized = personalizedGames(
+      games as any,
+      prefs
     );
-  }, [games, prefs]);
+
+    const sorted = [...personalized];
+
+    if (sortBy === "price") {
+      sorted.sort(
+        (a, b) =>
+          startingPrice(a) - startingPrice(b)
+      );
+    }
+
+    if (sortBy === "demand") {
+      sorted.sort(
+        (a, b) =>
+          demandRank[b.demand] -
+            demandRank[a.demand] ||
+          startingPrice(a) - startingPrice(b)
+      );
+    }
+
+    return sorted.slice(0, 8);
+  }, [games, prefs, sortBy]);
+
+  const updatePrefs = (
+    changes: Partial<Preferences>
+  ) => {
+    setPrefs((current) => ({
+      ...current,
+      ...changes,
+    }));
+  };
 
   return (
-    <div className="page">
-      <div className="page-head">
+    <div
+      className="page"
+      style={{
+        paddingTop: 28,
+      }}
+    >
+      <div
+        className="page-head"
+        style={{
+          marginBottom: 24,
+        }}
+      >
         <div>
-          <div className="eyebrow">GAME FINDER</div>
+          <div className="eyebrow">
+            GAME FINDER
+          </div>
 
           <h1>Find My Game</h1>
 
           <p>
-            Set your preferences and compare the games
+            Set your preferences and find NFL games
             that fit.
           </p>
         </div>
@@ -122,28 +183,48 @@ export default function FindMyGamePage() {
 
       <div
         className="card"
-        style={{ marginBottom: 20 }}
+        style={{
+          marginBottom: 18,
+          padding: "16px 18px",
+        }}
       >
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 12,
-            padding: "4px 0",
+            gap: 13,
           }}
         >
-          <Search size={20} />
+          <div
+            style={{
+              width: 38,
+              height: 38,
+              minWidth: 38,
+              borderRadius: 11,
+              display: "grid",
+              placeItems: "center",
+              background:
+                "rgba(124, 58, 237, 0.12)",
+              border:
+                "1px solid rgba(124, 58, 237, 0.25)",
+            }}
+          >
+            <Search size={18} />
+          </div>
 
           <div style={{ flex: 1 }}>
             <strong
-              style={{ display: "block" }}
+              style={{
+                display: "block",
+                marginBottom: 3,
+              }}
             >
               What matters most?
             </strong>
 
             <span className="muted">
-              Choose a team, budget, seat area, and game
-              type.
+              Choose your team, budget, seats, and
+              game type.
             </span>
           </div>
 
@@ -159,7 +240,9 @@ export default function FindMyGamePage() {
 
       <button
         className="secondary-button"
-        onClick={() => setShowFilters(!showFilters)}
+        onClick={() =>
+          setShowFilters(!showFilters)
+        }
         style={{
           marginBottom: 16,
           display: "flex",
@@ -176,6 +259,7 @@ export default function FindMyGamePage() {
             transform: showFilters
               ? "rotate(180deg)"
               : "rotate(0deg)",
+            transition: "transform 0.15s ease",
           }}
         />
       </button>
@@ -184,8 +268,8 @@ export default function FindMyGamePage() {
         style={{
           display: "grid",
           gridTemplateColumns: showFilters
-            ? "270px 1fr"
-            : "1fr",
+            ? "270px minmax(0, 1fr)"
+            : "minmax(0, 1fr)",
           gap: 22,
           alignItems: "start",
         }}
@@ -203,8 +287,7 @@ export default function FindMyGamePage() {
               <select
                 value={prefs.favoriteTeam}
                 onChange={(event) =>
-                  setPrefs({
-                    ...prefs,
+                  updatePrefs({
                     favoriteTeam:
                       event.target.value,
                   })
@@ -227,8 +310,7 @@ export default function FindMyGamePage() {
               <select
                 value={prefs.fanType}
                 onChange={(event) =>
-                  setPrefs({
-                    ...prefs,
+                  updatePrefs({
                     fanType:
                       event.target.value as any,
                   })
@@ -255,8 +337,7 @@ export default function FindMyGamePage() {
                 step="10"
                 value={prefs.budget}
                 onChange={(event) =>
-                  setPrefs({
-                    ...prefs,
+                  updatePrefs({
                     budget: Number(
                       event.target.value
                     ),
@@ -271,8 +352,7 @@ export default function FindMyGamePage() {
               <select
                 value={prefs.ticketCount}
                 onChange={(event) =>
-                  setPrefs({
-                    ...prefs,
+                  updatePrefs({
                     ticketCount: Number(
                       event.target.value
                     ),
@@ -300,8 +380,7 @@ export default function FindMyGamePage() {
               <select
                 value={prefs.seatArea}
                 onChange={(event) =>
-                  setPrefs({
-                    ...prefs,
+                  updatePrefs({
                     seatArea:
                       event.target.value as any,
                   })
@@ -328,8 +407,7 @@ export default function FindMyGamePage() {
               <select
                 value={prefs.homeAway || "Either"}
                 onChange={(event) =>
-                  setPrefs({
-                    ...prefs,
+                  updatePrefs({
                     homeAway:
                       event.target.value as any,
                   })
@@ -353,8 +431,7 @@ export default function FindMyGamePage() {
               <select
                 value={prefs.radius}
                 onChange={(event) =>
-                  setPrefs({
-                    ...prefs,
+                  updatePrefs({
                     radius: Number(
                       event.target.value
                     ),
@@ -394,8 +471,17 @@ export default function FindMyGamePage() {
           </aside>
         )}
 
-        <section>
-          <div className="results-top">
+        <section
+          style={{
+            minWidth: 0,
+          }}
+        >
+          <div
+            className="results-top"
+            style={{
+              marginBottom: 12,
+            }}
+          >
             <div>
               <strong>Matching games</strong>
 
@@ -407,19 +493,60 @@ export default function FindMyGamePage() {
             </div>
 
             <select
-              defaultValue="recommended"
+              value={sortBy}
+              onChange={(event) =>
+                setSortBy(
+                  event.target.value as
+                    | "recommended"
+                    | "price"
+                    | "demand"
+                )
+              }
+              aria-label="Sort games"
               style={{
                 width: "auto",
-                minWidth: 150,
+                minWidth: 160,
+                minHeight: 42,
+                padding: "9px 34px 9px 13px",
+                borderRadius: 10,
+                background:
+                  "var(--panel, #15131d)",
+                backgroundColor: "#15131d",
+                color: "#f5f3ff",
+                border:
+                  "1px solid rgba(255,255,255,0.12)",
+                outline: "none",
+                colorScheme: "dark",
+                appearance: "auto",
               }}
             >
-              <option value="recommended">
+              <option
+                value="recommended"
+                style={{
+                  background: "#15131d",
+                  color: "#f5f3ff",
+                }}
+              >
                 Recommended
               </option>
-              <option value="price">
+
+              <option
+                value="price"
+                style={{
+                  background: "#15131d",
+                  color: "#f5f3ff",
+                }}
+              >
                 Lowest price
               </option>
-              <option value="demand">
+
+              <option
+                value="demand"
+                style={{
+                  background: "#15131d",
+                  color: "#f5f3ff",
+                }}
+              >
                 Game demand
               </option>
             </select>
@@ -462,7 +589,7 @@ export default function FindMyGamePage() {
               <div
                 style={{
                   display: "grid",
-                  gap: 12,
+                  gap: 10,
                 }}
               >
                 {results.map((game, index) => {
@@ -477,54 +604,74 @@ export default function FindMyGamePage() {
                       style={{
                         textDecoration: "none",
                         display: "block",
-                        transition:
-                          "transform 0.15s ease",
+                        padding: "17px 18px",
+                        border:
+                          index === 0 &&
+                          sortBy === "recommended"
+                            ? "1px solid rgba(124,58,237,0.45)"
+                            : undefined,
+                        boxShadow:
+                          index === 0 &&
+                          sortBy === "recommended"
+                            ? "0 0 0 1px rgba(124,58,237,0.08)"
+                            : undefined,
                       }}
                     >
                       <div
                         style={{
                           display: "grid",
                           gridTemplateColumns:
-                            "1fr auto",
+                            "minmax(0, 1fr) auto",
                           gap: 20,
                           alignItems: "center",
                         }}
                       >
-                        <div>
+                        <div
+                          style={{
+                            minWidth: 0,
+                          }}
+                        >
                           <div
                             style={{
                               display: "flex",
-                              alignItems:
-                                "center",
+                              alignItems: "center",
                               gap: 8,
-                              marginBottom: 10,
+                              marginBottom: 8,
                               flexWrap: "wrap",
                             }}
                           >
-                            {index === 0 && (
-                              <span className="score-chip">
-                                Best match
-                              </span>
-                            )}
+                            {index === 0 &&
+                              sortBy ===
+                                "recommended" && (
+                                <span className="score-chip">
+                                  Best match
+                                </span>
+                              )}
 
                             <span className="muted">
                               {formatDate(
                                 game.date
                               )}{" "}
-                              • {game.time}
+                              · {game.time}
                             </span>
 
-                            <span className="muted">
-                              • {game.demand} demand
+                            <span
+                              className={`muted demand-${demandClass(
+                                game.demand
+                              )}`}
+                            >
+                              · {game.demand} demand
                             </span>
                           </div>
 
                           <div
                             style={{
                               fontSize:
-                                "1.15rem",
-                              fontWeight: 700,
-                              marginBottom: 7,
+                                "1.1rem",
+                              fontWeight: 750,
+                              marginBottom: 6,
+                              letterSpacing:
+                                "-0.01em",
                             }}
                           >
                             {teamName(
@@ -538,15 +685,21 @@ export default function FindMyGamePage() {
                             )}
                           </div>
 
-                          <div className="muted">
-                            {game.venue} •{" "}
+                          <div
+                            className="muted"
+                            style={{
+                              fontSize:
+                                "0.82rem",
+                            }}
+                          >
+                            {game.venue} ·{" "}
                             {game.city}
                           </div>
 
                           <div
                             style={{
-                              marginTop: 10,
-                              fontSize: "0.9rem",
+                              marginTop: 9,
+                              fontSize: "0.86rem",
                             }}
                           >
                             {game.reason}
@@ -556,13 +709,15 @@ export default function FindMyGamePage() {
                         <div
                           style={{
                             textAlign: "right",
-                            minWidth: 125,
+                            minWidth: 115,
                           }}
                         >
                           <div
                             className="muted"
                             style={{
-                              fontSize: "0.8rem",
+                              fontSize:
+                                "0.74rem",
+                              marginBottom: 2,
                             }}
                           >
                             Tickets from
@@ -571,10 +726,9 @@ export default function FindMyGamePage() {
                           <div
                             style={{
                               fontSize:
-                                "1.35rem",
+                                "1.3rem",
                               fontWeight: 800,
-                              margin:
-                                "2px 0 7px",
+                              marginBottom: 6,
                             }}
                           >
                             ${price}
@@ -594,7 +748,11 @@ export default function FindMyGamePage() {
               </div>
             )}
 
-          <div style={{ marginTop: 18 }}>
+          <div
+            style={{
+              marginTop: 18,
+            }}
+          >
             <Link
               href="/find-tickets"
               className="secondary-button"
