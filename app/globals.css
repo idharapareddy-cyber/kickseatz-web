@@ -316,3 +316,187 @@
     width: 158px !important;
   }
 }
+/* =========================================================
+   KICKSEATZ — MOBILE ACCESSIBILITY FIXES
+   UX Pickle audit: tap targets + minimum text size
+   ========================================================= */
+
+@media (max-width: 650px) {
+  /*
+   * Minimum touch target.
+   * Keeps buttons and links comfortable to tap on phones.
+   */
+  button,
+  .primary-button,
+  .secondary-button,
+  .text-button,
+  .reset-button,
+  .choice,
+  .icon-button,
+  .back-link,
+  .market-hero-links a,
+  .market-see-all,
+  .market-game-row,
+  .mobile-nav a,
+  .profile-pill {
+    min-height: 44px;
+  }
+
+  /*
+   * Icon-only controls should be square touch targets.
+   */
+  .icon-button {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /*
+   * Mobile navigation items need a full tap area.
+   */
+  .mobile-nav {
+    padding: 6px 8px;
+    gap: 4px;
+  }
+
+  .mobile-nav a {
+    flex: 1;
+    min-height: 44px;
+    padding: 5px 4px;
+    justify-content: center;
+  }
+
+  /*
+   * Header profile control.
+   */
+  .profile-pill {
+    min-height: 44px;
+    min-width: 44px;
+    justify-content: center;
+    padding: 8px 12px;
+  }
+
+  /*
+   * Make the back link easier to tap.
+   */
+  .back-link {
+    min-height: 44px;
+    padding: 8px 0;
+  }
+
+  /*
+   * Hero links need a proper touch area.
+   */
+  .market-hero-links {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .market-hero-links a,
+  .market-see-all {
+    min-height: 44px;
+    padding: 8px 2px;
+  }
+
+  /*
+   * Search controls already have a strong visual height,
+   * but keep them safely tappable.
+   */
+  .market-search-box {
+    min-height: 56px;
+  }
+
+  .market-search-box input,
+  .market-search-box button {
+    min-height: 44px;
+  }
+
+  /*
+   * Minimum readable text size.
+   * These were the main sources of sub-12px text in the audit.
+   */
+  .badge,
+  .demo-badge,
+  .panel-kicker,
+  .eyebrow,
+  .market-eyebrow,
+  .hero-note,
+  .card-topline,
+  .matchup-row small,
+  .game-meta,
+  .muted,
+  .score-chip,
+  .filter-panel label,
+  .quiz-panel label,
+  .form-grid label,
+  .results-top span,
+  .ticket-tags span,
+  .price-block span,
+  .ticket-score-row p,
+  .explain summary,
+  .explain p,
+  .quiz-step,
+  .quiz-summary p,
+  .account-stat span,
+  .watch-row span:nth-child(2),
+  .watch-status,
+  .empty-state p,
+  .rate-placeholder p,
+  .save-row span,
+  .team-card span,
+  .team-card small,
+  .back-link,
+  .market-featured-top,
+  .market-featured-teams small,
+  .market-featured-meta,
+  .market-featured-bottom,
+  .market-game-date span,
+  .market-game-matchup > div > span,
+  .market-game-matchup small,
+  .market-game-demand span,
+  .market-game-action,
+  .marketplace-info-strip p,
+  .how-number,
+  .how-card p {
+    font-size: 12px !important;
+  }
+
+  /*
+   * Keep the mobile nav label readable.
+   */
+  .mobile-nav a {
+    font-size: 12px;
+  }
+
+  /*
+   * Footer is hidden on small screens in the current design,
+   * so no tiny footer text needs to be shown here.
+   */
+
+  /*
+   * Preserve the intended hierarchy for the actual content.
+   */
+  .quick-card p,
+  .how-card p,
+  .market-featured-bottom,
+  .marketplace-info-strip p {
+    line-height: 1.5;
+  }
+}
+
+/* =========================================================
+   KICKSEATZ — GLOBAL KEYBOARD FOCUS
+   ========================================================= */
+
+@media (max-width: 650px) {
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--purple2);
+    outline-offset: 3px;
+  }
+}

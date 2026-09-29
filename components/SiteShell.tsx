@@ -129,6 +129,8 @@ export function SiteShell({
           <Link href="/find-tickets">Find Tickets</Link>
           <Link href="/find-my-game">Find My Game</Link>
           <Link href="/profile">Profile</Link>
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/contact">Contact</Link>
         </div>
 
         <span>
