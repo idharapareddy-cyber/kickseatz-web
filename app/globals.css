@@ -1036,3 +1036,132 @@ strong, b { font-weight: 700; }
   .market-popular-action { grid-column:3; grid-row:1 / span 2; font-size:0; }
   .market-popular-action svg { width:15px; }
 }
+
+
+/* ---------- KICKSEATZ — DARK / LIGHT MODE ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+.theme-toggle:hover { border-color: #5b2eff; color: var(--text); }
+
+html[data-theme="light"] {
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --surface2: #f0eff3;
+  --line: #dedce4;
+  --text: #17151d;
+  --muted: #625e6b;
+  --purple: #5b2eff;
+  --purple2: #6840e8;
+  --white: #fff;
+}
+
+html[data-theme="light"] body { background:#f5f5f7; color:#17151d; }
+html[data-theme="light"] .topbar { background:#ffffff; border-bottom-color:#dedce4; }
+html[data-theme="light"] .nav-link { color:#625e6b; }
+html[data-theme="light"] .nav-link:hover,
+html[data-theme="light"] .nav-link.active { background:#f0eff3; color:#17151d; }
+html[data-theme="light"] .profile-pill,
+html[data-theme="light"] .theme-toggle { background:#fff; border-color:#dedce4; color:#625e6b; }
+html[data-theme="light"] .brand-word { color:#17151d; }
+html[data-theme="light"] .marketplace-hero h1,
+html[data-theme="light"] .page-head h1 { color:#17151d; }
+html[data-theme="light"] .marketplace-hero p,
+html[data-theme="light"] .section-heading p,
+html[data-theme="light"] .page-head p { color:#625e6b; }
+html[data-theme="light"] .market-search-box,
+html[data-theme="light"] .market-hero-visual,
+html[data-theme="light"] .marketplace-hero-panel,
+html[data-theme="light"] .market-featured-card,
+html[data-theme="light"] .market-event-card,
+html[data-theme="light"] .market-category-card,
+html[data-theme="light"] .market-bonus-card,
+html[data-theme="light"] .card,
+html[data-theme="light"] .team-card,
+html[data-theme="light"] .quick-card,
+html[data-theme="light"] .filter-panel,
+html[data-theme="light"] .quiz-panel,
+html[data-theme="light"] .form-card,
+html[data-theme="light"] .hero-panel,
+html[data-theme="light"] .how-card { background:#fff; border-color:#dedce4; }
+html[data-theme="light"] .market-search-box input { color:#17151d; }
+html[data-theme="light"] .market-search-box input::placeholder { color:#8a8691; }
+html[data-theme="light"] .market-hero-visual { border-color:#d8d0ef; }
+html[data-theme="light"] .market-hero-matchup b,
+html[data-theme="light"] .market-popular-vs { color:#817b88; }
+html[data-theme="light"] .market-hero-game,
+html[data-theme="light"] .market-game-meta { border-color:#e4e1e8; color:#625e6b; }
+html[data-theme="light"] .market-category-card small,
+html[data-theme="light"] .market-event-info span,
+html[data-theme="light"] .market-bonus-card span,
+html[data-theme="light"] .market-popular-info span,
+html[data-theme="light"] .muted { color:#716c78; }
+html[data-theme="light"] .market-category-icon,
+html[data-theme="light"] .quick-icon { background:#f1edff; border-color:#d8cef9; color:#5b2eff; }
+html[data-theme="light"] .market-event-visual { background:#f3f0fa; border-color:#e0dce8; }
+html[data-theme="light"] .market-event-badge,
+html[data-theme="light"] .market-popular-demand,
+html[data-theme="light"] .score-chip { background:#f1edff; border-color:#d8cef9; color:#5b2eff; }
+html[data-theme="light"] .market-popular-list,
+html[data-theme="light"] .market-popular-row { border-color:#e4e1e8; }
+html[data-theme="light"] .market-popular-row:hover,
+html[data-theme="light"] .market-game-row:hover,
+html[data-theme="light"] .market-category-card:hover,
+html[data-theme="light"] .market-bonus-card:hover { background:#f7f5fb; }
+html[data-theme="light"] .market-popular-rank { color:#8a8490; }
+html[data-theme="light"] .market-popular-action,
+html[data-theme="light"] .text-button,
+html[data-theme="light"] .market-hero-links a,
+html[data-theme="light"] .market-see-all { color:#5b2eff; }
+html[data-theme="light"] .market-featured-card,
+html[data-theme="light"] .market-game-row { border-color:#e0dde5; }
+html[data-theme="light"] .market-game-list { border-color:#e0dde5; }
+html[data-theme="light"] .market-game-demand span { background:#f1edff; border-color:#d8cef9; color:#5b2eff; }
+html[data-theme="light"] .ticket-tags span,
+html[data-theme="light"] .search-mini,
+html[data-theme="light"] .choice,
+html[data-theme="light"] .quiz-summary,
+html[data-theme="light"] .rate-placeholder,
+html[data-theme="light"] .account-stat,
+html[data-theme="light"] .icon-button { background:#f7f6f9; border-color:#dedbe3; color:#625e6b; }
+html[data-theme="light"] .filter-panel select,
+html[data-theme="light"] .quiz-panel select,
+html[data-theme="light"] .form-grid select,
+html[data-theme="light"] .text-input,
+html[data-theme="light"] .text-area { background:#fff; border-color:#d8d5dd; color:#17151d; }
+html[data-theme="light"] .choice.active { background:#eee9ff; border-color:#8066e8; color:#3d218f; }
+html[data-theme="light"] .score-ring { background:#f5f3f8; border-color:#b7a9d9; }
+html[data-theme="light"] .team-mark { background:#f2f0f5; }
+html[data-theme="light"] .empty-state { border-color:#ccc8d2; color:#716c78; }
+html[data-theme="light"] .empty-state h3 { color:#17151d; }
+html[data-theme="light"] .mobile-nav { background:#fff; border-color:#dedce4; }
+html[data-theme="light"] .mobile-nav a { color:#716c78; }
+html[data-theme="light"] .mobile-nav a.active { color:#17151d; }
+html[data-theme="light"] .footer { color:#77727e; }
+html[data-theme="light"] .footer-brand span { color:#403c47; }
+html[data-theme="light"] .demo-disclaimer { color:#77727e; }
+html[data-theme="light"] .how-card p { color:#716c78; }
+html[data-theme="light"] .hero-note,
+html[data-theme="light"] .signal-list div { color:#716c78; }
+html[data-theme="light"] .signal-list div,
+html[data-theme="light"] .ticket-score-row { border-color:#e4e1e8; }
+html[data-theme="light"] .signal-list strong { color:#17151d; }
+html[data-theme="light"] .team-hero p { color:#716c78; }
+html[data-theme="light"] .back-link { color:#5b2eff; }
+
+@media(max-width:650px) {
+  .theme-toggle span { display:none; }
+  .theme-toggle { width:36px; padding:0; flex:none; }
+}
