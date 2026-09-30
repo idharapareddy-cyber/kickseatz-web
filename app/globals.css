@@ -500,3 +500,17 @@
     outline-offset: 3px;
   }
 }
+
+/* Small-screen navigation and motion/accessibility polish */
+@media (max-width: 650px) {
+  .mobile-nav { overflow-x: auto; justify-content: flex-start; scrollbar-width: none; }
+  .mobile-nav::-webkit-scrollbar { display: none; }
+  .mobile-nav a { flex: 0 0 74px; min-width: 74px; }
+  .topbar-inner { gap: 10px; }
+  .brand { min-width: 0; flex: 1 1 auto; }
+  .brand-logo { max-width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
