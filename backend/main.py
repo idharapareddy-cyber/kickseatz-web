@@ -2,11 +2,17 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
 import json
+import os
 
 app = FastAPI(title="KickSeatz API")
+frontend_origin = os.getenv("KICKSEATZ_FRONTEND_ORIGIN", "").strip()
+allowed_origins = ["http://localhost:3000"]
+if frontend_origin:
+    allowed_origins.append(frontend_origin)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -39,6 +45,8 @@ def api_test():
 def get_teams():
     data = load_data()
     return data["teams"]
+
+
 @app.get("/api/games")
 def get_games():
     data = load_data()
