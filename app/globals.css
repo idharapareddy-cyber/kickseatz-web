@@ -591,3 +591,57 @@ h1, h2, h3, h4, h5, h6, strong, .brand, .nav-link, .primary-button, .secondary-b
 .market-game-demand span {
   letter-spacing: 0.08em;
 }
+
+
+/* ---------- KICKSEATZ — BUTTON TYPOGRAPHY ---------- */
+.primary-button,
+.secondary-button,
+.market-search-box button,
+.choice,
+.text-button,
+.nav-link,
+.profile-pill {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.primary-button,
+.secondary-button {
+  border-radius: 8px;
+}
+
+.primary-button {
+  background: #5b2eff;
+  box-shadow: none;
+}
+
+.primary-button:hover {
+  background: #6840f0;
+  box-shadow: none;
+  transform: none;
+}
+
+.secondary-button {
+  background: #18161f;
+}
+
+.secondary-button:hover {
+  transform: none;
+}
+
+.market-search-box button {
+  background: #5b2eff;
+  border-radius: 7px;
+  box-shadow: none;
+}
+
+.choice {
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.text-button {
+  font-weight: 600;
+}
