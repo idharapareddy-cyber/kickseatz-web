@@ -65,6 +65,11 @@ function GameRow({
 export default function HomePage() {
   const featured = GAMES.slice(0, 3);
   const upcoming = GAMES.slice(3, 10);
+  const trending = [...GAMES].filter((game) => game.demand === "High" || game.demand === "Premium").slice(0, 4);
+  const popular = [...GAMES].sort((a, b) => {
+    const score = (d: string) => d === "Premium" ? 4 : d === "High" ? 3 : d === "Medium" ? 2 : 1;
+    return score(b.demand) - score(a.demand);
+  }).slice(0, 4);
 
   return (
     <div className="page marketplace-home">
@@ -201,7 +206,62 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="marketplace-section market-upcoming">
+
+
+      <section className="marketplace-section market-discovery-section">
+        <div className="marketplace-heading">
+          <div>
+            <span className="market-eyebrow">TRENDING NOW</span>
+            <h2>Games people are watching</h2>
+          </div>
+          <Link href="/find-tickets" className="market-see-all">See all <ArrowRight size={15}/></Link>
+        </div>
+        <div className="market-discovery-grid">
+          {trending.map((game) => (
+            <Link key={game.id} href={"/find-tickets?game=" + game.id} className="market-event-card">
+              <div className="market-event-visual">
+                <span className="market-event-badge">TRENDING</span>
+                <div className="market-event-logos">
+                  <img src={logoUrl(game.away)} alt="" />
+                  <b>@</b>
+                  <img src={logoUrl(game.home)} alt="" />
+                </div>
+              </div>
+              <div className="market-event-info">
+                <strong>{teamName(game.away)} @ {teamName(game.home)}</strong>
+                <span>{formatDate(game.date)} · {game.city}</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="marketplace-section market-discovery-section">
+        <div className="marketplace-heading">
+          <div>
+            <span className="market-eyebrow">MOST POPULAR</span>
+            <h2>Popular events</h2>
+          </div>
+          <Link href="/find-tickets" className="market-see-all">Browse all <ArrowRight size={15}/></Link>
+        </div>
+        <div className="market-popular-list">
+          {popular.map((game, index) => (
+            <Link key={game.id} href={"/find-tickets?game=" + game.id} className="market-popular-row">
+              <span className="market-popular-rank">{String(index + 1).padStart(2, "0")}</span>
+              <div className="market-popular-logos">
+                <img src={logoUrl(game.away)} alt="" />
+                <img src={logoUrl(game.home)} alt="" />
+              </div>
+              <div className="market-popular-info">
+                <strong>{teamName(game.away)} @ {teamName(game.home)}</strong>
+                <span>{formatDate(game.date)} · {game.venue}</span>
+              </div>
+              <span className="market-popular-demand">{game.demand}</span>
+              <ArrowRight size={16}/>
+            </Link>
+          ))}
+        </div>
+      </section>\n      <section className="marketplace-section market-upcoming">
         <div className="marketplace-heading">
           <div>
             <span className="market-eyebrow">UPCOMING GAMES</span>
