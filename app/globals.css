@@ -7,7 +7,7 @@
 @media(max-width:1000px){.how-grid{grid-template-columns:1fr}.footer{align-items:center}.footer-links{order:3;width:100%}}
 @media(max-width:650px){.page-not-found h1{font-size:38px}.footer{flex-wrap:wrap}.footer>span:last-child{display:none}}
 .text-input,.text-area{display:block;width:100%;margin-top:8px;background:#191721;border:1px solid #312b3a;color:#f4f1f8;padding:11px;border-radius:11px;outline:none;resize:vertical}.text-input:focus,.text-area:focus,.filter-panel select:focus,.quiz-panel select:focus,.form-grid select:focus{border-color:#6d58f3;box-shadow:0 0 0 3px rgba(91,46,255,.12)}.watching{border-color:#6d58f3!important;color:#ddd7ff!important}
-.text-input,.text-area{display:block;width:100%;margin-top:8px;background:#191721;border:1px solid #312b3a;color:#f4f1f8;padding:11px;border-radius:11px;outline:none;resize:vertical}.text-input:focus,.text-area:focus,.filter-panel select:focus,.quiz-panel select:focus,.form-grid select:focus{border-color:#6d58f3;box-shadow:0 0 0 3px rgba(91,46,255,.12)}.watching{border-color:#6d58f3!important;color:#ddd7ff!important}
+
 
 
 /* =========================================================
