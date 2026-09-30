@@ -28,6 +28,7 @@ export function TicketCard({ ticket, prefs }: { ticket: Ticket; prefs: Preferenc
       const next = watching ? current.filter(id => id !== ticket.id) : Array.from(new Set([...current, ticket.id]));
       localStorage.setItem("kz_watches", JSON.stringify(next));
       setWatching(!watching);
+      window.dispatchEvent(new Event("kz:watches"));
     } catch {
       // demo storage unavailable
     }

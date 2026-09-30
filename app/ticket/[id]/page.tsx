@@ -27,6 +27,8 @@ export default function TicketDetailPage() {
 
   const [watching, setWatching] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [prefs, setPrefs] = useState(DEFAULT_PREFERENCES);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (!ticketId) return;
@@ -42,6 +44,18 @@ export default function TicketDetailPage() {
 
       setWatching(watchedTickets.includes(ticketId));
       setSaved(savedTickets.includes(ticketId));
+
+      const profile = JSON.parse(
+        localStorage.getItem("kz_profile") || "null"
+      );
+
+      if (profile) {
+        setPrefs({
+          ...DEFAULT_PREFERENCES,
+          ...profile,
+          location: profile.location || "",
+        });
+      }
     } catch {
       // Ignore invalid localStorage data.
     }
@@ -68,7 +82,7 @@ export default function TicketDetailPage() {
   }
 
   const game = gameById(ticket.gameId);
-  const reasons = explainTicket(ticket, DEFAULT_PREFERENCES);
+  const reasons = explainTicket(ticket, prefs);
 
   function toggle(
     key: string,
@@ -208,14 +222,20 @@ export default function TicketDetailPage() {
 
           <button
             className="secondary-button"
-            onClick={() =>
-              navigator.clipboard?.writeText(
-                window.location.href
-              )
-            }
+            onClick={async () => {
+              try {
+                await navigator.clipboard?.writeText(
+                  window.location.href
+                );
+                setCopied(true);
+                window.setTimeout(() => setCopied(false), 1600);
+              } catch {
+                setCopied(false);
+              }
+            }}
           >
             <Check size={16} />
-            Copy link
+            {copied ? "Copied" : "Copy link"}
           </button>
         </div>
       </section>
