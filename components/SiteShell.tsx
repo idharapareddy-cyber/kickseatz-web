@@ -111,6 +111,7 @@ export function SiteShell({
               key={href}
               href={href}
               className={active ? "active" : ""}
+              aria-current={active ? "page" : undefined}
             >
               <Icon size={18} strokeWidth={2} />
               <span>{label}</span>
