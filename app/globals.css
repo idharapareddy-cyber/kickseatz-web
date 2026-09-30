@@ -514,3 +514,80 @@
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* ---------- KICKSEATZ — NATURAL SPORTS TYPOGRAPHY ---------- */
+/* Reduce the oversized/over-stylized AI look and use a restrained editorial hierarchy. */
+html, body, button, input, select, textarea {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  letter-spacing: 0;
+}
+
+h1, h2, h3, h4, h5, h6, strong, .brand, .nav-link, .primary-button, .secondary-button {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero h1,
+.page-head h1,
+.marketplace-hero h1 {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.hero h1 span {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: inherit;
+}
+
+.marketplace-hero h1 em {
+  color: inherit;
+  font-style: normal;
+}
+
+.section-heading h2,
+.form-card h2,
+.quiz-panel h2,
+.marketplace-heading h2,
+.marketplace-info-strip h2,
+.team-hero h1 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.team-card strong,
+.game-card strong,
+.ticket-card h3,
+.market-featured-teams strong,
+.market-game-matchup strong {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.brand-word {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.nav-link,
+.primary-button,
+.secondary-button,
+.text-button,
+.choice {
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.badge,
+.demo-badge,
+.panel-kicker,
+.eyebrow,
+.market-eyebrow,
+.quiz-step,
+.card-topline,
+.market-game-demand span {
+  letter-spacing: 0.08em;
+}
