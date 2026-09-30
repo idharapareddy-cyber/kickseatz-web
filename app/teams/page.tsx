@@ -19,8 +19,10 @@ export default function TeamsPage() {
     }
 
     let cancelled = false;
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 6000);
 
-    fetch(`${apiBase}/api/teams`)
+    fetch(`${apiBase}/api/teams`, { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error("Failed to load teams");
         return response.json();
@@ -34,11 +36,14 @@ export default function TeamsPage() {
         // Keep the built-in demo inventory when the optional backend is unavailable.
       })
       .finally(() => {
+        window.clearTimeout(timeoutId);
         if (!cancelled) setLoading(false);
       });
 
     return () => {
       cancelled = true;
+      window.clearTimeout(timeoutId);
+      controller.abort();
     };
   }, []);
 
