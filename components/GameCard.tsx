@@ -2,18 +2,6 @@ import Link from "next/link";
 import { ArrowRight, MapPin, Sparkles } from "lucide-react";
 import { Game, teamName } from "../lib/data";
 
-/*
-  id: string;
-  home: string;
-  away: string;
-  date: string;
-  time: string;
-  venue: string;
-  city: string;
-  demand: "Low" | "Medium" | "High" | "Premium";
-  reason: string;
-};
-
 export function GameCard({
   game,
   badge,
