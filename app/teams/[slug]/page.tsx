@@ -22,7 +22,7 @@ export default async function TeamPage({ params }: { params: Promise<{ slug: str
     <div className="page">
       <Link href="/teams" className="back-link"><ArrowLeft size={15}/> All teams</Link>
       <section className="team-hero">
-        <div className="team-big-mark" style={{background: `linear-gradient(135deg, ${team.color}, #17131f)`, position: "relative", overflow: "hidden"}}>
+        <div className="team-big-mark" style={{background: "#17151f", borderColor: team.color, position: "relative", overflow: "hidden"}}>
           {logoId ? (
             <img
               src={`https://a.espncdn.com/i/teamlogos/nfl/500/${logoId}.png`}
