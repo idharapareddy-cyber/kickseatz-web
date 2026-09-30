@@ -464,7 +464,7 @@ export default function FindMyGamePage() {
             </label>
 
             <label>
-              Travel radius
+              Travel preference
 
               <select
                 value={prefs.radius}
@@ -477,13 +477,13 @@ export default function FindMyGamePage() {
                 }
               >
                 <option value={100}>
-                  Within 100 miles
+                  Nearby games
                 </option>
                 <option value={250}>
-                  Within 250 miles
+                  Regional games
                 </option>
                 <option value={500}>
-                  Within 500 miles
+                  Broad travel range
                 </option>
                 <option value={1000}>
                   Anywhere in the U.S.
@@ -602,8 +602,7 @@ export default function FindMyGamePage() {
                 </strong>
 
                 <p className="muted">
-                  Try increasing your budget or
-                  travel radius.
+                  Try increasing your budget or changing your travel preference.
                 </p>
               </div>
             )}
