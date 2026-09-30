@@ -13,7 +13,7 @@ import {
   Preferences,
   personalizedGames,
 } from "../../lib/logic";
-import { TEAMS } from "../../lib/data";
+import { GAMES, TEAMS, TICKETS, Game } from "../../lib/data";
 
 type Game = {
   id: string;
@@ -48,10 +48,11 @@ function formatDate(date: string) {
 }
 
 function startingPrice(game: Game) {
-  if (game.demand === "Premium") return 145;
-  if (game.demand === "High") return 105;
-  if (game.demand === "Medium") return 72;
-  return 55;
+  const prices = TICKETS
+    .filter((ticket) => ticket.gameId === game.id)
+    .map((ticket) => ticket.price);
+
+  return prices.length ? Math.min(...prices) : 0;
 }
 
 const demandRank: Record<Game["demand"], number> = {
@@ -72,8 +73,8 @@ export default function FindMyGamePage() {
   const [prefs, setPrefs] =
     useState<Preferences>(DEFAULT_PREFERENCES);
 
-  const [games, setGames] = useState<Game[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [games, setGames] = useState<Game[]>(GAMES);
+  const [loading, setLoading] = useState(Boolean(process.env.NEXT_PUBLIC_API_BASE_URL));
   const [error, setError] = useState("");
   const [showFilters, setShowFilters] = useState(true);
 
@@ -83,36 +84,82 @@ export default function FindMyGamePage() {
     );
 
   useEffect(() => {
-    async function loadGames() {
-      try {
-        const response = await fetch(
-          "http://127.0.0.1:8000/api/games"
-        );
+    try {
+      const profile = JSON.parse(
+        localStorage.getItem("kz_profile") || "null"
+      );
 
-        if (!response.ok) {
-          throw new Error("Failed to load games");
-        }
-
-        const data: Game[] = await response.json();
-        setGames(data);
-      } catch (error) {
-        console.error(error);
-        setError(
-          "Could not connect to the KickSeatz backend."
-        );
-      } finally {
-        setLoading(false);
+      if (profile) {
+        setPrefs({
+          ...DEFAULT_PREFERENCES,
+          ...profile,
+          location: profile.location || "",
+        });
       }
+    } catch {
+      // Ignore invalid localStorage data.
     }
 
-    loadGames();
+    const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "");
+    if (!apiBase) {
+      setLoading(false);
+      return;
+    }
+
+    let cancelled = false;
+
+    fetch(`${apiBase}/api/games`)
+      .then((response) => {
+        if (!response.ok) throw new Error("Failed to load games");
+        return response.json();
+      })
+      .then((data: Game[]) => {
+        if (!cancelled && Array.isArray(data) && data.length) {
+          setGames(data);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setError("Using KickSeatz demo game data.");
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const results = useMemo(() => {
     if (games.length === 0) return [];
 
+    const ticketEligibleIds = new Set(
+      TICKETS
+        .filter((ticket) => ticket.price <= prefs.budget)
+        .filter((ticket) => ticket.quantity >= prefs.ticketCount)
+        .filter(
+          (ticket) =>
+            prefs.seatArea === "Any" ||
+            ticket.seatArea === prefs.seatArea
+        )
+        .map((ticket) => ticket.gameId)
+    );
+
+    const eligibleGames = games.filter((game) => {
+      if (!ticketEligibleIds.has(game.id)) return false;
+      if (prefs.homeAway === "Home" && game.home !== prefs.favoriteTeam) {
+        return false;
+      }
+      if (prefs.homeAway === "Away" && game.away !== prefs.favoriteTeam) {
+        return false;
+      }
+      return true;
+    });
+
     const personalized = personalizedGames(
-      games as any,
+      eligibleGames,
       prefs
     );
 
