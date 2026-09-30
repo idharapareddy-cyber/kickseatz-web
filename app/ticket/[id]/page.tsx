@@ -101,7 +101,7 @@ export default function TicketDetailPage() {
       localStorage.setItem(key, JSON.stringify(next));
       setter(!state);
 
-      window.dispatchEvent(new Event("kz:saved-tickets"));
+      window.dispatchEvent(new Event(key === "kz_watches" ? "kz:watches" : "kz:saved-tickets"));
     } catch {
       // Ignore localStorage errors.
     }
@@ -224,9 +224,8 @@ export default function TicketDetailPage() {
             className="secondary-button"
             onClick={async () => {
               try {
-                await navigator.clipboard?.writeText(
-                  window.location.href
-                );
+                if (!navigator.clipboard) throw new Error("Clipboard unavailable");
+                await navigator.clipboard.writeText(window.location.href);
                 setCopied(true);
                 window.setTimeout(() => setCopied(false), 1600);
               } catch {
