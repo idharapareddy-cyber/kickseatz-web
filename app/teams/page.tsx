@@ -157,7 +157,6 @@ export default function TeamsPage() {
                     event.currentTarget.style.display = "none";
                   }}
                 />
-                <span>{team.abbr}</span>
               </div>
               <div className="team-card-copy">
                 <div className="team-card-name">
@@ -331,14 +330,6 @@ export default function TeamsPage() {
           object-fit: contain;
           position: relative;
           z-index: 2;
-        }
-        .team-logo span {
-          position: absolute;
-          color: white;
-          font-size: 10px;
-          font-weight: 950;
-          letter-spacing: -.02em;
-          z-index: 1;
         }
         .team-card-copy { min-width: 0; flex: 1; }
         .team-card-name {
