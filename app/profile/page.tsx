@@ -38,7 +38,7 @@ export default function ProfilePage() {
         </div></div>
         <div className="form-section"><h2>Location & travel</h2><div className="form-grid">
           <label>City or ZIP <span className="range-value"><MapPin size={12}/></span><input className="text-input" value={location} onChange={e=>setLocation(e.target.value)} placeholder="e.g. Atlanta, GA or 30303"/></label>
-          <label>Travel radius<select value={prefs.radius} onChange={e=>setPrefs({...prefs,radius:Number(e.target.value)})}><option value={100}>100 miles</option><option value={250}>250 miles</option><option value={500}>500 miles</option><option value={1000}>1,000 miles</option></select></label>
+          <label>Travel preference<select value={prefs.radius} onChange={e=>setPrefs({...prefs,radius:Number(e.target.value)})}><option value={100}>Nearby games</option><option value={250}>Regional games</option><option value={500}>Broad travel range</option><option value={1000}>Anywhere in the U.S.</option></select></label>
         </div></div>
         <div className="save-row"><span>Stored locally in this demo browser.</span><button className="primary-button" onClick={save}>{saved ? <><Check size={16}/> Saved</> : <><Save size={16}/> Save preferences</>}</button></div>
       </section>
