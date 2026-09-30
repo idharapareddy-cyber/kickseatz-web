@@ -171,7 +171,17 @@ export default function FindTicketsPage() {
     search,
   ]);
 
-  if (!queryLoaded) return null;
+  if (!queryLoaded) {
+    return (
+      <div className="page">
+        <div className="empty-state" aria-live="polite">
+          <Search size={28} />
+          <h3>Loading ticket finder</h3>
+          <p>Applying your saved preferences and search filters.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="page">
