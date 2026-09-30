@@ -77,6 +77,9 @@ export function SiteShell({
             className={`profile-pill ${
               pathname.startsWith("/profile") ? "active" : ""
             }`}
+            aria-current={
+              pathname.startsWith("/profile") ? "page" : undefined
+            }
           >
             <UserRound size={16} strokeWidth={2} />
             <span>Profile</span>
