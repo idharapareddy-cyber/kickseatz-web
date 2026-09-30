@@ -17,9 +17,16 @@ export default function ProfilePage() {
   }, []);
 
   function save() {
-    localStorage.setItem("kz_profile", JSON.stringify({...prefs, location}));
-    setSaved(true);
-    setTimeout(()=>setSaved(false), 1800);
+    try {
+      localStorage.setItem(
+        "kz_profile",
+        JSON.stringify({ ...prefs, location })
+      );
+      setSaved(true);
+      window.setTimeout(() => setSaved(false), 1800);
+    } catch {
+      setSaved(false);
+    }
   }
 
   return (
