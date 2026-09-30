@@ -11,6 +11,7 @@ export default function RateTicketPage() {
   const [saved,setSaved]=useState(false);
   const ticket=TICKETS.find(t=>t.id===ticketId);
   function submit(){
+    if (!ticketId || !ticket || !Number.isInteger(rating) || rating < 1 || rating > 5) return;
     try {
       const current=JSON.parse(localStorage.getItem("kz_ratings")||"[]");
       localStorage.setItem("kz_ratings",JSON.stringify([...current,{ticketId,rating,comment,createdAt:new Date().toISOString()}]));
