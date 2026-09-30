@@ -239,7 +239,7 @@ export default function FindTicketsPage() {
                   key={game.id}
                   value={game.id}
                 >
-                  {game.away} @ {game.home}
+                  {teamName(game.away)} @ {teamName(game.home)}
                 </option>
               ))}
             </select>
@@ -327,6 +327,7 @@ export default function FindTicketsPage() {
               setPriority(
                 DEFAULT_PREFERENCES.priority
               );
+              setSearch("");
             }}
           >
             <Filter size={14} />
