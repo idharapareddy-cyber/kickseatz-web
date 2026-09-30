@@ -10,7 +10,7 @@ export default function MyTicketsPage() {
   const refresh = () => {
     try { setWatchIds(JSON.parse(localStorage.getItem("kz_watches") || "[]")); setSavedIds(JSON.parse(localStorage.getItem("kz_saved_tickets") || "[]")); } catch {}
   };
-  useEffect(() => { refresh(); window.addEventListener("storage", refresh); window.addEventListener("kz:saved-tickets", refresh); return () => {window.removeEventListener("storage", refresh);window.removeEventListener("kz:saved-tickets", refresh);} }, []);
+  useEffect(() => { refresh(); window.addEventListener("storage", refresh); window.addEventListener("kz:saved-tickets", refresh); window.addEventListener("kz:watches", refresh); return () => {window.removeEventListener("storage", refresh);window.removeEventListener("kz:saved-tickets", refresh);window.removeEventListener("kz:watches", refresh);} }, []);
   const watches = useMemo(()=>TICKETS.filter(t=>watchIds.includes(t.id)),[watchIds]);
   const saved = useMemo(()=>TICKETS.filter(t=>savedIds.includes(t.id)),[savedIds]);
   function removeWatch(id:string){ const next=watchIds.filter(x=>x!==id); localStorage.setItem("kz_watches",JSON.stringify(next)); setWatchIds(next); }
