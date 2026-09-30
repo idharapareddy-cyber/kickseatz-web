@@ -1167,25 +1167,11 @@ html[data-theme="light"] .back-link { color:#5b2eff; }
 }
 
 
-/* Theme-aware KickSeatz logo */
-.brand-logo,
-.brand-mark,
-.brand-word,
-.brand-word span { transition: background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease; }
-html[data-theme="light"] .brand-mark {
-  background:#5b2eff;
-  border-color:#5b2eff;
-  color:#fff;
-  box-shadow:0 0 0 1px #5b2eff;
-}
-html[data-theme="light"] .brand-word { color:#17151d; }
-html[data-theme="light"] .brand-word span { color:#5b2eff; }
-html[data-theme="dark"] .brand-mark {
-  background:#5b2eff;
-  border-color:#6d45ee;
-  color:#fff;
-  box-shadow:none;
-}
-html[data-theme="dark"] .brand-word { color:#f4f1fa; }
-html[data-theme="dark"] .brand-word span { color:#8b6cff; }
+/* Theme-aware KickSeatz logo — actual image switches contrast with the theme */
+.brand-logo { transition: filter .2s ease, opacity .2s ease; }
+/* Light mode: black logo on white header. */
+html[data-theme="light"] .brand-logo { filter: brightness(0); }
+/* Dark mode: white logo on dark header. */
+html[data-theme="dark"] .brand-logo { filter: brightness(0) invert(1); }
+.brand-logo:hover { opacity:.82; }
 .brand-logo:focus-visible { outline:2px solid #8b6cff; outline-offset:3px; }
