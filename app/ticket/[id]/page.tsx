@@ -67,7 +67,7 @@ export default function TicketDetailPage() {
         <div className="empty-state">
           <TicketIcon size={30} />
           <h3>Ticket not found</h3>
-          <p>That demo listing doesn't exist.</p>
+          <p>That demo listing does not exist.</p>
 
           <Link
             href="/find-tickets"

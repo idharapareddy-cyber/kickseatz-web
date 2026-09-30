@@ -328,6 +328,11 @@ export default function FindTicketsPage() {
                 DEFAULT_PREFERENCES.priority
               );
               setSearch("");
+              window.history.replaceState(
+                null,
+                "",
+                window.location.pathname
+              );
             }}
           >
             <Filter size={14} />
