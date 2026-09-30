@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, CalendarDays, MapPin, Ticket } from "lucide-react";
+import { ArrowLeft, MapPin, Ticket } from "lucide-react";
 import { GameCard } from "../../../components/GameCard";
 import { gamesForTeam, teamBySlug } from "../../../lib/data";
 
@@ -11,7 +11,7 @@ export default async function TeamPage({ params }: { params: Promise<{ slug: str
   const games = gamesForTeam(team.slug);
   return (
     <div className="page">
-      <Link href="/teams" className="back-link"><ArrowRight size={15}/> All teams</Link>
+      <Link href="/teams" className="back-link"><ArrowLeft size={15}/> All teams</Link>
       <section className="team-hero">
         <div className="team-big-mark" style={{background: `linear-gradient(135deg, ${team.color}, #17131f)`}}>{team.abbr}</div>
         <div>
