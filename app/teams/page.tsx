@@ -1,6 +1,9 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
 import { TEAMS, Team } from "../../lib/data";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 
 const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "");
@@ -56,7 +59,7 @@ export default function TeamsPage() {
             key={team.slug}
             href={`/teams/${team.slug}`}
             className="team-card"
-            style={{ "--team": team.color } as React.CSSProperties}
+            style={{ "--team": team.color } as CSSProperties}
           >
             <div className="team-mark">{team.abbr}</div>
             <div>
