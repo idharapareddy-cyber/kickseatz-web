@@ -52,7 +52,7 @@ export function TicketCard({ ticket, prefs }: { ticket: Ticket; prefs: Preferenc
         <div>
           <div className="eyebrow">{ticket.seatArea} · Sec {ticket.section} · Row {ticket.row}</div>
           <h3>{teamName(ticket.away)} <span>@</span> {teamName(ticket.home)}</h3>
-          <div className="ticket-tags"><span>{ticket.quantity} tickets</span><span><ShieldCheck size={14}/> Demo verified</span></div>
+          <div className="ticket-tags"><span>{ticket.quantity} tickets</span><span><ShieldCheck size={14}/> Demo listing</span></div>
         </div>
         <div className="price-block"><strong>${ticket.price}</strong><span>each</span></div>
       </div>
@@ -61,9 +61,9 @@ export function TicketCard({ ticket, prefs }: { ticket: Ticket; prefs: Preferenc
       <div className="card-bottom ticket-actions">
         <span className="muted">{ticket.source}</span>
         <div>
-          <button className="icon-button" title={saved ? "Remove saved ticket" : "Save ticket"} aria-label={saved ? "Remove saved ticket" : "Save ticket"} onClick={toggleSaved}><Heart size={17} fill={saved ? "currentColor" : "none"}/></button>
+          <button className="icon-button" title={saved ? "Remove saved ticket" : "Save ticket"} aria-label={saved ? "Remove saved ticket" : "Save ticket"} aria-pressed={saved} onClick={toggleSaved}><Heart size={17} fill={saved ? "currentColor" : "none"}/></button>
           <Link className="secondary-button" href={`/ticket/${ticket.id}`}>View ticket</Link>
-          <button className={watching ? "secondary-button watching" : "primary-button"} onClick={toggleWatch}><Bell size={16}/> {watching ? "Watching" : "Price Watch"}</button>
+          <button className={watching ? "secondary-button watching" : "primary-button"} aria-pressed={watching} onClick={toggleWatch}><Bell size={16}/> {watching ? "Watching" : "Price Watch"}</button>
         </div>
       </div>
     </article>
