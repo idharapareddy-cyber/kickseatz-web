@@ -13,8 +13,27 @@ export default function MyTicketsPage() {
   useEffect(() => { refresh(); window.addEventListener("storage", refresh); window.addEventListener("kz:saved-tickets", refresh); window.addEventListener("kz:watches", refresh); return () => {window.removeEventListener("storage", refresh);window.removeEventListener("kz:saved-tickets", refresh);window.removeEventListener("kz:watches", refresh);} }, []);
   const watches = useMemo(()=>TICKETS.filter(t=>watchIds.includes(t.id)),[watchIds]);
   const saved = useMemo(()=>TICKETS.filter(t=>savedIds.includes(t.id)),[savedIds]);
-  function removeWatch(id:string){ const next=watchIds.filter(x=>x!==id); localStorage.setItem("kz_watches",JSON.stringify(next)); setWatchIds(next); }
-  function removeSaved(id:string){ const next=savedIds.filter(x=>x!==id); localStorage.setItem("kz_saved_tickets",JSON.stringify(next)); setSavedIds(next); }
+  function removeWatch(id: string) {
+    const next = watchIds.filter((x) => x !== id);
+    try {
+      localStorage.setItem("kz_watches", JSON.stringify(next));
+      setWatchIds(next);
+      window.dispatchEvent(new Event("kz:watches"));
+    } catch {
+      // Keep the current state if browser storage is unavailable.
+    }
+  }
+
+  function removeSaved(id: string) {
+    const next = savedIds.filter((x) => x !== id);
+    try {
+      localStorage.setItem("kz_saved_tickets", JSON.stringify(next));
+      setSavedIds(next);
+      window.dispatchEvent(new Event("kz:saved-tickets"));
+    } catch {
+      // Keep the current state if browser storage is unavailable.
+    }
+  }
   return (
     <div className="page">
       <div className="page-head"><div><div className="eyebrow">Your activity</div><h1>My Tickets</h1><p>Keep saved listings, Price Watches, and ticket ideas in one place.</p></div></div>
