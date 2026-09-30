@@ -2,11 +2,17 @@ import Link from "next/link";
 import {
   ArrowRight,
   CalendarDays,
+  Flame,
   MapPin,
+  Navigation,
   Search,
   Ticket,
+  Trophy,
 } from "lucide-react";
-import { GAMES, teamName } from "../lib/data";
+import { GAMES, TEAMS, teamName } from "../lib/data";
+
+const logoIds: Record<string, number> = { ARI:22, ATL:1, BAL:33, BUF:2, CAR:29, CHI:3, CIN:4, CLE:5, DAL:6, DEN:7, DET:8, GB:9, HOU:34, IND:11, JAX:30, KC:12, LV:13, LAC:24, LAR:14, MIA:15, MIN:16, NE:17, NO:18, NYG:19, NYJ:20, PHI:21, PIT:23, SF:25, SEA:26, TB:27, TEN:10, WAS:28 };
+function logoUrl(slug: string) { const abbr = TEAMS.find(t => t.slug === slug)?.abbr; const id = abbr ? logoIds[abbr] : undefined; return id ? "https://a.espncdn.com/i/teamlogos/nfl/500/" + id + ".png" : ""; }
 
 function formatDate(date: string) {
   return new Date(`${date}T12:00:00`).toLocaleDateString("en-US", {
@@ -105,6 +111,16 @@ export default function HomePage() {
               <ArrowRight size={15} />
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="market-category-section">
+        <div className="marketplace-heading"><div><span className="market-eyebrow">EXPLORE</span><h2>Shop by what you want to see</h2></div></div>
+        <div className="market-category-grid">
+          <Link href="/find-tickets" className="market-category-card"><span className="market-category-icon"><Flame size={19}/></span><div><strong>High-demand games</strong><small>Premium matchups</small></div><ArrowRight size={16}/></Link>
+          <Link href="/find-tickets" className="market-category-card"><span className="market-category-icon"><CalendarDays size={19}/></span><div><strong>This week</strong><small>Upcoming NFL games</small></div><ArrowRight size={16}/></Link>
+          <Link href="/find-my-game" className="market-category-card"><span className="market-category-icon"><Navigation size={19}/></span><div><strong>Nearby games</strong><small>Explore by location</small></div><ArrowRight size={16}/></Link>
+          <Link href="/teams" className="market-category-card"><span className="market-category-icon"><Trophy size={19}/></span><div><strong>Browse teams</strong><small>All 32 NFL teams</small></div><ArrowRight size={16}/></Link>
         </div>
       </section>
 
