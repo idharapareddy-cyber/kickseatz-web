@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, MapPin, Sparkles } from "lucide-react";
+import { Game, teamName } from "../lib/data";
 
-type Game = {
+/*
   id: string;
   home: string;
   away: string;
@@ -12,45 +13,6 @@ type Game = {
   demand: "Low" | "Medium" | "High" | "Premium";
   reason: string;
 };
-
-const teamNames: Record<string, string> = {
-  "kansas-city-chiefs": "Kansas City Chiefs",
-  "buffalo-bills": "Buffalo Bills",
-  "dallas-cowboys": "Dallas Cowboys",
-  "philadelphia-eagles": "Philadelphia Eagles",
-  "san-francisco-49ers": "San Francisco 49ers",
-  "seattle-seahawks": "Seattle Seahawks",
-  "green-bay-packers": "Green Bay Packers",
-  "chicago-bears": "Chicago Bears",
-  "baltimore-ravens": "Baltimore Ravens",
-  "pittsburgh-steelers": "Pittsburgh Steelers",
-  "miami-dolphins": "Miami Dolphins",
-  "new-york-jets": "New York Jets",
-  "atlanta-falcons": "Atlanta Falcons",
-  "new-orleans-saints": "New Orleans Saints",
-  "new-england-patriots": "New England Patriots",
-  "denver-broncos": "Denver Broncos",
-  "new-york-giants": "New York Giants",
-  "detroit-lions": "Detroit Lions",
-  "houston-texans": "Houston Texans",
-  "jacksonville-jaguars": "Jacksonville Jaguars",
-  "los-angeles-rams": "Los Angeles Rams",
-  "cincinnati-bengals": "Cincinnati Bengals",
-  "cleveland-browns": "Cleveland Browns",
-  "tampa-bay-buccaneers": "Tampa Bay Buccaneers",
-  "carolina-panthers": "Carolina Panthers",
-  "minnesota-vikings": "Minnesota Vikings",
-  "arizona-cardinals": "Arizona Cardinals",
-  "indianapolis-colts": "Indianapolis Colts",
-  "las-vegas-raiders": "Las Vegas Raiders",
-  "los-angeles-chargers": "Los Angeles Chargers",
-  "tennessee-titans": "Tennessee Titans",
-  "washington-commanders": "Washington Commanders",
-};
-
-function teamName(slug: string) {
-  return teamNames[slug] ?? slug;
-}
 
 export function GameCard({
   game,
