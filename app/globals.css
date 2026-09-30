@@ -934,3 +934,33 @@ strong, b { font-weight: 700; }
 .how-number { color: #9b82ff; }
 .back-link { color: #a995ff; }
 .profile-pill:hover { border-color: #44366a; color: #d8d0e8; }
+
+
+/* ---------- KICKSEATZ — VISUAL DISCOVERY LAYER ---------- */
+.marketplace-hero { display:grid; grid-template-columns:minmax(0,1.12fr) minmax(330px,.78fr); gap:42px; align-items:center; min-height:440px; padding:64px 0 54px; }
+.marketplace-hero-copy { max-width:760px; }
+.marketplace-hero h1 em { color:#9b82ff; }
+.market-hero-visual { background:#151126; border:1px solid #3d2d69; border-radius:16px; padding:22px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; }
+.market-hero-visual::before { content:""; position:absolute; left:0; top:0; right:0; height:3px; background:#5b2eff; }
+.market-hero-visual-top { display:flex; justify-content:space-between; gap:12px; align-items:center; color:#9588aa; font-size:11px; font-weight:700; letter-spacing:.08em; }
+.market-hero-visual-top strong { color:#b9a8ff; font-size:11px; letter-spacing:0; }
+.market-hero-matchup { display:grid; grid-template-columns:1fr 28px 1fr; align-items:center; gap:8px; margin:24px 0; text-align:center; }
+.market-hero-matchup div { min-width:0; display:flex; flex-direction:column; align-items:center; gap:9px; }
+.market-hero-matchup img { width:76px; height:76px; object-fit:contain; }
+.market-hero-matchup span { font-size:13px; font-weight:700; line-height:1.2; }
+.market-hero-matchup b { color:#766b89; font-size:13px; }
+.market-hero-game { display:flex; flex-wrap:wrap; gap:10px 18px; border-top:1px solid #302744; padding-top:15px; color:#a49bad; font-size:11px; }
+.market-hero-game span { display:flex; align-items:center; gap:5px; }
+.market-hero-cta { margin-top:17px; min-height:42px; display:flex; align-items:center; justify-content:center; gap:7px; border-radius:8px; background:#5b2eff; color:#fff; font-size:13px; font-weight:600; }
+.market-hero-cta:hover { background:#6b3ff0; }
+.market-category-section { margin-top:8px; }
+.market-category-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.market-category-card { min-height:92px; display:flex; align-items:center; gap:12px; padding:15px; background:#11101a; border:1px solid #292432; border-radius:11px; transition:background .14s ease,border-color .14s ease; }
+.market-category-card:hover { background:#17132a; border-color:#44366a; }
+.market-category-card > div { min-width:0; flex:1; }
+.market-category-card strong { display:block; font-size:13px; font-weight:700; }
+.market-category-card small { display:block; margin-top:3px; color:#837c8e; font-size:11px; }
+.market-category-icon { width:38px; height:38px; flex:none; display:grid; place-items:center; border-radius:9px; color:#aa96ff; background:#1a1530; border:1px solid #35285a; }
+.market-category-card > svg { color:#655b73; flex:none; }
+@media(max-width:1000px) { .marketplace-hero { grid-template-columns:1fr; min-height:0; } .market-hero-visual { max-width:620px; width:100%; } .market-category-grid { grid-template-columns:repeat(2,1fr); } }
+@media(max-width:650px) { .marketplace-hero { padding:40px 0 42px; gap:24px; } .marketplace-hero h1 { font-size:48px; } .market-hero-visual { min-height:280px; padding:18px; } .market-hero-matchup img { width:62px; height:62px; } .market-category-grid { grid-template-columns:1fr; } .market-category-card { min-height:78px; } }
