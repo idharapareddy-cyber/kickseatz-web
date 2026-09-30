@@ -27,3 +27,10 @@ The UI is intentionally separated from the inventory layer so the demo data can 
 
 ### If Next.js warns about multiple lockfiles
 Keep the `package-lock.json` inside the folder that contains `package.json`. If you accidentally ran `npm install` in the parent `kickseatz-web` folder too, delete the parent lockfile and keep the inner project lockfile. Then restart the dev server.
+
+
+## Optional backend connection
+
+The frontend uses its built-in demo inventory by default. To connect it to the FastAPI backend, set `NEXT_PUBLIC_API_BASE_URL` to the backend origin. If the backend is hosted separately, set `KICKSEATZ_FRONTEND_ORIGIN` on the backend to the frontend origin so CORS allows the deployed Next.js app.
+
+Run the backend locally with `python -m uvicorn backend.main:app --port 8000`.
