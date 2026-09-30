@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { TicketCard } from "../../components/TicketCard";
 import { DEFAULT_PREFERENCES, Preferences } from "../../lib/logic";
-import { GAMES, TEAMS, TICKETS } from "../../lib/data";
+import { GAMES, TEAMS, TICKETS, gameById, teamName } from "../../lib/data";
 
 export default function FindTicketsPage() {
   const [team, setTeam] = useState("all");
@@ -22,6 +22,7 @@ export default function FindTicketsPage() {
     useState<Preferences["priority"]>(
       DEFAULT_PREFERENCES.priority
     );
+  const [search, setSearch] = useState("");
   const [queryLoaded, setQueryLoaded] = useState(false);
 
   useEffect(() => {
@@ -51,9 +52,11 @@ export default function FindTicketsPage() {
 
       const qTeam = params.get("team");
       const qGame = params.get("game");
+      const qSearch = params.get("search");
 
       if (qTeam) setTeam(qTeam);
       if (qGame) setGameId(qGame);
+      if (qSearch) setSearch(qSearch);
     } catch {}
 
     setQueryLoaded(true);
@@ -110,6 +113,24 @@ export default function FindTicketsPage() {
       );
     }
 
+    const normalizedSearch = search.trim().toLowerCase();
+    if (normalizedSearch) {
+      items = items.filter((ticket) => {
+        const game = gameById(ticket.gameId);
+        const haystack = [
+          teamName(ticket.away),
+          teamName(ticket.home),
+          ticket.venue,
+          game?.city ?? "",
+          game?.reason ?? "",
+        ]
+          .join(" ")
+          .toLowerCase();
+
+        return haystack.includes(normalizedSearch);
+      });
+    }
+
     if (priority === "Lowest Price") {
       return [...items].sort(
         (a, b) => a.price - b.price
@@ -147,6 +168,7 @@ export default function FindTicketsPage() {
     seatArea,
     priority,
     prefs.favoriteTeam,
+    search,
   ]);
 
   if (!queryLoaded) return null;
@@ -322,9 +344,11 @@ export default function FindTicketsPage() {
               </strong>
 
               <span>
-                {team === "all"
-                  ? "NFL-wide demo inventory"
-                  : "Showing your selected team"}
+                {search
+                  ? `Search: “${search}”`
+                  : team === "all"
+                    ? "NFL-wide demo inventory"
+                    : "Showing your selected team"}
               </span>
             </div>
           </div>
