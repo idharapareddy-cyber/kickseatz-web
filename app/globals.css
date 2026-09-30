@@ -907,3 +907,30 @@ strong, b { font-weight: 700; }
 /* Final marketplace consistency: remove remaining decorative motion/effects. */
 .brand-mark, .hero-panel, .marketplace-hero-panel, .how-card, .quick-card, .team-card, .game-card, .market-featured-card { box-shadow: none; }
 .primary-button, .secondary-button, .quick-card, .team-card, .game-card, .market-featured-card { transform: none; }
+
+
+/* ---------- KICKSEATZ — CONTROLLED PURPLE IDENTITY ---------- */
+/* Strong brand color without gradients, glow, or decorative overload. */
+.brand-mark {
+  background: #5b2eff;
+  border-color: #6d45ee;
+}
+.brand-word span { color: #8b6cff; }
+.nav-link.active { color: #cfc5ff; border-color: #40345c; }
+.badge, .demo-badge { color: #cfc5ff; border-color: #463575; background: #17132a; }
+.panel-kicker, .eyebrow, .market-eyebrow, .quiz-step { color: #9b82ff; }
+.primary-button, .market-search-box button { background: #5b2eff; }
+.primary-button:hover, .market-search-box button:hover { background: #6b3ff0; }
+.text-button, .market-hero-links a, .market-see-all, .market-panel-link { color: #a995ff; }
+.score-chip { color: #c8bbff; border: 1px solid #403366; background: #17132a; }
+.score-ring { border-color: #5d4a91; }
+.quick-icon { color: #b7a7ff; background: #19142c; border: 1px solid #332858; }
+.choice.active { color: #fff; border-color: #7256df; background: #211844; }
+.team-card-upgraded { border-left: 3px solid var(--team); }
+.market-featured-top span, .market-game-demand span { color: #ad98ff; }
+.market-game-demand span { border-color: #44366a; background: #17132a; }
+.market-game-row:hover, .market-shortcut-bar > a:hover { background: #141126; }
+.market-shortcut-bar > a > svg:first-child { color: #9b82ff; }
+.how-number { color: #9b82ff; }
+.back-link { color: #a995ff; }
+.profile-pill:hover { border-color: #44366a; color: #d8d0e8; }
