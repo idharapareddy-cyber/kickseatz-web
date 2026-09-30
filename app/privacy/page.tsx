@@ -25,7 +25,7 @@ export default function PrivacyPage() {
           <h2>Information we use</h2>
           <p>
             KickSeatz may use information you enter into the site, such as
-            ticket preferences or profile settings, to provide the site's
+            ticket preferences or profile settings, to provide the site&apos;s
             features.
           </p>
           <p>
