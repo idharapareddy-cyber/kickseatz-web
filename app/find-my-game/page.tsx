@@ -64,7 +64,6 @@ export default function FindMyGamePage() {
 
   const [games, setGames] = useState<Game[]>(GAMES);
   const [loading, setLoading] = useState(Boolean(process.env.NEXT_PUBLIC_API_BASE_URL));
-  const [error, setError] = useState("");
   const [showFilters, setShowFilters] = useState(true);
 
   const [sortBy, setSortBy] =
@@ -96,8 +95,10 @@ export default function FindMyGamePage() {
     }
 
     let cancelled = false;
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 6000);
 
-    fetch(`${apiBase}/api/games`)
+    fetch(`${apiBase}/api/games`, { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error("Failed to load games");
         return response.json();
@@ -111,11 +112,14 @@ export default function FindMyGamePage() {
         // Keep the built-in demo games when the optional backend is unavailable.
       })
       .finally(() => {
+        window.clearTimeout(timeoutId);
         if (!cancelled) setLoading(false);
       });
 
     return () => {
       cancelled = true;
+      window.clearTimeout(timeoutId);
+      controller.abort();
     };
   }, []);
 
@@ -495,11 +499,7 @@ export default function FindMyGamePage() {
                     : `${results.length} matches found`}
                 </strong>
 
-                <p>
-                  {error
-                    ? "Backend connection failed."
-                    : "Results update automatically."}
-                </p>
+                <p>Results update automatically.</p>
               </div>
             </div>
           </aside>
@@ -594,16 +594,7 @@ export default function FindMyGamePage() {
             </div>
           )}
 
-          {error && (
-            <div className="card">
-              <p className="text-red-400">
-                {error}
-              </p>
-            </div>
-          )}
-
           {!loading &&
-            !error &&
             results.length === 0 && (
               <div className="card">
                 <strong>
@@ -618,7 +609,6 @@ export default function FindMyGamePage() {
             )}
 
           {!loading &&
-            !error &&
             results.length > 0 && (
               <div
                 style={{
