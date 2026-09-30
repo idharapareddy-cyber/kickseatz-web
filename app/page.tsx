@@ -112,6 +112,20 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+
+        <div className="market-hero-visual">
+          <div className="market-hero-visual-top"><span>FEATURED MATCHUP</span><strong>{featured[0].demand} demand</strong></div>
+          <div className="market-hero-matchup">
+            <div><img src={logoUrl(featured[0].away)} alt="" /><span>{teamName(featured[0].away)}</span></div>
+            <b>@</b>
+            <div><img src={logoUrl(featured[0].home)} alt="" /><span>{teamName(featured[0].home)}</span></div>
+          </div>
+          <div className="market-hero-game">
+            <span><CalendarDays size={14}/>{formatDate(featured[0].date)} · {featured[0].time}</span>
+            <span><MapPin size={14}/>{featured[0].city}</span>
+          </div>
+          <Link href={"/find-tickets?game=" + featured[0].id} className="market-hero-cta">View tickets <ArrowRight size={15}/></Link>
+        </div>
       </section>
 
       <section className="market-category-section">
