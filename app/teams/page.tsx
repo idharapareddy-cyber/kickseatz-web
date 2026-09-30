@@ -303,14 +303,14 @@ export default function TeamsPage() {
           min-height: 112px;
           padding: 16px;
           gap: 13px;
-          background: linear-gradient(145deg, rgba(19,18,28,.96), rgba(15,14,22,.96));
+          background: #11101a;
           border-color: #292532;
-          transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+          transition: border-color .14s ease, background .14s ease;
         }
         .team-card-upgraded:hover {
-          transform: translateY(-3px);
-          border-color: color-mix(in srgb, var(--team) 45%, #393245);
-          box-shadow: 0 18px 42px rgba(0,0,0,.24);
+          transform: none;
+          border-color: #3a3446;
+          box-shadow: none;
         }
         .team-logo {
           position: relative;
@@ -320,9 +320,9 @@ export default function TeamsPage() {
           display: grid;
           place-items: center;
           overflow: hidden;
-          border-radius: 16px;
+          border-radius: 10px;
           border: 1px solid color-mix(in srgb, var(--team) 50%, #312b3a);
-          background: radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--team) 28%, #17151e), #111019 75%);
+          background: #17151f;
         }
         .team-logo img {
           width: 43px;
@@ -354,15 +354,15 @@ export default function TeamsPage() {
         }
         .team-card-copy small {
           color: #777080;
-          font-size: 9px;
+          font-size: 10px;
         }
         .team-card-arrow {
           margin-left: auto;
           color: #5e5868;
-          transition: transform .16s ease, color .16s ease;
+          transition: color .14s ease;
         }
         .team-card-upgraded:hover .team-card-arrow {
-          transform: translateX(2px);
+          transform: none;
           color: #b9abff;
         }
         .teams-bottom-panel {
@@ -373,7 +373,7 @@ export default function TeamsPage() {
           padding: 22px;
           border: 1px solid #2a2634;
           border-radius: 18px;
-          background: linear-gradient(145deg, rgba(24,20,35,.85), rgba(15,14,22,.92));
+          background: #11101a;
         }
         .teams-bottom-icon {
           width: 45px;
