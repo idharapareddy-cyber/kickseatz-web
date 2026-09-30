@@ -133,16 +133,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="market-category-section">
-        <div className="marketplace-heading"><div><span className="market-eyebrow">EXPLORE</span><h2>Shop by what you want to see</h2></div></div>
-        <div className="market-category-grid">
-          <Link href="/find-tickets" className="market-category-card"><span className="market-category-icon"><Flame size={19}/></span><div><strong>High-demand games</strong><small>Premium matchups</small></div><ArrowRight size={16}/></Link>
-          <Link href="/find-tickets" className="market-category-card"><span className="market-category-icon"><CalendarDays size={19}/></span><div><strong>This week</strong><small>Upcoming NFL games</small></div><ArrowRight size={16}/></Link>
-          <Link href="/find-my-game" className="market-category-card"><span className="market-category-icon"><Navigation size={19}/></span><div><strong>Nearby games</strong><small>Explore by location</small></div><ArrowRight size={16}/></Link>
-          <Link href="/teams" className="market-category-card"><span className="market-category-icon"><Trophy size={19}/></span><div><strong>Browse teams</strong><small>All 32 NFL teams</small></div><ArrowRight size={16}/></Link>
-        </div>
-      </section>
-
       <section className="marketplace-section">
         <div className="marketplace-heading">
           <div>
@@ -261,7 +251,17 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
-      </section>\n      <section className="marketplace-section market-upcoming">
+      </section>\n      <section className="market-category-section">
+        <div className="marketplace-heading"><div><span className="market-eyebrow">EXPLORE</span><h2>Shop by what you want to see</h2></div></div>
+        <div className="market-category-grid">
+          <Link href="/find-tickets" className="market-category-card"><span className="market-category-icon"><Flame size={19}/></span><div><strong>High-demand games</strong><small>Premium matchups</small></div><ArrowRight size={16}/></Link>
+          <Link href="/find-tickets" className="market-category-card"><span className="market-category-icon"><CalendarDays size={19}/></span><div><strong>This week</strong><small>Upcoming NFL games</small></div><ArrowRight size={16}/></Link>
+          <Link href="/find-my-game" className="market-category-card"><span className="market-category-icon"><Navigation size={19}/></span><div><strong>Nearby games</strong><small>Explore by location</small></div><ArrowRight size={16}/></Link>
+          <Link href="/teams" className="market-category-card"><span className="market-category-icon"><Trophy size={19}/></span><div><strong>Browse teams</strong><small>All 32 NFL teams</small></div><ArrowRight size={16}/></Link>
+        </div>
+      </section>
+
+      <section className="marketplace-section market-upcoming">
         <div className="marketplace-heading">
           <div>
             <span className="market-eyebrow">UPCOMING GAMES</span>
@@ -284,6 +284,32 @@ export default function HomePage() {
               game={game}
             />
           ))}
+        </div>
+      </section>
+
+      <section className="marketplace-section market-bonus-section">
+        <div className="marketplace-heading">
+          <div>
+            <span className="market-eyebrow">BONUS TOOLS</span>
+            <h2>More ways to use KickSeatz</h2>
+          </div>
+        </div>
+        <div className="market-bonus-grid">
+          <Link href="/find-my-game" className="market-bonus-card">
+            <Search size={20} />
+            <div><strong>Find My Game</strong><span>Answer a few questions and discover games that fit.</span></div>
+            <ArrowRight size={16} />
+          </Link>
+          <Link href="/teams" className="market-bonus-card">
+            <Trophy size={20} />
+            <div><strong>Browse Teams</strong><span>Explore every NFL team and its upcoming games.</span></div>
+            <ArrowRight size={16} />
+          </Link>
+          <Link href="/my-tickets" className="market-bonus-card">
+            <Ticket size={20} />
+            <div><strong>My Tickets</strong><span>Keep your saved listings and ticket activity together.</span></div>
+            <ArrowRight size={16} />
+          </Link>
         </div>
       </section>
 
