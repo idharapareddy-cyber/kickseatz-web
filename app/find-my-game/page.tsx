@@ -119,9 +119,7 @@ export default function FindMyGamePage() {
         }
       })
       .catch(() => {
-        if (!cancelled) {
-          setError("Using KickSeatz demo game data.");
-        }
+        // Keep the built-in demo games when the optional backend is unavailable.
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
