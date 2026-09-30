@@ -238,16 +238,17 @@ export default function HomePage() {
           {popular.map((game, index) => (
             <Link key={game.id} href={"/find-tickets?game=" + game.id} className="market-popular-row">
               <span className="market-popular-rank">{String(index + 1).padStart(2, "0")}</span>
-              <div className="market-popular-logos">
-                <img src={logoUrl(game.away)} alt="" />
-                <img src={logoUrl(game.home)} alt="" />
+              <div className="market-popular-matchup">
+                <div><img src={logoUrl(game.away)} alt="" /><strong>{teamName(game.away)}</strong></div>
+                <span className="market-popular-vs">VS</span>
+                <div><img src={logoUrl(game.home)} alt="" /><strong>{teamName(game.home)}</strong></div>
               </div>
               <div className="market-popular-info">
-                <strong>{teamName(game.away)} @ {teamName(game.home)}</strong>
-                <span>{formatDate(game.date)} · {game.venue}</span>
+                <strong>{formatDate(game.date)}</strong>
+                <span>{game.time} · {game.venue} · {game.city}</span>
               </div>
               <span className="market-popular-demand">{game.demand}</span>
-              <ArrowRight size={16}/>
+              <span className="market-popular-action">Tickets <ArrowRight size={15}/></span>
             </Link>
           ))}
         </div>
