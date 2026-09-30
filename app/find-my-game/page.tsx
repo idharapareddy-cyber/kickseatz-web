@@ -13,19 +13,8 @@ import {
   Preferences,
   personalizedGames,
 } from "../../lib/logic";
-import { GAMES, TEAMS, TICKETS, Game } from "../../lib/data";
-
-type Game = {
-  id: string;
-  home: string;
-  away: string;
-  date: string;
-  time: string;
-  venue: string;
-  city: string;
-  demand: "Low" | "Medium" | "High" | "Premium";
-  reason: string;
-};
+import { GAMES, TEAMS, TICKETS } from "../../lib/data";
+import type { Game } from "../../lib/data";
 
 const teamNames: Record<string, string> = {};
 
