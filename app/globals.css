@@ -1433,3 +1433,47 @@ html[data-theme="light"] .brand-rest { color:#111017; }
 .brand-rest { color:#fff !important; }
 html[data-theme="light"] .brand-rest { color:#111017 !important; }
 .brand-logo:hover { opacity:.82; }
+
+
+/* ---------- KICKSEATZ — ORIGINAL LOGO, THEME-AWARE LETTERING ---------- */
+.brand-logo {
+  position:relative;
+  display:block;
+  width:190px;
+  height:55px;
+  flex:none;
+  overflow:hidden;
+  filter:none !important;
+}
+.brand-logo-base,
+.brand-logo-k {
+  position:absolute;
+  inset:0;
+  width:190px;
+  height:55px;
+  overflow:hidden;
+}
+.brand-logo-base img,
+.brand-logo-k img {
+  display:block;
+  width:190px;
+  height:55px;
+  object-fit:contain;
+}
+.brand-logo-base img {
+  filter:none !important;
+}
+.brand-logo-k {
+  width:52px;
+  z-index:2;
+}
+.brand-logo-k img {
+  filter:brightness(0) saturate(100%) invert(24%) sepia(95%) saturate(4760%) hue-rotate(252deg) brightness(94%) contrast(104%) !important;
+}
+html[data-theme="dark"] .brand-logo-base img {
+  filter:brightness(0) invert(1) !important;
+}
+html[data-theme="light"] .brand-logo-base img {
+  filter:brightness(0) !important;
+}
+.brand-logo:hover { opacity:.82; }
