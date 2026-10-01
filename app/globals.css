@@ -1547,3 +1547,58 @@ html[data-theme="light"] .brand-logo-base img { filter:brightness(0) !important;
 .brand-k { color:#5b2eff !important; }
 .brand-rest { color:#fff !important; }
 html[data-theme="light"] .brand-rest { color:#111017 !important; }
+
+
+/* ---------- AUTHORITATIVE KICKSEATZ LOGO ---------- */
+.brand-logo {
+  position:relative !important;
+  display:block !important;
+  width:225px !important;
+  height:65px !important;
+  max-width:none !important;
+  flex:none !important;
+  overflow:hidden !important;
+  filter:none !important;
+}
+.brand-logo-base,
+.brand-logo-k {
+  position:absolute !important;
+  top:0 !important;
+  left:0 !important;
+  width:225px !important;
+  height:65px !important;
+  overflow:hidden !important;
+}
+.brand-logo-base img,
+.brand-logo-k img {
+  display:block !important;
+  width:225px !important;
+  height:65px !important;
+  object-fit:contain !important;
+  object-position:left center !important;
+}
+.brand-logo-base img {
+  filter:brightness(0) invert(1) !important;
+}
+.brand-logo-k {
+  width:61px !important;
+  z-index:2 !important;
+}
+.brand-logo-k img {
+  filter:brightness(0) saturate(100%) invert(24%) sepia(95%) saturate(4760%) hue-rotate(252deg) brightness(94%) contrast(104%) !important;
+}
+html[data-theme="light"] .brand-logo-base img {
+  filter:brightness(0) !important;
+}
+@media (max-width:1000px) {
+  .brand-logo { width:190px !important; height:55px !important; }
+  .brand-logo-base, .brand-logo-k { width:190px !important; height:55px !important; }
+  .brand-logo-base img, .brand-logo-k img { width:190px !important; height:55px !important; }
+  .brand-logo-k { width:52px !important; }
+}
+@media (max-width:650px) {
+  .brand-logo { width:158px !important; height:46px !important; }
+  .brand-logo-base, .brand-logo-k { width:158px !important; height:46px !important; }
+  .brand-logo-base img, .brand-logo-k img { width:158px !important; height:46px !important; }
+  .brand-logo-k { width:43px !important; }
+}
