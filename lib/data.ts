@@ -145,3 +145,24 @@ export function teamBySlug(slug: string) { return TEAMS.find(t => t.slug === slu
 export function gameById(id: string) { return GAMES.find(g => g.id === id); }
 export function gamesForTeam(slug: string) { return GAMES.filter(g => g.home === slug || g.away === slug); }
 export function teamName(slug: string) { return teamBySlug(slug)?.name ?? slug; }
+
+export type PlayerSpotlight = {
+  name: string;
+  team: string;
+  position: string;
+  number: string;
+};
+
+export const PLAYER_SPOTLIGHTS: PlayerSpotlight[] = [
+  { name: "Patrick Mahomes", team: "kansas-city-chiefs", position: "Quarterback", number: "15" },
+  { name: "Josh Allen", team: "buffalo-bills", position: "Quarterback", number: "17" },
+  { name: "Lamar Jackson", team: "baltimore-ravens", position: "Quarterback", number: "8" },
+  { name: "Jalen Hurts", team: "philadelphia-eagles", position: "Quarterback", number: "1" },
+  { name: "Christian McCaffrey", team: "san-francisco-49ers", position: "Running Back", number: "23" },
+  { name: "Tyreek Hill", team: "miami-dolphins", position: "Wide Receiver", number: "10" },
+  { name: "Myles Garrett", team: "cleveland-browns", position: "Defensive End", number: "95" },
+  { name: "T.J. Watt", team: "pittsburgh-steelers", position: "Linebacker", number: "90" },
+];
+
+export const FEATURED_STADIUMS = TEAMS.slice(0, 12);
+\n
