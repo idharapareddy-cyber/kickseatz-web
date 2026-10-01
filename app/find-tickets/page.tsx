@@ -173,7 +173,8 @@ export default function FindTicketsPage() {
 
   if (!queryLoaded) {
     return (
-      <div className="page">
+      <div className="page marketplace-page">
+      <div className="market-page-nav"><Link href="/">Home</Link><span>›</span><strong>Find Tickets</strong></div>
         <div className="empty-state" aria-live="polite">
           <Search size={28} />
           <h3>Loading ticket finder</h3>
