@@ -1,3 +1,4 @@
+import Image from "next/image";
 "use client";
 
 import Link from "next/link";
@@ -49,8 +50,13 @@ export function SiteShell({
             className="brand"
             aria-label="KickSeatz home"
           >
-            <span className="brand-logo" aria-hidden="true">
-              <span className="brand-k">K</span><span className="brand-rest">ickSeatz</span>
+            <span className="brand-logo" aria-label="KickSeatz">
+              <span className="brand-logo-base" aria-hidden="true">
+                <Image src="/kickseatz-logo.png" alt="" width={190} height={55} priority />
+              </span>
+              <span className="brand-logo-k" aria-hidden="true">
+                <Image src="/kickseatz-logo.png" alt="" width={190} height={55} priority />
+              </span>
             </span>
           </Link>
 
