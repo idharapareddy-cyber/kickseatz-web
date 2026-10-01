@@ -9,7 +9,7 @@ import {
   Ticket,
   Trophy,
 } from "lucide-react";
-import { GAMES, TEAMS, teamName } from "../lib/data";
+import { FEATURED_STADIUMS, GAMES, PLAYER_SPOTLIGHTS, TEAMS, teamName } from "../lib/data";
 
 const logoIds: Record<string, number> = { ARI:22, ATL:1, BAL:33, BUF:2, CAR:29, CHI:3, CIN:4, CLE:5, DAL:6, DEN:7, DET:8, GB:9, HOU:34, IND:11, JAX:30, KC:12, LV:13, LAC:24, LAR:14, MIA:15, MIN:16, NE:17, NO:18, NYG:19, NYJ:20, PHI:21, PIT:23, SF:25, SEA:26, TB:27, TEN:10, WAS:28 };
 function logoUrl(slug: string) { const abbr = TEAMS.find(t => t.slug === slug)?.abbr; const id = abbr ? logoIds[abbr] : undefined; return id ? "https://a.espncdn.com/i/teamlogos/nfl/500/" + id + ".png" : ""; }
@@ -286,6 +286,58 @@ export default function HomePage() {
               key={game.id}
               game={game}
             />
+          ))}
+        </div>
+      </section>
+
+      <section className="marketplace-section market-people-section">
+        <div className="marketplace-heading">
+          <div>
+            <span className="market-eyebrow">PLAYERS TO WATCH</span>
+            <h2>NFL stars fans are following</h2>
+          </div>
+          <Link href="/teams" className="market-see-all">Explore teams <ArrowRight size={15}/></Link>
+        </div>
+        <div className="market-player-grid">
+          {PLAYER_SPOTLIGHTS.map((player) => {
+            const team = TEAMS.find((item) => item.slug === player.team);
+            return (
+              <Link key={player.name} href={`/teams/${player.team}`} className="market-player-card">
+                <div className="market-player-art">
+                  <span className="market-player-number">{player.number}</span>
+                  {team && <img src={logoUrl(player.team)} alt="" />}
+                </div>
+                <div className="market-player-info">
+                  <strong>{player.name}</strong>
+                  <span>{player.position} · {team?.name}</span>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="marketplace-section market-stadium-section">
+        <div className="marketplace-heading">
+          <div>
+            <span className="market-eyebrow">VENUES</span>
+            <h2>Explore NFL stadiums</h2>
+          </div>
+          <Link href="/teams" className="market-see-all">Browse all teams <ArrowRight size={15}/></Link>
+        </div>
+        <div className="market-stadium-grid">
+          {FEATURED_STADIUMS.map((team) => (
+            <Link key={team.slug} href={`/teams/${team.slug}`} className="market-stadium-card">
+              <div className="market-stadium-art">
+                <img src={logoUrl(team.slug)} alt="" />
+                <span>HOME OF</span>
+              </div>
+              <div>
+                <strong>{team.venue}</strong>
+                <span>{team.city}, {team.state} · {team.name}</span>
+              </div>
+              <ArrowRight size={15} />
+            </Link>
           ))}
         </div>
       </section>
