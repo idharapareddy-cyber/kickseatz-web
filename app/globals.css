@@ -1167,6 +1167,158 @@ html[data-theme="light"] .back-link { color:#5b2eff; }
 }
 
 
+/* ---------- KICKSEATZ — LIGHT MODE CONTRAST PASS ---------- */
+html[data-theme="light"] body { background:#f3f2f6; color:#121017; }
+html[data-theme="light"] .topbar { background:#fff; border-bottom:1px solid #c9c5d1; }
+html[data-theme="light"] .nav-link { color:#4f4a58; }
+html[data-theme="light"] .nav-link:hover { background:#ece9f1; color:#121017; }
+html[data-theme="light"] .nav-link.active { background:#eeeaff; color:#3d218f; border-color:#b9a9e8; }
+html[data-theme="light"] .profile-pill,
+html[data-theme="light"] .theme-toggle { background:#fff; color:#3f3a47; border-color:#c9c5d1; }
+html[data-theme="light"] .theme-toggle:hover { background:#f1edff; border-color:#5b2eff; color:#3d218f; }
+
+html[data-theme="light"] .marketplace-hero h1,
+html[data-theme="light"] .page-head h1,
+html[data-theme="light"] .section-heading h2,
+html[data-theme="light"] .market-event-info strong,
+html[data-theme="light"] .market-category-card strong,
+html[data-theme="light"] .market-bonus-card strong,
+html[data-theme="light"] .quick-card h3,
+html[data-theme="light"] .team-card strong,
+html[data-theme="light"] .ticket-card h3,
+html[data-theme="light"] .form-card h2,
+html[data-theme="light"] .how-card h3 { color:#121017; }
+
+html[data-theme="light"] .marketplace-hero p,
+html[data-theme="light"] .section-heading p,
+html[data-theme="light"] .page-head p,
+html[data-theme="light"] .market-category-card small,
+html[data-theme="light"] .market-event-info span,
+html[data-theme="light"] .market-bonus-card span,
+html[data-theme="light"] .quick-card p,
+html[data-theme="light"] .team-card span,
+html[data-theme="light"] .team-card small,
+html[data-theme="light"] .how-card p,
+html[data-theme="light"] .muted { color:#595461; }
+
+html[data-theme="light"] .card,
+html[data-theme="light"] .team-card,
+html[data-theme="light"] .quick-card,
+html[data-theme="light"] .filter-panel,
+html[data-theme="light"] .quiz-panel,
+html[data-theme="light"] .form-card,
+html[data-theme="light"] .hero-panel,
+html[data-theme="light"] .how-card,
+html[data-theme="light"] .market-featured-card,
+html[data-theme="light"] .market-event-card,
+html[data-theme="light"] .market-category-card,
+html[data-theme="light"] .market-bonus-card,
+html[data-theme="light"] .market-hero-visual {
+  background:#fff;
+  border:1px solid #c9c5d1;
+}
+
+html[data-theme="light"] .market-search-box {
+  background:#fff;
+  border:2px solid #bcb7c7;
+  box-shadow:none;
+}
+html[data-theme="light"] .market-search-box input { color:#121017; }
+html[data-theme="light"] .market-search-box > svg { color:#5b2eff; }
+html[data-theme="light"] .market-search-box button,
+html[data-theme="light"] .primary-button,
+html[data-theme="light"] .market-hero-cta { background:#5b2eff; color:#fff; }
+html[data-theme="light"] .market-search-box button:hover,
+html[data-theme="light"] .primary-button:hover,
+html[data-theme="light"] .market-hero-cta:hover { background:#4820d4; }
+
+html[data-theme="light"] .market-eyebrow,
+html[data-theme="light"] .panel-kicker,
+html[data-theme="light"] .eyebrow,
+html[data-theme="light"] .quiz-step,
+html[data-theme="light"] .how-number { color:#5b2eff; }
+
+html[data-theme="light"] .marketplace-hero h1 em { color:#5b2eff; }
+html[data-theme="light"] .market-hero-visual { border-color:#b9a9e8; }
+html[data-theme="light"] .market-hero-visual::before { background:#5b2eff; }
+
+html[data-theme="light"] .market-category-icon,
+html[data-theme="light"] .quick-icon {
+  background:#eee9ff;
+  border:1px solid #c7b9f2;
+  color:#5b2eff;
+}
+html[data-theme="light"] .market-category-card:hover,
+html[data-theme="light"] .market-bonus-card:hover,
+html[data-theme="light"] .quick-card:hover,
+html[data-theme="light"] .team-card:hover,
+html[data-theme="light"] .market-event-card:hover {
+  background:#f7f4ff;
+  border-color:#9b83e8;
+}
+html[data-theme="light"] .market-popular-list,
+html[data-theme="light"] .market-popular-row,
+html[data-theme="light"] .market-game-list,
+html[data-theme="light"] .market-game-row { border-color:#d1cdd7; }
+html[data-theme="light"] .market-popular-row:hover,
+html[data-theme="light"] .market-game-row:hover { background:#f4f0ff; }
+html[data-theme="light"] .market-popular-action,
+html[data-theme="light"] .market-hero-links a,
+html[data-theme="light"] .market-see-all,
+html[data-theme="light"] .text-button,
+html[data-theme="light"] .back-link { color:#5b2eff; }
+html[data-theme="light"] .market-popular-demand,
+html[data-theme="light"] .market-game-demand span,
+html[data-theme="light"] .score-chip {
+  background:#eee9ff;
+  border:1px solid #c7b9f2;
+  color:#4a24c2;
+}
+html[data-theme="light"] .market-event-visual { background:#f0edfa; border-color:#d2cde0; }
+
+html[data-theme="light"] .secondary-button {
+  background:#fff;
+  color:#211c2a;
+  border:1px solid #aaa5b3;
+}
+html[data-theme="light"] .secondary-button:hover { background:#f1eff4; border-color:#5b2eff; }
+
+html[data-theme="light"] .filter-panel select,
+html[data-theme="light"] .quiz-panel select,
+html[data-theme="light"] .form-grid select,
+html[data-theme="light"] .text-input,
+html[data-theme="light"] .text-area {
+  background:#fff;
+  color:#121017;
+  border:1px solid #aaa5b3;
+}
+html[data-theme="light"] .ticket-tags span,
+html[data-theme="light"] .search-mini,
+html[data-theme="light"] .choice,
+html[data-theme="light"] .quiz-summary,
+html[data-theme="light"] .rate-placeholder,
+html[data-theme="light"] .account-stat,
+html[data-theme="light"] .icon-button {
+  background:#f7f6f9;
+  color:#3f3a47;
+  border-color:#c4c0ca;
+}
+html[data-theme="light"] .choice.active {
+  background:#e9e3ff;
+  border-color:#8066e8;
+  color:#3d218f;
+}
+html[data-theme="light"] .score-ring { background:#f4f1fa; border-color:#8066c9; }
+html[data-theme="light"] .mobile-nav { background:#fff; border-color:#c9c5d1; }
+html[data-theme="light"] .mobile-nav a { color:#595461; }
+html[data-theme="light"] .mobile-nav a.active { color:#3d218f; }
+html[data-theme="light"] .footer { color:#595461; }
+html[data-theme="light"] .footer-brand span { color:#28232f; }
+
+/* Keep logo explicitly black in light mode and white in dark mode. */
+html[data-theme="light"] .brand-logo { filter:brightness(0); }
+html[data-theme="dark"] .brand-logo { filter:brightness(0) invert(1); }
+
 /* Theme-aware KickSeatz logo — actual image switches contrast with the theme */
 .brand-logo { transition: filter .2s ease, opacity .2s ease; }
 /* Light mode: black logo on white header. */
