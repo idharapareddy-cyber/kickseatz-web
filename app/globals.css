@@ -1454,3 +1454,254 @@ html[data-theme="light"] .brand-logo-base img { filter: brightness(0) !important
   .brand-logo { width: 158px !important; }
   .brand-logo-base img, .brand-logo-k img { width: 158px !important; }
 }
+
+
+/* ---------- KICKSEATZ — MARKETPLACE DISCOVERY HOMEPAGE ---------- */
+.market-category-nav {
+  display:flex;
+  align-items:center;
+  gap:4px;
+  margin:-22px 0 28px;
+  padding:7px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--surface);
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.market-category-nav::-webkit-scrollbar { display:none; }
+.market-category-nav a {
+  flex:0 0 auto;
+  padding:8px 13px;
+  border-radius:7px;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:600;
+  white-space:nowrap;
+}
+.market-category-nav a:first-child,
+.market-category-nav a:hover {
+  background:rgba(91,46,255,.11);
+  color:var(--text);
+}
+.marketplace-home { padding-top:28px; }
+.marketplace-hero {
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);
+  gap:34px;
+  align-items:stretch;
+  padding:30px 0 54px;
+}
+.marketplace-hero-copy { padding:28px 0 12px; }
+.marketplace-hero h1 {
+  max-width:720px;
+  margin:12px 0 15px;
+  font-size:clamp(42px,5.7vw,70px);
+  line-height:.98;
+  letter-spacing:-.055em;
+}
+.marketplace-hero h1 em {
+  color:var(--purple2);
+  font-style:normal;
+}
+.marketplace-hero p {
+  max-width:620px;
+  margin:0 0 22px;
+  color:var(--muted);
+  font-size:16px;
+}
+.market-search-box {
+  max-width:720px;
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:6px 7px 6px 17px;
+  border:1px solid #3a3347;
+  border-radius:10px;
+  background:#fff;
+  color:#665f70;
+}
+.market-search-box input {
+  min-width:0;
+  flex:1;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#17131f;
+  font-size:14px;
+}
+.market-search-box input::placeholder { color:#817b88; }
+.market-search-box button {
+  min-height:44px;
+  padding:0 20px;
+  border:0;
+  border-radius:7px;
+  background:#5b2eff;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+.market-search-meta {
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  max-width:720px;
+  margin-top:8px;
+  color:#777080;
+  font-size:10px;
+}
+.market-hero-visual {
+  min-height:330px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:26px;
+  border:1px solid #322b40;
+  border-radius:14px;
+  background:#12101a;
+  box-shadow:0 14px 40px rgba(0,0,0,.12);
+}
+.market-hero-matchup { margin:28px 0 22px; }
+.market-hero-matchup > div { min-height:82px; }
+.market-hero-matchup img { width:74px; height:74px; }
+.market-hero-matchup span { font-size:14px; font-weight:700; }
+.market-hero-cta {
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin-top:18px;
+  border-radius:8px;
+  background:#5b2eff;
+  color:#fff;
+  font-size:13px;
+  font-weight:700;
+}
+.marketplace-section { margin-top:34px; }
+.marketplace-heading { margin-bottom:15px; }
+.marketplace-heading h2 {
+  margin:4px 0 0;
+  font-size:25px;
+  letter-spacing:-.035em;
+}
+.market-featured-grid { gap:12px; }
+.market-featured-card {
+  min-height:245px;
+  border-radius:12px;
+  background:var(--surface);
+}
+.market-featured-card:hover {
+  transform:translateY(-2px);
+  border-color:#4a405b;
+}
+.market-featured-teams {
+  margin:27px 0 22px;
+}
+.market-featured-teams strong { font-size:15px; }
+.market-featured-meta { font-size:11px; }
+.market-discovery-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.market-event-card {
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--surface);
+}
+.market-event-visual {
+  min-height:150px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  border-bottom:1px solid var(--line);
+}
+.market-event-logos { display:flex; align-items:center; gap:20px; }
+.market-event-logos img { width:52px; height:52px; object-fit:contain; }
+.market-event-logos b { color:#756d82; font-size:11px; }
+.market-event-badge {
+  position:absolute;
+  top:10px;
+  left:10px;
+  padding:4px 6px;
+  border:1px solid rgba(139,108,255,.3);
+  border-radius:5px;
+  background:rgba(91,46,255,.12);
+  color:#bcaeff;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.06em;
+}
+.market-event-info { padding:13px 14px 15px; }
+.market-event-info strong { display:block; font-size:12px; }
+.market-event-info span { display:block; margin-top:4px; color:var(--muted); font-size:10px; }
+.market-category-section {
+  margin-top:36px;
+  padding:24px 0 4px;
+  border-top:1px solid var(--line);
+}
+.market-category-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.market-category-card {
+  min-height:74px;
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--surface);
+}
+.market-category-card:hover { border-color:#5b2eff; transform:none; }
+.market-category-card strong { font-size:11px; }
+.market-category-card small { font-size:9px; }
+.market-popular-list {
+  border-top:1px solid var(--line);
+}
+.market-popular-row {
+  border-bottom:1px solid var(--line);
+}
+.market-upcoming { margin-top:40px; }
+.market-game-list { border-top:1px solid var(--line); }
+.market-game-row {
+  min-height:92px;
+  padding:13px 4px;
+  border-bottom:1px solid var(--line);
+}
+.market-game-row:hover { background:rgba(91,46,255,.05); }
+.market-bonus-section {
+  padding-top:8px;
+}
+.market-bonus-grid { gap:10px; }
+.market-bonus-card {
+  min-height:82px;
+  border-radius:10px;
+  background:var(--surface);
+}
+.marketplace-info-strip {
+  margin-top:48px;
+  padding:24px 26px;
+  border:1px solid #44386c;
+  border-left:3px solid #5b2eff;
+  border-radius:12px;
+  background:linear-gradient(100deg,rgba(91,46,255,.13),var(--surface));
+}
+@media(max-width:900px) {
+  .marketplace-hero { grid-template-columns:1fr; padding-top:14px; }
+  .market-hero-visual { min-height:280px; }
+  .market-discovery-grid,
+  .market-category-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:650px) {
+  .market-category-nav { margin-top:-12px; }
+  .marketplace-home { padding-top:18px; }
+  .marketplace-hero-copy { padding-top:12px; }
+  .marketplace-hero h1 { font-size:42px; }
+  .market-search-box { min-height:52px; }
+  .market-search-box button { min-height:40px; padding:0 14px; }
+  .market-search-meta { font-size:9px; }
+  .market-discovery-grid,
+  .market-category-grid { grid-template-columns:1fr; }
+  .market-featured-grid { grid-template-columns:1fr; }
+  .marketplace-info-strip { padding:20px; }
+}
