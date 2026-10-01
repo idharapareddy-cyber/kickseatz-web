@@ -252,7 +252,9 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
-      </section>\n      <section className="market-category-section">
+      </section>
+
+      <section className="market-category-section">
         <div className="marketplace-heading"><div><span className="market-eyebrow">EXPLORE</span><h2>Shop by what you want to see</h2></div></div>
         <div className="market-category-grid">
           <Link href="/find-tickets" className="market-category-card"><span className="market-category-icon"><Flame size={19}/></span><div><strong>High-demand games</strong><small>Premium matchups</small></div><ArrowRight size={16}/></Link>
