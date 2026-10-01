@@ -151,6 +151,7 @@ export type PlayerSpotlight = {
   team: string;
   position: string;
   number: string;
+  image: string;
 };
 
 export const PLAYER_SPOTLIGHTS: PlayerSpotlight[] = [
@@ -165,4 +166,3 @@ export const PLAYER_SPOTLIGHTS: PlayerSpotlight[] = [
 ];
 
 export const FEATURED_STADIUMS = TEAMS.slice(0, 12);
-\n
