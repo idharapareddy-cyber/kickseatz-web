@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -50,14 +49,9 @@ export function SiteShell({
             className="brand"
             aria-label="KickSeatz home"
           >
-            <Image
-              src="/kickseatz-logo.png"
-              alt="KickSeatz"
-              width={190}
-              height={55}
-              priority
-              className="brand-logo"
-            />
+            <span className="brand-logo" aria-hidden="true">
+              <span className="brand-k">K</span><span className="brand-rest">ickSeatz</span>
+            </span>
           </Link>
 
           <nav
