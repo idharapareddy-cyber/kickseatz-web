@@ -1420,3 +1420,20 @@ html[data-theme="dark"] .brand-logo,
 .brand-logo {
   filter: brightness(0) saturate(100%) invert(20%) sepia(96%) saturate(6000%) hue-rotate(255deg) brightness(85%) contrast(110%) !important;
 }
+
+
+/* ---------- KICKSEATZ — SPLIT THEME-AWARE WORDMARK ---------- */
+.brand-logo {
+  display:inline-flex;
+  align-items:center;
+  font-size:24px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:-.055em;
+  white-space:nowrap;
+  transition:opacity .2s ease;
+}
+.brand-k { color:#5b2eff; }
+.brand-rest { color:#fff; }
+html[data-theme="light"] .brand-rest { color:#111017; }
+.brand-logo:hover { opacity:.82; }
