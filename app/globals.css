@@ -1319,14 +1319,6 @@ html[data-theme="light"] .footer-brand span { color:#28232f; }
 html[data-theme="light"] .brand-logo { filter:brightness(0); }
 html[data-theme="dark"] .brand-logo { filter:brightness(0) invert(1); }
 
-/* Theme-aware KickSeatz logo — actual image switches contrast with the theme */
-.brand-logo { transition: filter .2s ease, opacity .2s ease; }
-/* Light mode: black logo on white header. */
-html[data-theme="light"] .brand-logo { filter: brightness(0); }
-/* Dark mode: white logo on dark header. */
-html[data-theme="dark"] .brand-logo { filter: brightness(0) invert(1); }
-.brand-logo:hover { opacity:.82; }
-.brand-logo:focus-visible { outline:2px solid #8b6cff; outline-offset:3px; }
 
 /* ---------- KICKSEATZ — LIGHT MODE PURPLE IDENTITY ---------- */
 html[data-theme="light"] .market-shortcut-bar { border-color:#c7bde0; }
@@ -1404,21 +1396,7 @@ html[data-theme="light"] ::selection {
   color:#fff;
 }
 
-/* ---------- KICKSEATZ — PURPLE LOGO IN BOTH THEMES ---------- */
-html[data-theme="light"] .brand-logo,
-html[data-theme="dark"] .brand-logo {
-  filter: brightness(0) saturate(100%) invert(24%) sepia(95%) saturate(4760%) hue-rotate(252deg) brightness(94%) contrast(104%);
-}
-html[data-theme="light"] .brand-logo:hover,
-html[data-theme="dark"] .brand-logo:hover {
-  opacity:.82;
-}
 
-/* Final logo color override: force the actual PNG logo purple in both themes. */
-html[data-theme="light"] .brand-logo,
-html[data-theme="dark"] .brand-logo,
-.brand-logo {
-  filter: brightness(0) saturate(100%) invert(20%) sepia(96%) saturate(6000%) hue-rotate(255deg) brightness(85%) contrast(110%) !important;
 }
 
 
@@ -1436,4 +1414,22 @@ html[data-theme="dark"] .brand-logo,
 .brand-k { color:#5b2eff; }
 .brand-rest { color:#fff; }
 html[data-theme="light"] .brand-rest { color:#111017; }
+.brand-logo:hover { opacity:.82; }
+
+
+/* ---------- KICKSEATZ — FINAL THEME-AWARE WORDMARK ---------- */
+.brand-logo {
+  display:inline-flex;
+  align-items:center;
+  font-size:24px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:-.055em;
+  white-space:nowrap;
+  filter:none !important;
+  transition:opacity .2s ease;
+}
+.brand-k { color:#5b2eff !important; }
+.brand-rest { color:#fff !important; }
+html[data-theme="light"] .brand-rest { color:#111017 !important; }
 .brand-logo:hover { opacity:.82; }
