@@ -154,14 +154,14 @@ export type PlayerSpotlight = {
 };
 
 export const PLAYER_SPOTLIGHTS: PlayerSpotlight[] = [
-  { name: "Patrick Mahomes", team: "kansas-city-chiefs", position: "Quarterback", number: "15" },
-  { name: "Josh Allen", team: "buffalo-bills", position: "Quarterback", number: "17" },
-  { name: "Lamar Jackson", team: "baltimore-ravens", position: "Quarterback", number: "8" },
-  { name: "Jalen Hurts", team: "philadelphia-eagles", position: "Quarterback", number: "1" },
-  { name: "Christian McCaffrey", team: "san-francisco-49ers", position: "Running Back", number: "23" },
-  { name: "Tyreek Hill", team: "miami-dolphins", position: "Wide Receiver", number: "10" },
-  { name: "Myles Garrett", team: "cleveland-browns", position: "Defensive End", number: "95" },
-  { name: "T.J. Watt", team: "pittsburgh-steelers", position: "Linebacker", number: "90" },
+  { name: "Patrick Mahomes", team: "kansas-city-chiefs", position: "Quarterback", number: "15", image: "https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png" },
+  { name: "Josh Allen", team: "buffalo-bills", position: "Quarterback", number: "17", image: "https://a.espncdn.com/i/headshots/nfl/players/full/3918298.png" },
+  { name: "Lamar Jackson", team: "baltimore-ravens", position: "Quarterback", number: "8", image: "https://a.espncdn.com/i/headshots/nfl/players/full/3916387.png" },
+  { name: "Jalen Hurts", team: "philadelphia-eagles", position: "Quarterback", number: "1", image: "https://a.espncdn.com/i/headshots/nfl/players/full/4040715.png" },
+  { name: "Christian McCaffrey", team: "san-francisco-49ers", position: "Running Back", number: "23", image: "https://a.espncdn.com/i/headshots/nfl/players/full/2976212.png" },
+  { name: "Tyreek Hill", team: "miami-dolphins", position: "Wide Receiver", number: "10", image: "https://a.espncdn.com/i/headshots/nfl/players/full/3116406.png" },
+  { name: "Myles Garrett", team: "cleveland-browns", position: "Defensive End", number: "95", image: "https://a.espncdn.com/i/headshots/nfl/players/full/3055182.png" },
+  { name: "T.J. Watt", team: "pittsburgh-steelers", position: "Linebacker", number: "90", image: "https://a.espncdn.com/i/headshots/nfl/players/full/3045282.png" },
 ];
 
 export const FEATURED_STADIUMS = TEAMS.slice(0, 12);
