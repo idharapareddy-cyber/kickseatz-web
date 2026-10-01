@@ -35,7 +35,8 @@ export default function MyTicketsPage() {
     }
   }
   return (
-    <div className="page">
+    <div className="page marketplace-page">
+      <div className="market-page-nav"><Link href="/">Home</Link><span>›</span><strong>My Tickets</strong></div>
       <div className="page-head"><div><div className="eyebrow">Your activity</div><h1>My Tickets</h1><p>Keep saved listings, Price Watches, and ticket ideas in one place.</p></div></div>
       <div className="dashboard-grid">
         <section className="card large-card"><div className="section-heading compact"><div><div className="eyebrow">Price Watch</div><h2>Watched tickets</h2></div><div className="account-stat"><Bell size={14}/><strong>{watches.length}</strong></div></div>{watches.length ? <div className="watch-list">{watches.map(t=><div className="watch-row" key={t.id}><Bell size={15}/><div><strong>{teamName(t.away)} @ {teamName(t.home)}</strong><span>Sec {t.section} · ${t.price} each</span></div><span className="watch-status">Watching</span><button className="icon-button" aria-label="Remove price watch" onClick={()=>removeWatch(t.id)}><Trash2 size={15}/></button></div>)}</div> : <div className="empty-state small"><Bell size={24}/><h3>No Price Watches yet</h3><p>Save a listing from Find Tickets to watch it here.</p><Link href="/find-tickets" className="secondary-button" style={{marginTop:12}}>Find tickets</Link></div>}</section>
