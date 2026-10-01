@@ -93,7 +93,8 @@ export default function TeamsPage() {
   }, [filter, query, teams]);
 
   return (
-    <main className="page teams-directory">
+    <main className="page teams-directory marketplace-page">
+      <div className="market-page-nav"><Link href="/">Home</Link><span>›</span><strong>Teams</strong></div>
       <section className="teams-intro">
         <div>
           <div className="eyebrow">NFL Directory</div>
