@@ -305,7 +305,7 @@ export default function HomePage() {
               <Link key={player.name} href={`/teams/${player.team}`} className="market-player-card">
                 <div className="market-player-art">
                   <span className="market-player-number">{player.number}</span>
-                  {team && <img src={logoUrl(player.team)} alt="" />}
+                  {team && <img className="market-player-photo" src={player.image} alt="" />}
                 </div>
                 <div className="market-player-info">
                   <strong>{player.name}</strong>
