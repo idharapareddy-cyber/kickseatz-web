@@ -1413,3 +1413,10 @@ html[data-theme="light"] .brand-logo:hover,
 html[data-theme="dark"] .brand-logo:hover {
   opacity:.82;
 }
+
+/* Final logo color override: force the actual PNG logo purple in both themes. */
+html[data-theme="light"] .brand-logo,
+html[data-theme="dark"] .brand-logo,
+.brand-logo {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(96%) saturate(6000%) hue-rotate(255deg) brightness(85%) contrast(110%) !important;
+}
