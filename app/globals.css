@@ -1881,3 +1881,159 @@ html[data-theme="light"] .brand-logo-base img { filter: brightness(0) !important
 .teams-directory .team-logo {
   border-radius:8px;
 }
+
+/* ---------- NFL CONTENT LAYER ---------- */
+.market-people-section,
+.market-stadium-section { margin-top:56px; }
+
+.market-player-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.market-player-card {
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--surface);
+  color:var(--text);
+  transition:transform .15s ease,border-color .15s ease;
+}
+
+.market-player-card:hover {
+  transform:translateY(-2px);
+  border-color:#5b2eff;
+}
+
+.market-player-art {
+  position:relative;
+  min-height:175px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  padding:18px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 70% 30%, rgba(91,46,255,.25), transparent 42%),
+    linear-gradient(135deg,#17131f,#0e0c13);
+}
+
+.market-player-art img {
+  position:relative;
+  z-index:2;
+  width:82px;
+  height:82px;
+  object-fit:contain;
+}
+
+.market-player-number {
+  position:absolute;
+  right:12px;
+  bottom:-18px;
+  font-size:92px;
+  line-height:1;
+  font-weight:900;
+  color:rgba(255,255,255,.07);
+  letter-spacing:-.08em;
+}
+
+.market-player-art::after {
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:3px;
+  background:#5b2eff;
+}
+
+.market-player-info {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  padding:14px 15px 16px;
+}
+
+.market-player-info strong { font-size:14px; }
+.market-player-info span { color:var(--muted); font-size:10px; }
+
+.market-stadium-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.market-stadium-card {
+  min-height:105px;
+  display:grid;
+  grid-template-columns:58px minmax(0,1fr) 16px;
+  align-items:center;
+  gap:13px;
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:var(--surface);
+  color:var(--text);
+}
+
+.market-stadium-card:hover {
+  border-color:#5b2eff;
+  background:rgba(91,46,255,.05);
+}
+
+.market-stadium-art {
+  height:62px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  border-radius:8px;
+  background:linear-gradient(145deg,rgba(91,46,255,.16),rgba(91,46,255,.04));
+  border:1px solid rgba(91,46,255,.22);
+}
+
+.market-stadium-art img {
+  width:36px;
+  height:36px;
+  object-fit:contain;
+}
+
+.market-stadium-art span {
+  font-size:6px;
+  font-weight:800;
+  color:#897e9b;
+  letter-spacing:.08em;
+}
+
+.market-stadium-card > div:nth-child(2) {
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.market-stadium-card strong {
+  font-size:12px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.market-stadium-card span {
+  color:var(--muted);
+  font-size:9px;
+  line-height:1.35;
+}
+
+.market-stadium-card > svg { color:#756986; }
+
+@media(max-width:900px) {
+  .market-player-grid { grid-template-columns:repeat(2,1fr); }
+  .market-stadium-grid { grid-template-columns:repeat(2,1fr); }
+}
+
+@media(max-width:650px) {
+  .market-player-grid,
+  .market-stadium-grid { grid-template-columns:1fr; }
+}
+\n
