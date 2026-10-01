@@ -1919,7 +1919,7 @@ html[data-theme="light"] .brand-logo-base img { filter: brightness(0) !important
     linear-gradient(135deg,#17131f,#0e0c13);
 }
 
-.market-player-art img {
+.market-player-photo {
   position:relative;
   z-index:2;
   width:82px;
