@@ -1526,3 +1526,24 @@ html[data-theme="light"] .brand-logo-base img { filter:brightness(0) !important;
   .brand-logo-k { width:43.2px !important; }
   .brand-logo-base img, .brand-logo-k img { width:158px !important; height:45.7px !important; }
 }
+
+
+/* ---------- FINAL WORDMARK FALLBACK ---------- */
+.brand-logo {
+  position:relative !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  width:auto !important;
+  height:auto !important;
+  max-width:none !important;
+  font-size:32px !important;
+  line-height:1 !important;
+  font-weight:800 !important;
+  letter-spacing:-.055em !important;
+  white-space:nowrap !important;
+  filter:none !important;
+  overflow:visible !important;
+}
+.brand-k { color:#5b2eff !important; }
+.brand-rest { color:#fff !important; }
+html[data-theme="light"] .brand-rest { color:#111017 !important; }
