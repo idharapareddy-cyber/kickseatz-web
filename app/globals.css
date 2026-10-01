@@ -1403,3 +1403,13 @@ html[data-theme="light"] ::selection {
   background:#5b2eff;
   color:#fff;
 }
+
+/* ---------- KICKSEATZ — PURPLE LOGO IN BOTH THEMES ---------- */
+html[data-theme="light"] .brand-logo,
+html[data-theme="dark"] .brand-logo {
+  filter: brightness(0) saturate(100%) invert(24%) sepia(95%) saturate(4760%) hue-rotate(252deg) brightness(94%) contrast(104%);
+}
+html[data-theme="light"] .brand-logo:hover,
+html[data-theme="dark"] .brand-logo:hover {
+  opacity:.82;
+}
