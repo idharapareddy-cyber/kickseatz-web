@@ -81,7 +81,7 @@ const gamePairs = [
   ["san-francisco-49ers","seattle-seahawks","2026-10-11","8:20 PM","High","Division battle"],
   ["green-bay-packers","chicago-bears","2026-10-18","1:00 PM","Premium","Historic rivalry"],
   ["baltimore-ravens","pittsburgh-steelers","2026-10-25","1:00 PM","Premium","Physical rivalry"],
-  ["miami-dolphins","new-york-jets","2026-11-01","1:00 PM","Medium","Division matchup"],
+  ["miami-dolphins","new-york-jets","2026-10-25","1:00 PM","Medium","Division matchup"],
   ["atlanta-falcons","new-orleans-saints","2026-11-08","1:00 PM","High","Division rivalry"],
   ["buffalo-bills","new-england-patriots","2026-11-15","4:25 PM","High","Division matchup"],
   ["denver-broncos","kansas-city-chiefs","2026-11-22","4:05 PM","High","Division battle"],
@@ -98,6 +98,10 @@ const gamePairs = [
   ["los-angeles-chargers","kansas-city-chiefs","2026-10-25","4:25 PM","Premium","High-demand matchup"],
   ["tennessee-titans","jacksonville-jaguars","2026-11-08","1:00 PM","Medium","Division matchup"],
   ["washington-commanders","philadelphia-eagles","2026-11-15","1:00 PM","High","NFC East matchup"],
+  ["carolina-panthers","detroit-lions","2026-10-04","8:20 PM","High","Sunday Night Football"],
+  ["atlanta-falcons","baltimore-ravens","2026-10-11","8:20 PM","High","Sunday Night Football"],
+  ["green-bay-packers","dallas-cowboys","2026-10-18","8:20 PM","Premium","Sunday Night Football"],
+  ["seattle-seahawks","kansas-city-chiefs","2026-10-25","8:20 PM","Premium","Sunday Night Football"],
 ] as const;
 
 export const GAMES: Game[] = gamePairs.map(([home,away,date,time,demand,reason], index) => {
