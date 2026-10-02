@@ -2985,3 +2985,50 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
 .kz-matchup-teams{position:absolute;inset:62px 20px 58px;display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,42px);z-index:2}
 .kz-matchup-team{width:38%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:7px}.kz-matchup-logo{width:clamp(70px,9vw,108px);height:clamp(70px,9vw,108px);display:grid;place-items:center;border-radius:22px;background:rgba(255,255,255,.96);box-shadow:0 16px 40px rgba(0,0,0,.3);padding:12px}.kz-matchup-logo img{width:100%;height:100%;object-fit:contain}.kz-matchup-team strong{font-size:clamp(13px,1.5vw,19px);line-height:1.05}.kz-matchup-team small{font-size:9px;letter-spacing:.18em;opacity:.65;font-weight:800}.kz-matchup-vs{font-size:12px;font-weight:900;letter-spacing:.18em;opacity:.72}
 .kz-matchup-bottom{bottom:18px;font-size:9px;opacity:.72}.kz-event-image .kz-matchup-graphic{z-index:0}.kz-feature-main .kz-matchup-graphic{z-index:0}
+
+
+/* FINAL EVENT-IMAGE RULES — no blurry photos, no random stadium filler */
+.kz-matchup-graphic {
+  filter: none !important;
+  image-rendering: auto;
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb,var(--away-team-color) 72%,#0b0a12) 0%,
+      #0b0a12 48%,
+      color-mix(in srgb,var(--home-team-color) 72%,#0b0a12) 100%) !important;
+}
+.kz-matchup-grid-lines {
+  opacity: .10;
+  transform: none;
+}
+.kz-matchup-glow {
+  filter: none !important;
+  border-radius: 0;
+  opacity: .16;
+}
+.kz-matchup-glow-away {
+  left: 0;
+  top: 0;
+  width: 48%;
+  height: 100%;
+  background: linear-gradient(90deg,var(--away-team-color),transparent);
+}
+.kz-matchup-glow-home {
+  right: 0;
+  bottom: 0;
+  width: 48%;
+  height: 100%;
+  background: linear-gradient(270deg,var(--home-team-color),transparent);
+}
+.kz-event-image .kz-matchup-graphic,
+.kz-feature-main .kz-matchup-graphic {
+  filter: none !important;
+}
+.kz-event-image .kz-image-shade,
+.kz-feature-main .kz-feature-shade,
+.kz-hero-image .kz-hero-overlay {
+  display: none !important;
+}
+.kz-card-logos {
+  display: none !important;
+}
