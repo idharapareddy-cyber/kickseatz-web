@@ -284,82 +284,77 @@ export default function HomePage() {
             <section className="kz-section kz-seasonal-section">
         <div className="kz-section-heading">
           <div>
-            <span className="kz-eyebrow">THE NFL CALENDAR</span>
-            <h2>Holiday games, rivalries & the road to LA</h2>
+            <span className="kz-eyebrow">NFL SPECIAL EVENTS</span>
+            <h2>Holiday football</h2>
           </div>
-          <Link href="/find-tickets?category=seasonal">Explore special events <ArrowRight size={15} /></Link>
+          <Link href="/find-tickets?category=seasonal">View all <ArrowRight size={15} /></Link>
         </div>
 
-        <div className="kz-seasonal-grid kz-seasonal-grid-updated">
-          <Link href="/find-tickets?category=halloween" className="kz-seasonal-card kz-seasonal-card-detail kz-seasonal-halloween">
-            <div className="kz-seasonal-art kz-art-halloween">
-              <span>🎃</span>
-              <i>OCT 31</i>
-              <b>HALLOWEEN WEEKEND</b>
+        <div className="kz-seasonal-grid kz-seasonal-clean-grid">
+          <Link href="/find-tickets?category=halloween" className="kz-seasonal-clean-card">
+            <div className="kz-seasonal-clean-image kz-clean-halloween">
+              <div className="kz-clean-overlay" />
+              <span>HALLOWEEN</span>
+              <b>OCT 31</b>
             </div>
-            <div className="kz-seasonal-copy">
-              <span>HALLOWEEN WEEKEND</span>
+            <div className="kz-seasonal-clean-body">
+              <small>WEEKEND FOOTBALL</small>
               <strong>Dolphins @ Jets</strong>
-              <small>Nov. 1 • Miami travels to New York for a Sunday division matchup.</small>
-              <div className="kz-seasonal-matchup">
-                <div><img src={logoUrl("miami-dolphins")} alt="" /><b>MIA</b></div>
+              <div className="kz-clean-teams">
+                <span><img src={logoUrl("miami-dolphins")} alt="" /> MIA</span>
                 <em>@</em>
-                <div><img src={logoUrl("new-york-jets")} alt="" /><b>NYJ</b></div>
+                <span><img src={logoUrl("new-york-jets")} alt="" /> NYJ</span>
               </div>
             </div>
           </Link>
 
-          <Link href="/find-tickets?category=thanksgiving" className="kz-seasonal-card kz-seasonal-card-detail kz-seasonal-thanksgiving">
-            <div className="kz-seasonal-art kz-art-thanksgiving">
-              <span>THANKS</span>
-              <i>NOV 26</i>
-              <b>THANKSGIVING DAY</b>
+          <Link href="/find-tickets?category=thanksgiving" className="kz-seasonal-clean-card">
+            <div className="kz-seasonal-clean-image kz-clean-thanksgiving">
+              <div className="kz-clean-overlay" />
+              <span>THANKSGIVING</span>
+              <b>NOV 26</b>
             </div>
-            <div className="kz-seasonal-copy">
-              <span>THANKSGIVING TRIPLEHEADER</span>
-              <strong>Three classic holiday matchups</strong>
-              <small>Thanksgiving Day features three games across Detroit, Dallas and Buffalo.</small>
-              <div className="kz-seasonal-matchups">
-                <div><span><img src={logoUrl("chicago-bears")} alt="" />CHI</span><em>@</em><span>DET<img src={logoUrl("detroit-lions")} alt="" /></span></div>
-                <div><span><img src={logoUrl("philadelphia-eagles")} alt="" />PHI</span><em>@</em><span>DAL<img src={logoUrl("dallas-cowboys")} alt="" /></span></div>
-                <div><span><img src={logoUrl("kansas-city-chiefs")} alt="" />KC</span><em>@</em><span>BUF<img src={logoUrl("buffalo-bills")} alt="" /></span></div>
+            <div className="kz-seasonal-clean-body">
+              <small>THREE GAMES</small>
+              <strong>Thanksgiving Day</strong>
+              <div className="kz-clean-list">
+                <span>CHI @ DET</span>
+                <span>PHI @ DAL</span>
+                <span>KC @ BUF</span>
               </div>
             </div>
           </Link>
 
-          <Link href="/find-tickets?category=christmas" className="kz-seasonal-card kz-seasonal-card-detail kz-seasonal-christmas">
-            <div className="kz-seasonal-art kz-art-christmas">
-              <span>★</span>
-              <i>DEC 25</i>
-              <b>CHRISTMAS DAY</b>
+          <Link href="/find-tickets?category=christmas" className="kz-seasonal-clean-card">
+            <div className="kz-seasonal-clean-image kz-clean-christmas">
+              <div className="kz-clean-overlay" />
+              <span>CHRISTMAS</span>
+              <b>DEC 25</b>
             </div>
-            <div className="kz-seasonal-copy">
-              <span>CHRISTMAS TRIPLEHEADER</span>
-              <strong>Football all day long</strong>
-              <small>Three Christmas Day games, from Chicago to Denver to Seattle.</small>
-              <div className="kz-seasonal-matchups">
-                <div><span><img src={logoUrl("green-bay-packers")} alt="" />GB</span><em>@</em><span>CHI<img src={logoUrl("chicago-bears")} alt="" /></span></div>
-                <div><span><img src={logoUrl("buffalo-bills")} alt="" />BUF</span><em>@</em><span>DEN<img src={logoUrl("denver-broncos")} alt="" /></span></div>
-                <div><span><img src={logoUrl("los-angeles-rams")} alt="" />LAR</span><em>@</em><span>SEA<img src={logoUrl("seattle-seahawks")} alt="" /></span></div>
+            <div className="kz-seasonal-clean-body">
+              <small>THREE GAMES</small>
+              <strong>Christmas Day</strong>
+              <div className="kz-clean-list">
+                <span>GB @ CHI</span>
+                <span>BUF @ DEN</span>
+                <span>LAR @ SEA</span>
               </div>
             </div>
           </Link>
 
-          <Link href="/find-tickets?category=super-bowl" className="kz-seasonal-card kz-seasonal-card-detail kz-seasonal-superbowl">
-            <div className="kz-seasonal-art kz-art-superbowl kz-superbowl-photo">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/SoFi_Stadium.jpg?width=1800" alt="SoFi Stadium in Inglewood, California" />
-              <div className="kz-superbowl-photo-shade" />
-              <span>SB LXI</span>
-              <i>FEB 14</i>
-              <b>SOFI STADIUM · LOS ANGELES</b>
-            </div>
-            <div className="kz-seasonal-copy">
+          <Link href="/find-tickets?category=super-bowl" className="kz-seasonal-clean-card">
+            <div className="kz-seasonal-clean-image kz-clean-superbowl">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/SoFi_Stadium.jpg?width=1600" alt="SoFi Stadium" />
+              <div className="kz-clean-overlay" />
               <span>SUPER BOWL LXI</span>
-              <strong>AFC Champion TBD vs NFC Champion TBD</strong>
-              <small>The teams are not known yet. The destination is: SoFi Stadium, Inglewood, California.</small>
-              <div className="kz-superbowl-status">
-                <div><span>VENUE</span><b>SoFi Stadium</b></div>
-                <div><span>DATE</span><b>Feb. 14, 2027</b></div>
+              <b>FEB 14 · SOFI STADIUM</b>
+            </div>
+            <div className="kz-seasonal-clean-body">
+              <small>INGLEWOOD, CALIFORNIA</small>
+              <strong>AFC vs NFC</strong>
+              <div className="kz-clean-list">
+                <span>Teams TBD</span>
+                <span>Feb 14, 2027</span>
               </div>
             </div>
           </Link>
