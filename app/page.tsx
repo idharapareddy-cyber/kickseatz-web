@@ -334,58 +334,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="marketplace-section market-people-section">
-        <div className="marketplace-heading">
-          <div>
-            <span className="market-eyebrow">PLAYERS TO WATCH</span>
-            <h2>NFL stars fans are following</h2>
-          </div>
-          <Link href="/teams" className="market-see-all">Explore teams <ArrowRight size={15}/></Link>
-        </div>
-        <div className="market-player-grid">
-          {PLAYER_SPOTLIGHTS.map((player) => {
-            const team = TEAMS.find((item) => item.slug === player.team);
-            return (
-              <Link key={player.name} href={`/teams/${player.team}`} className="market-player-card">
-                <div className="market-player-art">
-                  <span className="market-player-number">{player.number}</span>
-                  {team && <img className="market-player-photo" src={player.image} alt="" />}
-                </div>
-                <div className="market-player-info">
-                  <strong>{player.name}</strong>
-                  <span>{player.position} · {team?.name}</span>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="marketplace-section market-stadium-section">
-        <div className="marketplace-heading">
-          <div>
-            <span className="market-eyebrow">VENUES</span>
-            <h2>Explore NFL stadiums</h2>
-          </div>
-          <Link href="/teams" className="market-see-all">Browse all teams <ArrowRight size={15}/></Link>
-        </div>
-        <div className="market-stadium-grid">
-          {FEATURED_STADIUMS.map((team) => (
-            <Link key={team.slug} href={`/teams/${team.slug}`} className="market-stadium-card">
-              <div className="market-stadium-art">
-                <img src={logoUrl(team.slug)} alt="" />
-                <span>HOME OF</span>
-              </div>
-              <div>
-                <strong>{team.venue}</strong>
-                <span>{team.city}, {team.state} · {team.name}</span>
-              </div>
-              <ArrowRight size={15} />
-            </Link>
-          ))}
-        </div>
-      </section>
-
       <section className="marketplace-section market-bonus-section">
         <div className="marketplace-heading">
           <div>
