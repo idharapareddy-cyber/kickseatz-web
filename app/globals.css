@@ -3170,3 +3170,23 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
   .kz-game-type-head{align-items:flex-start;flex-direction:column;gap:5px}
   .kz-game-type-head strong{text-align:left}
 }
+
+.kz-seasonal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kz-seasonal-card{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:var(--surface);transition:transform .2s ease,border-color .2s ease}
+.kz-seasonal-card:hover{transform:translateY(-3px);border-color:rgba(124,92,255,.5)}
+.kz-seasonal-art{height:145px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.kz-seasonal-art:before,.kz-seasonal-art:after{content:"";position:absolute;border-radius:999px;opacity:.28}
+.kz-seasonal-art:before{width:150px;height:150px;right:-45px;top:-55px;border:28px solid currentColor}
+.kz-seasonal-art:after{width:90px;height:90px;left:-30px;bottom:-35px;background:currentColor}
+.kz-seasonal-art span{position:relative;z-index:2;font-size:35px;font-weight:950;letter-spacing:-.06em;color:#fff;text-shadow:0 4px 22px rgba(0,0,0,.3)}
+.kz-seasonal-art i{position:absolute;right:13px;top:11px;z-index:2;font-style:normal;font-size:8px;font-weight:900;letter-spacing:.16em;color:rgba(255,255,255,.7)}
+.kz-art-halloween{background:linear-gradient(135deg,#140b05,#7b2d00 55%,#261006);color:#ff8a00}
+.kz-art-thanksgiving{background:linear-gradient(135deg,#160d06,#754116 55%,#2b1508);color:#e6a15b}
+.kz-art-christmas{background:linear-gradient(135deg,#07120e,#174b39 55%,#091b15);color:#d9b65c}
+.kz-art-superbowl{background:linear-gradient(135deg,#090912,#39206f 55%,#10091c);color:#a98cff}
+.kz-seasonal-copy{padding:13px 14px 15px}
+.kz-seasonal-copy>span{font-size:8px;font-weight:900;letter-spacing:.15em;color:var(--purple2)}
+.kz-seasonal-copy strong{display:block;margin-top:6px;font-size:14px;line-height:1.15}
+.kz-seasonal-copy small{display:block;margin-top:7px;color:var(--muted);font-size:9px;line-height:1.35}
+@media(max-width:1000px){.kz-seasonal-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.kz-seasonal-grid{grid-template-columns:1fr}}
