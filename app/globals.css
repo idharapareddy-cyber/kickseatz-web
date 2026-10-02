@@ -2119,3 +2119,97 @@ html[data-theme="light"] .brand-logo-base img { filter: brightness(0) !important
 @media(max-width:650px) {
   .market-international-grid { grid-template-columns:1fr; }
 }
+
+
+.marketplace-home .marketplace-hero {
+  min-height:520px;
+  grid-template-columns:1.05fr .95fr;
+  gap:28px;
+}
+.marketplace-home .market-hero-visual {
+  position:relative;
+  min-height:470px;
+  overflow:hidden;
+  padding:0;
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 70% 25%, rgba(91,46,255,.38), transparent 38%),
+    linear-gradient(145deg,#17131f 0%,#0b0a10 72%);
+}
+.market-hero-image-wrap {
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:flex-end;
+  align-items:flex-end;
+  pointer-events:none;
+}
+.market-hero-player {
+  position:relative;
+  z-index:2;
+  width:min(78%,430px);
+  height:88%;
+  object-fit:contain;
+  object-position:center bottom;
+  filter:drop-shadow(0 20px 30px rgba(0,0,0,.55));
+}
+.market-hero-glow {
+  position:absolute;
+  width:360px;
+  height:360px;
+  right:12%;
+  bottom:7%;
+  border-radius:50%;
+  background:rgba(91,46,255,.22);
+  filter:blur(40px);
+}
+.market-hero-overlay {
+  position:absolute;
+  z-index:3;
+  inset:auto 18px 18px;
+  padding:18px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:13px;
+  background:rgba(12,10,17,.86);
+  backdrop-filter:blur(10px);
+}
+.market-hero-overlay .market-hero-matchup {
+  margin:15px 0;
+}
+.market-hero-overlay .market-hero-cta {
+  margin-top:14px;
+}
+.market-hero-overlay .market-hero-matchup img {
+  width:62px;
+  height:62px;
+}
+.market-hero-overlay .market-hero-matchup > div {
+  flex-direction:row;
+}
+.market-hero-overlay .market-hero-matchup > div span {
+  font-size:12px;
+  font-weight:700;
+}
+.marketplace-home .market-featured-card {
+  position:relative;
+  overflow:hidden;
+}
+.marketplace-home .market-featured-card::after {
+  content:"";
+  position:absolute;
+  right:-35px;
+  bottom:-55px;
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  background:rgba(91,46,255,.09);
+}
+@media(max-width:900px) {
+  .marketplace-home .marketplace-hero { grid-template-columns:1fr; }
+  .marketplace-home .market-hero-visual { min-height:420px; }
+}
+@media(max-width:650px) {
+  .marketplace-home .market-hero-visual { min-height:430px; }
+  .market-hero-player { width:85%; height:72%; }
+  .market-hero-overlay { inset:auto 10px 10px; padding:13px; }
+}
