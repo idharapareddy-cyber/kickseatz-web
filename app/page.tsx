@@ -57,38 +57,7 @@ function formatDate(date: string) {
 }
 
 
-const nflStadiumImages: Record<string, string> = {
-  DAL: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/niasikdief0tltwe5pmt.jpg",
-  GB: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/ltf4w3s9acbdh5eik50g.jpg",
-  PHI: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/jutpr3g6nqxxswgh2j3v.jpg",
-  IND: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/wvuo5cqzrfepzsor9x3j.jpg",
-  NYG: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/wvuo5cqzrfepzsor9x3j.jpg",
-  NYJ: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/wvuo5cqzrfepzsor9x3j.jpg",
-  NO: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/wtzvpdsdnhy1nwhmohie.jpg",
-  DEN: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/dgssxe8hqzyy1nsyqv1l.jpg",
-  CHI: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/dgnlx3tr2sifziibbmja.jpg",
-  PIT: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/yzi3kmmjcjn37zl6pp8x.jpg",
-  NE: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/mwrbfgb0yb3ezox0myk0.jpg",
-  TB: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/wnjkixrhkoparitkhcsi.jpg",
-};
-
-const nflStadiumFallbacks = [
-  "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/oavfpkgbhtnuzp4jsj4e.jpg",
-  "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/l0g6fvsprpebqw61wytz.jpg",
-  "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/lpjp6wtzfu1cqsm9kdbh.jpg",
-  "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/hm4yhstnntvp5nx9jhkj.jpg",
-  "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/wdfsk0ggkw8hch50oysd.jpg",
-];
-
-function matchupKey(game: (typeof GAMES)[number]) {
-  return game.away + "-" + game.home;
-}
-
-function matchupImage(game: (typeof GAMES)[number]) {
-  return nflStadiumImages[game.home] ?? nflStadiumFallbacks[logoIds[TEAMS.find((t) => t.slug === game.home)?.abbr ?? ""] % nflStadiumFallbacks.length];
-}
-
-function matchupLabel(game: (typeof GAMES)[number]) {
+function matchupKey(game: (typeof GAMES)[number]) {\n  return game.away + "-" + game.home;\n}\n\nfunction MatchupGraphic({ game, hero = false }: { game: (typeof GAMES)[number]; hero?: boolean }) {\n  return (\n    <div className={"kz-matchup-graphic" + (hero ? " kz-matchup-graphic-hero" : "")}>\n      <div className="kz-matchup-grid-lines" />\n      <div className="kz-matchup-glow kz-matchup-glow-away" />\n      <div className="kz-matchup-glow kz-matchup-glow-home" />\n      <div className="kz-matchup-topline"><span>NFL</span><b>{matchupLabel(game)}</b></div>\n      <div className="kz-matchup-teams">\n        <div className="kz-matchup-team"><div className="kz-matchup-logo"><img src={logoUrl(game.away)} alt="" /></div><strong>{teamName(game.away)}</strong><small>{game.away}</small></div>\n        <div className="kz-matchup-vs">VS</div>\n        <div className="kz-matchup-team"><div className="kz-matchup-logo"><img src={logoUrl(game.home)} alt="" /></div><strong>{teamName(game.home)}</strong><small>{game.home}</small></div>\n      </div>\n      <div className="kz-matchup-bottom"><span>{formatDate(game.date)}</span><span>{game.city}</span><span>{game.time}</span></div>\n    </div>\n  );\n}\n\nfunction matchupLabel(game: (typeof GAMES)[number]) {
   const prime = game.time.includes("8:20 PM") || game.time.includes("8:15 PM");
   const rivalry = ["DAL-PHI","GB-CHI","BAL-PIT","ATL-NO","SF-SEA","KC-BUF","KC-LV"].includes(matchupKey(game));
   if (prime && rivalry) return "PRIMETIME RIVALRY";
@@ -143,7 +112,7 @@ function EventCard({
       } as React.CSSProperties}
     >
       <div className="kz-event-image">
-        <img src={matchupImage(game)} alt="" />
+        <MatchupGraphic game={game} />
         <div className="kz-image-shade" />
         <span className="kz-event-badge">{matchupLabel(game)}</span>
         <span className="kz-heart" aria-hidden="true">♡</span>
@@ -172,7 +141,7 @@ export default function HomePage() {
     <div className="page marketplace-home kz-home">
       <section className="kz-hero">
         <div className="kz-hero-image">
-          <img src={matchupImage(featured[0])} alt="" />
+          <MatchupGraphic game={featured[0]} hero />
           <div className="kz-hero-overlay" />
           <div className="kz-hero-copy">
             <span className="kz-eyebrow">KICKSEATZ · LIVE SPORTS & EVENTS</span>
