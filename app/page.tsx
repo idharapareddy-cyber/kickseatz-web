@@ -285,77 +285,69 @@ export default function HomePage() {
         <div className="kz-section-heading">
           <div>
             <span className="kz-eyebrow">NFL SPECIAL EVENTS</span>
-            <h2>Holiday football</h2>
+            <h2>Holiday schedule</h2>
           </div>
           <Link href="/find-tickets?category=seasonal">View all <ArrowRight size={15} /></Link>
         </div>
 
         <div className="kz-seasonal-grid kz-seasonal-clean-grid">
           <Link href="/find-tickets?category=halloween" className="kz-seasonal-clean-card">
-            <div className="kz-seasonal-clean-image kz-clean-halloween">
-              <div className="kz-clean-overlay" />
-              <span>HALLOWEEN</span>
-              <b>OCT 31</b>
+            <div className="kz-seasonal-clean-image">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/MetLife_Stadium%2C_East_Rutherford_NJ.jpg?width=1400" alt="MetLife Stadium" />
+              <span>HALLOWEEN WEEKEND</span>
+              <b>OCT 25</b>
             </div>
             <div className="kz-seasonal-clean-body">
-              <small>WEEKEND FOOTBALL</small>
+              <small>WEEK 7 · EAST RUTHERFORD</small>
               <strong>Dolphins @ Jets</strong>
-              <div className="kz-clean-teams">
-                <span><img src={logoUrl("miami-dolphins")} alt="" /> MIA</span>
-                <em>@</em>
-                <span><img src={logoUrl("new-york-jets")} alt="" /> NYJ</span>
-              </div>
+              <div className="kz-clean-meta">MetLife Stadium · 1:00 PM</div>
             </div>
           </Link>
 
           <Link href="/find-tickets?category=thanksgiving" className="kz-seasonal-clean-card">
-            <div className="kz-seasonal-clean-image kz-clean-thanksgiving">
-              <div className="kz-clean-overlay" />
+            <div className="kz-seasonal-clean-image">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Detroit_December_2025_04_%28Ford_Field%29.jpg?width=1400" alt="Ford Field" />
               <span>THANKSGIVING</span>
               <b>NOV 26</b>
             </div>
             <div className="kz-seasonal-clean-body">
-              <small>THREE GAMES</small>
-              <strong>Thanksgiving Day</strong>
+              <small>THANKSGIVING DAY · WEEK 12</small>
+              <strong>Three games</strong>
               <div className="kz-clean-list">
-                <span>CHI @ DET</span>
-                <span>PHI @ DAL</span>
-                <span>KC @ BUF</span>
+                <span>Bears @ Lions</span>
+                <span>Eagles @ Cowboys</span>
+                <span>Chiefs @ Bills</span>
               </div>
             </div>
           </Link>
 
           <Link href="/find-tickets?category=christmas" className="kz-seasonal-clean-card">
-            <div className="kz-seasonal-clean-image kz-clean-christmas">
-              <div className="kz-clean-overlay" />
-              <span>CHRISTMAS</span>
+            <div className="kz-seasonal-clean-image">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Soldier_Field%2C_Chicago.jpg?width=1400" alt="Soldier Field" />
+              <span>CHRISTMAS DAY</span>
               <b>DEC 25</b>
             </div>
             <div className="kz-seasonal-clean-body">
-              <small>THREE GAMES</small>
-              <strong>Christmas Day</strong>
+              <small>WEEK 16</small>
+              <strong>Three games</strong>
               <div className="kz-clean-list">
-                <span>GB @ CHI</span>
-                <span>BUF @ DEN</span>
-                <span>LAR @ SEA</span>
+                <span>Packers @ Bears</span>
+                <span>Bills @ Broncos</span>
+                <span>Rams @ Seahawks</span>
               </div>
             </div>
           </Link>
 
           <Link href="/find-tickets?category=super-bowl" className="kz-seasonal-clean-card">
-            <div className="kz-seasonal-clean-image kz-clean-superbowl">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/SoFi_Stadium.jpg?width=1600" alt="SoFi Stadium" />
-              <div className="kz-clean-overlay" />
+            <div className="kz-seasonal-clean-image">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/SoFi_Stadium.jpg?width=1400" alt="SoFi Stadium" />
               <span>SUPER BOWL LXI</span>
-              <b>FEB 14 · SOFI STADIUM</b>
+              <b>FEB 14, 2027</b>
             </div>
             <div className="kz-seasonal-clean-body">
               <small>INGLEWOOD, CALIFORNIA</small>
               <strong>AFC vs NFC</strong>
-              <div className="kz-clean-list">
-                <span>Teams TBD</span>
-                <span>Feb 14, 2027</span>
-              </div>
+              <div className="kz-clean-meta">SoFi Stadium · Teams TBD</div>
             </div>
           </Link>
         </div>
