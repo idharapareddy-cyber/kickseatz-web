@@ -100,7 +100,7 @@ function gameCategory(game: (typeof GAMES)[number]) {
 
 function StadiumVisual({ game, hero = false }: { game: (typeof GAMES)[number]; hero?: boolean }) {
   const image = stadiumImages[game.home];
-  if (!image) return <MatchupGraphic game={game} hero={hero} />;
+  if (!image) return <SimpleMatchupVisual game={game} hero={hero} />;
   return (
     <div className={"kz-stadium-visual" + (hero ? " kz-stadium-visual-hero" : "")}>
       <img src={image} alt={teamName(game.home) + " stadium"} />
@@ -115,18 +115,33 @@ function GameVisual({ game, index, hero = false, section }: { game: (typeof GAME
   const useStadium = Boolean(stadiumImages[game.home]);
   return useStadium
     ? <StadiumVisual game={game} hero={hero} />
-    : <NflPhotoVisual game={game} hero={hero} />;
+    : <SimpleMatchupVisual game={game} hero={hero} />;
 }
 
-function NflPhotoVisual({ game, hero = false }: { game: (typeof GAMES)[number]; hero?: boolean }) {
+function SimpleMatchupVisual({ game, hero = false }: { game: (typeof GAMES)[number]; hero?: boolean }) {
+  const away = TEAMS.find((team) => team.slug === game.away);
+  const home = TEAMS.find((team) => team.slug === game.home);
   return (
-    <div className={"kz-photo-visual" + (hero ? " kz-photo-visual-hero" : "")}>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/3/37/American_football.jpg"
-        alt={"NFL football action for " + teamName(game.away) + " at " + teamName(game.home)}
-      />
-      <div className="kz-photo-shade" />
-      <div className="kz-photo-meta"><span>NFL · GAME DAY</span><strong>{teamName(game.away)} @ {teamName(game.home)}</strong></div>
+    <div
+      className={"kz-simple-matchup" + (hero ? " kz-simple-matchup-hero" : "")}
+      style={{
+        "--away-color": away?.color ?? "#5b2eff",
+        "--home-color": home?.color ?? "#111827",
+      } as React.CSSProperties}
+    >
+      <div className="kz-simple-team">
+        <img src={logoUrl(game.away)} alt="" />
+        <span>{away?.abbr}</span>
+      </div>
+      <div className="kz-simple-vs">VS</div>
+      <div className="kz-simple-team">
+        <img src={logoUrl(game.home)} alt="" />
+        <span>{home?.abbr}</span>
+      </div>
+      <div className="kz-simple-matchup-label">
+        <small>{gameCategory(game)}</small>
+        <strong>{teamName(game.away)} @ {teamName(game.home)}</strong>
+      </div>
     </div>
   );
 }
