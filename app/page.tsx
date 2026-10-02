@@ -348,33 +348,67 @@ export default function HomePage() {
 
       <section className="kz-section kz-game-type-section">
         <div className="kz-section-heading">
-          <div><span className="kz-eyebrow">NFL GAME TYPES</span><h2>Shop by game type</h2></div>
-          <Link href="/find-tickets">Browse the full NFL schedule <ArrowRight size={15} /></Link>
+          <div><span className="kz-eyebrow">NFL GAME TYPES</span><h2>Browse the schedule by moment</h2></div>
+          <Link href="/find-tickets">Browse all NFL games <ArrowRight size={15} /></Link>
         </div>
 
-        <div className="kz-game-type-grid">
-          <div className="kz-game-type-block kz-game-type-division">
-            <div className="kz-game-type-head"><span>DIVISION RIVALRIES</span><strong>Rivalry games</strong></div>
-            <div className="kz-mini-card-grid">
-              {GAMES.filter((game) => gameFlags(game).division).slice(0, 2).map((game, i) => <EventCard key={game.id} game={game} index={i + 10} />)}
+        <div className="kz-type-editorial-grid">
+          <div className="kz-type-editorial-block kz-type-division">
+            <div className="kz-type-editorial-head">
+              <div><span>DIVISION RIVALRIES</span><strong>Games with history</strong></div>
+              <Link href="/find-tickets?category=division">View all <ArrowRight size={14} /></Link>
+            </div>
+            <div className="kz-type-editorial-body">
+              {GAMES.filter((game) => gameFlags(game).division).slice(0, 3).map((game, i) => (
+                <Link href={`/find-tickets?game=${game.id}`} className={`kz-type-feature ${i === 0 ? "is-lead" : ""}`} key={game.id}>
+                  <GameVisual game={game} index={i + 40} hero={i === 0} />
+                  <div className="kz-type-feature-copy">
+                    <span>{formatDate(game.date)} · {game.city}</span>
+                    <strong>{teamName(game.away)} @ {teamName(game.home)}</strong>
+                    <small>{game.venue}</small>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
 
-          <div className="kz-game-type-block kz-game-type-prime">
-            <div className="kz-game-type-head"><span>PRIMETIME</span><strong>Thursday, Sunday & Monday night games</strong></div>
-            <div className="kz-mini-card-grid">
-              {GAMES.filter((game) => gameFlags(game).primetime).map((game, i) => <EventCard key={game.id} game={game} index={i + 20} />)}
+          <div className="kz-type-editorial-block kz-type-prime">
+            <div className="kz-type-editorial-head">
+              <div><span>PRIMETIME</span><strong>Night games, big stages</strong></div>
+              <Link href="/find-tickets?category=primetime">View all <ArrowRight size={14} /></Link>
+            </div>
+            <div className="kz-type-editorial-body">
+              {GAMES.filter((game) => gameFlags(game).primetime).slice(0, 3).map((game, i) => (
+                <Link href={`/find-tickets?game=${game.id}`} className={`kz-type-feature ${i === 0 ? "is-lead" : ""}`} key={game.id}>
+                  <GameVisual game={game} index={i + 50} hero={i === 0} />
+                  <div className="kz-type-feature-copy">
+                    <span>{formatDate(game.date)} · {game.city}</span>
+                    <strong>{teamName(game.away)} @ {teamName(game.home)}</strong>
+                    <small>{game.venue}</small>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
 
-          <div className="kz-game-type-block kz-game-type-playoff">
-            <div className="kz-game-type-head"><span>PLAYOFF WATCH</span><strong>Late-season games</strong></div>
-            <div className="kz-mini-card-grid">
-              {GAMES.filter((game) => gameFlags(game).playoffWatch).slice(0, 2).map((game, i) => <EventCard key={game.id} game={game} index={i + 30} />)}
+          <div className="kz-type-editorial-block kz-type-playoff">
+            <div className="kz-type-editorial-head">
+              <div><span>PLAYOFF WATCH</span><strong>Late-season matchups</strong></div>
+              <Link href="/find-tickets?category=playoff-watch">View all <ArrowRight size={14} /></Link>
+            </div>
+            <div className="kz-type-editorial-body">
+              {GAMES.filter((game) => gameFlags(game).playoffWatch).slice(0, 3).map((game, i) => (
+                <Link href={`/find-tickets?game=${game.id}`} className={`kz-type-feature ${i === 0 ? "is-lead" : ""}`} key={game.id}>
+                  <GameVisual game={game} index={i + 60} hero={i === 0} />
+                  <div className="kz-type-feature-copy">
+                    <span>{formatDate(game.date)} · {game.city}</span>
+                    <strong>{teamName(game.away)} @ {teamName(game.home)}</strong>
+                    <small>{game.venue}</small>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
-
-       </div>
         </div>
       </section>
 
