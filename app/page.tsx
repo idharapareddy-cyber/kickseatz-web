@@ -284,70 +284,103 @@ export default function HomePage() {
             <section className="kz-section kz-seasonal-section">
         <div className="kz-section-heading">
           <div>
-            <span className="kz-eyebrow">NFL SPECIAL EVENTS</span>
-            <h2>Holiday schedule</h2>
+            <span className="kz-eyebrow">NFL CALENDAR</span>
+            <h2>Holiday games</h2>
           </div>
           <Link href="/find-tickets?category=seasonal">View all <ArrowRight size={15} /></Link>
         </div>
 
-        <div className="kz-seasonal-grid kz-seasonal-clean-grid">
-          <Link href="/find-tickets?category=halloween" className="kz-seasonal-clean-card">
-            <div className="kz-seasonal-clean-image">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/MetLife_Stadium%2C_East_Rutherford_NJ.jpg?width=1400" alt="MetLife Stadium" />
+        <div className="kz-seasonal-grid kz-seasonal-real-grid">
+          <Link href="/find-tickets?category=halloween" className="kz-seasonal-real-card">
+            <div className="kz-seasonal-real-image">
+              <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Anthony_Fasano_Jets-Dolphin_game%2C_Nov_2009_-_040.jpg?width=1400"
+                alt="Miami Dolphins and New York Jets NFL game"
+              />
               <span>HALLOWEEN WEEKEND</span>
-              <b>OCT 25</b>
+              <b>OCT 25 · 1:00 PM</b>
             </div>
-            <div className="kz-seasonal-clean-body">
-              <small>WEEK 7 · EAST RUTHERFORD</small>
+            <div className="kz-seasonal-real-body">
+              <small>METLIFE STADIUM · EAST RUTHERFORD</small>
               <strong>Dolphins @ Jets</strong>
-              <div className="kz-clean-meta">MetLife Stadium · 1:00 PM</div>
+              <div className="kz-seasonal-real-matchup">
+                <img src={logoUrl("miami-dolphins")} alt="" />
+                <span>Dolphins</span>
+                <em>@</em>
+                <span>Jets</span>
+                <img src={logoUrl("new-york-jets")} alt="" />
+              </div>
             </div>
           </Link>
 
-          <Link href="/find-tickets?category=thanksgiving" className="kz-seasonal-clean-card">
-            <div className="kz-seasonal-clean-image">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Detroit_December_2025_04_%28Ford_Field%29.jpg?width=1400" alt="Ford Field" />
+          <Link href="/find-tickets?category=thanksgiving" className="kz-seasonal-real-card">
+            <div className="kz-seasonal-real-image">
+              <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Veterans_Day_ceremonies_at_NFL_game_in_Chicago_131110-G-PL299-128.jpg?width=1400"
+                alt="Chicago Bears and Detroit Lions NFL game"
+              />
               <span>THANKSGIVING</span>
-              <b>NOV 26</b>
+              <b>NOV 26 · 1:00 PM</b>
             </div>
-            <div className="kz-seasonal-clean-body">
-              <small>THANKSGIVING DAY · WEEK 12</small>
-              <strong>Three games</strong>
-              <div className="kz-clean-list">
-                <span>Bears @ Lions</span>
-                <span>Eagles @ Cowboys</span>
-                <span>Chiefs @ Bills</span>
+            <div className="kz-seasonal-real-body">
+              <small>FORD FIELD · DETROIT</small>
+              <strong>Bears @ Lions</strong>
+              <div className="kz-seasonal-real-matchup">
+                <img src={logoUrl("chicago-bears")} alt="" />
+                <span>Bears</span>
+                <em>@</em>
+                <span>Lions</span>
+                <img src={logoUrl("detroit-lions")} alt="" />
+              </div>
+              <div className="kz-seasonal-real-list">
+                <span>Eagles @ Cowboys · 4:30 PM</span>
+                <span>Chiefs @ Bills · 8:20 PM</span>
               </div>
             </div>
           </Link>
 
-          <Link href="/find-tickets?category=christmas" className="kz-seasonal-clean-card">
-            <div className="kz-seasonal-clean-image">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Soldier_Field%2C_Chicago.jpg?width=1400" alt="Soldier Field" />
+          <Link href="/find-tickets?category=christmas" className="kz-seasonal-real-card">
+            <div className="kz-seasonal-real-image">
+              <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Packvbears.jpg?width=1400"
+                alt="Green Bay Packers and Chicago Bears NFL game"
+              />
               <span>CHRISTMAS DAY</span>
-              <b>DEC 25</b>
+              <b>DEC 25 · 1:00 PM</b>
             </div>
-            <div className="kz-seasonal-clean-body">
-              <small>WEEK 16</small>
-              <strong>Three games</strong>
-              <div className="kz-clean-list">
-                <span>Packers @ Bears</span>
-                <span>Bills @ Broncos</span>
-                <span>Rams @ Seahawks</span>
+            <div className="kz-seasonal-real-body">
+              <small>SOLDIER FIELD · CHICAGO</small>
+              <strong>Packers @ Bears</strong>
+              <div className="kz-seasonal-real-matchup">
+                <img src={logoUrl("green-bay-packers")} alt="" />
+                <span>Packers</span>
+                <em>@</em>
+                <span>Bears</span>
+                <img src={logoUrl("chicago-bears")} alt="" />
+              </div>
+              <div className="kz-seasonal-real-list">
+                <span>Bills @ Broncos · 4:30 PM</span>
+                <span>Rams @ Seahawks · 8:15 PM</span>
               </div>
             </div>
           </Link>
 
-          <Link href="/find-tickets?category=super-bowl" className="kz-seasonal-clean-card">
-            <div className="kz-seasonal-clean-image">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/SoFi_Stadium.jpg?width=1400" alt="SoFi Stadium" />
+          <Link href="/find-tickets?category=super-bowl" className="kz-seasonal-real-card">
+            <div className="kz-seasonal-real-image">
+              <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/SoFi_Stadium.jpg?width=1400"
+                alt="SoFi Stadium in Inglewood, California"
+              />
               <span>SUPER BOWL LXI</span>
               <b>FEB 14, 2027</b>
             </div>
-            <div className="kz-seasonal-clean-body">
-              <small>INGLEWOOD, CALIFORNIA</small>
+            <div className="kz-seasonal-real-body">
+              <small>SOFI STADIUM · INGLEWOOD</small>
               <strong>AFC vs NFC</strong>
-              <div className="kz-clean-meta">SoFi Stadium · Teams TBD</div>
+              <div className="kz-seasonal-real-status">
+                <span>TEAMS</span>
+                <b>TBD</b>
+              </div>
             </div>
           </Link>
         </div>
