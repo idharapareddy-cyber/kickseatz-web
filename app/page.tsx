@@ -294,7 +294,7 @@ export default function HomePage() {
           <Link href="/find-tickets?category=thanksgiving" className="kz-marquee-card kz-marquee-holiday">
             <div className="kz-marquee-image">
               <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Veterans_Day_ceremonies_at_NFL_game_in_Chicago_131110-G-PL299-128.jpg" alt="Chicago Bears and Detroit Lions NFL game" />
-              <span>THANKSGIVING · NOV 26</span>
+              
             </div>
             <div className="kz-marquee-body">
               <div><small>THREE GAMES</small><strong>Thanksgiving Day</strong></div>
@@ -305,7 +305,7 @@ export default function HomePage() {
           <Link href="/find-tickets?category=christmas" className="kz-marquee-card kz-marquee-holiday">
             <div className="kz-marquee-image">
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Packvbears.jpg" alt="Green Bay Packers and Chicago Bears NFL game" />
-              <span>CHRISTMAS DAY · DEC 25</span>
+              
             </div>
             <div className="kz-marquee-body">
               <div><small>THREE GAMES</small><strong>Christmas Day</strong></div>
@@ -316,7 +316,7 @@ export default function HomePage() {
           <Link href="/find-tickets?category=halloween" className="kz-marquee-card kz-marquee-small">
             <div className="kz-marquee-image">
               <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Anthony_Fasano_Jets-Dolphin_game%2C_Nov_2009_-_040.jpg" alt="Miami Dolphins and New York Jets NFL game" />
-              <span>HALLOWEEN WEEKEND</span>
+              
             </div>
             <div className="kz-marquee-small-body"><small>OCT 25 · 1:00 PM</small><strong>Dolphins @ Jets</strong><span>MetLife Stadium · East Rutherford</span></div>
           </Link>
@@ -324,7 +324,7 @@ export default function HomePage() {
           <Link href="/find-tickets?category=super-bowl" className="kz-marquee-card kz-marquee-small">
             <div className="kz-marquee-image">
               <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/SoFi_Stadium.jpg" alt="SoFi Stadium in Inglewood, California" />
-              <span>SUPER BOWL LXI</span>
+              
             </div>
             <div className="kz-marquee-small-body"><small>FEB 14, 2027 · INGLEWOOD</small><strong>AFC vs NFC</strong><span>SoFi Stadium · Teams TBD</span></div>
           </Link>
@@ -337,12 +337,12 @@ export default function HomePage() {
           <Link href="/find-tickets?category=international">View all 9 games <ArrowRight size={15} /></Link>
         </div>
         <div className="kz-international-feature-grid kz-international-editorial-grid">
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card kz-international-lead"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Melbourne_Cricket_Ground.JPG" alt="Melbourne Cricket Ground" /><div><span>MELBOURNE · AUSTRALIA</span><strong>49ers vs Rams</strong><small>Sept 10 · Melbourne Cricket Ground</small></div></Link>
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/New_Maracana_Stadium.jpg" alt="Maracana Stadium" /><div><span>RIO DE JANEIRO · BRAZIL</span><strong>Ravens vs Cowboys</strong><small>Sept 27 · Maracanã Stadium</small></div></Link>
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Wembley_stadium.jpg" alt="Wembley Stadium" /><div><span>LONDON · UNITED KINGDOM</span><strong>Texans vs Jaguars</strong><small>Oct 18 · Wembley Stadium</small></div></Link>
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Stade_de_France.jpg" alt="Stade de France" /><div><span>PARIS · FRANCE</span><strong>Steelers vs Saints</strong><small>Oct 25 · Stade de France</small></div></Link>
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Santiago_Bernabeu_Stadium.jpg" alt="Santiago Bernabeu Stadium" /><div><span>MADRID · SPAIN</span><strong>Bengals vs Falcons</strong><small>Nov 8 · Bernabéu Stadium</small></div></Link>
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Allianz_Arena.jpg" alt="Allianz Arena in Munich" /><div><span>MUNICH · GERMANY</span><strong>Patriots vs Lions</strong><small>Nov 15 · FC Bayern Munich Arena</small></div></Link>
+          <Link href="/find-tickets?category=international" className="kz-international-feature-card kz-international-lead"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Melbourne_Cricket_Ground.JPG" alt="Melbourne Cricket Ground" /><div><strong>49ers vs Rams</strong><small>Sept 10 · Melbourne Cricket Ground</small></div></Link>
+          <Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/New_Maracana_Stadium.jpg" alt="Maracana Stadium" /><div><strong>Ravens vs Cowboys</strong><small>Sept 27 · Maracanã Stadium</small></div></Link>
+          <Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Wembley_stadium.jpg" alt="Wembley Stadium" /><div><strong>Texans vs Jaguars</strong><small>Oct 18 · Wembley Stadium</small></div></Link>
+          <Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Stade_de_France.jpg" alt="Stade de France" /><div><strong>Steelers vs Saints</strong><small>Oct 25 · Stade de France</small></div></Link>
+          <Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Santiago_Bernabeu_Stadium.jpg" alt="Santiago Bernabeu Stadium" /><div><strong>Bengals vs Falcons</strong><small>Nov 8 · Bernabéu Stadium</small></div></Link>
+          <Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Allianz_Arena.jpg" alt="Allianz Arena in Munich" /><div><strong>Patriots vs Lions</strong><small>Nov 15 · FC Bayern Munich Arena</small></div></Link>
         </div>
       </section>
 
