@@ -371,7 +371,7 @@ export default function HomePage() {
         </div>
         <div className="kz-international-feature-grid kz-international-editorial-grid">
           <Link href="/find-tickets?category=international" className="kz-international-feature-card kz-international-lead">
-            <img src="https://s.yimg.com/ny/api/res/1.2/OC2YHeWOVkg6YaGjCvGjCv2g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https%3A/media.zenfs.com/en/aol_yahoo_sports_800/bae0b6f0c5d4b80caebd1c78d87a78a0" alt="NFL International Series game in London with the American and British flags" />
+            <img src="https://s.yimg.com/ny/api/res/1.2/OC2YHeWOVkg6YaGjCv2g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https%3A/media.zenfs.com/en/aol_yahoo_sports_800/bae0b6f0c5d4b80caebd1c78d87a78a0" alt="NFL International Series game in London with the American and British flags" />
             <div className="kz-international-photo-tag"><span>🇬🇧</span><b>NFL INTERNATIONAL</b></div>
             <div className="kz-international-card-copy"><strong>International Series</strong><small>London · NFL abroad</small></div>
           </Link>
