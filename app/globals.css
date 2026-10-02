@@ -5506,3 +5506,88 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
     grid-row:auto;
   }
 }
+
+
+/* INTERNATIONAL SERIES — final 3x3 photo mosaic: nine real venue/event photos, no slate graphic or logo-only cards */
+.kz-international-section .kz-international-editorial-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-template-rows:repeat(3,220px)!important;
+  gap:14px!important;
+}
+.kz-international-section .kz-international-feature-card{
+  position:relative!important;
+  min-width:0!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  border-radius:18px!important;
+  background:#111!important;
+  isolation:isolate!important;
+}
+.kz-international-section .kz-international-feature-card img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  display:block!important;
+  opacity:1!important;
+  filter:none!important;
+  transition:transform .45s ease!important;
+}
+.kz-international-section .kz-international-feature-card:after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  background:linear-gradient(180deg,rgba(5,4,10,.02) 15%,rgba(5,4,10,.86) 100%)!important;
+}
+.kz-international-section .kz-international-feature-card:hover img{
+  transform:scale(1.035)!important;
+  filter:saturate(1.06)!important;
+}
+.kz-international-section .kz-international-lead{
+  grid-column:span 2!important;
+  grid-row:span 2!important;
+}
+.kz-international-section .kz-international-photo-tag{
+  top:14px!important;
+  left:14px!important;
+  z-index:3!important;
+}
+.kz-international-section .kz-international-card-copy{
+  left:18px!important;
+  right:18px!important;
+  bottom:16px!important;
+  z-index:3!important;
+}
+.kz-international-section .kz-international-lead .kz-international-card-copy strong{
+  font-size:26px!important;
+}
+.kz-international-section .kz-international-editorial-grid .kz-international-team-card{
+  background:#111!important;
+  border:0!important;
+}
+@media(max-width:900px){
+  .kz-international-section .kz-international-editorial-grid{
+    grid-template-columns:1fr 1fr!important;
+    grid-template-rows:300px repeat(4,190px)!important;
+  }
+  .kz-international-section .kz-international-lead{
+    grid-column:span 2!important;
+    grid-row:span 1!important;
+  }
+}
+@media(max-width:560px){
+  .kz-international-section .kz-international-editorial-grid{
+    grid-template-columns:1fr!important;
+    grid-template-rows:repeat(9,210px)!important;
+  }
+  .kz-international-section .kz-international-lead{
+    grid-column:auto!important;
+    grid-row:auto!important;
+  }
+}
+
+/* Never show the old generic matchup illustration on homepage game visuals. */
+.kz-home .kz-matchup-graphic{display:none!important;}
