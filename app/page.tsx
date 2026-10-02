@@ -47,7 +47,7 @@ function isUpcomingGame(game: (typeof GAMES)[number]) {
   return gameDate >= new Date(today.getFullYear(), today.getMonth(), today.getDate());
 }
 
-const UPCOMING_GAMES = UPCOMING_GAMES.filter(isUpcomingGame);
+const UPCOMING_GAMES = GAMES.filter(isUpcomingGame);
 
 function formatDate(date: string) {
   return new Date(`${date}T12:00:00`).toLocaleDateString("en-US", {
@@ -232,7 +232,7 @@ function EventCard({
 
 export default function HomePage() {
   const featured = UPCOMING_GAMES.slice(0, 5);
-  const trending = [...GAMES]
+  const trending = [...UPCOMING_GAMES]
     .filter((game) => game.demand === "High" || game.demand === "Premium")
     .slice(0, 6);
   const upcoming = UPCOMING_GAMES.slice(5, 12);
