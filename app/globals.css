@@ -3359,3 +3359,82 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
 @media(max-width:650px){
   .kz-seasonal-grid-updated{grid-template-columns:1fr}
 }
+
+
+/* FINAL FIX — seasonal matchup logos must stay compact */
+.kz-seasonal-card-detail {
+  overflow:hidden !important;
+  min-height:0 !important;
+  height:auto !important;
+}
+.kz-seasonal-card-detail .kz-seasonal-copy {
+  min-height:205px !important;
+  height:auto !important;
+  overflow:hidden !important;
+  position:relative;
+}
+.kz-seasonal-card-detail .kz-seasonal-copy > img,
+.kz-seasonal-card-detail .kz-seasonal-copy img {
+  max-width:28px !important;
+  max-height:28px !important;
+}
+.kz-seasonal-matchup {
+  height:42px !important;
+  min-height:42px !important;
+  max-height:42px !important;
+  flex:0 0 42px !important;
+  margin-top:auto !important;
+  padding-top:10px !important;
+  overflow:hidden !important;
+}
+.kz-seasonal-matchup > div {
+  height:32px !important;
+  max-height:32px !important;
+}
+.kz-seasonal-matchup img {
+  width:28px !important;
+  height:28px !important;
+  max-width:28px !important;
+  max-height:28px !important;
+  object-fit:contain !important;
+}
+.kz-seasonal-matchups {
+  height:auto !important;
+  max-height:102px !important;
+  flex:0 0 auto !important;
+  overflow:hidden !important;
+  margin-top:auto !important;
+  padding-top:10px !important;
+}
+.kz-seasonal-matchups > div {
+  height:27px !important;
+  min-height:27px !important;
+  max-height:27px !important;
+  padding:2px 7px !important;
+  overflow:hidden !important;
+}
+.kz-seasonal-matchups img {
+  width:20px !important;
+  height:20px !important;
+  max-width:20px !important;
+  max-height:20px !important;
+  object-fit:contain !important;
+}
+.kz-seasonal-matchups span {
+  height:22px !important;
+  font-size:8px !important;
+}
+.kz-seasonal-card-detail .kz-seasonal-art {
+  height:145px !important;
+  flex-basis:145px !important;
+}
+.kz-seasonal-card-detail .kz-seasonal-copy > strong {
+  font-size:15px !important;
+  line-height:1.15 !important;
+}
+.kz-seasonal-card-detail .kz-seasonal-copy > small {
+  font-size:9px !important;
+}
+.kz-seasonal-card-detail .kz-seasonal-copy > span {
+  font-size:8px !important;
+}
