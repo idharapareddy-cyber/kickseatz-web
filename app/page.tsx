@@ -8,6 +8,9 @@ import {
   Search,
   Ticket,
   Trophy,
+  Music2,
+  Users,
+  Sparkles,
 } from "lucide-react";
 import { GAMES, TEAMS, teamName } from "../lib/data";
 
@@ -186,6 +189,35 @@ export default function HomePage() {
         </div>
         <div className="kz-card-grid">
           {trending.slice(0, 3).map((game, i) => <EventCard key={game.id} game={game} index={i} />)}
+        </div>
+      </section>
+
+      <section className="kz-section">
+        <div className="kz-section-heading">
+          <div><span className="kz-eyebrow">GAME DAY & BEYOND</span><h2>More than just the game</h2></div>
+          <Link href="/find-tickets">Explore events <ArrowRight size={15} /></Link>
+        </div>
+        <div className="kz-experience-grid">
+          <Link href="/find-tickets" className="kz-experience-card kz-experience-concert">
+            <div className="kz-experience-art">
+              <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1000&q=85" alt="" />
+              <div className="kz-experience-shade" />
+              <Music2 size={25} />
+            </div>
+            <div className="kz-experience-copy">
+              <span>LIVE MUSIC</span>
+              <strong>Concerts & game-day music</strong>
+              <small>Find live music experiences around major game weekends.</small>
+            </div>
+          </Link>
+          <Link href="/find-tickets" className="kz-experience-card">
+            <div className="kz-experience-art"><img src={eventImages[2]} alt="" /><div className="kz-experience-shade" /><Users size={25} /></div>
+            <div className="kz-experience-copy"><span>NFL EVENTS</span><strong>Fan festivals & football events</strong><small>Discover NFL-themed experiences beyond the stadium seats.</small></div>
+          </Link>
+          <Link href="/find-tickets" className="kz-experience-card">
+            <div className="kz-experience-art"><img src={eventImages[1]} alt="" /><div className="kz-experience-shade" /><Sparkles size={25} /></div>
+            <div className="kz-experience-copy"><span>GAME WEEKEND</span><strong>Drafts, showcases & special events</strong><small>Keep an eye out for major football events and special weekends.</small></div>
+          </Link>
         </div>
       </section>
 
