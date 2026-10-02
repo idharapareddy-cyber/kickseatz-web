@@ -131,17 +131,23 @@ export default function HomePage() {
         </div>
 
         <div className="market-hero-visual">
-          <div className="market-hero-visual-top"><span>FEATURED MATCHUP</span><strong>{featured[0].demand} demand</strong></div>
-          <div className="market-hero-matchup">
-            <div><img src={logoUrl(featured[0].away)} alt="" /><span>{teamName(featured[0].away)}</span></div>
-            <b>@</b>
-            <div><img src={logoUrl(featured[0].home)} alt="" /><span>{teamName(featured[0].home)}</span></div>
+          <div className="market-hero-image-wrap">
+            <img className="market-hero-player" src={PLAYER_SPOTLIGHTS[0].image} alt="" />
+            <div className="market-hero-glow" />
           </div>
-          <div className="market-hero-game">
-            <span><CalendarDays size={14}/>{formatDate(featured[0].date)} · {featured[0].time}</span>
-            <span><MapPin size={14}/>{featured[0].city}</span>
+          <div className="market-hero-overlay">
+            <div className="market-hero-visual-top"><span>FEATURED GAME</span><strong>{featured[0].demand} demand</strong></div>
+            <div className="market-hero-matchup">
+              <div><img src={logoUrl(featured[0].away)} alt="" /><span>{teamName(featured[0].away)}</span></div>
+              <b>VS</b>
+              <div><img src={logoUrl(featured[0].home)} alt="" /><span>{teamName(featured[0].home)}</span></div>
+            </div>
+            <div className="market-hero-game">
+              <span><CalendarDays size={14}/>{formatDate(featured[0].date)} · {featured[0].time}</span>
+              <span><MapPin size={14}/>{featured[0].venue} · {featured[0].city}</span>
+            </div>
+            <Link href={"/find-tickets?game=" + featured[0].id} className="market-hero-cta">Find tickets <ArrowRight size={15}/></Link>
           </div>
-          <Link href={"/find-tickets?game=" + featured[0].id} className="market-hero-cta">View tickets <ArrowRight size={15}/></Link>
         </div>
       </section>
 
