@@ -35,13 +35,6 @@ const logoIds: Record<string, number> = {
   SEA:26, TB:27, TEN:10, WAS:28,
 };
 
-// Football-only editorial imagery. Match cards never use unrelated concert/music/soccer imagery.
-const eventImages = [
-  "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=1400&q=85",
-  "https://images.unsplash.com/photo-1668674768860-b6d34068042b?auto=format&fit=crop&w=1400&q=85",
-  "https://images.unsplash.com/photo-1549963921-a936ee5b69e6?auto=format&fit=crop&w=1400&q=85",
-];
-
 function logoUrl(slug: string) {
   const abbr = TEAMS.find((t) => t.slug === slug)?.abbr;
   const id = abbr ? logoIds[abbr] : undefined;
@@ -113,14 +106,8 @@ function EventCard({
     >
       <div className="kz-event-image">
         <MatchupGraphic game={game} />
-        <div className="kz-image-shade" />
         <span className="kz-event-badge">{matchupLabel(game)}</span>
         <span className="kz-heart" aria-hidden="true">♡</span>
-        <div className="kz-card-logos">
-          <img src={logoUrl(game.away)} alt="" />
-          <span>VS</span>
-          <img src={logoUrl(game.home)} alt="" />
-        </div>
       </div>
       <div className="kz-event-info">
         <strong>{teamName(game.away)} @ {teamName(game.home)}</strong>
@@ -142,7 +129,6 @@ export default function HomePage() {
       <section className="kz-hero">
         <div className="kz-hero-image">
           <MatchupGraphic game={featured[0]} hero />
-          <div className="kz-hero-overlay" />
           <div className="kz-hero-copy">
             <span className="kz-eyebrow">KICKSEATZ · LIVE SPORTS & EVENTS</span>
             <h1>Find your seat<br /><em>for the game.</em></h1>
@@ -190,8 +176,7 @@ export default function HomePage() {
         </div>
         <div className="kz-feature-grid">
           <Link href={`/find-tickets?game=${featured[0].id}`} className="kz-feature-main">
-            <img src={matchupImage(featured[0])} alt="" />
-            <div className="kz-feature-shade" />
+            <MatchupGraphic game={featured[0]} hero />
             <span className="kz-feature-badge">FEATURED MATCHUP</span>
             <div className="kz-feature-copy">
               <span>{formatDate(featured[0].date)} · {featured[0].city}</span>
@@ -237,11 +222,11 @@ export default function HomePage() {
             </div>
           </Link>
           <Link href="/find-tickets" className="kz-experience-card">
-            <div className="kz-experience-art"><img src={eventImages[2]} alt="" /><div className="kz-experience-shade" /><Users size={25} /></div>
+            <div className="kz-experience-art"><img src="https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=1400&q=90" alt="" /><div className="kz-experience-shade" /><Users size={25} /></div>
             <div className="kz-experience-copy"><span>NFL EVENTS</span><strong>Fan festivals & football events</strong><small>Discover NFL-themed experiences beyond the stadium seats.</small></div>
           </Link>
           <Link href="/find-tickets" className="kz-experience-card">
-            <div className="kz-experience-art"><img src={eventImages[1]} alt="" /><div className="kz-experience-shade" /><Sparkles size={25} /></div>
+            <div className="kz-experience-art"><img src="https://images.unsplash.com/photo-1668674768860-b6d34068042b?auto=format&fit=crop&w=1400&q=90" alt="" /><div className="kz-experience-shade" /><Sparkles size={25} /></div>
             <div className="kz-experience-copy"><span>GAME WEEKEND</span><strong>Drafts, showcases & special events</strong><small>Keep an eye out for major football events and special weekends.</small></div>
           </Link>
         </div>
