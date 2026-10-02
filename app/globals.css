@@ -3771,3 +3771,154 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
   .kz-international-feature-grid{grid-template-columns:1fr}
   .kz-international-feature-card img{height:190px}
 }
+
+
+/* EDITORIAL HOMEPAGE HIERARCHY */
+.kz-marquee-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+}
+.kz-marquee-card{
+  min-width:0;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--surface);
+  color:var(--text);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.kz-marquee-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(124,92,255,.48);
+  box-shadow:0 14px 32px rgba(0,0,0,.10);
+}
+.kz-marquee-holiday{grid-column:span 2}
+.kz-marquee-image{
+  position:relative;
+  height:150px;
+  overflow:hidden;
+  background:#111;
+}
+.kz-marquee-holiday .kz-marquee-image{height:210px}
+.kz-marquee-image img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  filter:none!important;
+  opacity:1!important;
+  transform:none!important;
+}
+.kz-marquee-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.02) 35%,rgba(0,0,0,.70));
+  pointer-events:none;
+}
+.kz-marquee-image span{
+  position:absolute;
+  z-index:2;
+  left:13px;
+  bottom:12px;
+  color:#fff;
+  font-size:8px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-shadow:0 1px 8px rgba(0,0,0,.65);
+}
+.kz-marquee-body{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  padding:13px 14px 14px;
+}
+.kz-marquee-body small,.kz-marquee-small-body small{
+  display:block;
+  color:var(--muted);
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:.11em;
+}
+.kz-marquee-body strong{
+  display:block;
+  margin-top:5px;
+  font-size:17px;
+  line-height:1.1;
+}
+.kz-marquee-games{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  min-width:205px;
+  padding-left:13px;
+  border-left:1px solid var(--line);
+}
+.kz-marquee-games span{
+  font-size:8px;
+  line-height:1.2;
+  font-weight:800;
+}
+.kz-marquee-small-body{padding:11px 13px 13px}
+.kz-marquee-small-body strong{display:block;margin-top:5px;font-size:14px;line-height:1.15}
+.kz-marquee-small-body>span{display:block;margin-top:6px;color:var(--muted);font-size:8px;line-height:1.3}
+
+.kz-international-editorial-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-auto-rows:170px;
+}
+.kz-international-editorial-grid .kz-international-feature-card{
+  height:100%;
+}
+.kz-international-editorial-grid .kz-international-feature-card img{
+  height:100%;
+  min-height:170px;
+}
+.kz-international-editorial-grid .kz-international-lead{
+  grid-column:span 2;
+  grid-row:span 2;
+}
+.kz-international-editorial-grid .kz-international-lead img{
+  min-height:352px;
+}
+.kz-international-editorial-grid .kz-international-feature-card div{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:2;
+  padding:15px;
+  color:#fff;
+  background:linear-gradient(0deg,rgba(5,4,10,.90),rgba(5,4,10,0));
+}
+.kz-international-editorial-grid .kz-international-feature-card{
+  position:relative;
+}
+.kz-international-editorial-grid .kz-international-feature-card div{
+  border-top:0;
+}
+.kz-international-editorial-grid .kz-international-feature-card span{color:#c8bbff}
+.kz-international-editorial-grid .kz-international-feature-card strong{font-size:14px}
+.kz-international-editorial-grid .kz-international-feature-card small{color:rgba(255,255,255,.72)}
+
+@media(max-width:900px){
+  .kz-marquee-grid{grid-template-columns:1fr 1fr}
+  .kz-marquee-holiday{grid-column:span 2}
+  .kz-international-editorial-grid{grid-template-columns:1fr 1fr;grid-auto-rows:190px}
+  .kz-international-editorial-grid .kz-international-lead{grid-column:span 2;grid-row:span 1}
+  .kz-international-editorial-grid .kz-international-lead img{min-height:190px}
+}
+@media(max-width:650px){
+  .kz-marquee-grid{grid-template-columns:1fr}
+  .kz-marquee-holiday{grid-column:auto}
+  .kz-marquee-holiday .kz-marquee-image{height:185px}
+  .kz-marquee-body{display:block}
+  .kz-marquee-games{margin-top:10px;padding-left:0;padding-top:9px;border-left:0;border-top:1px solid var(--line)}
+  .kz-international-editorial-grid{grid-template-columns:1fr;grid-auto-rows:220px}
+  .kz-international-editorial-grid .kz-international-lead{grid-column:auto}
+  .kz-international-editorial-grid .kz-international-lead img{min-height:220px}
+}
