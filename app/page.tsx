@@ -398,45 +398,33 @@ export default function HomePage() {
 
       <section className="kz-section kz-game-type-section">
         <div className="kz-section-heading">
-          <div><span className="kz-eyebrow">SHOP BY GAME TYPE</span><h2>Every game has a different feel</h2></div>
+          <div><span className="kz-eyebrow">NFL GAME TYPES</span><h2>Shop by game type</h2></div>
           <Link href="/find-tickets">Browse the full NFL schedule <ArrowRight size={15} /></Link>
         </div>
 
         <div className="kz-game-type-grid">
           <div className="kz-game-type-block kz-game-type-division">
-            <div className="kz-game-type-head"><span>DIVISION RIVALRIES</span><strong>Know the teams. Feel the history.</strong></div>
+            <div className="kz-game-type-head"><span>DIVISION RIVALRIES</span><strong>Rivalry games</strong></div>
             <div className="kz-mini-card-grid">
               {GAMES.filter((game) => gameFlags(game).division).slice(0, 2).map((game, i) => <EventCard key={game.id} game={game} index={i + 10} />)}
             </div>
           </div>
 
           <div className="kz-game-type-block kz-game-type-prime">
-            <div className="kz-game-type-head"><span>PRIMETIME</span><strong>Big matchups under the lights.</strong></div>
+            <div className="kz-game-type-head"><span>PRIMETIME</span><strong>Thursday, Sunday & Monday night games</strong></div>
             <div className="kz-mini-card-grid">
               {GAMES.filter((game) => gameFlags(game).primetime).map((game, i) => <EventCard key={game.id} game={game} index={i + 20} />)}
             </div>
           </div>
 
           <div className="kz-game-type-block kz-game-type-playoff">
-            <div className="kz-game-type-head"><span>PLAYOFF WATCH</span><strong>Late-season games with postseason stakes.</strong></div>
+            <div className="kz-game-type-head"><span>PLAYOFF WATCH</span><strong>Late-season games</strong></div>
             <div className="kz-mini-card-grid">
               {GAMES.filter((game) => gameFlags(game).playoffWatch).slice(0, 2).map((game, i) => <EventCard key={game.id} game={game} index={i + 30} />)}
             </div>
           </div>
 
-          <div className="kz-game-type-block kz-game-type-international">
-            <div className="kz-game-type-head"><span>INTERNATIONAL SERIES</span><strong>NFL game days beyond the U.S.</strong></div>
-            <div className="kz-international-grid">
-              <Link href="/find-tickets?category=international" className="kz-international-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Wembley_stadium.jpg" alt="Wembley Stadium in London" />
-                <div><span>LONDON</span><strong>Wembley Stadium</strong><small>International NFL destination</small></div>
-              </Link>
-              <Link href="/find-tickets?category=international" className="kz-international-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Allianz_Arena.jpg" alt="Allianz Arena in Munich" />
-                <div><span>MUNICH</span><strong>Allianz Arena</strong><small>International NFL destination</small></div>
-              </Link>
-            </div>
-          </div>
+       </div>
         </div>
       </section>
 
