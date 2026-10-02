@@ -103,15 +103,29 @@ function StadiumVisual({ game, hero = false }: { game: (typeof GAMES)[number]; h
   );
 }
 
+const nflActionImages = [
+  "https://commons.wikimedia.org/wiki/Special:FilePath/NASA%E2%80%99s_Inspiration_Tour_at_Acrisure_Stadium_%28NHQ202609130036%29.jpg?width=1600",
+  "https://commons.wikimedia.org/wiki/Special:FilePath/NASA%E2%80%99s_Inspiration_Tour_at_Huntington_Bank_Field_%28GRC-2026-C-06355%29.jpg?width=1600",
+  "https://commons.wikimedia.org/wiki/Special:FilePath/NASA_Kicks_Off_Inspiration_Tour_with_Steelers_vs._Falcons_Game.jpg?width=1600",
+  "https://commons.wikimedia.org/wiki/Special:FilePath/Metlife_stadium.jpg?width=1600",
+];
+
+function NflPhotoVisual({ game, index = 0, hero = false }: { game: (typeof GAMES)[number]; index?: number; hero?: boolean }) {
+  const image = nflActionImages[index % nflActionImages.length];
+  return (
+    <div className={"kz-photo-visual" + (hero ? " kz-photo-visual-hero" : "")}>
+      <img src={image} alt={teamName(game.away) + " at " + teamName(game.home) + " NFL game"} />
+      <div className="kz-photo-shade" />
+      <div className="kz-photo-meta"><span>{gameCategory(game)}</span><strong>{game.venue}</strong></div>
+    </div>
+  );
+}
+
 function GameVisual({ game, index, hero = false, section }: { game: (typeof GAMES)[number]; index: number; hero?: boolean; section?: "division" | "primetime" | "playoff" }) {
-  const sectionStadiums: Record<string, string[]> = {
-    division: ["san-francisco-49ers", "green-bay-packers"],
-    primetime: ["san-francisco-49ers", "atlanta-falcons", "green-bay-packers"],
-    playoff: ["san-francisco-49ers", "green-bay-packers"],
-  };
-  const allowed = section ? sectionStadiums[section] ?? [] : [];
-  const useStadium = allowed.includes(game.home);
-  return useStadium ? <StadiumVisual game={game} hero={hero} /> : <MatchupGraphic game={game} hero={hero} />;
+  const useStadium = Boolean(stadiumImages[game.home]);
+  return useStadium
+    ? <StadiumVisual game={game} hero={hero} />
+    : <NflPhotoVisual game={game} index={index} hero={hero} />;
 }
 
 function MatchupGraphic({ game, hero = false }: { game: (typeof GAMES)[number]; hero?: boolean }) {
@@ -386,7 +400,7 @@ export default function HomePage() {
             </div>
             <div className="kz-type-editorial-body">
               {GAMES.filter((game) => gameFlags(game).primetime).slice(0, 3).map((game, i) => (
-                <Link href={`/find-tickets?game=${game.id}`} className={`kz-type-feature ${i === 0 ? "is-lead" : ""}`} key={game.id}>
+                <Link href={`/find-tickets?game=${game.id}`} className="kz-type-feature" key={game.id}>
                   <GameVisual game={game} index={i + 50} hero={i === 0} section="primetime" />
                   <div className="kz-type-feature-copy">
                     <span>{formatDate(game.date)} · {game.city}</span>
