@@ -111,29 +111,11 @@ function StadiumVisual({ game, hero = false }: { game: (typeof GAMES)[number]; h
   );
 }
 
-const nflActionImages = [
-  "https://commons.wikimedia.org/wiki/Special:FilePath/NASA%E2%80%99s_Inspiration_Tour_at_Acrisure_Stadium_%28NHQ202609130036%29.jpg?width=1600",
-  "https://commons.wikimedia.org/wiki/Special:FilePath/NASA%E2%80%99s_Inspiration_Tour_at_Huntington_Bank_Field_%28GRC-2026-C-06355%29.jpg?width=1600",
-  "https://commons.wikimedia.org/wiki/Special:FilePath/NASA_Kicks_Off_Inspiration_Tour_with_Steelers_vs._Falcons_Game.jpg?width=1600",
-  "https://commons.wikimedia.org/wiki/Special:FilePath/Metlife_stadium.jpg?width=1600",
-];
-
-function NflPhotoVisual({ game, index = 0, hero = false }: { game: (typeof GAMES)[number]; index?: number; hero?: boolean }) {
-  const image = nflActionImages[index % nflActionImages.length];
-  return (
-    <div className={"kz-photo-visual" + (hero ? " kz-photo-visual-hero" : "")}>
-      <img src={image} alt={teamName(game.away) + " at " + teamName(game.home) + " NFL game"} />
-      <div className="kz-photo-shade" />
-      <div className="kz-photo-meta"><span>{gameCategory(game)}</span><strong>{game.venue}</strong></div>
-    </div>
-  );
-}
-
 function GameVisual({ game, index, hero = false, section }: { game: (typeof GAMES)[number]; index: number; hero?: boolean; section?: "division" | "primetime" | "playoff" }) {
   const useStadium = Boolean(stadiumImages[game.home]);
   return useStadium
     ? <StadiumVisual game={game} hero={hero} />
-    : <NflPhotoVisual game={game} index={index} hero={hero} />;
+    : <MatchupGraphic game={game} hero={hero} />;
 }
 
 function MatchupGraphic({ game, hero = false }: { game: (typeof GAMES)[number]; hero?: boolean }) {
@@ -371,57 +353,69 @@ export default function HomePage() {
         </div>
         <div className="kz-international-feature-grid kz-international-editorial-grid">
           <Link href="/find-tickets?category=international" className="kz-international-feature-card kz-international-lead">
-            <img src="https://s.yimg.com/ny/api/res/1.2/OC2YHeWOVkg6YaGjCv2g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https%3A/media.zenfs.com/en/aol_yahoo_sports_800/bae0b6f0c5d4b80caebd1c78d87a78a0" alt="NFL International Series game in London with the American and British flags" />
-            <div className="kz-international-photo-tag"><span>🇬🇧</span><b>NFL INTERNATIONAL</b></div>
-            <div className="kz-international-card-copy"><strong>International Series</strong><small>London · NFL abroad</small></div>
+            <img src="https://static.www.nfl.com/image/upload/f_auto/league/ixy8c3hynxmxz9vdrboj" alt="NFL 2026 Melbourne Game featuring the 49ers and Rams" />
+            <div className="kz-international-photo-tag"><span>🇦🇺</span><b>NFL · MELBOURNE</b></div>
+            <div className="kz-international-card-copy"><strong>49ers vs Rams</strong><small>Melbourne · Sept 10 · MCG</small></div>
           </Link>
 
           <Link href="/find-tickets?category=international" className="kz-international-feature-card kz-international-wide">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Melbourne_Cricket_Ground.JPG" alt="Melbourne Cricket Ground" />
-            <div className="kz-international-photo-tag"><span>🇦🇺</span><b>NFL MELBOURNE</b></div>
-            <div className="kz-international-card-copy"><strong>49ers vs Rams</strong><small>Melbourne · Sept 10</small></div>
+            <img src="https://static.www.nfl.com/image/upload/f_auto,dpr_2.0,q_auto/league/hkdtddhmo2wj1j7umpsj" alt="Official NFL 2026 International Games graphic showing the global slate" />
+            <div className="kz-international-photo-tag"><span>🌎</span><b>2026 NFL INTERNATIONAL</b></div>
+            <div className="kz-international-card-copy"><strong>Nine games. Seven countries.</strong><small>Australia · Brazil · UK · France · Spain · Germany · Mexico</small></div>
           </Link>
 
           <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/New_Maracana_Stadium.jpg" alt="Maracanã Stadium" />
-            <div className="kz-international-photo-tag"><span>🇧🇷</span><b>NFL RIO</b></div>
-            <div className="kz-international-card-copy"><strong>Ravens vs Cowboys</strong><small>Rio · Sept 27</small></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/New_Maracana_Stadium.jpg" alt="Maracanã Stadium in Rio de Janeiro" />
+            <div className="kz-international-photo-tag"><span>🇧🇷</span><b>NFL · RIO</b></div>
+            <div className="kz-international-card-copy"><strong>Ravens vs Cowboys</strong><small>Rio · Sept 27 · Maracanã</small></div>
           </Link>
 
           <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Wembley_stadium.jpg" alt="Wembley Stadium" />
-            <div className="kz-international-photo-tag"><span>🇬🇧</span><b>NFL LONDON</b></div>
-            <div className="kz-international-card-copy"><strong>Colts vs Commanders</strong><small>London · Oct 4</small></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Wembley_Stadium%2C_London%2C_UK.jpg" alt="Wembley Stadium in London" />
+            <div className="kz-international-photo-tag"><span>🇬🇧</span><b>NFL · LONDON</b></div>
+            <div className="kz-international-card-copy"><strong>Texans vs Jaguars</strong><small>London · Oct 18 · Wembley</small></div>
           </Link>
 
           <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Wembley_stadium.jpg" alt="Wembley Stadium" />
-            <div className="kz-international-photo-tag"><span>🇬🇧</span><b>NFL LONDON</b></div>
-            <div className="kz-international-card-copy"><strong>Eagles vs Jaguars</strong><small>London · Oct 11</small></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Stade_de_France.jpg" alt="Stade de France in Paris" />
+            <div className="kz-international-photo-tag"><span>🇫🇷</span><b>NFL · PARIS</b></div>
+            <div className="kz-international-card-copy"><strong>Steelers vs Saints</strong><small>Paris · Oct 25 · Stade de France</small></div>
           </Link>
 
           <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Stade_de_France.jpg" alt="Stade de France" />
-            <div className="kz-international-photo-tag"><span>🇫🇷</span><b>NFL PARIS</b></div>
-            <div className="kz-international-card-copy"><strong>Steelers vs Saints</strong><small>Paris · Oct 25</small></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Santiago_Bernabeu_Stadium.jpg" alt="Bernabéu Stadium in Madrid" />
+            <div className="kz-international-photo-tag"><span>🇪🇸</span><b>NFL · MADRID</b></div>
+            <div className="kz-international-card-copy"><strong>Bengals vs Falcons</strong><small>Madrid · Nov 8 · Bernabéu</small></div>
           </Link>
 
           <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Santiago_Bernabeu_Stadium.jpg" alt="Santiago Bernabéu Stadium" />
-            <div className="kz-international-photo-tag"><span>🇪🇸</span><b>NFL MADRID</b></div>
-            <div className="kz-international-card-copy"><strong>Bengals vs Falcons</strong><small>Madrid · Nov 8</small></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Allianz_Arena.jpg" alt="Allianz Arena in Munich" />
+            <div className="kz-international-photo-tag"><span>🇩🇪</span><b>NFL · MUNICH</b></div>
+            <div className="kz-international-card-copy"><strong>Patriots vs Lions</strong><small>Munich · Nov 15 · FC Bayern Arena</small></div>
           </Link>
 
           <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Allianz_Arena.jpg" alt="Allianz Arena" />
-            <div className="kz-international-photo-tag"><span>🇩🇪</span><b>NFL MUNICH</b></div>
-            <div className="kz-international-card-copy"><strong>Patriots vs Lions</strong><small>Munich · Nov 15</small></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Estadio_Azteca_2026_-_06.jpg" alt="Estadio Banorte in Mexico City after its 2026 renovation" />
+            <div className="kz-international-photo-tag"><span>🇲🇽</span><b>NFL · MEXICO CITY</b></div>
+            <div className="kz-international-card-copy"><strong>Vikings vs 49ers</strong><small>Mexico City · Nov 22 · Estadio Banorte</small></div>
           </Link>
 
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Estadio_Azteca_2022.jpg" alt="Estadio Banorte in Mexico City" />
-            <div className="kz-international-photo-tag"><span>🇲🇽</span><b>NFL MEXICO CITY</b></div>
-            <div className="kz-international-card-copy"><strong>Vikings vs 49ers</strong><small>Mexico City · Nov 22</small></div>
+          <Link href="/find-tickets?category=international" className="kz-international-feature-card kz-international-team-card">
+            <div className="kz-international-team-art">
+              <div className="kz-international-team-logos"><img src={logoUrl("indianapolis-colts")} alt="" /><span>VS</span><img src={logoUrl("washington-commanders")} alt="" /></div>
+              <b>🇬🇧 LONDON · OCT 4</b>
+              <strong>Colts vs Commanders</strong>
+              <small>Tottenham Hotspur Stadium</small>
+            </div>
+          </Link>
+
+          <Link href="/find-tickets?category=international" className="kz-international-feature-card kz-international-team-card">
+            <div className="kz-international-team-art">
+              <div className="kz-international-team-logos"><img src={logoUrl("philadelphia-eagles")} alt="" /><span>VS</span><img src={logoUrl("jacksonville-jaguars")} alt="" /></div>
+              <b>🇬🇧 LONDON · OCT 11</b>
+              <strong>Eagles vs Jaguars</strong>
+              <small>Tottenham Hotspur Stadium</small>
+            </div>
           </Link>
         </div></section>
 
@@ -477,7 +471,7 @@ export default function HomePage() {
             </div>
             <div className="kz-type-editorial-body">
               {UPCOMING_GAMES.filter((game) => gameFlags(game).playoffWatch).slice(0, 3).map((game, i) => (
-                <Link href={`/find-tickets?game=${game.id}`} className={`kz-type-feature ${i === 0 ? "is-lead" : ""}`} key={game.id}>
+                <Link href={`/find-tickets?game=${game.id}`} className="kz-type-feature" key={game.id}>
                   <GameVisual game={game} index={i + 60} hero={i === 0} section="playoff" />
                   <div className="kz-type-feature-copy">
                     <span>{formatDate(game.date)} · {game.city}</span>
@@ -501,7 +495,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="kz-section">
+      <section className="kz-section kz-college-section">
+        <div className="kz-section-heading"><div><span className="kz-eyebrow">NEXT UP</span><h2>College football</h2></div><Link href="/find-tickets?category=college-football">Explore college football <ArrowRight size={15} /></Link></div>
+        <div className="kz-college-grid">{collegeFootball.map((school)=><Link href="/find-tickets?category=college-football" className="kz-college-card" key={school.short}><img src={school.image} alt="" /><div className="kz-college-shade" /><div className="kz-college-copy"><span>COLLEGE FOOTBALL</span><strong>{school.name}</strong><small>Games, rivalries & game-day experiences</small></div></Link>)}</div>
+      </section>
+
+<section className="kz-section kz-sports-section">
+        <div className="kz-section-heading"><div><span className="kz-eyebrow">MORE SPORTS</span><h2>Coming beyond football</h2></div><span className="kz-section-note">One ticket destination, more live sports.</span></div>
+        <div className="kz-sports-grid">{sportCategories.map((sport)=><Link href={`/find-tickets?category=${sport.kicker.toLowerCase()}`} className="kz-sport-card" key={sport.kicker}><img src={sport.image} alt="" /><div className="kz-sport-shade" /><div><span>{sport.kicker}</span><strong>{sport.name}</strong><small>Explore tickets & events</small></div></Link>)}</div>
+      </section>
+
+<section className="kz-section">
         <div className="kz-section-heading">
           <div><span className="kz-eyebrow">GAME DAY & BEYOND</span><h2>More than just the game</h2></div>
           <Link href="/find-tickets">Explore events <ArrowRight size={15} /></Link>
@@ -530,10 +534,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="kz-section kz-college-section">
-        <div className="kz-section-heading"><div><span className="kz-eyebrow">NEXT UP</span><h2>College football</h2></div><Link href="/find-tickets?category=college-football">Explore college football <ArrowRight size={15} /></Link></div>
-        <div className="kz-college-grid">{collegeFootball.map((school)=><Link href="/find-tickets?category=college-football" className="kz-college-card" key={school.short}><img src={school.image} alt="" /><div className="kz-college-shade" /><div className="kz-college-copy"><span>COLLEGE FOOTBALL</span><strong>{school.name}</strong><small>Games, rivalries & game-day experiences</small></div></Link>)}</div>
-      </section>
+      
 
       <section className="kz-section kz-team-strip-section">
         <div className="kz-section-heading">
@@ -592,10 +593,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="kz-section kz-sports-section">
-        <div className="kz-section-heading"><div><span className="kz-eyebrow">MORE SPORTS</span><h2>Coming beyond football</h2></div><span className="kz-section-note">One ticket destination, more live sports.</span></div>
-        <div className="kz-sports-grid">{sportCategories.map((sport)=><Link href={`/find-tickets?category=${sport.kicker.toLowerCase()}`} className="kz-sport-card" key={sport.kicker}><img src={sport.image} alt="" /><div className="kz-sport-shade" /><div><span>{sport.kicker}</span><strong>{sport.name}</strong><small>Explore tickets & events</small></div></Link>)}</div>
-      </section>
+      
 
       <section className="kz-section kz-discover">
         <div className="kz-section-heading">
