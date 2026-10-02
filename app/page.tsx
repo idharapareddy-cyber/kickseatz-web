@@ -303,56 +303,60 @@ export default function HomePage() {
       </section>
 
             <section className="kz-section kz-seasonal-section">
-        <div className="kz-section-heading">
-          <div>
-            <span className="kz-eyebrow">HOLIDAYS & MARQUEE</span>
-            <h2>Big NFL dates</h2>
+    <div className="kz-section-heading">
+      <div>
+        <span className="kz-eyebrow">HOLIDAYS & MARQUEE</span>
+        <h2>Big NFL dates</h2>
+      </div>
+      <Link href="/find-tickets?category=seasonal">View all <ArrowRight size={15} /></Link>
+    </div>
+
+    <div className="kz-marquee-grid">
+      <Link href="/find-tickets?category=thanksgiving" className="kz-marquee-card kz-marquee-holiday">
+        <div className="kz-marquee-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Veterans_Day_ceremonies_at_NFL_game_in_Chicago_131110-G-PL299-128.jpg" alt="Chicago Bears and Detroit Lions NFL game" />
+        </div>
+        <div className="kz-marquee-body">
+          <div><small>THREE GAMES · NOV 26</small><strong>Thanksgiving Day</strong></div>
+          <div className="kz-marquee-games">
+            <span>Bears @ Lions · 1:00 PM</span>
+            <span>Eagles @ Cowboys · 4:30 PM</span>
+            <span>Chiefs @ Bills · 8:20 PM</span>
           </div>
-          <Link href="/find-tickets?category=seasonal">View all <ArrowRight size={15} /></Link>
         </div>
+      </Link>
 
-        <div className="kz-marquee-grid">
-          <Link href="/find-tickets?category=thanksgiving" className="kz-marquee-card kz-marquee-holiday">
-            <div className="kz-marquee-image">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Veterans_Day_ceremonies_at_NFL_game_in_Chicago_131110-G-PL299-128.jpg" alt="Chicago Bears and Detroit Lions NFL game" />
-              
-            </div>
-            <div className="kz-marquee-body">
-              <div><small>THREE GAMES</small><strong>Thanksgiving Day</strong></div>
-              <div className="kz-marquee-games"><span>Bears @ Lions · 1:00 PM</span><span>Eagles @ Cowboys · 4:30 PM</span><span>Chiefs @ Bills · 8:20 PM</span></div>
-            </div>
-          </Link>
-
-          <Link href="/find-tickets?category=christmas" className="kz-marquee-card kz-marquee-holiday">
-            <div className="kz-marquee-image">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Packvbears.jpg" alt="Green Bay Packers and Chicago Bears NFL game" />
-              
-            </div>
-            <div className="kz-marquee-body">
-              <div><small>THREE GAMES</small><strong>Christmas Day</strong></div>
-              <div className="kz-marquee-games"><span>Packers @ Bears · 1:00 PM</span><span>Bills @ Broncos · 4:30 PM</span><span>Rams @ Seahawks · 8:15 PM</span></div>
-            </div>
-          </Link>
-
-          <Link href="/find-tickets?category=halloween" className="kz-marquee-card kz-marquee-small">
-            <div className="kz-marquee-image">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Anthony_Fasano_Jets-Dolphin_game%2C_Nov_2009_-_040.jpg" alt="Miami Dolphins and New York Jets NFL game" />
-              
-            </div>
-            <div className="kz-marquee-small-body"><small>OCT 25 · 1:00 PM</small><strong>Dolphins @ Jets</strong><span>MetLife Stadium · East Rutherford</span></div>
-          </Link>
-
-          <Link href="/find-tickets?category=super-bowl" className="kz-marquee-card kz-marquee-small">
-            <div className="kz-marquee-image">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/SoFi_Stadium.jpg" alt="SoFi Stadium in Inglewood, California" />
-              
-            </div>
-            <div className="kz-marquee-small-body"><small>FEB 14, 2027 · INGLEWOOD</small><strong>AFC vs NFC</strong><span>SoFi Stadium · Teams TBD</span></div>
-          </Link>
+      <Link href="/find-tickets?category=christmas" className="kz-marquee-card kz-marquee-holiday">
+        <div className="kz-marquee-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Packvbears.jpg" alt="Green Bay Packers and Chicago Bears NFL game" />
         </div>
-      </section>
+        <div className="kz-marquee-body">
+          <div><small>THREE GAMES · DEC 25</small><strong>Christmas Day</strong></div>
+          <div className="kz-marquee-games">
+            <span>Packers @ Bears · 1:00 PM</span>
+            <span>Bills @ Broncos · 4:30 PM</span>
+            <span>Rams @ Seahawks · 8:15 PM</span>
+          </div>
+        </div>
+      </Link>
 
-      <section className="kz-section kz-international-section">
+      <Link href="/find-tickets?category=international" className="kz-marquee-card kz-marquee-small">
+        <div className="kz-marquee-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Melbourne_Cricket_Ground.JPG" alt="Melbourne Cricket Ground hosting an international NFL game" />
+        </div>
+        <div className="kz-marquee-small-body"><small>INTERNATIONAL SERIES</small><strong>NFL Around the World</strong><span>Melbourne · Rio · London · Paris · Madrid · Munich · Mexico City</span></div>
+      </Link>
+
+      <Link href="/find-tickets?category=super-bowl" className="kz-marquee-card kz-marquee-small">
+        <div className="kz-marquee-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/SoFi_Stadium.jpg" alt="SoFi Stadium in Inglewood, California" />
+        </div>
+        <div className="kz-marquee-small-body"><small>FEB 14, 2027 · INGLEWOOD</small><strong>Super Bowl LXI</strong><span>SoFi Stadium · Los Angeles</span></div>
+      </Link>
+    </div>
+  </section>
+
+  <section className="kz-section kz-international-section">
         <div className="kz-section-heading">
           <div><span className="kz-eyebrow">NFL INTERNATIONAL SERIES</span><h2>Games around the world</h2></div>
           <Link href="/find-tickets?category=international">View all 9 games <ArrowRight size={15} /></Link>
