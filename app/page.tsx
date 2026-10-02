@@ -50,6 +50,73 @@ function formatDate(date: string) {
 }
 
 
+function matchupKey(game: (typeof GAMES)[number]) {\n  return game.away + "-" + game.home;\n}\n\nfunction MatchupGraphic({ game, hero = false }: { game: (typeof GAMES)[number]; hero?: boolean }) {
+  return (
+    <div className={"kz-matchup-graphic" + (hero ? " kz-matchup-graphic-hero" : "")}>
+      <div className="kz-matchup-panel kz-matchup-panel-away" />
+      <div className="kz-matchup-panel kz-matchup-panel-home" />
+      <div className="kz-matchup-accent" />
+      <div className="kz-matchup-topline"><span>KICKSEATZ · NFL</span><b>{matchupLabel(game)}</b></div>
+      <div className="kz-matchup-teams">
+        <div className="kz-matchup-team"><div className="kz-matchup-logo"><img src={logoUrl(game.away)} alt="" /></div><strong>{game.away}</strong><small>{teamName(game.away)}</small></div>
+        <div className="kz-matchup-vs"><span>VS</span></div>
+        <div className="kz-matchup-team"><div className="kz-matchup-logo"><img src={logoUrl(game.home)} alt="" /></div><strong>{game.home}</strong><small>{teamName(game.home)}</small></div>
+      </div>
+      <div className="kz-matchup-bottom"><span>{formatDate(game.date)}</span><span>{game.city}</span><span>{game.time}</span></div>
+    </div>
+  );
+}mport Link from "next/link";
+import {
+  ArrowRight,
+  CalendarDays,
+  Flame,
+  MapPin,
+  Navigation,
+  Search,
+  Ticket,
+  Trophy,
+  Music2,
+  Users,
+  Sparkles,
+} from "lucide-react";
+import { GAMES, TEAMS, teamName } from "../lib/data";
+
+const collegeFootball = [
+  { name: "Georgia Bulldogs", short: "UGA", image: "https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" },
+  { name: "Alabama Crimson Tide", short: "BAMA", image: "https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" },
+  { name: "Ohio State Buckeyes", short: "OSU", image: "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" },
+  { name: "Texas Longhorns", short: "TEXAS", image: "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png" },
+];
+
+const sportCategories = [
+  { name: "Basketball", kicker: "NBA", image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1000&q=85" },
+  { name: "Baseball", kicker: "MLB", image: "https://www.nikkansports.com/baseball/mlb/news/img/202401040000891-w1300_1.jpg" },
+  { name: "Hockey", kicker: "NHL", image: "https://oeg.ca/assets/uploads/img/_800x450_crop_center-center_none/Hockey_RogersPlace_1600px.jpg" },
+  { name: "Soccer", kicker: "MLS", image: "https://cdn.mos.cms.futurecdn.net/xjhbJv3TtXPSRw2mgjXukN-650-80.jpg" },
+];
+
+const logoIds: Record<string, number> = {
+  ARI:22, ATL:1, BAL:33, BUF:2, CAR:29, CHI:3, CIN:4, CLE:5, DAL:6, DEN:7,
+  DET:8, GB:9, HOU:34, IND:11, JAX:30, KC:12, LV:13, LAC:24, LAR:14,
+  MIA:15, MIN:16, NE:17, NO:18, NYG:19, NYJ:20, PHI:21, PIT:23, SF:25,
+  SEA:26, TB:27, TEN:10, WAS:28,
+};
+
+function logoUrl(slug: string) {
+  const abbr = TEAMS.find((t) => t.slug === slug)?.abbr;
+  const id = abbr ? logoIds[abbr] : undefined;
+  return id ? `https://a.espncdn.com/i/teamlogos/nfl/500/${id}.png` : "";
+}
+
+function formatDate(date: string) {
+  return new Date(`${date}T12:00:00`).toLocaleDateString("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+  });
+}
+
+
 function matchupKey(game: (typeof GAMES)[number]) {\n  return game.away + "-" + game.home;\n}\n\nfunction MatchupGraphic({ game, hero = false }: { game: (typeof GAMES)[number]; hero?: boolean }) {\n  return (\n    <div className={"kz-matchup-graphic" + (hero ? " kz-matchup-graphic-hero" : "")}>\n      <div className="kz-matchup-grid-lines" />\n      <div className="kz-matchup-glow kz-matchup-glow-away" />\n      <div className="kz-matchup-glow kz-matchup-glow-home" />\n      <div className="kz-matchup-topline"><span>NFL</span><b>{matchupLabel(game)}</b></div>\n      <div className="kz-matchup-teams">\n        <div className="kz-matchup-team"><div className="kz-matchup-logo"><img src={logoUrl(game.away)} alt="" /></div><strong>{teamName(game.away)}</strong><small>{game.away}</small></div>\n        <div className="kz-matchup-vs">VS</div>\n        <div className="kz-matchup-team"><div className="kz-matchup-logo"><img src={logoUrl(game.home)} alt="" /></div><strong>{teamName(game.home)}</strong><small>{game.home}</small></div>\n      </div>\n      <div className="kz-matchup-bottom"><span>{formatDate(game.date)}</span><span>{game.city}</span><span>{game.time}</span></div>\n    </div>\n  );\n}\n\nfunction matchupLabel(game: (typeof GAMES)[number]) {
   const prime = game.time.includes("8:20 PM") || game.time.includes("8:15 PM");
   const rivalry = ["DAL-PHI","GB-CHI","BAL-PIT","ATL-NO","SF-SEA","KC-BUF","KC-LV"].includes(matchupKey(game));
