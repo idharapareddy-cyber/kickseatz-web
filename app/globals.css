@@ -4298,3 +4298,100 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
     height:220px!important;
   }
 }
+
+
+/* CLEAN GAME-TYPE LAYOUT — no text over imagery */
+.kz-type-editorial-grid{
+  grid-template-columns:1fr 1fr!important;
+  gap:22px!important;
+}
+.kz-type-editorial-block{
+  overflow:hidden!important;
+}
+.kz-type-editorial-body{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:0!important;
+  background:var(--line)!important;
+}
+.kz-type-feature,
+.kz-type-feature.is-lead,
+.kz-type-playoff .kz-type-feature,
+.kz-type-playoff .kz-type-feature.is-lead{
+  grid-column:auto!important;
+  min-height:225px!important;
+  height:225px!important;
+}
+.kz-type-feature-copy{
+  position:absolute!important;
+  bottom:0!important;
+  left:0!important;
+  right:0!important;
+  padding:12px 13px!important;
+  background:var(--surface)!important;
+  color:var(--text)!important;
+  border-top:1px solid var(--line)!important;
+}
+.kz-type-feature-copy span,
+.kz-type-feature-copy strong,
+.kz-type-feature-copy small{
+  color:var(--text)!important;
+  text-shadow:none!important;
+}
+.kz-type-feature-copy span,
+.kz-type-feature-copy small{
+  color:var(--muted)!important;
+}
+.kz-type-feature-copy strong{
+  font-size:12px!important;
+}
+.kz-type-feature .kz-matchup-graphic,
+.kz-type-feature .kz-stadium-visual{
+  position:absolute!important;
+  top:0!important;
+  left:0!important;
+  right:0!important;
+  bottom:58px!important;
+  width:100%!important;
+  height:auto!important;
+}
+.kz-type-feature .kz-matchup-topline,
+.kz-type-feature .kz-matchup-bottom,
+.kz-type-feature .kz-stadium-label{
+  display:none!important;
+}
+.kz-type-feature .kz-matchup-team strong,
+.kz-type-feature .kz-matchup-team small{
+  text-shadow:none!important;
+}
+.kz-type-feature .kz-matchup-logo{
+  width:52px!important;
+  height:52px!important;
+}
+.kz-type-playoff{
+  grid-column:span 2!important;
+}
+.kz-type-playoff .kz-type-editorial-body{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+@media(max-width:900px){
+  .kz-type-editorial-grid{
+    grid-template-columns:1fr!important;
+  }
+  .kz-type-playoff{
+    grid-column:auto!important;
+  }
+}
+@media(max-width:650px){
+  .kz-type-editorial-body,
+  .kz-type-playoff .kz-type-editorial-body{
+    grid-template-columns:1fr!important;
+  }
+  .kz-type-feature,
+  .kz-type-feature.is-lead,
+  .kz-type-playoff .kz-type-feature,
+  .kz-type-playoff .kz-type-feature.is-lead{
+    height:235px!important;
+    min-height:235px!important;
+  }
+}
