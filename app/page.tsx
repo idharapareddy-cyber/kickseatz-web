@@ -57,16 +57,45 @@ function formatDate(date: string) {
 }
 
 
-const matchupImages: Record<string, string> = {
-  "KC-LV": eventImages[2],
-  "KC-SEA": eventImages[0],
-  "KC-BUF": eventImages[2],
-  "DAL-PHI": eventImages[1],
-  "GB-CHI": eventImages[1],
-  "BAL-PIT": eventImages[2],
-  "ATL-NO": eventImages[1],
-  "SF-SEA": eventImages[0],
+const nflStadiumImages: Record<string, string> = {
+  DAL: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/niasikdief0tltwe5pmt.jpg",
+  GB: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/ltf4w3s9acbdh5eik50g.jpg",
+  PHI: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/jutpr3g6nqxxswgh2j3v.jpg",
+  IND: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/wvuo5cqzrfepzsor9x3j.jpg",
+  NYG: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/wvuo5cqzrfepzsor9x3j.jpg",
+  NYJ: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/wvuo5cqzrfepzsor9x3j.jpg",
+  NO: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/wtzvpdsdnhy1nwhmohie.jpg",
+  DEN: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/dgssxe8hqzyy1nsyqv1l.jpg",
+  CHI: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/dgnlx3tr2sifziibbmja.jpg",
+  PIT: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/yzi3kmmjcjn37zl6pp8x.jpg",
+  NE: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/mwrbfgb0yb3ezox0myk0.jpg",
+  TB: "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/wnjkixrhkoparitkhcsi.jpg",
 };
+
+const nflStadiumFallbacks = [
+  "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/oavfpkgbhtnuzp4jsj4e.jpg",
+  "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/l0g6fvsprpebqw61wytz.jpg",
+  "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/lpjp6wtzfu1cqsm9kdbh.jpg",
+  "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/hm4yhstnntvp5nx9jhkj.jpg",
+  "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/t_lazy/f_auto/league/wdfsk0ggkw8hch50oysd.jpg",
+];
+
+function matchupKey(game: (typeof GAMES)[number]) {
+  return game.away + "-" + game.home;
+}
+
+function matchupImage(game: (typeof GAMES)[number]) {
+  return nflStadiumImages[game.home] ?? nflStadiumFallbacks[logoIds[TEAMS.find((t) => t.slug === game.home)?.abbr ?? ""] % nflStadiumFallbacks.length];
+}
+
+function matchupLabel(game: (typeof GAMES)[number]) {
+  const prime = game.time.includes("8:20 PM") || game.time.includes("8:15 PM");
+  const rivalry = ["DAL-PHI","GB-CHI","BAL-PIT","ATL-NO","SF-SEA","KC-BUF","KC-LV"].includes(matchupKey(game));
+  if (prime && rivalry) return "PRIMETIME RIVALRY";
+  if (prime) return "PRIMETIME";
+  if (rivalry) return "RIVALRY GAME";
+  return "NFL GAME DAY";
+}
 
 function matchupKey(game: (typeof GAMES)[number]) {
   return game.away + "-" + game.home;
