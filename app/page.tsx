@@ -15,17 +15,17 @@ import {
 import { GAMES, TEAMS, teamName } from "../lib/data";
 
 const collegeFootball = [
-  { name: "Georgia Bulldogs", short: "UGA", image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=1200&q=88" },
-  { name: "Alabama Crimson Tide", short: "BAMA", image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=1200&q=88" },
-  { name: "Ohio State Buckeyes", short: "OSU", image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=1200&q=88" },
-  { name: "Texas Longhorns", short: "TEXAS", image: "https://a.espncdn.com/i/venues/college-football/day/interior/3910.jpg" },
+  { name: "Georgia Bulldogs", short: "UGA", image: "https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" },
+  { name: "Alabama Crimson Tide", short: "BAMA", image: "https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" },
+  { name: "Ohio State Buckeyes", short: "OSU", image: "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" },
+  { name: "Texas Longhorns", short: "TEXAS", image: "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png" },
 ];
 
 const sportCategories = [
   { name: "Basketball", kicker: "NBA", image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1000&q=85" },
-  { name: "Baseball", kicker: "MLB", image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=1000&q=85" },
-  { name: "Hockey", kicker: "NHL", image: "https://images.unsplash.com/photo-1580748141549-71748dbe0bdc?auto=format&fit=crop&w=1000&q=85" },
-  { name: "Soccer", kicker: "MLS", image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1000&q=85" },
+  { name: "Baseball", kicker: "MLB", image: "https://www.nikkansports.com/baseball/mlb/news/img/202401040000891-w1300_1.jpg" },
+  { name: "Hockey", kicker: "NHL", image: "https://oeg.ca/assets/uploads/img/_800x450_crop_center-center_none/Hockey_RogersPlace_1600px.jpg" },
+  { name: "Soccer", kicker: "MLS", image: "https://cdn.mos.cms.futurecdn.net/xjhbJv3TtXPSRw2mgjXukN-650-80.jpg" },
 ];
 
 const logoIds: Record<string, number> = {
