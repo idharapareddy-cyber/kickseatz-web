@@ -66,6 +66,18 @@ export default function HomePage() {
   const featured = GAMES.slice(0, 3);
   const upcoming = GAMES.slice(3, 10);
   const trending = [...GAMES].filter((game) => game.demand === "High" || game.demand === "Premium").slice(0, 4);
+  const internationalGames = [
+    { date: "Sep 10", city: "Melbourne, Australia", venue: "Melbourne Cricket Ground", away: "san-francisco-49ers", home: "los-angeles-rams" },
+    { date: "Sep 27", city: "Rio de Janeiro, Brazil", venue: "Maracanã Stadium", away: "baltimore-ravens", home: "dallas-cowboys" },
+    { date: "Oct 4", city: "London, England", venue: "Tottenham Hotspur Stadium", away: "indianapolis-colts", home: "washington-commanders" },
+    { date: "Oct 11", city: "London, England", venue: "Tottenham Hotspur Stadium", away: "philadelphia-eagles", home: "jacksonville-jaguars" },
+    { date: "Oct 18", city: "London, England", venue: "Wembley Stadium", away: "houston-texans", home: "jacksonville-jaguars" },
+    { date: "Oct 25", city: "Paris, France", venue: "Stade de France", away: "pittsburgh-steelers", home: "new-orleans-saints" },
+    { date: "Nov 8", city: "Madrid, Spain", venue: "Bernabéu Stadium", away: "cincinnati-bengals", home: "atlanta-falcons" },
+    { date: "Nov 15", city: "Munich, Germany", venue: "FC Bayern Munich Stadium", away: "new-england-patriots", home: "detroit-lions" },
+    { date: "Nov 22", city: "Monterrey, Mexico", venue: "Estadio Banorte", away: "minnesota-vikings", home: "san-francisco-49ers" },
+  ];
+
   const popular = [...GAMES].sort((a, b) => {
     const score = (d: string) => d === "Premium" ? 4 : d === "High" ? 3 : d === "Medium" ? 2 : 1;
     return score(b.demand) - score(a.demand);
@@ -286,6 +298,32 @@ export default function HomePage() {
               key={game.id}
               game={game}
             />
+          ))}
+        </div>
+      </section>
+
+      <section className="marketplace-section market-international-section">
+        <div className="marketplace-heading">
+          <div>
+            <span className="market-eyebrow">INTERNATIONAL GAMES</span>
+            <h2>NFL around the world</h2>
+          </div>
+          <Link href="/find-tickets" className="market-see-all">Find tickets <ArrowRight size={15}/></Link>
+        </div>
+        <div className="market-international-grid">
+          {internationalGames.map((game) => (
+            <div key={game.date + game.venue} className="market-international-card">
+              <div className="market-international-top">
+                <strong>{game.date}</strong>
+                <span>{game.city}</span>
+              </div>
+              <div className="market-international-matchup">
+                <div><img src={logoUrl(game.away)} alt="" /><strong>{teamName(game.away)}</strong></div>
+                <span>VS</span>
+                <div><img src={logoUrl(game.home)} alt="" /><strong>{teamName(game.home)}</strong></div>
+              </div>
+              <div className="market-international-venue"><MapPin size={13}/>{game.venue}</div>
+            </div>
           ))}
         </div>
       </section>
