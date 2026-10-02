@@ -71,8 +71,18 @@ function EventCard({
   index: number;
   badge?: string;
 }) {
+  const homeTeam = TEAMS.find((team) => team.slug === game.home);
+  const awayTeam = TEAMS.find((team) => team.slug === game.away);
+
   return (
-    <Link href={`/find-tickets?game=${game.id}`} className="kz-event-card">
+    <Link
+      href={`/find-tickets?game=${game.id}`}
+      className="kz-event-card"
+      style={{
+        "--home-team-color": homeTeam?.color ?? "#6D28D9",
+        "--away-team-color": awayTeam?.color ?? "#111827",
+      } as React.CSSProperties}
+    >
       <div className="kz-event-image">
         <img src={eventImages[index % eventImages.length]} alt="" />
         <div className="kz-image-shade" />
