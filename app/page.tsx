@@ -68,6 +68,7 @@ const stadiumImages: Record<string, string> = {
   "dallas-cowboys": "https://images.unsplash.com/photo-1628630470727-b726b8a15a9d?auto=format&fit=crop&w=1600&q=85",
   "green-bay-packers": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Lambeau_Field.jpg",
   "san-francisco-49ers": "https://upload.wikimedia.org/wikipedia/commons/7/79/Levi%27s_Stadium.JPG",
+  "atlanta-falcons": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Mercedes-Benz_Stadium%2C_Atlanta%2C_GA_%2846558862285%29.jpg",
 };
 
 function gameFlags(game: (typeof GAMES)[number]) {
@@ -105,7 +106,7 @@ function StadiumVisual({ game, hero = false }: { game: (typeof GAMES)[number]; h
 function GameVisual({ game, index, hero = false, section }: { game: (typeof GAMES)[number]; index: number; hero?: boolean; section?: "division" | "primetime" | "playoff" }) {
   const sectionStadiums: Record<string, string[]> = {
     division: ["san-francisco-49ers", "green-bay-packers"],
-    primetime: ["san-francisco-49ers"],
+    primetime: ["san-francisco-49ers", "atlanta-falcons", "green-bay-packers"],
     playoff: ["san-francisco-49ers", "green-bay-packers"],
   };
   const allowed = section ? sectionStadiums[section] ?? [] : [];
