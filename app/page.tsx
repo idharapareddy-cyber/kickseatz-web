@@ -102,8 +102,14 @@ function StadiumVisual({ game, hero = false }: { game: (typeof GAMES)[number]; h
   );
 }
 
-function GameVisual({ game, index, hero = false }: { game: (typeof GAMES)[number]; index: number; hero?: boolean }) {
-  const useStadium = Boolean(stadiumImages[game.home]) && (hero || index % 3 === 0);
+function GameVisual({ game, index, hero = false, section }: { game: (typeof GAMES)[number]; index: number; hero?: boolean; section?: "division" | "primetime" | "playoff" }) {
+  const sectionStadiums: Record<string, string[]> = {
+    division: ["san-francisco-49ers", "green-bay-packers"],
+    primetime: ["san-francisco-49ers"],
+    playoff: ["san-francisco-49ers", "green-bay-packers"],
+  };
+  const allowed = section ? sectionStadiums[section] ?? [] : [];
+  const useStadium = allowed.includes(game.home);
   return useStadium ? <StadiumVisual game={game} hero={hero} /> : <MatchupGraphic game={game} hero={hero} />;
 }
 
@@ -360,8 +366,8 @@ export default function HomePage() {
             </div>
             <div className="kz-type-editorial-body">
               {GAMES.filter((game) => gameFlags(game).division).slice(0, 3).map((game, i) => (
-                <Link href={`/find-tickets?game=${game.id}`} className={`kz-type-feature ${i === 0 ? "is-lead" : ""}`} key={game.id}>
-                  <GameVisual game={game} index={i + 40} hero={i === 0} />
+                <Link href={`/find-tickets?game=${game.id}`} className="kz-type-feature" key={game.id}>
+                  <GameVisual game={game} index={i + 40} hero={i === 0} section="division" />
                   <div className="kz-type-feature-copy">
                     <span>{formatDate(game.date)} · {game.city}</span>
                     <strong>{teamName(game.away)} @ {teamName(game.home)}</strong>
@@ -380,7 +386,7 @@ export default function HomePage() {
             <div className="kz-type-editorial-body">
               {GAMES.filter((game) => gameFlags(game).primetime).slice(0, 3).map((game, i) => (
                 <Link href={`/find-tickets?game=${game.id}`} className={`kz-type-feature ${i === 0 ? "is-lead" : ""}`} key={game.id}>
-                  <GameVisual game={game} index={i + 50} hero={i === 0} />
+                  <GameVisual game={game} index={i + 50} hero={i === 0} section="primetime" />
                   <div className="kz-type-feature-copy">
                     <span>{formatDate(game.date)} · {game.city}</span>
                     <strong>{teamName(game.away)} @ {teamName(game.home)}</strong>
@@ -399,7 +405,7 @@ export default function HomePage() {
             <div className="kz-type-editorial-body">
               {GAMES.filter((game) => gameFlags(game).playoffWatch).slice(0, 3).map((game, i) => (
                 <Link href={`/find-tickets?game=${game.id}`} className={`kz-type-feature ${i === 0 ? "is-lead" : ""}`} key={game.id}>
-                  <GameVisual game={game} index={i + 60} hero={i === 0} />
+                  <GameVisual game={game} index={i + 60} hero={i === 0} section="playoff" />
                   <div className="kz-type-feature-copy">
                     <span>{formatDate(game.date)} · {game.city}</span>
                     <strong>{teamName(game.away)} @ {teamName(game.home)}</strong>
