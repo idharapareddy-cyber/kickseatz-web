@@ -112,9 +112,10 @@ function StadiumVisual({ game, hero = false }: { game: (typeof GAMES)[number]; h
 }
 
 function GameVisual({ game, index, hero = false, section }: { game: (typeof GAMES)[number]; index: number; hero?: boolean; section?: "division" | "primetime" | "playoff" }) {
-  const useStadium = Boolean(stadiumImages[game.home]);
-  return useStadium
-    ? <StadiumVisual game={game} hero={hero} />
+  // Keep the homepage visual language intentional: one strong photo for a hero,
+  // clean team-logo matchup art everywhere else.
+  return hero && stadiumImages[game.home]
+    ? <StadiumVisual game={game} hero />
     : <SimpleMatchupVisual game={game} hero={hero} />;
 }
 
@@ -319,13 +320,6 @@ export default function HomePage() {
             <span>Rams @ Seahawks · 8:15 PM</span>
           </div>
         </div>
-      </Link>
-
-      <Link href="/find-tickets?category=international" className="kz-marquee-card kz-marquee-small">
-        <div className="kz-marquee-image">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Melbourne_Cricket_Ground.JPG" alt="Melbourne Cricket Ground hosting an international NFL game" />
-        </div>
-        <div className="kz-marquee-small-body"><small>INTERNATIONAL SERIES</small><strong>NFL Around the World</strong><span>Melbourne · Rio · London · Paris · Madrid · Munich · Mexico City</span></div>
       </Link>
 
       <Link href="/find-tickets?category=super-bowl" className="kz-marquee-card kz-marquee-small">
