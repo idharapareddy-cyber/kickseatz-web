@@ -5253,89 +5253,135 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
 }
 
 
-/* EDITORIAL HERO MOSAIC — fill unused homepage space */
+/* HOMEPAGE EDITORIAL LAYOUT — intentional spacing, no duplicate overrides */
 .kz-seasonal-section .kz-marquee-grid{
   grid-template-columns:1.45fr 1.45fr 1fr 1fr;
   grid-template-rows:minmax(300px,auto);
   gap:14px;
 }
-.kz-seasonal-section .kz-marquee-holiday{
-  grid-column:span 1;
-}
-.kz-seasonal-section .kz-marquee-holiday .kz-marquee-image{
-  height:220px;
-}
-.kz-seasonal-section .kz-marquee-small{
-  display:flex;
-  flex-direction:column;
-}
-.kz-seasonal-section .kz-marquee-small .kz-marquee-image{
-  flex:1;
-  min-height:220px;
-}
-.kz-seasonal-section .kz-marquee-small-body{
-  min-height:82px;
-}
+.kz-seasonal-section .kz-marquee-holiday{grid-column:span 1}
+.kz-seasonal-section .kz-marquee-holiday .kz-marquee-image{height:220px}
+.kz-seasonal-section .kz-marquee-small{display:flex;flex-direction:column}
+.kz-seasonal-section .kz-marquee-small .kz-marquee-image{flex:1;min-height:220px}
+.kz-seasonal-section .kz-marquee-small-body{min-height:82px}
+
+/* INTERNATIONAL SERIES — 9-card global editorial mosaic */
 .kz-international-section .kz-international-editorial-grid{
   display:grid;
-  grid-template-columns:1.6fr 1fr 1fr;
-  grid-template-rows:230px 180px;
+  grid-template-columns:1.15fr 1fr 1fr 1fr;
+  grid-template-rows:190px 190px 190px;
   gap:12px;
 }
 .kz-international-section .kz-international-feature-card{
+  position:relative;
   min-height:0;
-}
-.kz-international-section .kz-international-lead{
-  grid-row:span 2;
+  overflow:hidden;
+  border-radius:18px;
+  background:#101018;
+  isolation:isolate;
 }
 .kz-international-section .kz-international-feature-card img{
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
+  display:block;
+  transition:transform .45s ease,filter .45s ease;
 }
+.kz-international-section .kz-international-feature-card:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(180deg,rgba(5,4,10,.04) 18%,rgba(5,4,10,.9) 100%);
+}
+.kz-international-section .kz-international-feature-card:hover img{
+  transform:scale(1.035);
+  filter:saturate(1.08);
+}
+.kz-international-section .kz-international-lead{grid-column:span 2;grid-row:span 2}
+.kz-international-section .kz-international-wide{grid-column:span 2}
+.kz-international-section .kz-international-photo-tag{
+  position:absolute;
+  top:14px;
+  left:14px;
+  z-index:3;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 10px;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:999px;
+  background:rgba(7,6,12,.66);
+  color:#fff;
+  backdrop-filter:blur(10px);
+}
+.kz-international-section .kz-international-photo-tag span{font-size:17px;line-height:1}
+.kz-international-section .kz-international-photo-tag b{font-size:8px;line-height:1;font-weight:900;letter-spacing:.12em}
+.kz-international-section .kz-international-card-copy{
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:16px;
+  z-index:3;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.kz-international-section .kz-international-card-copy strong{font-size:16px;line-height:1.08;letter-spacing:-.02em}
+.kz-international-section .kz-international-card-copy small{font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.82}
+.kz-international-section .kz-international-lead .kz-international-card-copy strong{font-size:24px}
+.kz-international-team-card{background:linear-gradient(135deg,#171422,#0e0d14);border:1px solid #2c2738}
+.kz-international-team-art{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:9px;
+  padding:20px;
+  text-align:center;
+  color:#fff;
+}
+.kz-international-team-logos{display:flex;align-items:center;gap:18px}
+.kz-international-team-logos img{position:static!important;width:54px!important;height:54px!important;object-fit:contain!important}
+.kz-international-team-logos span{font-size:9px;font-weight:900;letter-spacing:.12em;color:#aaa4b7}
+.kz-international-team-art b{font-size:9px;letter-spacing:.12em;color:#a99cff}
+.kz-international-team-art strong{font-size:17px;line-height:1.05}
+.kz-international-team-art small{font-size:10px;color:#888292}
+
 .kz-game-type-section .kz-type-prime .kz-type-editorial-head{
   min-height:76px;
   display:flex;
   align-items:center;
 }
-.kz-game-type-section .kz-type-prime .kz-type-editorial-head > div{
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-}
-.kz-game-type-section .kz-type-prime .kz-type-editorial-head span{
-  line-height:1;
-}
-@media(max-width:850px){
-  .kz-seasonal-section .kz-marquee-grid{
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:auto;
-  }
-  .kz-seasonal-section .kz-marquee-holiday{
-    grid-column:auto;
-  }
-  .kz-seasonal-section .kz-marquee-small .kz-marquee-image{
-    min-height:180px;
-  }
+.kz-game-type-section .kz-type-prime .kz-type-editorial-head > div{display:flex;flex-direction:column;gap:5px}
+.kz-game-type-section .kz-type-prime .kz-type-editorial-head span{line-height:1}
+
+@media(max-width:1000px){
   .kz-international-section .kz-international-editorial-grid{
     grid-template-columns:1fr 1fr;
-    grid-template-rows:220px 180px 180px;
+    grid-template-rows:300px repeat(4,190px);
   }
-  .kz-international-section .kz-international-lead{
-    grid-row:span 2;
-  }
+  .kz-international-section .kz-international-lead{grid-column:span 2;grid-row:span 1}
+  .kz-international-section .kz-international-wide{grid-column:span 2}
+}
+@media(max-width:850px){
+  .kz-seasonal-section .kz-marquee-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .kz-seasonal-section .kz-marquee-holiday{grid-column:auto}
+  .kz-seasonal-section .kz-marquee-small .kz-marquee-image{min-height:180px}
 }
 @media(max-width:560px){
   .kz-seasonal-section .kz-marquee-grid,
-  .kz-international-section .kz-international-editorial-grid{
-    grid-template-columns:1fr;
-    grid-template-rows:auto;
-  }
-  .kz-international-section .kz-international-lead{
-    grid-row:auto;
-  }
+  .kz-international-section .kz-international-editorial-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .kz-international-section .kz-international-lead,
+  .kz-international-section .kz-international-wide{grid-column:auto;grid-row:auto}
+  .kz-international-section .kz-international-feature-card{min-height:210px}
 }
-
 /* TICKET FINDER MATCHUP ART — clean custom composition, no baked-in copy */
 .ticket-card{min-width:0;overflow:hidden}.ticket-matchup-art{position:relative;min-height:190px;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:clamp(28px,8vw,92px);isolation:isolate;background:radial-gradient(circle at 22% 50%,color-mix(in srgb,var(--away-color) 48%,transparent),transparent 36%),radial-gradient(circle at 78% 50%,color-mix(in srgb,var(--home-color) 48%,transparent),transparent 36%),linear-gradient(110deg,#0b0a10 0%,#17131f 48%,#0b0a10 100%)}
 .ticket-matchup-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,4,10,.18),transparent 45%,rgba(5,4,10,.18));pointer-events:none}.ticket-art-glow{position:absolute;width:45%;height:180%;top:-40%;filter:blur(36px);opacity:.32;z-index:-1}.ticket-art-glow-away{left:-10%;background:var(--away-color);transform:rotate(16deg)}.ticket-art-glow-home{right:-10%;background:var(--home-color);transform:rotate(-16deg)}
