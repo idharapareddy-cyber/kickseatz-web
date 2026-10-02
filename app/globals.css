@@ -5135,3 +5135,56 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
     flex-basis:220px!important;
   }
 }
+
+
+/* REAL PHOTO VISUALS — game cards never fall back to generic matchup graphics */
+.kz-photo-visual{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  background:#0d0b14;
+}
+.kz-photo-visual img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:none!important;
+  opacity:1!important;
+  transform:none!important;
+}
+.kz-photo-shade{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(5,4,10,.76),rgba(5,4,10,.28) 55%,rgba(5,4,10,.10)),linear-gradient(0deg,rgba(5,4,10,.55),transparent 62%);
+  pointer-events:none;
+}
+.kz-photo-meta{
+  position:absolute;
+  left:20px;
+  right:20px;
+  bottom:18px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  color:#fff;
+  z-index:2;
+}
+.kz-photo-meta span{
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+.kz-photo-meta strong{
+  font-size:12px;
+  line-height:1.2;
+}
+.kz-photo-visual-hero .kz-photo-meta{
+  left:28px;
+  right:28px;
+  bottom:26px;
+}
+.kz-home .kz-photo-visual img{
+  filter:none!important;
+  opacity:1!important;
+}
