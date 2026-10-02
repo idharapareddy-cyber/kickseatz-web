@@ -15,10 +15,10 @@ import {
 import { GAMES, TEAMS, teamName } from "../lib/data";
 
 const collegeFootball = [
-  { name: "Georgia Bulldogs", short: "UGA", image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=900&q=85" },
-  { name: "Alabama Crimson Tide", short: "BAMA", image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=900&q=85" },
-  { name: "Ohio State Buckeyes", short: "OSU", image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=900&q=85" },
-  { name: "Texas Longhorns", short: "TEXAS", image: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=900&q=85" },
+  { name: "Georgia Bulldogs", short: "UGA", image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=1200&q=88" },
+  { name: "Alabama Crimson Tide", short: "BAMA", image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=1200&q=88" },
+  { name: "Ohio State Buckeyes", short: "OSU", image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=1200&q=88" },
+  { name: "Texas Longhorns", short: "TEXAS", image: "https://a.espncdn.com/i/venues/college-football/day/interior/3910.jpg" },
 ];
 
 const sportCategories = [
@@ -97,22 +97,6 @@ function matchupLabel(game: (typeof GAMES)[number]) {
   return "NFL GAME DAY";
 }
 
-function matchupKey(game: (typeof GAMES)[number]) {
-  return game.away + "-" + game.home;
-}
-
-function matchupImage(game: (typeof GAMES)[number]) {
-  return matchupImages[matchupKey(game)] ?? eventImages[0];
-}
-
-function matchupLabel(game: (typeof GAMES)[number]) {
-  const prime = game.time.includes("8:20 PM") || game.time.includes("8:15 PM");
-  const rivalry = ["DAL-PHI","GB-CHI","BAL-PIT","ATL-NO","SF-SEA","KC-BUF","KC-LV"].includes(matchupKey(game));
-  if (prime && rivalry) return "PRIMETIME RIVALRY";
-  if (prime) return "PRIMETIME";
-  if (rivalry) return "RIVALRY GAME";
-  return "NFL GAME DAY";
-}
 
 function GameRow({ game }: { game: (typeof GAMES)[number] }) {
   return (
