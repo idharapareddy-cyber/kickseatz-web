@@ -54,6 +54,59 @@ function matchupKey(game: (typeof GAMES)[number]) {
   return game.away + "-" + game.home;
 }
 
+const rivalryKeys = new Set([
+  "kansas-city-chiefs-buffalo-bills",
+  "dallas-cowboys-philadelphia-eagles",
+  "san-francisco-49ers-seattle-seahawks",
+  "green-bay-packers-chicago-bears",
+  "baltimore-ravens-pittsburgh-steelers",
+  "atlanta-falcons-new-orleans-saints",
+]);
+
+const stadiumImages: Record<string, string> = {
+  "kansas-city-chiefs": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Arrowhead_Stadium.jpg",
+  "dallas-cowboys": "https://images.unsplash.com/photo-1628630470727-b726b8a15a9d?auto=format&fit=crop&w=1600&q=85",
+  "green-bay-packers": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Lambeau_Field.jpg",
+  "san-francisco-49ers": "https://upload.wikimedia.org/wikipedia/commons/7/79/Levi%27s_Stadium.JPG",
+};
+
+function gameFlags(game: (typeof GAMES)[number]) {
+  const homeTeam = TEAMS.find((team) => team.slug === game.home);
+  const awayTeam = TEAMS.find((team) => team.slug === game.away);
+  const division = Boolean(homeTeam && awayTeam && homeTeam.division === awayTeam.division);
+  const primetime = game.time.includes("8:20 PM") || game.time.includes("8:15 PM") || game.time.includes("8:00 PM");
+  const rivalry = rivalryKeys.has(game.home + "-" + game.away) || rivalryKeys.has(game.away + "-" + game.home);
+  const playoffWatch = game.date >= "2026-12-01";
+  return { division, primetime, rivalry, playoffWatch };
+}
+
+function gameCategory(game: (typeof GAMES)[number]) {
+  const flags = gameFlags(game);
+  if (flags.primetime) return "PRIMETIME";
+  if (flags.rivalry) return "RIVALRY";
+  if (flags.division) return "DIVISION";
+  if (flags.playoffWatch) return "PLAYOFF WATCH";
+  return "GAME DAY";
+}
+
+function StadiumVisual({ game, hero = false }: { game: (typeof GAMES)[number]; hero?: boolean }) {
+  const image = stadiumImages[game.home];
+  if (!image) return <MatchupGraphic game={game} hero={hero} />;
+  return (
+    <div className={"kz-stadium-visual" + (hero ? " kz-stadium-visual-hero" : "")}>
+      <img src={image} alt={teamName(game.home) + " stadium"} />
+      <div className="kz-stadium-shade" />
+      <div className="kz-stadium-color" style={{ background: TEAMS.find((team) => team.slug === game.home)?.color }} />
+      <div className="kz-stadium-label"><span>{gameCategory(game)}</span><strong>{game.venue}</strong></div>
+    </div>
+  );
+}
+
+function GameVisual({ game, index, hero = false }: { game: (typeof GAMES)[number]; index: number; hero?: boolean }) {
+  const useStadium = Boolean(stadiumImages[game.home]) && (hero || index % 3 === 0);
+  return useStadium ? <StadiumVisual game={game} hero={hero} /> : <MatchupGraphic game={game} hero={hero} />;
+}
+
 function MatchupGraphic({ game, hero = false }: { game: (typeof GAMES)[number]; hero?: boolean }) {
   return (
     <div className={"kz-matchup-graphic" + (hero ? " kz-matchup-graphic-hero" : "")}>
@@ -85,6 +138,8 @@ function matchupLabel(game: (typeof GAMES)[number]) {
   if (prime && rivalry) return "PRIMETIME RIVALRY";
   if (prime) return "PRIMETIME";
   if (rivalry) return "RIVALRY GAME";
+  if (gameFlags(game).division) return "DIVISION GAME";
+  if (gameFlags(game).playoffWatch) return "PLAYOFF WATCH";
   return "NFL GAME DAY";
 }
 
@@ -134,8 +189,8 @@ function EventCard({
       } as React.CSSProperties}
     >
       <div className="kz-event-image">
-        <MatchupGraphic game={game} />
-        <span className="kz-event-badge">{matchupLabel(game)}</span>
+        <GameVisual game={game} index={index} />
+        <span className="kz-event-badge">{gameCategory(game)}</span>
         <span className="kz-heart" aria-hidden="true">♡</span>
       </div>
       <div className="kz-event-info">
@@ -157,7 +212,7 @@ export default function HomePage() {
     <div className="page marketplace-home kz-home">
       <section className="kz-hero">
         <div className="kz-hero-image">
-          <MatchupGraphic game={featured[0]} hero />
+          <GameVisual game={featured[0]} index={0} hero />
           <div className="kz-hero-copy">
             <span className="kz-eyebrow">KICKSEATZ · LIVE SPORTS & EVENTS</span>
             <h1>Find your seat<br /><em>for the game.</em></h1>
@@ -190,6 +245,10 @@ export default function HomePage() {
 
       <nav className="kz-category-rail" aria-label="Sports discovery">
         <Link className="active" href="/find-tickets">NFL</Link>
+        <Link href="/find-tickets?category=division">Division Rivalries</Link>
+        <Link href="/find-tickets?category=primetime">Primetime</Link>
+        <Link href="/find-tickets?category=playoff-watch">Playoff Watch</Link>
+        <Link href="/find-tickets?category=international">International Series</Link>
         <Link href="/find-tickets?category=college-football">College Football</Link>
         <Link href="/find-tickets?category=basketball">Basketball</Link>
         <Link href="/find-tickets?category=baseball">Baseball</Link>
@@ -205,8 +264,8 @@ export default function HomePage() {
         </div>
         <div className="kz-feature-grid">
           <Link href={`/find-tickets?game=${featured[0].id}`} className="kz-feature-main">
-            <MatchupGraphic game={featured[0]} hero />
-            <span className="kz-feature-badge">FEATURED MATCHUP</span>
+            <GameVisual game={featured[0]} index={0} hero />
+            <span className="kz-feature-badge">{gameCategory(featured[0])}</span>
             <div className="kz-feature-copy">
               <span>{formatDate(featured[0].date)} · {featured[0].city}</span>
               <h3>{teamName(featured[0].away)} @ {teamName(featured[0].home)}</h3>
@@ -218,6 +277,50 @@ export default function HomePage() {
             {featured.slice(1, 3).map((game, i) => (
               <EventCard key={game.id} game={game} index={i + 2} badge={i === 0 ? "HIGH DEMAND" : "POPULAR"} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="kz-section kz-game-type-section">
+        <div className="kz-section-heading">
+          <div><span className="kz-eyebrow">SHOP BY GAME TYPE</span><h2>Every game has a different feel</h2></div>
+          <Link href="/find-tickets">Browse the full NFL schedule <ArrowRight size={15} /></Link>
+        </div>
+
+        <div className="kz-game-type-grid">
+          <div className="kz-game-type-block kz-game-type-division">
+            <div className="kz-game-type-head"><span>DIVISION RIVALRIES</span><strong>Know the teams. Feel the history.</strong></div>
+            <div className="kz-mini-card-grid">
+              {GAMES.filter((game) => gameFlags(game).division).slice(0, 2).map((game, i) => <EventCard key={game.id} game={game} index={i + 10} />)}
+            </div>
+          </div>
+
+          <div className="kz-game-type-block kz-game-type-prime">
+            <div className="kz-game-type-head"><span>PRIMETIME</span><strong>Big matchups under the lights.</strong></div>
+            <div className="kz-mini-card-grid">
+              {GAMES.filter((game) => gameFlags(game).primetime).map((game, i) => <EventCard key={game.id} game={game} index={i + 20} />)}
+            </div>
+          </div>
+
+          <div className="kz-game-type-block kz-game-type-playoff">
+            <div className="kz-game-type-head"><span>PLAYOFF WATCH</span><strong>Late-season games with postseason stakes.</strong></div>
+            <div className="kz-mini-card-grid">
+              {GAMES.filter((game) => gameFlags(game).playoffWatch).slice(0, 2).map((game, i) => <EventCard key={game.id} game={game} index={i + 30} />)}
+            </div>
+          </div>
+
+          <div className="kz-game-type-block kz-game-type-international">
+            <div className="kz-game-type-head"><span>INTERNATIONAL SERIES</span><strong>NFL game days beyond the U.S.</strong></div>
+            <div className="kz-international-grid">
+              <Link href="/find-tickets?category=international" className="kz-international-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Wembley_stadium.jpg" alt="Wembley Stadium in London" />
+                <div><span>LONDON</span><strong>Wembley Stadium</strong><small>International NFL destination</small></div>
+              </Link>
+              <Link href="/find-tickets?category=international" className="kz-international-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Allianz_Arena.jpg" alt="Allianz Arena in Munich" />
+                <div><span>MUNICH</span><strong>Allianz Arena</strong><small>International NFL destination</small></div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
