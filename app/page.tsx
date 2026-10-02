@@ -115,45 +115,21 @@ function GameVisual({ game, index, hero = false, section }: { game: (typeof GAME
   const useStadium = Boolean(stadiumImages[game.home]);
   return useStadium
     ? <StadiumVisual game={game} hero={hero} />
-    : <MatchupGraphic game={game} hero={hero} />;
+    : <NflPhotoVisual game={game} hero={hero} />;
 }
 
-function MatchupGraphic({ game, hero = false }: { game: (typeof GAMES)[number]; hero?: boolean }) {
+function NflPhotoVisual({ game, hero = false }: { game: (typeof GAMES)[number]; hero?: boolean }) {
   return (
-    <div className={"kz-matchup-graphic" + (hero ? " kz-matchup-graphic-hero" : "")}>
-      <div className="kz-matchup-panel kz-matchup-panel-away" />
-      <div className="kz-matchup-panel kz-matchup-panel-home" />
-      <div className="kz-matchup-accent" />
-      <div className="kz-matchup-topline"><span>KICKSEATZ · NFL</span><b>{matchupLabel(game)}</b></div>
-      <div className="kz-matchup-teams">
-        <div className="kz-matchup-team">
-          <div className="kz-matchup-logo"><img src={logoUrl(game.away)} alt="" /></div>
-          <strong>{game.away}</strong>
-          <small>{teamName(game.away)}</small>
-        </div>
-        <div className="kz-matchup-vs"><span>VS</span></div>
-        <div className="kz-matchup-team">
-          <div className="kz-matchup-logo"><img src={logoUrl(game.home)} alt="" /></div>
-          <strong>{game.home}</strong>
-          <small>{teamName(game.home)}</small>
-        </div>
-      </div>
-      <div className="kz-matchup-bottom"><span>{formatDate(game.date)}</span><span>{game.city}</span><span>{game.time}</span></div>
+    <div className={"kz-photo-visual" + (hero ? " kz-photo-visual-hero" : "")}>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/3/37/American_football.jpg"
+        alt={"NFL football action for " + teamName(game.away) + " at " + teamName(game.home)}
+      />
+      <div className="kz-photo-shade" />
+      <div className="kz-photo-meta"><span>NFL · GAME DAY</span><strong>{teamName(game.away)} @ {teamName(game.home)}</strong></div>
     </div>
   );
 }
-
-function matchupLabel(game: (typeof GAMES)[number]) {
-  const prime = game.time.includes("8:20 PM") || game.time.includes("8:15 PM");
-  const rivalry = ["DAL-PHI","GB-CHI","BAL-PIT","ATL-NO","SF-SEA","KC-BUF","KC-LV"].includes(matchupKey(game));
-  if (prime && rivalry) return "PRIMETIME RIVALRY";
-  if (prime) return "PRIMETIME";
-  if (rivalry) return "RIVALRY GAME";
-  if (gameFlags(game).division) return "DIVISION GAME";
-  if (gameFlags(game).playoffWatch) return "PLAYOFF WATCH";
-  return "NFL GAME DAY";
-}
-
 
 function GameRow({ game }: { game: (typeof GAMES)[number] }) {
   return (
@@ -347,77 +323,67 @@ export default function HomePage() {
   </section>
 
   <section className="kz-section kz-international-section">
-        <div className="kz-section-heading">
-          <div><span className="kz-eyebrow">NFL INTERNATIONAL SERIES</span><h2>Games around the world</h2></div>
-          <Link href="/find-tickets?category=international">View all 9 games <ArrowRight size={15} /></Link>
-        </div>
-        <div className="kz-international-feature-grid kz-international-editorial-grid">
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card kz-international-lead">
-            <img src="https://static.www.nfl.com/image/upload/f_auto/league/ixy8c3hynxmxz9vdrboj" alt="NFL 2026 Melbourne Game featuring the 49ers and Rams" />
-            <div className="kz-international-photo-tag"><span>🇦🇺</span><b>NFL · MELBOURNE</b></div>
-            <div className="kz-international-card-copy"><strong>49ers vs Rams</strong><small>Melbourne · Sept 10 · MCG</small></div>
-          </Link>
+    <div className="kz-section-heading">
+      <div><span className="kz-eyebrow">NFL INTERNATIONAL SERIES</span><h2>Games around the world</h2></div>
+      <Link href="/find-tickets?category=international">View all 9 games <ArrowRight size={15} /></Link>
+    </div>
 
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card kz-international-wide">
-            <img src="https://static.www.nfl.com/image/upload/f_auto,dpr_2.0,q_auto/league/hkdtddhmo2wj1j7umpsj" alt="Official NFL 2026 International Games graphic showing the global slate" />
-            <div className="kz-international-photo-tag"><span>🌎</span><b>2026 NFL INTERNATIONAL</b></div>
-            <div className="kz-international-card-copy"><strong>Nine games. Seven countries.</strong><small>Australia · Brazil · UK · France · Spain · Germany · Mexico</small></div>
-          </Link>
+    <div className="kz-international-feature-grid kz-international-editorial-grid">
+      <Link href="/find-tickets?category=international" className="kz-international-feature-card kz-international-lead">
+        <img src="https://static.www.nfl.com/image/upload/f_auto/league/ixy8c3hynxmxz9vdrboj" alt="NFL 2026 Melbourne Game featuring the 49ers and Rams" />
+        <div className="kz-international-photo-tag"><span>🇦🇺</span><b>MELBOURNE · NFL</b></div>
+        <div className="kz-international-card-copy"><strong>49ers vs Rams</strong><small>Sept 10 · Melbourne Cricket Ground</small></div>
+      </Link>
 
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/New_Maracana_Stadium.jpg" alt="Maracanã Stadium in Rio de Janeiro" />
-            <div className="kz-international-photo-tag"><span>🇧🇷</span><b>NFL · RIO</b></div>
-            <div className="kz-international-card-copy"><strong>Ravens vs Cowboys</strong><small>Rio · Sept 27 · Maracanã</small></div>
-          </Link>
+      <Link href="/find-tickets?category=international" className="kz-international-feature-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/New_Maracana_Stadium.jpg" alt="Maracanã Stadium in Rio de Janeiro" />
+        <div className="kz-international-photo-tag"><span>🇧🇷</span><b>RIO · NFL</b></div>
+        <div className="kz-international-card-copy"><strong>Ravens vs Cowboys</strong><small>Sept 27 · Maracanã Stadium</small></div>
+      </Link>
 
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Wembley_Stadium%2C_London%2C_UK.jpg" alt="Wembley Stadium in London" />
-            <div className="kz-international-photo-tag"><span>🇬🇧</span><b>NFL · LONDON</b></div>
-            <div className="kz-international-card-copy"><strong>Texans vs Jaguars</strong><small>London · Oct 18 · Wembley</small></div>
-          </Link>
+      <Link href="/find-tickets?category=international" className="kz-international-feature-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Wembley_Stadium%2C_London%2C_UK.jpg" alt="Wembley Stadium in London" />
+        <div className="kz-international-photo-tag"><span>🇬🇧</span><b>LONDON · NFL</b></div>
+        <div className="kz-international-card-copy"><strong>Texans vs Jaguars</strong><small>Oct 18 · Wembley Stadium</small></div>
+      </Link>
 
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Stade_de_France.jpg" alt="Stade de France in Paris" />
-            <div className="kz-international-photo-tag"><span>🇫🇷</span><b>NFL · PARIS</b></div>
-            <div className="kz-international-card-copy"><strong>Steelers vs Saints</strong><small>Paris · Oct 25 · Stade de France</small></div>
-          </Link>
+      <Link href="/find-tickets?category=international" className="kz-international-feature-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Stade_de_France.jpg" alt="Stade de France in Paris" />
+        <div className="kz-international-photo-tag"><span>🇫🇷</span><b>PARIS · NFL</b></div>
+        <div className="kz-international-card-copy"><strong>Steelers vs Saints</strong><small>Oct 25 · Stade de France</small></div>
+      </Link>
 
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Santiago_Bernabeu_Stadium.jpg" alt="Bernabéu Stadium in Madrid" />
-            <div className="kz-international-photo-tag"><span>🇪🇸</span><b>NFL · MADRID</b></div>
-            <div className="kz-international-card-copy"><strong>Bengals vs Falcons</strong><small>Madrid · Nov 8 · Bernabéu</small></div>
-          </Link>
+      <Link href="/find-tickets?category=international" className="kz-international-feature-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Santiago_Bernabeu_Stadium.jpg" alt="Bernabéu Stadium in Madrid" />
+        <div className="kz-international-photo-tag"><span>🇪🇸</span><b>MADRID · NFL</b></div>
+        <div className="kz-international-card-copy"><strong>Bengals vs Falcons</strong><small>Nov 8 · Bernabéu Stadium</small></div>
+      </Link>
 
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Allianz_Arena.jpg" alt="Allianz Arena in Munich" />
-            <div className="kz-international-photo-tag"><span>🇩🇪</span><b>NFL · MUNICH</b></div>
-            <div className="kz-international-card-copy"><strong>Patriots vs Lions</strong><small>Munich · Nov 15 · FC Bayern Arena</small></div>
-          </Link>
+      <Link href="/find-tickets?category=international" className="kz-international-feature-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Allianz_Arena.jpg" alt="Allianz Arena in Munich" />
+        <div className="kz-international-photo-tag"><span>🇩🇪</span><b>MUNICH · NFL</b></div>
+        <div className="kz-international-card-copy"><strong>Patriots vs Lions</strong><small>Nov 15 · FC Bayern Munich Arena</small></div>
+      </Link>
 
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Estadio_Azteca_2026_-_06.jpg" alt="Estadio Banorte in Mexico City after its 2026 renovation" />
-            <div className="kz-international-photo-tag"><span>🇲🇽</span><b>NFL · MEXICO CITY</b></div>
-            <div className="kz-international-card-copy"><strong>Vikings vs 49ers</strong><small>Mexico City · Nov 22 · Estadio Banorte</small></div>
-          </Link>
+      <Link href="/find-tickets?category=international" className="kz-international-feature-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Estadio_Azteca_2026_-_06.jpg" alt="Estadio Banorte in Mexico City after its 2026 renovation" />
+        <div className="kz-international-photo-tag"><span>🇲🇽</span><b>MEXICO CITY · NFL</b></div>
+        <div className="kz-international-card-copy"><strong>Vikings vs 49ers</strong><small>Nov 22 · Estadio Banorte</small></div>
+      </Link>
 
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card kz-international-team-card">
-            <div className="kz-international-team-art">
-              <div className="kz-international-team-logos"><img src={logoUrl("indianapolis-colts")} alt="" /><span>VS</span><img src={logoUrl("washington-commanders")} alt="" /></div>
-              <b>🇬🇧 LONDON · OCT 4</b>
-              <strong>Colts vs Commanders</strong>
-              <small>Tottenham Hotspur Stadium</small>
-            </div>
-          </Link>
+      <Link href="/find-tickets?category=international" className="kz-international-feature-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Tottenham_Hotspur_Stadium.jpg" alt="Tottenham Hotspur Stadium in London" />
+        <div className="kz-international-photo-tag"><span>🇬🇧</span><b>LONDON · NFL</b></div>
+        <div className="kz-international-card-copy"><strong>Colts vs Commanders</strong><small>Oct 4 · Tottenham Hotspur Stadium</small></div>
+      </Link>
 
-          <Link href="/find-tickets?category=international" className="kz-international-feature-card kz-international-team-card">
-            <div className="kz-international-team-art">
-              <div className="kz-international-team-logos"><img src={logoUrl("philadelphia-eagles")} alt="" /><span>VS</span><img src={logoUrl("jacksonville-jaguars")} alt="" /></div>
-              <b>🇬🇧 LONDON · OCT 11</b>
-              <strong>Eagles vs Jaguars</strong>
-              <small>Tottenham Hotspur Stadium</small>
-            </div>
-          </Link>
-        </div></section>
+      <Link href="/find-tickets?category=international" className="kz-international-feature-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Tottenham_Hotspur_Stadium.jpg" alt="Tottenham Hotspur Stadium in London" />
+        <div className="kz-international-photo-tag"><span>🇬🇧</span><b>LONDON · NFL</b></div>
+        <div className="kz-international-card-copy"><strong>Eagles vs Jaguars</strong><small>Oct 11 · Tottenham Hotspur Stadium</small></div>
+      </Link>
+    </div>
+  </section>
 
       <section className="kz-section kz-game-type-section">
         <div className="kz-section-heading">
