@@ -56,6 +56,35 @@ function formatDate(date: string) {
   });
 }
 
+
+const matchupImages: Record<string, string> = {
+  "KC-LV": eventImages[2],
+  "KC-SEA": eventImages[0],
+  "KC-BUF": eventImages[2],
+  "DAL-PHI": eventImages[1],
+  "GB-CHI": eventImages[1],
+  "BAL-PIT": eventImages[2],
+  "ATL-NO": eventImages[1],
+  "SF-SEA": eventImages[0],
+};
+
+function matchupKey(game: (typeof GAMES)[number]) {
+  return game.away + "-" + game.home;
+}
+
+function matchupImage(game: (typeof GAMES)[number]) {
+  return matchupImages[matchupKey(game)] ?? eventImages[0];
+}
+
+function matchupLabel(game: (typeof GAMES)[number]) {
+  const prime = game.time.includes("8:20 PM") || game.time.includes("8:15 PM");
+  const rivalry = ["DAL-PHI","GB-CHI","BAL-PIT","ATL-NO","SF-SEA","KC-BUF","KC-LV"].includes(matchupKey(game));
+  if (prime && rivalry) return "PRIMETIME RIVALRY";
+  if (prime) return "PRIMETIME";
+  if (rivalry) return "RIVALRY GAME";
+  return "NFL GAME DAY";
+}
+
 function GameRow({ game }: { game: (typeof GAMES)[number] }) {
   return (
     <Link href={`/find-tickets?game=${game.id}`} className="kz-game-row">
@@ -101,9 +130,9 @@ function EventCard({
       } as React.CSSProperties}
     >
       <div className="kz-event-image">
-        <img src={eventImages[index % eventImages.length]} alt="" />
+        <img src={matchupImage(game)} alt="" />
         <div className="kz-image-shade" />
-        <span className="kz-event-badge">{badge}</span>
+        <span className="kz-event-badge">{matchupLabel(game)}</span>
         <span className="kz-heart" aria-hidden="true">♡</span>
         <div className="kz-card-logos">
           <img src={logoUrl(game.away)} alt="" />
@@ -130,7 +159,7 @@ export default function HomePage() {
     <div className="page marketplace-home kz-home">
       <section className="kz-hero">
         <div className="kz-hero-image">
-          <img src={eventImages[0]} alt="" />
+          <img src={matchupImage(featured[0])} alt="" />
           <div className="kz-hero-overlay" />
           <div className="kz-hero-copy">
             <span className="kz-eyebrow">KICKSEATZ · LIVE SPORTS & EVENTS</span>
@@ -179,7 +208,7 @@ export default function HomePage() {
         </div>
         <div className="kz-feature-grid">
           <Link href={`/find-tickets?game=${featured[0].id}`} className="kz-feature-main">
-            <img src={eventImages[1]} alt="" />
+            <img src={matchupImage(featured[0])} alt="" />
             <div className="kz-feature-shade" />
             <span className="kz-feature-badge">FEATURED MATCHUP</span>
             <div className="kz-feature-copy">
