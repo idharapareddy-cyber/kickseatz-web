@@ -2377,3 +2377,373 @@ html[data-theme="light"] .brand-logo-base img { filter: brightness(0) !important
   .market-home-category-rail { margin-top:114px; }
   .market-search-heading { flex-direction:column; gap:3px; }
 }
+
+
+/* =========================================================
+   KICKSEATZ HOMEPAGE — IMAGE-LED DISCOVERY REDESIGN
+   Consistent event imagery, editorial feature grid, and
+   SeatGeek-style card rhythm with KickSeatz branding.
+   ========================================================= */
+
+.kz-home { padding-top: 18px; }
+.kz-eyebrow {
+  display:inline-block;
+  color:var(--purple2);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.14em;
+}
+.kz-hero { position:relative; }
+.kz-hero-image {
+  position:relative;
+  min-height:500px;
+  overflow:hidden;
+  border-radius:20px;
+  background:#11101a;
+  border:1px solid var(--line);
+}
+.kz-hero-image > img {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:saturate(.92);
+}
+.kz-hero-overlay {
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(7,6,12,.96) 0%,rgba(7,6,12,.78) 38%,rgba(7,6,12,.20) 75%,rgba(7,6,12,.38) 100%),
+    linear-gradient(0deg,rgba(7,6,12,.72) 0%,transparent 58%);
+}
+.kz-hero-copy {
+  position:absolute;
+  z-index:2;
+  left:6%;
+  top:17%;
+  width:min(550px,55%);
+}
+.kz-hero-copy h1 {
+  margin:11px 0 15px;
+  color:#fff;
+  font-size:clamp(48px,6.2vw,78px);
+  line-height:.94;
+  letter-spacing:-.065em;
+}
+.kz-hero-copy h1 em { color:#b69cff; font-style:normal; }
+.kz-hero-copy p { max-width:470px; margin:0 0 25px; color:#d7d1df; font-size:15px; line-height:1.65; }
+.kz-primary-button {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 16px;
+  border-radius:8px;
+  background:var(--purple);
+  color:#fff;
+  font-size:12px;
+  font-weight:850;
+  transition:transform .15s ease,background .15s ease;
+}
+.kz-primary-button:hover { background:var(--purple2); transform:translateY(-1px); color:#fff; }
+.kz-hero-game {
+  position:absolute;
+  z-index:2;
+  right:28px;
+  bottom:24px;
+  min-width:260px;
+  padding:14px 16px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:10px;
+  background:rgba(8,7,13,.68);
+  backdrop-filter:blur(12px);
+  color:#fff;
+}
+.kz-hero-game span { display:block; color:#b69cff; font-size:9px; font-weight:900; letter-spacing:.13em; }
+.kz-hero-game strong { display:block; margin-top:5px; font-size:14px; }
+.kz-hero-game small { display:block; margin-top:4px; color:#b8b0c0; font-size:10px; }
+
+.kz-hero-search {
+  position:relative;
+  z-index:4;
+  width:min(900px,90%);
+  margin:-44px auto 0;
+  padding:17px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:var(--surface);
+  box-shadow:0 20px 50px rgba(0,0,0,.22);
+}
+.kz-hero-search > div:first-child { display:flex; align-items:baseline; justify-content:space-between; gap:15px; margin-bottom:9px; }
+.kz-hero-search > div:first-child strong { color:var(--text); font-size:14px; }
+.kz-search-box {
+  display:flex;
+  align-items:center;
+  min-height:52px;
+  padding:4px 5px 4px 13px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--surface2);
+}
+.kz-search-box > svg { color:var(--muted); flex:none; }
+.kz-search-box input {
+  width:100%;
+  min-width:0;
+  height:42px;
+  padding:0 12px;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:var(--text);
+  font-size:13px;
+}
+.kz-search-box input::placeholder { color:var(--muted); }
+.kz-search-box button {
+  height:42px;
+  padding:0 19px;
+  border:0;
+  border-radius:7px;
+  background:var(--purple);
+  color:#fff;
+  font-size:12px;
+  font-weight:850;
+  cursor:pointer;
+}
+.kz-search-links { display:flex; gap:19px; margin-top:9px; }
+.kz-search-links a { color:var(--muted); font-size:10px; font-weight:700; }
+.kz-search-links a:hover { color:var(--purple); }
+
+.kz-category-rail {
+  display:flex;
+  margin-top:28px;
+  border-bottom:1px solid var(--line);
+  overflow:auto;
+}
+.kz-category-rail a {
+  padding:14px 20px 13px;
+  border-bottom:2px solid transparent;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:750;
+  white-space:nowrap;
+}
+.kz-category-rail a.active { border-bottom-color:var(--purple); color:var(--text); }
+
+.kz-section { margin-top:52px; }
+.kz-section-heading {
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:17px;
+}
+.kz-section-heading h2 {
+  margin:6px 0 0;
+  color:var(--text);
+  font-size:25px;
+  letter-spacing:-.035em;
+}
+.kz-section-heading > a {
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:800;
+}
+.kz-section-heading > a:hover { color:var(--purple); }
+
+.kz-feature-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1.55fr) minmax(320px,.9fr);
+  gap:13px;
+}
+.kz-feature-main {
+  position:relative;
+  min-height:390px;
+  overflow:hidden;
+  border-radius:12px;
+  color:#fff;
+  background:#15121e;
+}
+.kz-feature-main > img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; transition:transform .35s ease; }
+.kz-feature-main:hover > img { transform:scale(1.025); }
+.kz-feature-shade { position:absolute; inset:0; background:linear-gradient(0deg,rgba(5,4,9,.94),rgba(5,4,9,.08) 72%); }
+.kz-feature-badge {
+  position:absolute;
+  left:15px;
+  top:15px;
+  padding:6px 8px;
+  border-radius:5px;
+  background:var(--purple);
+  color:#fff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+.kz-feature-copy { position:absolute; left:22px; right:22px; bottom:21px; }
+.kz-feature-copy > span { color:#c9c2d2; font-size:10px; }
+.kz-feature-copy h3 { margin:6px 0 5px; font-size:29px; line-height:1.04; letter-spacing:-.04em; }
+.kz-feature-copy p { margin:0 0 12px; color:#bdb5c7; font-size:11px; }
+.kz-feature-copy b { display:inline-flex; align-items:center; gap:5px; font-size:11px; }
+
+.kz-feature-side { display:grid; grid-template-rows:1fr 1fr; gap:13px; }
+
+.kz-card-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:13px; }
+.kz-event-card {
+  display:block;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:var(--surface);
+  color:var(--text);
+  transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease;
+}
+.kz-event-card:hover { transform:translateY(-2px); border-color:var(--purple2); box-shadow:0 14px 35px rgba(0,0,0,.12); }
+.kz-event-image { position:relative; height:205px; overflow:hidden; background:var(--surface2); }
+.kz-event-image > img { width:100%; height:100%; object-fit:cover; transition:transform .3s ease; }
+.kz-event-card:hover .kz-event-image > img { transform:scale(1.035); }
+.kz-image-shade { position:absolute; inset:0; background:linear-gradient(0deg,rgba(7,6,12,.62),transparent 60%); }
+.kz-event-badge {
+  position:absolute;
+  top:10px;
+  left:10px;
+  padding:5px 7px;
+  border-radius:5px;
+  background:rgba(10,8,15,.72);
+  border:1px solid rgba(255,255,255,.2);
+  color:#fff;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.08em;
+  backdrop-filter:blur(7px);
+}
+.kz-heart { position:absolute; right:11px; top:7px; color:#fff; font-size:27px; line-height:1; text-shadow:0 1px 8px rgba(0,0,0,.5); }
+.kz-card-logos { position:absolute; left:15px; right:15px; bottom:13px; display:flex; align-items:center; justify-content:center; gap:13px; }
+.kz-card-logos img { width:50px; height:50px; object-fit:contain; filter:drop-shadow(0 4px 9px rgba(0,0,0,.45)); }
+.kz-card-logos span { color:#fff; font-size:9px; font-weight:900; letter-spacing:.1em; }
+.kz-event-info { padding:13px 14px 15px; }
+.kz-event-info strong { display:block; font-size:13px; line-height:1.35; }
+.kz-event-info span { display:block; margin-top:5px; color:var(--muted); font-size:10px; }
+
+.kz-team-strip { display:grid; grid-template-columns:repeat(8,1fr); gap:8px; }
+.kz-team-tile {
+  min-height:130px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:12px 7px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--surface);
+  text-align:center;
+  color:var(--text);
+  transition:transform .15s ease,border-color .15s ease;
+}
+.kz-team-tile:hover { transform:translateY(-2px); border-color:var(--purple2); }
+.kz-team-tile img { width:50px; height:50px; object-fit:contain; }
+.kz-team-tile span { margin-top:7px; color:var(--purple2); font-size:8px; font-weight:900; letter-spacing:.08em; }
+.kz-team-tile strong { margin-top:3px; font-size:9px; line-height:1.2; }
+
+.kz-game-list { border-top:1px solid var(--line); }
+.kz-game-row {
+  display:grid;
+  grid-template-columns:68px minmax(0,1fr) auto 110px;
+  align-items:center;
+  gap:18px;
+  min-height:92px;
+  padding:11px 3px;
+  border-bottom:1px solid var(--line);
+  color:var(--text);
+}
+.kz-game-row:hover { background:color-mix(in srgb,var(--purple) 5%,transparent); }
+.kz-game-date { display:flex; flex-direction:column; align-items:center; line-height:1; }
+.kz-game-date strong { color:var(--muted); font-size:9px; text-transform:uppercase; }
+.kz-game-date b { margin-top:4px; font-size:26px; letter-spacing:-.05em; }
+.kz-game-matchup > div { display:flex; align-items:center; gap:8px; min-width:0; }
+.kz-game-matchup img { width:28px; height:28px; object-fit:contain; flex:none; }
+.kz-game-matchup strong { font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.kz-game-matchup > div span { color:var(--muted); font-size:9px; font-weight:800; }
+.kz-game-matchup small { display:flex; align-items:center; gap:4px; margin-top:6px; color:var(--muted); font-size:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.kz-demand {
+  padding:5px 7px;
+  border:1px solid color-mix(in srgb,var(--purple) 35%,var(--line));
+  border-radius:5px;
+  color:var(--purple2);
+  font-size:8px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+.kz-ticket-link { display:flex; align-items:center; justify-content:flex-end; gap:5px; color:var(--purple2); font-size:10px; font-weight:850; }
+
+.kz-discover-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.kz-discover-grid > a {
+  min-height:105px;
+  display:grid;
+  grid-template-columns:24px 1fr 16px;
+  grid-template-rows:auto auto;
+  align-items:start;
+  column-gap:10px;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--surface);
+  color:var(--text);
+}
+.kz-discover-grid > a > svg:first-child { color:var(--purple2); }
+.kz-discover-grid strong { font-size:12px; }
+.kz-discover-grid span { grid-column:2; margin-top:5px; color:var(--muted); font-size:10px; line-height:1.45; }
+.kz-discover-grid > a > svg:last-child { grid-column:3; grid-row:1 / span 2; color:var(--muted); }
+.kz-discover-grid > a:hover { border-color:var(--purple2); }
+
+.kz-info-strip {
+  display:grid;
+  grid-template-columns:1fr 1.35fr auto;
+  align-items:center;
+  gap:35px;
+  margin-top:58px;
+  padding:28px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.kz-info-strip h2 { margin:6px 0 0; color:var(--text); font-size:25px; letter-spacing:-.035em; }
+.kz-info-strip p { margin:0; color:var(--muted); font-size:11px; line-height:1.6; }
+
+html[data-theme="light"] .kz-hero-overlay { background:linear-gradient(90deg,rgba(5,4,9,.78),rgba(5,4,9,.35) 55%,rgba(5,4,9,.18)); }
+html[data-theme="light"] .kz-event-card,
+html[data-theme="light"] .kz-team-tile,
+html[data-theme="light"] .kz-discover-grid > a { box-shadow:0 5px 18px rgba(24,18,40,.05); }
+html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,.12); }
+
+@media(max-width:1000px) {
+  .kz-feature-grid { grid-template-columns:1fr; }
+  .kz-feature-side { grid-template-columns:1fr 1fr; grid-template-rows:none; }
+  .kz-team-strip { grid-template-columns:repeat(4,1fr); }
+  .kz-discover-grid { grid-template-columns:repeat(2,1fr); }
+  .kz-game-row { grid-template-columns:60px minmax(0,1fr) auto; }
+  .kz-ticket-link { display:none; }
+}
+@media(max-width:650px) {
+  .kz-home { padding-top:8px; }
+  .kz-hero-image { min-height:560px; border-radius:14px; }
+  .kz-hero-copy { left:7%; top:13%; width:82%; }
+  .kz-hero-copy h1 { font-size:48px; }
+  .kz-hero-game { left:7%; right:7%; min-width:0; bottom:22px; }
+  .kz-hero-search { width:94%; margin-top:-35px; }
+  .kz-hero-search > div:first-child { display:block; }
+  .kz-hero-search > div:first-child strong { display:block; margin-top:5px; }
+  .kz-search-box button { padding:0 13px; }
+  .kz-category-rail a { padding-left:13px; padding-right:13px; }
+  .kz-section { margin-top:38px; }
+  .kz-section-heading { align-items:flex-start; flex-direction:column; gap:8px; }
+  .kz-feature-side { grid-template-columns:1fr; }
+  .kz-feature-main { min-height:330px; }
+  .kz-card-grid { grid-template-columns:1fr; }
+  .kz-event-image { height:220px; }
+  .kz-team-strip { grid-template-columns:repeat(2,1fr); }
+  .kz-game-row { grid-template-columns:50px minmax(0,1fr); gap:10px; }
+  .kz-demand { display:none; }
+  .kz-discover-grid { grid-template-columns:1fr; }
+  .kz-info-strip { grid-template-columns:1fr; gap:15px; }
+}
