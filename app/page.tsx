@@ -18,11 +18,11 @@ const logoIds: Record<string, number> = {
   SEA:26, TB:27, TEN:10, WAS:28,
 };
 
+// Football-only editorial imagery. Match cards never use unrelated concert/music/soccer imagery.
 const eventImages = [
   "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=1400&q=85",
-  "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1200&q=85",
-  "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=85",
-  "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1668674768860-b6d34068042b?auto=format&fit=crop&w=1400&q=85",
+  "https://images.unsplash.com/photo-1549963921-a936ee5b69e6?auto=format&fit=crop&w=1400&q=85",
 ];
 
 function logoUrl(slug: string) {
