@@ -4985,3 +4985,153 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
     flex-basis:240px!important;
   }
 }
+
+
+/* FINAL GAME-TYPE AUTHORITY — keep these sections deterministic and equal */
+.kz-game-type-section .kz-type-editorial-grid{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:42px!important;
+}
+.kz-game-type-section .kz-type-editorial-block{
+  width:100%!important;
+  min-width:0!important;
+}
+.kz-game-type-section .kz-type-editorial-head{
+  display:flex!important;
+  align-items:flex-end!important;
+  justify-content:space-between!important;
+  gap:24px!important;
+  margin-bottom:16px!important;
+}
+.kz-game-type-section .kz-type-editorial-body{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:18px!important;
+  align-items:stretch!important;
+}
+.kz-game-type-section .kz-type-feature{
+  display:flex!important;
+  flex-direction:column!important;
+  width:100%!important;
+  min-width:0!important;
+  height:auto!important;
+  min-height:0!important;
+  grid-column:auto!important;
+  overflow:hidden!important;
+  border:1px solid var(--line)!important;
+  border-radius:16px!important;
+  background:var(--surface)!important;
+}
+.kz-game-type-section .kz-type-feature > .kz-matchup-graphic,
+.kz-game-type-section .kz-type-feature > .kz-stadium-visual{
+  position:relative!important;
+  inset:auto!important;
+  width:100%!important;
+  height:260px!important;
+  min-height:260px!important;
+  flex:0 0 260px!important;
+  overflow:hidden!important;
+}
+.kz-game-type-section .kz-type-feature > .kz-stadium-visual img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+.kz-game-type-section .kz-type-feature .kz-stadium-shade,
+.kz-game-type-section .kz-type-feature .kz-stadium-color,
+.kz-game-type-section .kz-type-feature .kz-stadium-label{
+  display:none!important;
+}
+.kz-game-type-section .kz-type-feature .kz-matchup-topline,
+.kz-game-type-section .kz-type-feature .kz-matchup-bottom,
+.kz-game-type-section .kz-type-feature .kz-matchup-team strong,
+.kz-game-type-section .kz-type-feature .kz-matchup-team small,
+.kz-game-type-section .kz-type-feature .kz-matchup-vs{
+  display:none!important;
+}
+.kz-game-type-section .kz-type-feature .kz-matchup-teams{
+  position:absolute!important;
+  inset:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:34px!important;
+  transform:none!important;
+}
+.kz-game-type-section .kz-type-feature .kz-matchup-logo{
+  width:78px!important;
+  height:78px!important;
+}
+.kz-game-type-section .kz-type-feature .kz-type-feature-copy{
+  position:static!important;
+  inset:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  min-height:108px!important;
+  padding:15px 17px 17px!important;
+  background:var(--surface)!important;
+  border-top:1px solid var(--line)!important;
+  color:var(--text)!important;
+}
+.kz-game-type-section .kz-type-feature .kz-type-feature-copy span{
+  display:block!important;
+  color:var(--muted)!important;
+  font-size:10px!important;
+  line-height:1.25!important;
+}
+.kz-game-type-section .kz-type-feature .kz-type-feature-copy strong{
+  display:block!important;
+  margin-top:6px!important;
+  color:var(--text)!important;
+  font-size:14px!important;
+  line-height:1.25!important;
+}
+.kz-game-type-section .kz-type-feature .kz-type-feature-copy small{
+  display:block!important;
+  margin-top:5px!important;
+  color:var(--muted)!important;
+  font-size:10px!important;
+  line-height:1.25!important;
+}
+
+/* Primetime uses the same clean three-card rhythm — no giant single-card compression. */
+.kz-game-type-section .kz-type-prime .kz-type-editorial-body{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+.kz-game-type-section .kz-type-prime .kz-type-feature > .kz-matchup-graphic,
+.kz-game-type-section .kz-type-prime .kz-type-feature > .kz-stadium-visual{
+  height:260px!important;
+  min-height:260px!important;
+  flex-basis:260px!important;
+}
+.kz-game-type-section .kz-type-prime .kz-type-feature .kz-matchup-logo{
+  width:78px!important;
+  height:78px!important;
+}
+.kz-game-type-section .kz-type-division .kz-type-editorial-body,
+.kz-game-type-section .kz-type-playoff .kz-type-editorial-body{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+
+@media(max-width:850px){
+  .kz-game-type-section .kz-type-editorial-body,
+  .kz-game-type-section .kz-type-prime .kz-type-editorial-body{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:560px){
+  .kz-game-type-section .kz-type-editorial-body,
+  .kz-game-type-section .kz-type-prime .kz-type-editorial-body{
+    grid-template-columns:1fr!important;
+  }
+  .kz-game-type-section .kz-type-feature > .kz-matchup-graphic,
+  .kz-game-type-section .kz-type-feature > .kz-stadium-visual{
+    height:220px!important;
+    min-height:220px!important;
+    flex-basis:220px!important;
+  }
+}
