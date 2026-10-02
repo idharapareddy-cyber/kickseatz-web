@@ -3076,3 +3076,54 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
   background:#0d0b14;
   color:#fff;
 }
+
+
+/* HARD HOMEPAGE IMAGE RESET — no blurred/legacy stadium layers */
+.kz-home img,
+.kz-home picture,
+.kz-home video,
+.kz-home [class*="image"],
+.kz-home [class*="visual"],
+.kz-home [class*="art"] {
+  filter: none !important;
+}
+
+.kz-home img {
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+}
+
+.kz-home .kz-hero-image > img,
+.kz-home .kz-feature-main > img,
+.kz-home .kz-event-image > img,
+.kz-home .kz-experience-art img,
+.kz-home .kz-sport-card img {
+  filter: none !important;
+  opacity: 1 !important;
+  transform: none;
+}
+
+/* The homepage hero is intentionally a CSS matchup graphic, never a stadium photo. */
+.kz-home .kz-hero-image > img {
+  display: none !important;
+}
+
+.kz-home .market-hero-image-wrap,
+.kz-home .market-hero-player,
+.kz-home .market-hero-glow,
+.kz-home .market-hero-overlay,
+.kz-home .market-stadium-art,
+.kz-home .kz-hero-overlay {
+  display: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Prevent inherited blur from ever touching event artwork. */
+.kz-home .kz-matchup-graphic,
+.kz-home .kz-event-image,
+.kz-home .kz-feature-main {
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
