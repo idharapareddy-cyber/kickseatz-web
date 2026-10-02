@@ -4041,3 +4041,188 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
   .kz-type-feature.is-lead{grid-column:span 2;min-height:220px}
   .kz-type-editorial-head{align-items:flex-start}
 }
+
+/* HOMEPAGE READABILITY PASS — remove dashboard/encrypted feel */
+.kz-game-type-section{
+  margin-top:clamp(44px,6vw,84px);
+}
+.kz-type-editorial-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:22px!important;
+}
+.kz-type-editorial-block{
+  border-radius:20px!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.08);
+}
+.kz-type-editorial-head{
+  min-height:86px;
+  padding:21px 22px 18px!important;
+}
+.kz-type-editorial-head span{
+  font-size:9px!important;
+  letter-spacing:.16em!important;
+}
+.kz-type-editorial-head strong{
+  font-size:22px!important;
+  margin-top:7px!important;
+}
+.kz-type-editorial-head>a{
+  font-size:10px!important;
+}
+.kz-type-editorial-body{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:0!important;
+}
+.kz-type-feature{
+  min-height:190px!important;
+}
+.kz-type-feature.is-lead{
+  grid-column:span 2!important;
+  min-height:330px!important;
+}
+.kz-type-feature-copy{
+  padding:48px 18px 16px!important;
+}
+.kz-type-feature-copy span{
+  font-size:9px!important;
+}
+.kz-type-feature-copy strong{
+  font-size:16px!important;
+  line-height:1.16!important;
+  margin-top:6px!important;
+}
+.kz-type-feature-copy small{
+  font-size:10px!important;
+  margin-top:6px!important;
+}
+.kz-type-feature .kz-matchup-topline,
+.kz-type-feature .kz-matchup-bottom,
+.kz-type-feature .kz-stadium-label{
+  display:none!important;
+}
+.kz-type-feature .kz-matchup-team small{
+  display:none!important;
+}
+.kz-type-feature .kz-matchup-team strong{
+  font-size:12px!important;
+}
+.kz-type-feature .kz-matchup-logo{
+  width:62px!important;
+  height:62px!important;
+}
+.kz-type-feature.is-lead .kz-matchup-logo{
+  width:78px!important;
+  height:78px!important;
+}
+.kz-type-feature .kz-stadium-visual img,
+.kz-type-feature .kz-matchup-graphic{
+  object-fit:cover;
+}
+.kz-type-feature:hover{
+  transform:translateY(-2px);
+  transition:transform .2s ease;
+}
+.kz-type-playoff{
+  grid-column:span 2;
+}
+.kz-type-playoff .kz-type-editorial-body{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+.kz-type-playoff .kz-type-feature.is-lead{
+  grid-column:span 1!important;
+  min-height:250px!important;
+}
+.kz-type-playoff .kz-type-feature{
+  min-height:250px!important;
+}
+
+/* Give the major image sections more editorial breathing room */
+.kz-seasonal-section,
+.kz-international-section,
+.kz-game-type-section{
+  padding-top:8px;
+}
+.kz-marquee-grid{
+  gap:18px!important;
+}
+.kz-marquee-image{
+  height:185px!important;
+}
+.kz-marquee-holiday .kz-marquee-image{
+  height:250px!important;
+}
+.kz-marquee-body{
+  padding:17px 18px 18px!important;
+}
+.kz-marquee-body strong{
+  font-size:20px!important;
+}
+.kz-marquee-games span{
+  font-size:10px!important;
+}
+.kz-international-editorial-grid{
+  gap:14px!important;
+  grid-auto-rows:205px!important;
+}
+.kz-international-editorial-grid .kz-international-lead img{
+  min-height:424px!important;
+}
+.kz-international-editorial-grid .kz-international-feature-card img{
+  min-height:205px!important;
+}
+
+/* Larger section typography and spacing */
+.kz-section-heading{
+  margin-bottom:20px!important;
+}
+.kz-section-heading h2{
+  font-size:clamp(23px,2.1vw,32px)!important;
+  line-height:1.05!important;
+}
+.kz-eyebrow{
+  font-size:9px!important;
+  letter-spacing:.15em!important;
+}
+.kz-section-heading>a{
+  font-size:10px!important;
+}
+
+/* Trending should be visual, not three tiny dashboard tiles */
+.kz-card-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:18px!important;
+}
+.kz-event-card{
+  border-radius:18px!important;
+}
+.kz-event-image{
+  min-height:230px!important;
+}
+.kz-event-info{
+  padding:14px 16px 17px!important;
+}
+.kz-event-info strong{
+  font-size:14px!important;
+}
+.kz-event-info span{
+  font-size:10px!important;
+}
+
+@media(max-width:900px){
+  .kz-type-editorial-grid{grid-template-columns:1fr!important}
+  .kz-type-playoff{grid-column:auto!important}
+  .kz-type-playoff .kz-type-editorial-body{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .kz-type-playoff .kz-type-feature.is-lead{grid-column:span 2!important}
+  .kz-card-grid{grid-template-columns:1fr 1fr!important}
+}
+@media(max-width:650px){
+  .kz-type-editorial-grid{gap:14px!important}
+  .kz-type-editorial-head strong{font-size:18px!important}
+  .kz-type-editorial-body,
+  .kz-type-playoff .kz-type-editorial-body{grid-template-columns:1fr!important}
+  .kz-type-feature.is-lead,
+  .kz-type-playoff .kz-type-feature.is-lead{grid-column:auto!important;min-height:250px!important}
+  .kz-type-feature{min-height:200px!important}
+  .kz-card-grid{grid-template-columns:1fr!important}
+}
