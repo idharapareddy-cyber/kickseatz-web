@@ -9,7 +9,7 @@ import {
   Ticket,
   Trophy,
 } from "lucide-react";
-import { FEATURED_STADIUMS, GAMES, PLAYER_SPOTLIGHTS, TEAMS, teamName } from "../lib/data";
+import { GAMES, PLAYER_SPOTLIGHTS, TEAMS, teamName } from "../lib/data";
 
 const logoIds: Record<string, number> = { ARI:22, ATL:1, BAL:33, BUF:2, CAR:29, CHI:3, CIN:4, CLE:5, DAL:6, DEN:7, DET:8, GB:9, HOU:34, IND:11, JAX:30, KC:12, LV:13, LAC:24, LAR:14, MIA:15, MIN:16, NE:17, NO:18, NYG:19, NYJ:20, PHI:21, PIT:23, SF:25, SEA:26, TB:27, TEN:10, WAS:28 };
 function logoUrl(slug: string) { const abbr = TEAMS.find(t => t.slug === slug)?.abbr; const id = abbr ? logoIds[abbr] : undefined; return id ? "https://a.espncdn.com/i/teamlogos/nfl/500/" + id + ".png" : ""; }
@@ -66,18 +66,6 @@ export default function HomePage() {
   const featured = GAMES.slice(0, 3);
   const upcoming = GAMES.slice(3, 10);
   const trending = [...GAMES].filter((game) => game.demand === "High" || game.demand === "Premium").slice(0, 4);
-  const internationalGames = [
-    { date: "Sep 10", city: "Melbourne, Australia", venue: "Melbourne Cricket Ground", away: "san-francisco-49ers", home: "los-angeles-rams" },
-    { date: "Sep 27", city: "Rio de Janeiro, Brazil", venue: "Maracanã Stadium", away: "baltimore-ravens", home: "dallas-cowboys" },
-    { date: "Oct 4", city: "London, England", venue: "Tottenham Hotspur Stadium", away: "indianapolis-colts", home: "washington-commanders" },
-    { date: "Oct 11", city: "London, England", venue: "Tottenham Hotspur Stadium", away: "philadelphia-eagles", home: "jacksonville-jaguars" },
-    { date: "Oct 18", city: "London, England", venue: "Wembley Stadium", away: "houston-texans", home: "jacksonville-jaguars" },
-    { date: "Oct 25", city: "Paris, France", venue: "Stade de France", away: "pittsburgh-steelers", home: "new-orleans-saints" },
-    { date: "Nov 8", city: "Madrid, Spain", venue: "Bernabéu Stadium", away: "cincinnati-bengals", home: "atlanta-falcons" },
-    { date: "Nov 15", city: "Munich, Germany", venue: "FC Bayern Munich Stadium", away: "new-england-patriots", home: "detroit-lions" },
-    { date: "Nov 22", city: "Monterrey, Mexico", venue: "Estadio Banorte", away: "minnesota-vikings", home: "san-francisco-49ers" },
-  ];
-
   const popular = [...GAMES].sort((a, b) => {
     const score = (d: string) => d === "Premium" ? 4 : d === "High" ? 3 : d === "Medium" ? 2 : 1;
     return score(b.demand) - score(a.demand);
@@ -85,71 +73,46 @@ export default function HomePage() {
 
   return (
     <div className="page marketplace-home">
-      <section className="marketplace-hero">
-        <div className="marketplace-hero-copy">
-          <span className="market-eyebrow">KICKSEATZ</span>
-
-          <h1>
-            Find your game.
-            <br />
-            <em>Find your seats.</em>
-          </h1>
-
-          <p>
-            Search NFL games, compare tickets, and see exactly what you’re
-            getting before you buy.
-          </p>
-
-          <form
-            action="/find-tickets"
-            method="get"
-            className="market-search-box"
-          >
-            <Search size={19} />
-
-            <input
-              type="search"
-              name="search"
-              aria-label="Search teams, games, cities, or stadiums"
-              placeholder="Search teams, games, cities, or stadiums"
-            />
-
-            <button type="submit">Search</button>
-          </form>
-
-          <div className="market-hero-links">
-            <Link href="/find-tickets">
-              Browse tickets
-              <ArrowRight size={15} />
-            </Link>
-
-            <Link href="/find-my-game">
-              Find a game
-              <ArrowRight size={15} />
-            </Link>
+      <section className="marketplace-hero market-home-hero">
+        <div className="market-home-hero-art">
+          <img className="market-home-player" src={PLAYER_SPOTLIGHTS[0].image} alt="" />
+          <div className="market-home-hero-copy">
+            <span className="market-eyebrow">NFL TICKETS</span>
+            <h1>Be there when it matters.</h1>
+            <p>Find NFL games, compare listings, and get to the seats that fit you.</p>
+          </div>
+          <div className="market-home-featured-chip">
+            <span>FEATURED GAME</span>
+            <strong>{teamName(featured[0].away)} @ {teamName(featured[0].home)}</strong>
+            <small>{formatDate(featured[0].date)} · {featured[0].city}</small>
           </div>
         </div>
-
-        <div className="market-hero-visual">
-          <div className="market-hero-image-wrap">
-            <img className="market-hero-player" src={PLAYER_SPOTLIGHTS[0].image} alt="" />
-            <div className="market-hero-glow" />
+        <div className="market-home-search-panel">
+          <div className="market-search-heading">
+            <strong>What do you want to see?</strong>
+            <span>Search teams, games, cities, or stadiums</span>
           </div>
-          <div className="market-hero-overlay">
-            <div className="market-hero-visual-top"><span>FEATURED GAME</span><strong>{featured[0].demand} demand</strong></div>
-            <div className="market-hero-matchup">
-              <div><img src={logoUrl(featured[0].away)} alt="" /><span>{teamName(featured[0].away)}</span></div>
-              <b>VS</b>
-              <div><img src={logoUrl(featured[0].home)} alt="" /><span>{teamName(featured[0].home)}</span></div>
-            </div>
-            <div className="market-hero-game">
-              <span><CalendarDays size={14}/>{formatDate(featured[0].date)} · {featured[0].time}</span>
-              <span><MapPin size={14}/>{featured[0].venue} · {featured[0].city}</span>
-            </div>
-            <Link href={"/find-tickets?game=" + featured[0].id} className="market-hero-cta">Find tickets <ArrowRight size={15}/></Link>
+          <form action="/find-tickets" method="get" className="market-search-box">
+            <Search size={19} />
+            <input type="search" name="search" aria-label="Search teams, games, cities, or stadiums" placeholder="Search teams, games, cities, or stadiums" />
+            <button type="submit">Search</button>
+          </form>
+          <div className="market-home-search-links">
+            <Link href="/find-tickets">Browse all games</Link>
+            <Link href="/teams">Browse teams</Link>
+            <Link href="/find-my-game">Find a game</Link>
           </div>
         </div>
       </section>
+
+      <div className="market-home-category-rail" aria-label="Browse NFL tickets">
+        <Link className="active" href="/find-tickets">NFL Tickets</Link>
+        <Link href="/find-tickets">Trending</Link>
+        <Link href="/find-tickets">This Week</Link>
+        <Link href="/teams">Teams</Link>
+        <Link href="/find-my-game">Find a Game</Link>
+        <Link href="/my-tickets">My Tickets</Link>
+      </div>
 
       <section className="marketplace-section">
         <div className="marketplace-heading">
@@ -304,32 +267,6 @@ export default function HomePage() {
               key={game.id}
               game={game}
             />
-          ))}
-        </div>
-      </section>
-
-      <section className="marketplace-section market-international-section">
-        <div className="marketplace-heading">
-          <div>
-            <span className="market-eyebrow">INTERNATIONAL GAMES</span>
-            <h2>NFL around the world</h2>
-          </div>
-          <Link href="/find-tickets" className="market-see-all">Find tickets <ArrowRight size={15}/></Link>
-        </div>
-        <div className="market-international-grid">
-          {internationalGames.map((game) => (
-            <div key={game.date + game.venue} className="market-international-card">
-              <div className="market-international-top">
-                <strong>{game.date}</strong>
-                <span>{game.city}</span>
-              </div>
-              <div className="market-international-matchup">
-                <div><img src={logoUrl(game.away)} alt="" /><strong>{teamName(game.away)}</strong></div>
-                <span>VS</span>
-                <div><img src={logoUrl(game.home)} alt="" /><strong>{teamName(game.home)}</strong></div>
-              </div>
-              <div className="market-international-venue"><MapPin size={13}/>{game.venue}</div>
-            </div>
           ))}
         </div>
       </section>
