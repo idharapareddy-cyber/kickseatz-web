@@ -4659,3 +4659,172 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
     flex-basis:210px!important;
   }
 }
+
+
+/* GAME TYPE CARDS — final clean editorial treatment */
+.kz-game-type-section .kz-type-editorial-grid{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:32px!important;
+  align-items:start!important;
+}
+.kz-game-type-section .kz-type-editorial-block{
+  min-width:0!important;
+  overflow:hidden!important;
+}
+.kz-game-type-section .kz-type-editorial-head{
+  margin-bottom:14px!important;
+}
+.kz-game-type-section .kz-type-editorial-body{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:12px!important;
+  align-items:stretch!important;
+  background:transparent!important;
+}
+.kz-game-type-section .kz-type-feature,
+.kz-game-type-section .kz-type-feature.is-lead{
+  display:flex!important;
+  flex-direction:column!important;
+  position:relative!important;
+  grid-column:auto!important;
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  background:var(--surface)!important;
+  border:1px solid var(--line)!important;
+}
+.kz-game-type-section .kz-type-feature > .kz-matchup-graphic,
+.kz-game-type-section .kz-type-feature > .kz-stadium-visual{
+  position:relative!important;
+  inset:auto!important;
+  display:block!important;
+  width:100%!important;
+  height:170px!important;
+  min-height:170px!important;
+  flex:0 0 170px!important;
+  overflow:hidden!important;
+}
+.kz-game-type-section .kz-type-feature > .kz-matchup-graphic{
+  background:#111!important;
+}
+.kz-game-type-section .kz-type-feature > .kz-stadium-visual img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+.kz-game-type-section .kz-type-feature .kz-stadium-shade,
+.kz-game-type-section .kz-type-feature .kz-stadium-color{
+  display:none!important;
+}
+
+/* Images are visuals only — absolutely no informational text on them. */
+.kz-game-type-section .kz-type-feature .kz-matchup-topline,
+.kz-game-type-section .kz-type-feature .kz-matchup-bottom,
+.kz-game-type-section .kz-type-feature .kz-matchup-team strong,
+.kz-game-type-section .kz-type-feature .kz-matchup-team small,
+.kz-game-type-section .kz-type-feature .kz-stadium-label{
+  display:none!important;
+}
+.kz-game-type-section .kz-type-feature .kz-matchup-teams{
+  position:absolute!important;
+  inset:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:24px!important;
+  transform:none!important;
+}
+.kz-game-type-section .kz-type-feature .kz-matchup-team{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.kz-game-type-section .kz-type-feature .kz-matchup-logo{
+  width:58px!important;
+  height:58px!important;
+}
+.kz-game-type-section .kz-type-feature .kz-matchup-vs span{
+  font-size:0!important;
+}
+.kz-game-type-section .kz-type-feature .kz-matchup-vs span:after{
+  content:"VS"!important;
+  font-size:11px!important;
+  font-weight:900!important;
+  color:#fff!important;
+}
+
+/* Information lives entirely below the image. */
+.kz-game-type-section .kz-type-feature .kz-type-feature-copy{
+  position:static!important;
+  inset:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  min-height:88px!important;
+  padding:12px 13px 13px!important;
+  background:var(--surface)!important;
+  border-top:1px solid var(--line)!important;
+  color:var(--text)!important;
+}
+.kz-game-type-section .kz-type-feature .kz-type-feature-copy span{
+  display:block!important;
+  color:var(--muted)!important;
+  font-size:9px!important;
+  line-height:1.2!important;
+}
+.kz-game-type-section .kz-type-feature .kz-type-feature-copy strong{
+  display:block!important;
+  margin-top:5px!important;
+  color:var(--text)!important;
+  font-size:12px!important;
+  line-height:1.25!important;
+}
+.kz-game-type-section .kz-type-feature .kz-type-feature-copy small{
+  display:block!important;
+  margin-top:4px!important;
+  color:var(--muted)!important;
+  font-size:9px!important;
+  line-height:1.2!important;
+}
+
+/* No special oversized playoff/lead card. */
+.kz-game-type-section .kz-type-division,
+.kz-game-type-section .kz-type-prime,
+.kz-game-type-section .kz-type-playoff{
+  grid-column:auto!important;
+}
+.kz-game-type-section .kz-type-playoff .kz-type-editorial-body{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+
+/* Prevent unrelated image rules from changing these cards. */
+.kz-game-type-section .kz-type-feature img{
+  filter:none!important;
+  opacity:1!important;
+  transform:none!important;
+}
+
+@media(max-width:1100px){
+  .kz-game-type-section .kz-type-editorial-grid{
+    grid-template-columns:1fr!important;
+  }
+  .kz-game-type-section .kz-type-editorial-body{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:650px){
+  .kz-game-type-section .kz-type-editorial-body,
+  .kz-game-type-section .kz-type-playoff .kz-type-editorial-body{
+    grid-template-columns:1fr!important;
+  }
+  .kz-game-type-section .kz-type-feature > .kz-matchup-graphic,
+  .kz-game-type-section .kz-type-feature > .kz-stadium-visual{
+    height:200px!important;
+    min-height:200px!important;
+    flex-basis:200px!important;
+  }
+}
