@@ -281,7 +281,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="kz-section kz-game-type-section">
+            <section className="kz-section kz-seasonal-section">
+        <div className="kz-section-heading">
+          <div><span className="kz-eyebrow">THE NFL CALENDAR</span><h2>Games with a little extra</h2></div>
+          <Link href="/find-tickets?category=seasonal">Explore special events <ArrowRight size={15} /></Link>
+        </div>
+        <div className="kz-seasonal-grid">
+          <Link href="/find-tickets?category=halloween" className="kz-seasonal-card kz-seasonal-halloween">
+            <div className="kz-seasonal-art kz-art-halloween"><span>🎃</span><i>OCT</i></div>
+            <div className="kz-seasonal-copy"><span>HALLOWEEN</span><strong>Thursday night under the lights</strong><small>Night games • Rivalries • Costumes & atmosphere</small></div>
+          </Link>
+          <Link href="/find-tickets?category=thanksgiving" className="kz-seasonal-card kz-seasonal-thanksgiving">
+            <div className="kz-seasonal-art kz-art-thanksgiving"><span>THANKS</span><i>NOV</i></div>
+            <div className="kz-seasonal-copy"><span>THANKSGIVING</span><strong>Football is part of the tradition</strong><small>Holiday matchups • Family game days • Detroit & Dallas</small></div>
+          </Link>
+          <Link href="/find-tickets?category=christmas" className="kz-seasonal-card kz-seasonal-christmas">
+            <div className="kz-seasonal-art kz-art-christmas"><span>★</span><i>DEC</i></div>
+            <div className="kz-seasonal-copy"><span>CHRISTMAS</span><strong>Holiday football, elevated</strong><small>Christmas Day games • Prime-time matchups</small></div>
+          </Link>
+          <Link href="/find-tickets?category=super-bowl" className="kz-seasonal-card kz-seasonal-superbowl">
+            <div className="kz-seasonal-art kz-art-superbowl"><span>SB</span><i>FEB</i></div>
+            <div className="kz-seasonal-copy"><span>SUPER BOWL</span><strong>The biggest game day of the year</strong><small>Super Bowl • Championship weekend • Fan experiences</small></div>
+          </Link>
+        </div>
+      </section>
+
+<section className="kz-section kz-game-type-section">
         <div className="kz-section-heading">
           <div><span className="kz-eyebrow">SHOP BY GAME TYPE</span><h2>Every game has a different feel</h2></div>
           <Link href="/find-tickets">Browse the full NFL schedule <ArrowRight size={15} /></Link>
