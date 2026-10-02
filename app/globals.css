@@ -5591,3 +5591,206 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
 
 /* Never show the old generic matchup illustration on homepage game visuals. */
 .kz-home .kz-matchup-graphic{display:none!important;}
+
+
+/* SIMPLE HOMEPAGE DIRECTION — clean cards, real logos, restrained visuals */
+.kz-simple-matchup{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(18px,5vw,54px);
+  background:
+    radial-gradient(circle at 18% 50%,color-mix(in srgb,var(--away-color) 42%,transparent),transparent 34%),
+    radial-gradient(circle at 82% 50%,color-mix(in srgb,var(--home-color) 42%,transparent),transparent 34%),
+    linear-gradient(110deg,#0e0c15,#191522 50%,#0e0c15);
+}
+.kz-simple-matchup:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.04),transparent 45%,rgba(255,255,255,.025));
+  pointer-events:none;
+}
+.kz-simple-team{
+  position:relative;
+  z-index:2;
+  width:92px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+.kz-simple-team img{
+  width:70px;
+  height:70px;
+  object-fit:contain;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.3));
+}
+.kz-simple-team span{
+  color:#fff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.14em;
+}
+.kz-simple-vs{
+  position:relative;
+  z-index:2;
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(0,0,0,.22);
+  color:#fff;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+.kz-simple-matchup-label{
+  position:absolute;
+  left:16px;
+  right:16px;
+  bottom:13px;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  color:#fff;
+}
+.kz-simple-matchup-label small{
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.14em;
+  opacity:.78;
+}
+.kz-simple-matchup-label strong{
+  font-size:12px;
+  line-height:1.15;
+}
+.kz-simple-matchup-hero .kz-simple-team img{width:92px;height:92px}
+.kz-simple-matchup-hero .kz-simple-team{width:118px}
+.kz-simple-matchup-hero .kz-simple-vs{width:40px;height:40px}
+.kz-simple-matchup-hero .kz-simple-matchup-label{left:24px;right:24px;bottom:22px}
+.kz-simple-matchup-hero .kz-simple-matchup-label strong{font-size:15px}
+
+/* Keep the homepage visual language consistent and uncomplicated. */
+.kz-seasonal-section .kz-marquee-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  grid-template-rows:auto!important;
+  gap:14px!important;
+}
+.kz-seasonal-section .kz-marquee-card{
+  grid-column:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:0!important;
+}
+.kz-seasonal-section .kz-marquee-image,
+.kz-seasonal-section .kz-marquee-small .kz-marquee-image{
+  height:180px!important;
+  min-height:180px!important;
+  flex:none!important;
+}
+.kz-seasonal-section .kz-marquee-body,
+.kz-seasonal-section .kz-marquee-small-body{
+  min-height:0!important;
+  padding:16px!important;
+}
+.kz-seasonal-section .kz-marquee-body strong,
+.kz-seasonal-section .kz-marquee-small-body strong{
+  display:block;
+  margin-top:5px;
+  font-size:16px;
+}
+.kz-seasonal-section .kz-marquee-games{margin-top:10px}
+
+/* International = normal cards, not a mosaic. */
+.kz-international-section .kz-international-editorial-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-auto-rows:auto!important;
+  gap:14px!important;
+}
+.kz-international-section .kz-international-feature-card,
+.kz-international-section .kz-international-lead{
+  grid-column:auto!important;
+  grid-row:auto!important;
+  min-height:250px!important;
+  border-radius:16px!important;
+}
+.kz-international-section .kz-international-feature-card img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+.kz-international-section .kz-international-lead .kz-international-card-copy strong{
+  font-size:16px!important;
+}
+
+/* Game-type sections: straightforward three-column cards. */
+.kz-game-type-section .kz-type-editorial-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:16px!important;
+}
+.kz-game-type-section .kz-type-editorial-block{
+  min-width:0!important;
+  padding:16px!important;
+  border:1px solid var(--line)!important;
+  border-radius:16px!important;
+  background:var(--surface)!important;
+}
+.kz-game-type-section .kz-type-editorial-body,
+.kz-game-type-section .kz-type-prime .kz-type-editorial-body,
+.kz-game-type-section .kz-type-division .kz-type-editorial-body,
+.kz-game-type-section .kz-type-playoff .kz-type-editorial-body{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:12px!important;
+}
+.kz-game-type-section .kz-type-feature{
+  display:block!important;
+}
+.kz-game-type-section .kz-type-feature > .kz-simple-matchup,
+.kz-game-type-section .kz-type-feature > .kz-stadium-visual{
+  position:relative!important;
+  inset:auto!important;
+  width:100%!important;
+  height:190px!important;
+  min-height:190px!important;
+}
+.kz-game-type-section .kz-type-feature-copy{
+  padding:12px 2px 2px!important;
+}
+
+/* Slightly larger image treatment for the main feature, without turning it into a mosaic. */
+.kz-feature-main .kz-simple-matchup{
+  min-height:360px;
+}
+.kz-event-image{
+  min-height:210px;
+}
+.kz-event-image > .kz-simple-matchup{
+  min-height:210px;
+}
+
+/* Responsive */
+@media(max-width:1000px){
+  .kz-seasonal-section .kz-marquee-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .kz-international-section .kz-international-editorial-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .kz-game-type-section .kz-type-editorial-grid{grid-template-columns:1fr!important}
+}
+@media(max-width:600px){
+  .kz-seasonal-section .kz-marquee-grid,
+  .kz-international-section .kz-international-editorial-grid{grid-template-columns:1fr!important}
+  .kz-simple-matchup{gap:14px}
+  .kz-simple-team img{width:58px;height:58px}
+  .kz-simple-team{width:72px}
+  .kz-feature-main .kz-simple-matchup{min-height:300px}
+}
