@@ -186,12 +186,43 @@ export default function HomePage() {
         </div>
         <div className="kz-team-strip">
           {TEAMS.slice(0, 8).map((team) => (
-            <Link href={`/teams/${team.slug}`} key={team.slug} className="kz-team-tile">
+            <Link
+              href={`/teams/${team.slug}`}
+              key={team.slug}
+              className="kz-team-tile"
+              style={{ "--team-color": team.color } as React.CSSProperties}
+            >
+              <div className="kz-team-color" />
               <img src={logoUrl(team.slug)} alt="" />
               <span>{team.abbr}</span>
               <strong>{team.name}</strong>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="kz-section">
+        <div className="kz-section-heading">
+          <div><span className="kz-eyebrow">EXPLORE BY DIVISION</span><h2>Find your part of the NFL</h2></div>
+          <Link href="/teams">Browse all teams <ArrowRight size={15} /></Link>
+        </div>
+        <div className="kz-division-grid">
+          {["AFC East","AFC North","AFC South","AFC West","NFC East","NFC North","NFC South","NFC West"].map((division) => {
+            const teams = TEAMS.filter((team) => team.division === division).slice(0, 4);
+            return (
+              <Link href="/teams" className="kz-division-card" key={division}>
+                <div className="kz-division-top">
+                  <span>{division.startsWith("AFC") ? "AFC" : "NFC"}</span>
+                  <ArrowRight size={16} />
+                </div>
+                <strong>{division}</strong>
+                <div className="kz-division-logos">
+                  {teams.map((team) => <img key={team.slug} src={logoUrl(team.slug)} alt="" />)}
+                </div>
+                <small>{teams.map((team) => team.abbr).join(" · ")}</small>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
