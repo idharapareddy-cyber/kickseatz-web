@@ -4395,3 +4395,267 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
     min-height:235px!important;
   }
 }
+
+
+/* =========================================================
+   KICKSEATZ FINAL HOMEPAGE ORGANIZATION PASS
+   Images are image-only. All event information stays below.
+   Equal cards. No overlays. No compressed/uneven lead cards.
+   ========================================================= */
+
+/* --- International: image first, information underneath --- */
+.kz-international-editorial-grid .kz-international-feature-card{
+  position:relative!important;
+  display:flex!important;
+  flex-direction:column!important;
+  height:auto!important;
+  min-height:0!important;
+}
+.kz-international-editorial-grid .kz-international-feature-card img,
+.kz-international-editorial-grid .kz-international-lead img{
+  position:relative!important;
+  inset:auto!important;
+  width:100%!important;
+  height:220px!important;
+  min-height:220px!important;
+  flex:0 0 220px!important;
+  object-fit:cover!important;
+}
+.kz-international-editorial-grid .kz-international-lead{
+  grid-column:span 2!important;
+  grid-row:span 1!important;
+}
+.kz-international-editorial-grid .kz-international-lead img{
+  height:220px!important;
+  min-height:220px!important;
+}
+.kz-international-editorial-grid .kz-international-feature-card div{
+  position:static!important;
+  inset:auto!important;
+  z-index:auto!important;
+  padding:14px 15px 16px!important;
+  color:var(--text)!important;
+  background:var(--surface)!important;
+  border-top:1px solid var(--line)!important;
+}
+.kz-international-editorial-grid .kz-international-feature-card span,
+.kz-international-editorial-grid .kz-international-feature-card strong,
+.kz-international-editorial-grid .kz-international-feature-card small{
+  color:var(--text)!important;
+}
+.kz-international-editorial-grid .kz-international-feature-card small{
+  color:var(--muted)!important;
+}
+
+/* --- Game-type sections: three equal image cards, body below --- */
+.kz-type-editorial-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:24px!important;
+  align-items:start!important;
+}
+.kz-type-editorial-block{
+  display:flex!important;
+  flex-direction:column!important;
+  min-width:0!important;
+  height:auto!important;
+}
+.kz-type-editorial-head{
+  flex:0 0 auto!important;
+}
+.kz-type-editorial-body,
+.kz-type-playoff .kz-type-editorial-body{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:1px!important;
+  align-items:stretch!important;
+}
+.kz-type-feature,
+.kz-type-feature.is-lead,
+.kz-type-playoff .kz-type-feature,
+.kz-type-playoff .kz-type-feature.is-lead{
+  position:relative!important;
+  display:flex!important;
+  flex-direction:column!important;
+  grid-column:auto!important;
+  height:auto!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  background:var(--surface)!important;
+}
+.kz-type-feature .kz-matchup-graphic,
+.kz-type-feature .kz-stadium-visual{
+  position:relative!important;
+  inset:auto!important;
+  width:100%!important;
+  height:180px!important;
+  min-height:180px!important;
+  flex:0 0 180px!important;
+  overflow:hidden!important;
+}
+.kz-type-feature .kz-matchup-graphic{
+  border-radius:0!important;
+}
+.kz-type-feature .kz-stadium-visual img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+.kz-type-feature .kz-type-feature-copy{
+  position:static!important;
+  inset:auto!important;
+  z-index:auto!important;
+  flex:0 0 auto!important;
+  min-height:94px!important;
+  padding:12px 13px 13px!important;
+  color:var(--text)!important;
+  background:var(--surface)!important;
+  border-top:1px solid var(--line)!important;
+}
+.kz-type-feature .kz-type-feature-copy span{
+  color:var(--muted)!important;
+  font-size:8px!important;
+}
+.kz-type-feature .kz-type-feature-copy strong{
+  color:var(--text)!important;
+  font-size:12px!important;
+  margin-top:5px!important;
+}
+.kz-type-feature .kz-type-feature-copy small{
+  color:var(--muted)!important;
+  font-size:8px!important;
+  margin-top:5px!important;
+}
+
+/* Absolutely no text inside matchup imagery. Keep only logos + VS. */
+.kz-type-feature .kz-matchup-topline,
+.kz-type-feature .kz-matchup-bottom,
+.kz-type-feature .kz-matchup-team strong,
+.kz-type-feature .kz-matchup-team small,
+.kz-type-feature .kz-stadium-label{
+  display:none!important;
+}
+.kz-type-feature .kz-matchup-teams{
+  transform:none!important;
+}
+.kz-type-feature .kz-matchup-team{
+  gap:0!important;
+}
+.kz-type-feature .kz-matchup-logo{
+  width:56px!important;
+  height:56px!important;
+}
+.kz-type-feature .kz-matchup-vs span{
+  font-size:0!important;
+}
+.kz-type-feature .kz-matchup-vs span::after{
+  content:"VS";
+  font-size:12px;
+  font-weight:900;
+}
+
+/* Make the three category blocks visually consistent. */
+.kz-type-division,
+.kz-type-prime,
+.kz-type-playoff{
+  grid-column:auto!important;
+}
+.kz-type-playoff{
+  grid-column:1 / -1!important;
+}
+.kz-type-playoff .kz-type-editorial-body{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+
+/* --- Holiday cards: equal image treatment, no image text --- */
+.kz-marquee-grid{
+  align-items:stretch!important;
+}
+.kz-marquee-card{
+  height:auto!important;
+}
+.kz-marquee-image,
+.kz-marquee-holiday .kz-marquee-image{
+  height:220px!important;
+  min-height:220px!important;
+}
+.kz-marquee-image::after{
+  background:rgba(0,0,0,.08)!important;
+}
+.kz-marquee-image span{
+  display:none!important;
+}
+
+/* --- Reduce dead vertical space between major homepage modules --- */
+.kz-section{
+  margin-top:44px!important;
+}
+.kz-section-heading{
+  margin-bottom:16px!important;
+}
+.kz-seasonal-section,
+.kz-international-section,
+.kz-game-type-section{
+  padding-top:0!important;
+}
+
+/* --- Give visual sections stronger width and cleaner rhythm --- */
+.kz-marquee-grid,
+.kz-international-editorial-grid,
+.kz-card-grid{
+  width:100%!important;
+}
+.kz-event-image{
+  min-height:250px!important;
+  height:250px!important;
+}
+.kz-event-image .kz-matchup-graphic,
+.kz-event-image .kz-stadium-visual{
+  width:100%!important;
+  height:100%!important;
+}
+
+/* --- Mobile stays one clean column --- */
+@media(max-width:900px){
+  .kz-type-editorial-grid{
+    grid-template-columns:1fr!important;
+  }
+  .kz-type-playoff{
+    grid-column:auto!important;
+  }
+  .kz-type-editorial-body,
+  .kz-type-playoff .kz-type-editorial-body{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+  .kz-international-editorial-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-auto-rows:auto!important;
+  }
+  .kz-international-editorial-grid .kz-international-lead{
+    grid-column:span 2!important;
+  }
+}
+@media(max-width:650px){
+  .kz-type-editorial-body,
+  .kz-type-playoff .kz-type-editorial-body{
+    grid-template-columns:1fr!important;
+  }
+  .kz-type-feature .kz-matchup-graphic,
+  .kz-type-feature .kz-stadium-visual{
+    height:200px!important;
+    min-height:200px!important;
+    flex-basis:200px!important;
+  }
+  .kz-international-editorial-grid{
+    grid-template-columns:1fr!important;
+  }
+  .kz-international-editorial-grid .kz-international-lead{
+    grid-column:auto!important;
+  }
+  .kz-international-editorial-grid .kz-international-feature-card img,
+  .kz-international-editorial-grid .kz-international-lead img{
+    height:210px!important;
+    min-height:210px!important;
+    flex-basis:210px!important;
+  }
+}
