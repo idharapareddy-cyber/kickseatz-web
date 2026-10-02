@@ -3032,3 +3032,47 @@ html[data-theme="light"] .kz-hero-search { box-shadow:0 18px 40px rgba(30,22,50,
 .kz-card-logos {
   display: none !important;
 }
+
+
+/* Absolute fallback: matchup cards are vector/CSS graphics only. No photo, stadium, field, or blur. */
+.kz-matchup-graphic {
+  background: #0d0b14 !important;
+  filter: none !important;
+}
+.kz-matchup-panel {
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:50%;
+  opacity:.34;
+  filter:none !important;
+}
+.kz-matchup-panel-away {
+  left:0;
+  background:linear-gradient(135deg,var(--away-team-color),#0d0b14 78%);
+}
+.kz-matchup-panel-home {
+  right:0;
+  background:linear-gradient(225deg,var(--home-team-color),#0d0b14 78%);
+}
+.kz-matchup-accent {
+  position:absolute;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:1px;
+  background:rgba(255,255,255,.18);
+  transform:skewX(-8deg);
+}
+.kz-matchup-grid-lines,.kz-matchup-glow { display:none !important; }
+.kz-matchup-logo { box-shadow:0 12px 30px rgba(0,0,0,.28); }
+.kz-matchup-vs {
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:50%;
+  background:#0d0b14;
+  color:#fff;
+}
