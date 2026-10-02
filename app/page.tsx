@@ -14,6 +14,20 @@ import {
 } from "lucide-react";
 import { GAMES, TEAMS, teamName } from "../lib/data";
 
+const collegeFootball = [
+  { name: "Georgia Bulldogs", short: "UGA", image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=900&q=85" },
+  { name: "Alabama Crimson Tide", short: "BAMA", image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=900&q=85" },
+  { name: "Ohio State Buckeyes", short: "OSU", image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=900&q=85" },
+  { name: "Texas Longhorns", short: "TEXAS", image: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=900&q=85" },
+];
+
+const sportCategories = [
+  { name: "Basketball", kicker: "NBA", image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1000&q=85" },
+  { name: "Baseball", kicker: "MLB", image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=1000&q=85" },
+  { name: "Hockey", kicker: "NHL", image: "https://images.unsplash.com/photo-1580748141549-71748dbe0bdc?auto=format&fit=crop&w=1000&q=85" },
+  { name: "Soccer", kicker: "MLS", image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1000&q=85" },
+];
+
 const logoIds: Record<string, number> = {
   ARI:22, ATL:1, BAL:33, BUF:2, CAR:29, CHI:3, CIN:4, CLE:5, DAL:6, DEN:7,
   DET:8, GB:9, HOU:34, IND:11, JAX:30, KC:12, LV:13, LAC:24, LAR:14,
@@ -119,10 +133,10 @@ export default function HomePage() {
           <img src={eventImages[0]} alt="" />
           <div className="kz-hero-overlay" />
           <div className="kz-hero-copy">
-            <span className="kz-eyebrow">KICKSEATZ · NFL TICKETS</span>
+            <span className="kz-eyebrow">KICKSEATZ · LIVE SPORTS & EVENTS</span>
             <h1>Find your seat<br /><em>for the game.</em></h1>
-            <p>Discover NFL games, compare tickets, and get closer to the action.</p>
-            <Link href="/find-tickets" className="kz-primary-button">Explore NFL Tickets <ArrowRight size={17} /></Link>
+            <p>Discover NFL and college football now, with more sports and live events coming to KickSeatz.</p>
+            <Link href="/find-tickets" className="kz-primary-button">Explore Sports & Tickets <ArrowRight size={17} /></Link>
           </div>
           <div className="kz-hero-game">
             <span>FEATURED GAME</span>
@@ -132,12 +146,12 @@ export default function HomePage() {
         </div>
         <div className="kz-hero-search">
           <div>
-            <span className="kz-eyebrow">SEARCH THE NFL</span>
+            <span className="kz-eyebrow">SEARCH KICKSEATZ</span>
             <strong>What game are you looking for?</strong>
           </div>
           <form action="/find-tickets" method="get" className="kz-search-box">
             <Search size={19} />
-            <input name="search" type="search" placeholder="Team, game, city, or stadium" aria-label="Search teams, games, cities, or stadiums" />
+            <input name="search" type="search" placeholder="Team, sport, event, city, or stadium" aria-label="Search teams, games, cities, or stadiums" />
             <button type="submit">Search</button>
           </form>
           <div className="kz-search-links">
@@ -148,13 +162,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <nav className="kz-category-rail" aria-label="NFL discovery">
-        <Link className="active" href="/find-tickets">NFL Tickets</Link>
-        <Link href="/find-tickets">Trending</Link>
-        <Link href="/find-tickets">This Week</Link>
-        <Link href="/teams">Teams</Link>
-        <Link href="/find-my-game">Find My Game</Link>
-        <Link href="/my-tickets">My Tickets</Link>
+      <nav className="kz-category-rail" aria-label="Sports discovery">
+        <Link className="active" href="/find-tickets">NFL</Link>
+        <Link href="/find-tickets?category=college-football">College Football</Link>
+        <Link href="/find-tickets?category=basketball">Basketball</Link>
+        <Link href="/find-tickets?category=baseball">Baseball</Link>
+        <Link href="/find-tickets?category=hockey">Hockey</Link>
+        <Link href="/find-tickets?category=soccer">Soccer</Link>
+        <Link href="/find-tickets?category=concerts">Concerts</Link>
       </nav>
 
       <section className="kz-section">
@@ -221,6 +236,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="kz-section kz-college-section">
+        <div className="kz-section-heading"><div><span className="kz-eyebrow">NEXT UP</span><h2>College football</h2></div><Link href="/find-tickets?category=college-football">Explore college football <ArrowRight size={15} /></Link></div>
+        <div className="kz-college-grid">{collegeFootball.map((school)=><Link href="/find-tickets?category=college-football" className="kz-college-card" key={school.short}><img src={school.image} alt="" /><div className="kz-college-shade" /><div className="kz-college-copy"><span>COLLEGE FOOTBALL</span><strong>{school.name}</strong><small>Games, rivalries & game-day experiences</small></div></Link>)}</div>
+      </section>
+
       <section className="kz-section kz-team-strip-section">
         <div className="kz-section-heading">
           <div><span className="kz-eyebrow">EXPLORE</span><h2>Popular NFL teams</h2></div>
@@ -276,6 +296,11 @@ export default function HomePage() {
         <div className="kz-game-list">
           {upcoming.map((game) => <GameRow key={game.id} game={game} />)}
         </div>
+      </section>
+
+      <section className="kz-section kz-sports-section">
+        <div className="kz-section-heading"><div><span className="kz-eyebrow">MORE SPORTS</span><h2>Coming beyond football</h2></div><span className="kz-section-note">One ticket destination, more live sports.</span></div>
+        <div className="kz-sports-grid">{sportCategories.map((sport)=><Link href={`/find-tickets?category=${sport.kicker.toLowerCase()}`} className="kz-sport-card" key={sport.kicker}><img src={sport.image} alt="" /><div className="kz-sport-shade" /><div><span>{sport.kicker}</span><strong>{sport.name}</strong><small>Explore tickets & events</small></div></Link>)}</div>
       </section>
 
       <section className="kz-section kz-discover">
