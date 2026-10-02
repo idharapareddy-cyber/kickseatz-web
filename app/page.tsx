@@ -41,6 +41,14 @@ function logoUrl(slug: string) {
   return id ? `https://a.espncdn.com/i/teamlogos/nfl/500/${id}.png` : "";
 }
 
+function isUpcomingGame(game: (typeof GAMES)[number]) {
+  const today = new Date();
+  const gameDate = new Date(game.date + "T23:59:59");
+  return gameDate >= new Date(today.getFullYear(), today.getMonth(), today.getDate());
+}
+
+const UPCOMING_GAMES = UPCOMING_GAMES.filter(isUpcomingGame);
+
 function formatDate(date: string) {
   return new Date(`${date}T12:00:00`).toLocaleDateString("en-US", {
     weekday: "short",
@@ -223,11 +231,11 @@ function EventCard({
 }
 
 export default function HomePage() {
-  const featured = GAMES.slice(0, 5);
+  const featured = UPCOMING_GAMES.slice(0, 5);
   const trending = [...GAMES]
     .filter((game) => game.demand === "High" || game.demand === "Premium")
     .slice(0, 6);
-  const upcoming = GAMES.slice(5, 12);
+  const upcoming = UPCOMING_GAMES.slice(5, 12);
 
   return (
     <div className="page marketplace-home kz-home">
@@ -384,7 +392,7 @@ export default function HomePage() {
               <Link href="/find-tickets?category=division">View all <ArrowRight size={14} /></Link>
             </div>
             <div className="kz-type-editorial-body">
-              {GAMES.filter((game) => gameFlags(game).division).slice(0, 3).map((game, i) => (
+              {UPCOMING_GAMES.filter((game) => gameFlags(game).division).slice(0, 3).map((game, i) => (
                 <Link href={`/find-tickets?game=${game.id}`} className="kz-type-feature" key={game.id}>
                   <GameVisual game={game} index={i + 40} hero={i === 0} section="division" />
                   <div className="kz-type-feature-copy">
@@ -403,7 +411,7 @@ export default function HomePage() {
               <Link href="/find-tickets?category=primetime">View all <ArrowRight size={14} /></Link>
             </div>
             <div className="kz-type-editorial-body">
-              {GAMES.filter((game) => gameFlags(game).primetime).slice(0, 3).map((game, i) => (
+              {UPCOMING_GAMES.filter((game) => gameFlags(game).primetime).slice(0, 3).map((game, i) => (
                 <Link href={`/find-tickets?game=${game.id}`} className="kz-type-feature" key={game.id}>
                   <GameVisual game={game} index={i + 50} hero={i === 0} section="primetime" />
                   <div className="kz-type-feature-copy">
@@ -422,7 +430,7 @@ export default function HomePage() {
               <Link href="/find-tickets?category=playoff-watch">View all <ArrowRight size={14} /></Link>
             </div>
             <div className="kz-type-editorial-body">
-              {GAMES.filter((game) => gameFlags(game).playoffWatch).slice(0, 3).map((game, i) => (
+              {UPCOMING_GAMES.filter((game) => gameFlags(game).playoffWatch).slice(0, 3).map((game, i) => (
                 <Link href={`/find-tickets?game=${game.id}`} className={`kz-type-feature ${i === 0 ? "is-lead" : ""}`} key={game.id}>
                   <GameVisual game={game} index={i + 60} hero={i === 0} section="playoff" />
                   <div className="kz-type-feature-copy">
