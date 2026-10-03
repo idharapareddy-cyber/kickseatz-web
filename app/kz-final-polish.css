@@ -1,19 +1,14 @@
 /* Final KickSeatz polish pass — loaded after the main homepage overrides. */
 
-/* Keep every visual family calm and predictable. */
 .kz-home .kz-section-heading{min-width:0}
 .kz-home .kz-section-heading > div{min-width:0}
 .kz-home .kz-section-heading h2{overflow-wrap:anywhere}
 .kz-home a:focus-visible,.kz-home button:focus-visible,.kz-home input:focus-visible{outline:2px solid #8b7cff!important;outline-offset:3px!important}
-
-/* Hero/search: prevent cramped desktop and tablet layouts. */
 .kz-home .kz-hero-search{min-width:0}
 .kz-home .kz-search-box{min-width:0}
 .kz-home .kz-search-box input{width:100%}
 .kz-home .kz-search-links a{transition:background .18s ease,border-color .18s ease,color .18s ease}
 .kz-home .kz-search-links a:hover{background:#191622!important;border-color:#453b61!important;color:#fff!important}
-
-/* Matchup art: never let long team names distort the geometry. */
 .kz-home .kz-simple-team span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .kz-home .kz-simple-matchup-label{pointer-events:none}
 .kz-home .kz-simple-matchup-label strong{max-width:100%}
@@ -21,8 +16,6 @@
 .kz-home .kz-event-badge{pointer-events:none}
 .kz-home .kz-heart{pointer-events:none}
 
-/* International cards: use the real markup for the matchup overlay instead of
-   brittle nth-child-generated text. The card order can now change safely. */
 .kz-international-section .kz-international-feature-card:after{content:none!important}
 .kz-international-section .kz-international-card-copy{
   margin-top:-58px!important;
@@ -34,34 +27,25 @@
 .kz-international-section .kz-international-photo-tag{background:#12111a!important}
 .kz-international-section .kz-international-feature-card:hover img{filter:saturate(.95) brightness(.72)!important}
 
-/* Seasonal cards: one visual language, no accidental oversized third card. */
 .kz-seasonal-section .kz-marquee-card{min-height:0!important}
 .kz-seasonal-section .kz-marquee-image img{width:100%!important;height:100%!important;display:block!important;object-fit:cover!important}
 .kz-seasonal-section .kz-marquee-body,.kz-seasonal-section .kz-marquee-small-body{min-height:132px!important;box-sizing:border-box!important}
 .kz-seasonal-section .kz-marquee-games span{overflow-wrap:anywhere}
-
-/* Game-type panels: equal heights and consistent internal rhythm. */
 .kz-game-type-section .kz-type-editorial-grid{align-items:stretch!important}
 .kz-game-type-section .kz-type-editorial-block{min-width:0!important;height:100%!important;box-sizing:border-box!important}
 .kz-game-type-section .kz-type-editorial-body{min-width:0!important}
 .kz-game-type-section .kz-type-feature{min-width:0!important}
 .kz-game-type-section .kz-type-feature-copy{min-width:0!important}
 .kz-game-type-section .kz-type-feature-copy strong{overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
-
-/* College / other sports: cards stay visual without becoming generic stock-photo walls. */
 .kz-home .kz-college-card,.kz-home .kz-sport-card,.kz-home .kz-experience-card{min-width:0!important}
 .kz-home .kz-college-card img,.kz-home .kz-sport-card img,.kz-home .kz-experience-art img{display:block!important}
 .kz-home .kz-sport-card img{object-position:center!important}
-
-/* Rows: long stadium names should never push the ticket action off-screen. */
 .kz-home .kz-game-row{min-width:0!important}
 .kz-home .kz-game-matchup{min-width:0!important}
 .kz-home .kz-game-matchup > div{min-width:0!important}
 .kz-home .kz-game-matchup strong{min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
 .kz-home .kz-ticket-link{white-space:nowrap!important}
 
-/* Desktop/tablet/mobile breakpoints: reduce visual density instead of creating
-   one-off layouts that fight the base grid. */
 @media (max-width:1050px){
   .kz-home{padding-left:20px!important;padding-right:20px!important}
   .kz-home .kz-hero{grid-template-columns:minmax(0,1.35fr) minmax(280px,.8fr)!important}
@@ -73,7 +57,6 @@
   .kz-seasonal-section .kz-marquee-small{grid-column:1/-1!important}
   .kz-game-type-section .kz-type-editorial-grid{grid-template-columns:1fr!important}
 }
-
 @media (max-width:720px){
   .kz-home{padding:18px 14px 70px!important}
   .kz-home .kz-section{margin-top:44px!important}
@@ -110,7 +93,6 @@
   .kz-home .kz-game-row{grid-template-columns:48px minmax(0,1fr)!important}
   .kz-home .kz-demand,.kz-home .kz-ticket-link{display:none!important}
 }
-
 @media (max-width:460px){
   .kz-home .kz-feature-side{grid-template-columns:1fr!important}
   .kz-home .kz-hero-image{min-height:500px!important}
@@ -121,3 +103,7 @@
   .kz-home .kz-game-matchup > div{display:grid!important;grid-template-columns:28px minmax(0,1fr) 14px minmax(0,1fr) 28px!important;gap:5px!important}
   .kz-home .kz-game-matchup img{width:24px!important;height:24px!important}
 }
+
+/* International matchup cards: remove the stray heavy black shadow/overlay. */
+.kz-international-section .kz-international-feature-card{box-shadow:none!important}
+.kz-international-section .kz-international-feature-card:after{display:none!important;content:none!important}
