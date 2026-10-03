@@ -7,6 +7,11 @@ import type { Game } from "./data";
  * ESPN NFL schedule. The fallback keeps display metadata non-empty so a
  * temporary sync failure never produces broken-looking rows.
  */
+const FALLBACK_METADATA: Record<string, { venue: string; city: string }> = {
+  "indianapolis-colts": { venue: "Tottenham Hotspur Stadium", city: "London, United Kingdom" },
+  "philadelphia-eagles": { venue: "Tottenham Hotspur Stadium", city: "London, United Kingdom" },
+};
+
 export const LIVE_NFL_GAMES: Game[] = [
   ["indianapolis-colts","washington-commanders","2026-10-04","9:30 AM","High","NFL International Series · London"],
   ["tennessee-titans","baltimore-ravens","2026-10-04","1:00 PM","Medium","AFC matchup"],
@@ -44,8 +49,8 @@ export const LIVE_NFL_GAMES: Game[] = [
   away,
   date,
   time,
-  venue: "NFL venue",
-  city: "United States",
+  venue: FALLBACK_METADATA[home]?.venue ?? "NFL venue",
+  city: FALLBACK_METADATA[home]?.city ?? "United States",
   demand: demand as Game["demand"],
   reason,
 }));
