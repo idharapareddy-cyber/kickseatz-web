@@ -16,17 +16,6 @@
 .kz-home .kz-event-badge{pointer-events:none}
 .kz-home .kz-heart{pointer-events:none}
 
-/* Give the homepage search panel enough breathing room so it reads like a real search area. */
-.kz-home .kz-hero{grid-template-columns:minmax(0,1.48fr) minmax(360px,.92fr)!important}
-.kz-home .kz-hero-search{padding:40px!important}
-.kz-home .kz-hero-search>div:first-child{margin-bottom:18px!important}
-.kz-home .kz-hero-search>div:first-child strong{font-size:23px!important}
-.kz-home .kz-search-box{gap:11px!important;padding:8px 8px 8px 14px!important;min-height:52px!important}
-.kz-home .kz-search-box input{font-size:13px!important;min-height:34px!important}
-.kz-home .kz-search-box button{padding:11px 16px!important;font-size:11px!important}
-.kz-home .kz-search-links{gap:8px!important;margin-top:15px!important}
-.kz-home .kz-search-links a{padding:8px 10px!important;font-size:10px!important}
-
 .kz-international-section .kz-international-feature-card:after{content:none!important}
 .kz-international-section .kz-international-card-copy{
   margin-top:-58px!important;
@@ -59,8 +48,7 @@
 
 @media (max-width:1050px){
   .kz-home{padding-left:20px!important;padding-right:20px!important}
-  .kz-home .kz-hero{grid-template-columns:minmax(0,1.25fr) minmax(320px,.9fr)!important}
-  .kz-home .kz-hero-search{padding:32px!important}
+  .kz-home .kz-hero{grid-template-columns:minmax(0,1.35fr) minmax(280px,.8fr)!important}
   .kz-home .kz-hero-copy{left:28px!important;right:24px!important}
   .kz-home .kz-hero-copy h1{font-size:clamp(42px,5vw,62px)!important}
   .kz-home .kz-feature-grid{grid-template-columns:minmax(0,1.25fr) minmax(280px,.8fr)!important}
@@ -78,7 +66,7 @@
   .kz-home .kz-hero{display:block!important;min-height:0!important}
   .kz-home .kz-hero-image{min-height:520px!important}
   .kz-home .kz-hero-image .kz-stadium-visual,.kz-home .kz-hero-image .kz-simple-matchup{min-height:520px!important;height:520px!important}
-  .kz-home .kz-hero-search{border-left:0!important;border-top:1px solid #29243a!important;padding:28px 20px!important}
+  .kz-home .kz-hero-search{border-left:0!important;border-top:1px solid #29243a!important;padding:24px 20px!important}
   .kz-home .kz-hero-copy{left:22px!important;right:22px!important;bottom:26px!important}
   .kz-home .kz-hero-copy h1{font-size:42px!important}
   .kz-home .kz-hero-game{left:22px!important;right:22px!important;bottom:auto!important;top:18px!important;min-width:0!important}
