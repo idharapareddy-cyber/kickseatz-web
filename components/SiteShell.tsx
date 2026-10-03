@@ -3,17 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import {
-  Compass,
-  Heart,
-  Search,
-  Ticket,
-  UserRound,
-  Users,
-  Moon,
-  Sun,
-} from "lucide-react";
+import { Compass, Heart, Search, Ticket, UserRound, Users } from "lucide-react";
 
 const nav = [
   { href: "/", label: "Home", icon: Compass },
@@ -29,17 +19,6 @@ export function SiteShell({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
-
-  useEffect(() => {
-    const saved = window.localStorage.getItem("kz_theme");
-    if (saved === "light" || saved === "dark") setTheme(saved);
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem("kz_theme", theme);
-  }, [theme]);
 
   return (
     <div className="app-shell">
@@ -77,19 +56,6 @@ export function SiteShell({
               );
             })}
           </nav>
-
-          <button
-            type="button"
-            className="theme-toggle"
-            onClick={() =>
-              setTheme((current) => (current === "dark" ? "light" : "dark"))
-            }
-            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-            title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-          >
-            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-            <span>{theme === "dark" ? "Light" : "Dark"}</span>
-          </button>
 
           <Link
             href="/profile"
