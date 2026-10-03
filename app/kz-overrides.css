@@ -1,32 +1,166 @@
-/* Games Around the World: one consistent, self-contained matchup graphic for every international game. */
-.kz-international-section .kz-international-editorial-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:28px!important}
-.kz-international-section .kz-international-feature-card{display:flex!important;flex-direction:column!important;min-height:0!important;overflow:hidden!important;border-radius:18px!important;position:relative!important;background:var(--surface)!important;border:1px solid var(--line)!important}
-.kz-international-section .kz-international-feature-card img{display:none!important}
-.kz-international-section .kz-international-feature-card::before{content:"";display:block!important;position:relative!important;width:100%!important;height:220px!important;flex:none!important;background-repeat:no-repeat!important;background-position:24% 50%,76% 50%,0 0!important;background-size:82px 82px,82px 82px,100% 100%!important}
-.kz-international-section .kz-international-feature-card::after{position:absolute!important;left:50%!important;top:110px!important;transform:translate(-50%,-50%)!important;width:100%!important;height:auto!important;display:block!important;background:transparent!important;border:0!important;box-shadow:none!important;color:#fff!important;font-size:18px!important;line-height:1.35!important;font-weight:900!important;text-align:center!important;letter-spacing:.02em!important;white-space:pre-line!important;z-index:3!important;pointer-events:none!important;text-shadow:0 2px 14px rgba(0,0,0,.5)!important}
-/* Same graphic recipe; only matchup logos/colors/names change. */
-.kz-international-section .kz-international-feature-card:nth-child(1)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/25.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/14.png"),linear-gradient(115deg,#aa1f2e,#171923 48%,#ffd447)}
-.kz-international-section .kz-international-feature-card:nth-child(1)::after{content:"49ERS\A VS\A RAMS"}
-.kz-international-section .kz-international-feature-card:nth-child(2)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/33.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/6.png"),linear-gradient(115deg,#241773,#171923 48%,#b7b7b7)}
-.kz-international-section .kz-international-feature-card:nth-child(2)::after{content:"RAVENS\A VS\A COWBOYS"}
-.kz-international-section .kz-international-feature-card:nth-child(3)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/34.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/30.png"),linear-gradient(115deg,#03234b,#171923 48%,#006778)}
-.kz-international-section .kz-international-feature-card:nth-child(3)::after{content:"TEXANS\A VS\A JAGUARS"}
-.kz-international-section .kz-international-feature-card:nth-child(4)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/23.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/18.png"),linear-gradient(115deg,#ffb612,#171923 48%,#d3d3d3)}
-.kz-international-section .kz-international-feature-card:nth-child(4)::after{content:"STEELERS\A VS\A SAINTS"}
-.kz-international-section .kz-international-feature-card:nth-child(5)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/4.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/1.png"),linear-gradient(115deg,#fb4f14,#171923 48%,#a71930)}
-.kz-international-section .kz-international-feature-card:nth-child(5)::after{content:"BENGALS\A VS\A FALCONS"}
-.kz-international-section .kz-international-feature-card:nth-child(6)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/17.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/8.png"),linear-gradient(115deg,#002244,#171923 48%,#007a33)}
-.kz-international-section .kz-international-feature-card:nth-child(6)::after{content:"PATRIOTS\A VS\A LIONS"}
-.kz-international-section .kz-international-feature-card:nth-child(7)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/16.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/25.png"),linear-gradient(115deg,#4f2683,#171923 48%,#aa0000)}
-.kz-international-section .kz-international-feature-card:nth-child(7)::after{content:"VIKINGS\A VS\A 49ERS"}
-.kz-international-section .kz-international-feature-card:nth-child(8)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/11.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/28.png"),linear-gradient(115deg,#002c5f,#171923 48%,#5a1414)}
-.kz-international-section .kz-international-feature-card:nth-child(8)::after{content:"COLTS\A VS\A COMMANDERS"}
-.kz-international-section .kz-international-feature-card:nth-child(9)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/21.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/30.png"),linear-gradient(115deg,#004c54,#171923 48%,#006778)}
-.kz-international-section .kz-international-feature-card:nth-child(9)::after{content:"EAGLES\A VS\A JAGUARS"}
-.kz-international-section .kz-international-photo-tag{display:flex!important;visibility:visible!important;opacity:1!important;position:static!important;align-items:center!important;gap:7px!important;padding:13px 16px 0!important;background:var(--surface)!important;color:var(--muted)!important;z-index:4!important}
-.kz-international-section .kz-international-photo-tag b{font-size:11px!important;letter-spacing:.08em!important;color:var(--muted)!important}
-.kz-international-section .kz-international-card-copy{position:static!important;padding:7px 16px 18px!important;background:var(--surface)!important;display:flex!important;visibility:visible!important;opacity:1!important;flex-direction:column!important;gap:5px!important;z-index:4!important}
-.kz-international-section .kz-international-card-copy strong{display:block!important;color:var(--text)!important;font-size:18px!important;line-height:1.15!important}
-.kz-international-section .kz-international-card-copy small{display:block!important;color:var(--muted)!important;font-size:12px!important;line-height:1.45!important}
-@media(max-width:1000px){.kz-international-section .kz-international-editorial-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px!important}}
-@media(max-width:640px){.kz-international-section .kz-international-editorial-grid{grid-template-columns:1fr!important;gap:18px!important}.kz-international-section .kz-international-feature-card::after{font-size:20px!important}}
+/* KickSeatz homepage polish — simple, premium, image-led, and consistent. */
+
+.kz-home{max-width:1320px!important;padding:30px 28px 90px!important}
+.kz-home .kz-section{margin-top:64px!important}
+.kz-home .kz-section-heading{margin-bottom:20px!important;align-items:end!important}
+.kz-home .kz-section-heading h2{font-size:30px!important;letter-spacing:-.045em!important;margin:5px 0 0!important}
+.kz-home .kz-section-heading>a,.kz-home .kz-section-heading>span{font-size:12px!important;font-weight:800!important;color:#b7abff!important}
+.kz-home .kz-eyebrow{font-size:10px!important;letter-spacing:.16em!important;color:#9d8cff!important}
+
+/* Header / hero */
+.kz-home .kz-hero{display:grid!important;grid-template-columns:minmax(0,1.7fr) minmax(360px,.75fr)!important;gap:0!important;min-height:610px!important;border:1px solid #29243a!important;border-radius:24px!important;overflow:hidden!important;background:#0e0d15!important;box-shadow:0 24px 70px rgba(0,0,0,.28)!important}
+.kz-home .kz-hero-image{min-height:610px!important;position:relative!important;overflow:hidden!important;background:#11101a!important}
+.kz-home .kz-hero-image .kz-stadium-visual,.kz-home .kz-hero-image .kz-simple-matchup{height:100%!important;min-height:610px!important;border-radius:0!important}
+.kz-home .kz-hero-image .kz-stadium-visual img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;display:block!important;filter:saturate(1.08)!important}
+.kz-home .kz-hero-image .kz-stadium-shade{background:linear-gradient(90deg,rgba(5,5,10,.92) 0%,rgba(5,5,10,.56) 42%,rgba(5,5,10,.16) 100%),linear-gradient(0deg,rgba(5,5,10,.68),transparent 52%)!important;position:absolute!important;inset:0!important;z-index:1!important}
+.kz-home .kz-hero-image .kz-stadium-color{opacity:.18!important;mix-blend-mode:screen!important;position:absolute!important;inset:0!important;z-index:1!important}
+.kz-home .kz-hero-copy{position:absolute!important;z-index:5!important;left:42px!important;bottom:54px!important;max-width:650px!important}
+.kz-home .kz-hero-copy h1{font-size:clamp(48px,5.4vw,78px)!important;line-height:.93!important;letter-spacing:-.065em!important;margin:12px 0 18px!important}
+.kz-home .kz-hero-copy h1 em{font-style:normal!important;color:#c5baff!important}
+.kz-home .kz-hero-copy p{max-width:570px!important;color:#d0cad9!important;font-size:15px!important;line-height:1.6!important;margin:0 0 24px!important}
+.kz-home .kz-primary-button{display:inline-flex!important;align-items:center!important;gap:9px!important;padding:13px 18px!important;border-radius:12px!important;background:#fff!important;color:#11101a!important;font-size:13px!important;font-weight:900!important;box-shadow:0 10px 30px rgba(0,0,0,.2)!important}
+.kz-home .kz-primary-button:hover{transform:translateY(-1px)!important}
+.kz-home .kz-hero-game{position:absolute!important;right:24px!important;bottom:24px!important;z-index:6!important;min-width:250px!important;padding:14px 16px!important;border:1px solid rgba(255,255,255,.16)!important;background:rgba(12,11,18,.68)!important;backdrop-filter:blur(14px)!important;border-radius:14px!important;display:flex!important;flex-direction:column!important;gap:4px!important}
+.kz-home .kz-hero-game span{font-size:9px!important;font-weight:900!important;letter-spacing:.14em!important;color:#a99cff!important}
+.kz-home .kz-hero-game strong{font-size:14px!important;line-height:1.25!important;color:#fff!important}
+.kz-home .kz-hero-game small{font-size:11px!important;color:#b4adbb!important}
+.kz-home .kz-hero-search{display:flex!important;flex-direction:column!important;justify-content:center!important;padding:34px!important;background:linear-gradient(180deg,#15131f,#0f0e16)!important;border-left:1px solid #29243a!important}
+.kz-home .kz-hero-search>div:first-child{margin-bottom:16px!important}
+.kz-home .kz-hero-search>div:first-child strong{display:block!important;font-size:22px!important;letter-spacing:-.035em!important;margin-top:6px!important}
+.kz-home .kz-search-box{display:grid!important;grid-template-columns:auto 1fr auto!important;align-items:center!important;gap:10px!important;padding:7px 7px 7px 13px!important;background:#0b0a10!important;border:1px solid #302a42!important;border-radius:14px!important;box-shadow:0 12px 35px rgba(0,0,0,.18)!important}
+.kz-home .kz-search-box>svg{color:#8f83b6!important}
+.kz-home .kz-search-box input{min-width:0!important;border:0!important;outline:0!important;background:transparent!important;color:#fff!important;font-size:12px!important}
+.kz-home .kz-search-box input::placeholder{color:#706b79!important}
+.kz-home .kz-search-box button{border:0!important;border-radius:10px!important;background:#6546ff!important;color:#fff!important;padding:11px 14px!important;font-size:12px!important;font-weight:900!important;cursor:pointer!important}
+.kz-home .kz-search-links{display:flex!important;flex-wrap:wrap!important;gap:8px!important;margin-top:14px!important}
+.kz-home .kz-search-links a{padding:7px 10px!important;border:1px solid #2d2838!important;border-radius:999px!important;color:#aaa2b4!important;font-size:10px!important;font-weight:800!important}
+.kz-home .kz-search-links a:hover{color:#fff!important;border-color:#55477e!important}
+
+/* Category rail */
+.kz-home .kz-category-rail{position:sticky!important;top:63px!important;z-index:20!important;display:flex!important;gap:7px!important;overflow:auto!important;padding:14px 2px!important;margin:12px 0 0!important;background:linear-gradient(180deg,rgba(11,10,18,.97),rgba(11,10,18,.88))!important;backdrop-filter:blur(14px)!important;border-bottom:1px solid rgba(255,255,255,.05)!important;scrollbar-width:none!important}
+.kz-home .kz-category-rail::-webkit-scrollbar{display:none!important}
+.kz-home .kz-category-rail a{white-space:nowrap!important;padding:9px 13px!important;border:1px solid #2a2634!important;border-radius:999px!important;color:#928b9b!important;background:#111019!important;font-size:11px!important;font-weight:800!important}
+.kz-home .kz-category-rail a:hover{color:#fff!important;border-color:#4a3d69!important}
+.kz-home .kz-category-rail a.active{color:#fff!important;background:#5b3df5!important;border-color:#735bff!important;box-shadow:0 6px 20px rgba(91,61,245,.22)!important}
+
+/* Featured block */
+.kz-home .kz-feature-grid{display:grid!important;grid-template-columns:minmax(0,1.5fr) minmax(300px,.72fr)!important;gap:16px!important}
+.kz-home .kz-feature-main{position:relative!important;min-height:480px!important;overflow:hidden!important;border:1px solid #2a2536!important;border-radius:18px!important;background:#11101a!important}
+.kz-home .kz-feature-main .kz-stadium-visual,.kz-home .kz-feature-main .kz-simple-matchup{height:100%!important;min-height:480px!important}
+.kz-home .kz-feature-main .kz-stadium-visual img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
+.kz-home .kz-feature-main .kz-stadium-shade{position:absolute!important;inset:0!important;background:linear-gradient(0deg,rgba(5,5,10,.96) 0%,rgba(5,5,10,.45) 48%,rgba(5,5,10,.05) 100%)!important;z-index:1!important}
+.kz-home .kz-feature-copy{position:absolute!important;left:24px!important;right:24px!important;bottom:22px!important;z-index:4!important}
+.kz-home .kz-feature-copy>span{color:#b7adbf!important;font-size:11px!important;font-weight:800!important}
+.kz-home .kz-feature-copy h3{font-size:30px!important;letter-spacing:-.045em!important;line-height:1.05!important;margin:6px 0!important}
+.kz-home .kz-feature-copy p{max-width:650px!important;color:#c2bacb!important;font-size:12px!important;margin:0 0 12px!important}
+.kz-home .kz-feature-copy b{display:inline-flex!important;align-items:center!important;gap:5px!important;color:#fff!important;font-size:11px!important}
+.kz-home .kz-feature-badge,.kz-home .kz-event-badge{position:absolute!important;z-index:5!important;top:14px!important;left:14px!important;padding:6px 9px!important;border-radius:999px!important;background:rgba(8,7,12,.72)!important;border:1px solid rgba(255,255,255,.14)!important;color:#fff!important;font-size:9px!important;font-weight:900!important;letter-spacing:.08em!important;backdrop-filter:blur(10px)!important}
+.kz-home .kz-feature-side{display:grid!important;grid-template-rows:1fr 1fr!important;gap:16px!important}
+.kz-home .kz-event-card{min-width:0!important;display:grid!important;grid-template-rows:minmax(190px,1fr) auto!important;overflow:hidden!important;border:1px solid #2a2536!important;border-radius:18px!important;background:#12111a!important;transition:transform .18s ease,border-color .18s ease!important}
+.kz-home .kz-event-card:hover,.kz-home .kz-feature-main:hover,.kz-home .kz-marquee-card:hover,.kz-home .kz-college-card:hover,.kz-home .kz-sport-card:hover{transform:translateY(-2px)!important;border-color:#4a3c68!important}
+.kz-home .kz-event-image{position:relative!important;min-height:190px!important;overflow:hidden!important}
+.kz-home .kz-event-image .kz-simple-matchup{height:100%!important;min-height:190px!important}
+.kz-home .kz-event-info{padding:13px 15px 15px!important;display:flex!important;flex-direction:column!important;gap:4px!important}
+.kz-home .kz-event-info strong{font-size:14px!important;line-height:1.2!important;letter-spacing:-.015em!important}
+.kz-home .kz-event-info span{font-size:10px!important;color:#8f8997!important}
+.kz-home .kz-heart{position:absolute!important;right:13px!important;top:13px!important;z-index:5!important;width:28px!important;height:28px!important;border-radius:50%!important;display:grid!important;place-items:center!important;background:rgba(8,7,12,.7)!important;border:1px solid rgba(255,255,255,.12)!important;color:#fff!important;font-size:17px!important}
+
+/* Matchup art: clean team-v-team graphic, not generic football art. */
+.kz-home .kz-simple-matchup{position:relative!important;display:grid!important;grid-template-columns:1fr 64px 1fr!important;align-items:center!important;gap:8px!important;padding:24px!important;overflow:hidden!important;background:radial-gradient(circle at 18% 50%,color-mix(in srgb,var(--away-color) 45%,transparent),transparent 34%),radial-gradient(circle at 82% 50%,color-mix(in srgb,var(--home-color) 45%,transparent),transparent 34%),linear-gradient(120deg,#0b0a10,#191622 50%,#0b0a10)!important}
+.kz-home .kz-simple-matchup:before{content:""!important;position:absolute!important;inset:0!important;background:linear-gradient(90deg,rgba(255,255,255,.04),transparent 25%,transparent 75%,rgba(255,255,255,.04))!important;pointer-events:none!important}
+.kz-home .kz-simple-team{position:relative!important;z-index:2!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:9px!important;min-width:0!important}
+.kz-home .kz-simple-team img{width:clamp(62px,8vw,92px)!important;height:clamp(62px,8vw,92px)!important;object-fit:contain!important;filter:drop-shadow(0 12px 18px rgba(0,0,0,.38))!important}
+.kz-home .kz-simple-team span{font-size:11px!important;font-weight:900!important;letter-spacing:.12em!important;color:#fff!important}
+.kz-home .kz-simple-vs{position:relative!important;z-index:3!important;width:48px!important;height:48px!important;margin:auto!important;display:grid!important;place-items:center!important;border-radius:50%!important;background:#0a0910!important;border:1px solid rgba(255,255,255,.16)!important;color:#fff!important;font-size:10px!important;font-weight:900!important;box-shadow:0 0 0 7px rgba(0,0,0,.12)!important}
+.kz-home .kz-simple-matchup-label{position:absolute!important;left:18px!important;right:18px!important;bottom:14px!important;z-index:4!important;display:flex!important;flex-direction:column!important;gap:3px!important;text-align:center!important}
+.kz-home .kz-simple-matchup-label small{font-size:8px!important;letter-spacing:.13em!important;font-weight:900!important;color:#b7aaff!important}
+.kz-home .kz-simple-matchup-label strong{font-size:11px!important;color:#fff!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+.kz-home .kz-simple-matchup-hero .kz-simple-team img{width:110px!important;height:110px!important}
+
+/* International — retain the real venue photos while using the consistent matchup graphic language. */
+.kz-international-section .kz-international-editorial-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important}
+.kz-international-section .kz-international-feature-card{display:flex!important;flex-direction:column!important;min-height:0!important;overflow:hidden!important;border-radius:18px!important;position:relative!important;background:#12111a!important;border:1px solid #2a2536!important;transition:transform .18s ease,border-color .18s ease!important}
+.kz-international-section .kz-international-feature-card:hover{transform:translateY(-2px)!important;border-color:#4a3c68!important}
+.kz-international-section .kz-international-feature-card img{display:block!important;width:100%!important;height:220px!important;object-fit:cover!important;object-position:center!important;filter:saturate(.82) brightness(.62)!important}
+.kz-international-section .kz-international-feature-card:before{content:""!important;position:absolute!important;left:0!important;right:0!important;top:0!important;height:220px!important;z-index:1!important;background-repeat:no-repeat!important;background-position:24% 50%,76% 50%,0 0!important;background-size:78px 78px,78px 78px,100% 100%!important;pointer-events:none!important}
+.kz-international-section .kz-international-feature-card:after{position:absolute!important;left:50%!important;top:110px!important;transform:translate(-50%,-50%)!important;width:100%!important;display:block!important;background:transparent!important;border:0!important;color:#fff!important;font-size:18px!important;line-height:1.28!important;font-weight:950!important;text-align:center!important;letter-spacing:.03em!important;white-space:pre-line!important;text-shadow:0 2px 16px rgba(0,0,0,.7)!important;z-index:3!important;pointer-events:none!important}
+.kz-international-section .kz-international-photo-tag{display:flex!important;align-items:center!important;gap:7px!important;padding:12px 15px 0!important;background:#12111a!important;color:#a39ba9!important;z-index:4!important}
+.kz-international-section .kz-international-photo-tag b{font-size:9px!important;letter-spacing:.1em!important;color:#8f8796!important}
+.kz-international-section .kz-international-card-copy{position:static!important;padding:6px 15px 16px!important;background:#12111a!important;display:flex!important;flex-direction:column!important;gap:4px!important;z-index:4!important}
+.kz-international-section .kz-international-card-copy strong{font-size:16px!important;line-height:1.15!important;color:#fff!important}
+.kz-international-section .kz-international-card-copy small{font-size:10px!important;line-height:1.45!important;color:#8f8997!important}
+.kz-international-section .kz-international-feature-card:nth-child(1):before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/25.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/14.png"),linear-gradient(115deg,rgba(170,31,46,.82),rgba(18,18,28,.55) 48%,rgba(255,212,71,.72))}
+.kz-international-section .kz-international-feature-card:nth-child(1):after{content:"49ERS\A VS\A RAMS"}
+.kz-international-section .kz-international-feature-card:nth-child(2):before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/33.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/6.png"),linear-gradient(115deg,rgba(36,23,115,.84),rgba(18,18,28,.55) 48%,rgba(183,183,183,.72))}
+.kz-international-section .kz-international-feature-card:nth-child(2):after{content:"RAVENS\A VS\A COWBOYS"}
+.kz-international-section .kz-international-feature-card:nth-child(3):before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/34.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/30.png"),linear-gradient(115deg,rgba(3,35,75,.84),rgba(18,18,28,.55) 48%,rgba(0,103,120,.72))}
+.kz-international-section .kz-international-feature-card:nth-child(3):after{content:"TEXANS\A VS\A JAGUARS"}
+.kz-international-section .kz-international-feature-card:nth-child(4):before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/23.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/18.png"),linear-gradient(115deg,rgba(255,182,18,.78),rgba(18,18,28,.55) 48%,rgba(211,211,211,.72))}
+.kz-international-section .kz-international-feature-card:nth-child(4):after{content:"STEELERS\A VS\A SAINTS"}
+.kz-international-section .kz-international-feature-card:nth-child(5):before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/4.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/1.png"),linear-gradient(115deg,rgba(251,79,20,.84),rgba(18,18,28,.55) 48%,rgba(167,25,48,.72))}
+.kz-international-section .kz-international-feature-card:nth-child(5):after{content:"BENGALS\A VS\A FALCONS"}
+.kz-international-section .kz-international-feature-card:nth-child(6):before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/17.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/8.png"),linear-gradient(115deg,rgba(0,34,68,.84),rgba(18,18,28,.55) 48%,rgba(0,122,51,.72))}
+.kz-international-section .kz-international-feature-card:nth-child(6):after{content:"PATRIOTS\A VS\A LIONS"}
+.kz-international-section .kz-international-feature-card:nth-child(7):before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/16.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/25.png"),linear-gradient(115deg,rgba(79,38,131,.84),rgba(18,18,28,.55) 48%,rgba(170,0,0,.72))}
+.kz-international-section .kz-international-feature-card:nth-child(7):after{content:"VIKINGS\A VS\A 49ERS"}
+.kz-international-section .kz-international-feature-card:nth-child(8):before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/11.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/28.png"),linear-gradient(115deg,rgba(0,44,95,.84),rgba(18,18,28,.55) 48%,rgba(90,20,20,.72))}
+.kz-international-section .kz-international-feature-card:nth-child(8):after{content:"COLTS\A VS\A COMMANDERS"}
+.kz-international-section .kz-international-feature-card:nth-child(9):before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/21.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/30.png"),linear-gradient(115deg,rgba(0,76,84,.84),rgba(18,18,28,.55) 48%,rgba(0,103,120,.72))}
+.kz-international-section .kz-international-feature-card:nth-child(9):after{content:"EAGLES\A VS\A JAGUARS"}
+
+/* Game-type columns — normal cards, clear hierarchy, no awkward mosaics. */
+.kz-game-type-section .kz-type-editorial-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important}
+.kz-game-type-section .kz-type-editorial-block{min-width:0!important;padding:17px!important;border:1px solid #2a2536!important;border-radius:18px!important;background:#12111a!important;overflow:hidden!important}
+.kz-game-type-section .kz-type-editorial-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;padding-bottom:14px!important;margin-bottom:14px!important;border-bottom:1px solid #282331!important}
+.kz-game-type-section .kz-type-editorial-head span{display:block!important;font-size:9px!important;letter-spacing:.13em!important;color:#a193ff!important;font-weight:900!important}
+.kz-game-type-section .kz-type-editorial-head strong{display:block!important;margin-top:4px!important;font-size:15px!important;letter-spacing:-.02em!important}
+.kz-game-type-section .kz-type-editorial-head>a{display:inline-flex!important;align-items:center!important;gap:3px!important;color:#aaa0bd!important;font-size:10px!important;font-weight:800!important;white-space:nowrap!important}
+.kz-game-type-section .kz-type-editorial-body{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}
+.kz-game-type-section .kz-type-editorial-body>a{min-width:0!important;display:flex!important;align-items:center!important;gap:10px!important;padding:10px!important;border:1px solid #26222f!important;border-radius:12px!important;background:#0f0e15!important}
+.kz-game-type-section .kz-type-editorial-body>a:hover{border-color:#4a3c68!important;background:#15131e!important}
+
+/* College + other sports: real relevant imagery, consistent crop, no random decorative photos. */
+.kz-college-section .kz-college-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important}
+.kz-college-section .kz-college-card{position:relative!important;min-height:235px!important;overflow:hidden!important;border:1px solid #2a2536!important;border-radius:17px!important;background:#12111a!important}
+.kz-college-section .kz-college-card img{width:100%!important;height:100%!important;object-fit:contain!important;padding:30px!important;background:linear-gradient(145deg,#17151f,#0e0d13)!important;filter:none!important}
+.kz-college-section .kz-college-shade{position:absolute!important;inset:0!important;background:linear-gradient(0deg,rgba(7,6,10,.96),rgba(7,6,10,.06) 72%)!important}
+.kz-college-section .kz-college-copy{position:absolute!important;left:15px!important;right:15px!important;bottom:14px!important;z-index:2!important;display:flex!important;flex-direction:column!important;gap:3px!important}
+.kz-college-section .kz-college-copy span{font-size:8px!important;font-weight:900!important;letter-spacing:.12em!important;color:#a99cff!important}
+.kz-college-section .kz-college-copy strong{font-size:15px!important;line-height:1.12!important}
+.kz-college-section .kz-college-copy small{font-size:9px!important;color:#aaa2b0!important}
+.kz-sports-section .kz-sports-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important}
+.kz-sports-section .kz-sport-card{position:relative!important;min-height:190px!important;overflow:hidden!important;border:1px solid #2a2536!important;border-radius:17px!important;background:#12111a!important}
+.kz-sports-section .kz-sport-card img{display:block!important;width:100%!important;height:100%!important;min-height:190px!important;object-fit:cover!important;filter:saturate(.92) brightness(.74)!important;transition:transform .25s ease!important}
+.kz-sports-section .kz-sport-card:hover img{transform:scale(1.04)!important}
+.kz-sports-section .kz-sport-shade{position:absolute!important;inset:0!important;background:linear-gradient(0deg,rgba(5,5,10,.94),rgba(5,5,10,.1) 75%)!important}
+.kz-sports-section .kz-sport-card>div:last-child{position:absolute!important;left:15px!important;right:15px!important;bottom:14px!important;z-index:2!important;display:flex!important;flex-direction:column!important;gap:3px!important}
+.kz-sports-section .kz-sport-card span{font-size:8px!important;letter-spacing:.13em!important;font-weight:900!important;color:#b2a6ff!important}
+.kz-sports-section .kz-sport-card strong{font-size:18px!important;line-height:1.05!important}
+.kz-sports-section .kz-sport-card small{font-size:9px!important;color:#aaa2b0!important}
+
+/* Responsive */
+@media(max-width:1100px){
+  .kz-home{padding-left:20px!important;padding-right:20px!important}
+  .kz-home .kz-hero{grid-template-columns:1fr!important}
+  .kz-home .kz-hero-search{border-left:0!important;border-top:1px solid #29243a!important}
+  .kz-home .kz-feature-grid{grid-template-columns:1fr!important}
+  .kz-home .kz-feature-side{grid-template-columns:1fr 1fr!important;grid-template-rows:none!important}
+  .kz-game-type-section .kz-type-editorial-grid{grid-template-columns:1fr!important}
+  .kz-college-section .kz-college-grid,.kz-sports-section .kz-sports-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .kz-international-section .kz-international-editorial-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:680px){
+  .kz-home{padding:16px 14px 70px!important}
+  .kz-home .kz-hero,.kz-home .kz-hero-image{min-height:560px!important}
+  .kz-home .kz-hero-copy{left:22px!important;right:22px!important;bottom:28px!important}
+  .kz-home .kz-hero-copy h1{font-size:48px!important}
+  .kz-home .kz-hero-game{display:none!important}
+  .kz-home .kz-feature-side{grid-template-columns:1fr!important;grid-template-rows:none!important}
+  .kz-home .kz-feature-main{min-height:400px!important}
+  .kz-home .kz-feature-main .kz-stadium-visual{min-height:400px!important}
+  .kz-home .kz-section{margin-top:48px!important}
+  .kz-home .kz-section-heading h2{font-size:24px!important}
+  .kz-college-section .kz-college-grid,.kz-sports-section .kz-sports-grid,.kz-international-section .kz-international-editorial-grid{grid-template-columns:1fr!important}
+  .kz-international-section .kz-international-feature-card img,.kz-international-section .kz-international-feature-card:before{height:205px!important}
+  .kz-international-section .kz-international-feature-card:after{top:102px!important;font-size:19px!important}
+}
