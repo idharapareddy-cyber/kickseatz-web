@@ -145,7 +145,7 @@
   .kz-home .kz-type-editorial-block{width:100%!important;}
   .kz-home .kz-international-section .kz-international-editorial-grid,
   .kz-home .kz-seasonal-section .kz-marquee-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
-  .kz-home .kz-hero-copy{left:24px!important;right:24px!important;bottom:28px!important;}
+  .kz-home .kz-hero-copy{left:24px!important;right:24px!important;bottom:28px!important;min-width:0!important;}
   .kz-home .kz-hero-game{left:24px!important;right:24px!important;bottom:18px!important;min-width:0!important;}
 }
 
@@ -159,10 +159,20 @@
   .kz-home .kz-feature-main .kz-stadium-visual,
   .kz-home .kz-feature-main .kz-simple-matchup{min-height:400px!important;height:400px!important;}
   .kz-home .kz-hero-copy h1{font-size:44px!important;}
-  .kz-home .kz-hero-game{position:absolute!important;}
+  .kz-home .kz-hero-game{top:18px!important;bottom:auto!important;}
+  .kz-home .kz-hero-copy{bottom:24px!important;}
   .kz-home .kz-game-row{grid-template-columns:auto minmax(0,1fr)!important;}
   .kz-home .kz-game-row .kz-demand,
   .kz-home .kz-game-row .kz-ticket-link{display:none!important;}
+}
+
+@media (max-width:380px){
+  .kz-home{padding-left:14px!important;padding-right:14px!important;}
+  .kz-home .kz-hero-copy{left:18px!important;right:18px!important;bottom:20px!important;}
+  .kz-home .kz-hero-copy h1{font-size:38px!important;}
+  .kz-home .kz-hero-copy p{font-size:13px!important;line-height:1.45!important;}
+  .kz-home .kz-hero-game{left:18px!important;right:18px!important;top:14px!important;padding:10px 12px!important;}
+  .kz-home .kz-hero-game strong{font-size:12px!important;}
 }
 
 @media (max-width:460px){
