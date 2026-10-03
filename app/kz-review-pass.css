@@ -1,6 +1,5 @@
 /* KickSeatz final review pass — defensive visual and responsive fixes. */
 
-/* Keep every visual slot stable while remote images load or fail. */
 .kz-home img{max-width:100%;}
 .kz-home .kz-stadium-visual,
 .kz-home .kz-simple-matchup,
@@ -14,7 +13,6 @@
   background:#111019!important;
 }
 
-/* Complex card links should behave as blocks and never create inline gaps. */
 .kz-home .kz-feature-main,
 .kz-home .kz-event-card,
 .kz-home .kz-type-feature,
@@ -30,7 +28,6 @@
   text-decoration:none!important;
 }
 
-/* Text is allowed to wrap instead of pushing a card wider than its grid. */
 .kz-home .kz-event-info,
 .kz-home .kz-feature-copy,
 .kz-home .kz-type-feature-copy,
@@ -45,7 +42,6 @@
   overflow-wrap:anywhere!important;
 }
 
-/* One predictable image treatment per section. */
 .kz-home .kz-event-image{height:190px!important;min-height:190px!important;}
 .kz-home .kz-event-image .kz-simple-matchup{height:100%!important;min-height:190px!important;}
 .kz-home .kz-marquee-image{height:190px!important;min-height:190px!important;}
@@ -58,15 +54,7 @@
   height:100%!important;
   object-fit:cover!important;
 }
-.kz-home .kz-international-feature-card img{
-  display:block!important;
-  width:100%!important;
-  height:210px!important;
-  object-fit:cover!important;
-  background:#171521!important;
-}
 
-/* Keep matchup graphics visually centered and consistent rather than letting long names alter geometry. */
 .kz-home .kz-simple-team img{flex:none!important;}
 .kz-home .kz-simple-matchup-label strong{
   display:block!important;
@@ -76,7 +64,6 @@
 }
 .kz-home .kz-simple-team span{white-space:nowrap!important;}
 
-/* Game-type panels use the same three-card rhythm at desktop sizes. */
 .kz-home .kz-type-editorial-grid{
   display:grid!important;
   grid-template-columns:repeat(3,minmax(0,1fr))!important;
@@ -92,19 +79,150 @@
   min-height:190px!important;
   height:190px!important;
 }
-.kz-home .kz-type-feature .kz-stadium-visual img{
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
+.kz-home .kz-type-feature .kz-stadium-visual img{width:100%!important;height:100%!important;object-fit:cover!important;}
+
+/* INTERNATIONAL SERIES — one graphic language for every game. No mixed stadium-photo cards. */
+.kz-international-section .kz-international-editorial-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:16px!important;
+  align-items:stretch!important;
+}
+.kz-international-section .kz-international-feature-card,
+.kz-international-section .kz-international-feature-card.kz-international-lead{
+  position:relative!important;
+  isolation:isolate!important;
+  min-height:260px!important;
+  height:260px!important;
+  overflow:hidden!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-end!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+  border-radius:18px!important;
+  background:#0d0c13!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.18)!important;
+}
+.kz-international-section .kz-international-feature-card img{display:none!important;}
+.kz-international-section .kz-international-feature-card:before{
+  content:"VS"!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding-bottom:30px!important;
+  color:#fff!important;
+  font-size:13px!important;
+  font-weight:950!important;
+  letter-spacing:.18em!important;
+  text-shadow:0 2px 12px rgba(0,0,0,.7)!important;
+  background-repeat:no-repeat!important;
+  background-position:22% 45%,78% 45%,center!important;
+  background-size:96px 96px,96px 96px,100% 100%!important;
+  pointer-events:none!important;
+}
+.kz-international-section .kz-international-feature-card:after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  background:linear-gradient(to bottom,transparent 35%,rgba(7,6,12,.18) 52%,rgba(7,6,12,.94) 100%)!important;
 }
 
-/* International cards stay photo-first; no generated text or decorative pseudo-content over the photos. */
-.kz-international-section .kz-international-feature-card:after{content:none!important;display:none!important;}
-.kz-international-section .kz-international-feature-card:before{pointer-events:none!important;}
-.kz-international-section .kz-international-photo-tag,
-.kz-international-section .kz-international-card-copy{min-width:0!important;}
+/* 1 — 49ers vs Rams — Melbourne */
+.kz-international-section .kz-international-feature-card:nth-child(1):before{
+  background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/25.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/14.png"),linear-gradient(110deg,#aa0000 0%,#17131f 50%,#003594 100%)!important;
+}
+/* 2 — Ravens vs Cowboys — Rio */
+.kz-international-section .kz-international-feature-card:nth-child(2):before{
+  background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/33.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/6.png"),linear-gradient(110deg,#241773 0%,#17131f 50%,#041e42 100%)!important;
+}
+/* 3 — Colts vs Commanders — London */
+.kz-international-section .kz-international-feature-card:nth-child(3):before{
+  background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/11.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/28.png"),linear-gradient(110deg,#002c5f 0%,#17131f 50%,#5a1414 100%)!important;
+}
+/* 4 — Eagles vs Jaguars — London */
+.kz-international-section .kz-international-feature-card:nth-child(4):before{
+  background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/21.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/30.png"),linear-gradient(110deg,#004c54 0%,#17131f 50%,#006778 100%)!important;
+}
+/* 5 — Texans vs Jaguars — London */
+.kz-international-section .kz-international-feature-card:nth-child(5):before{
+  background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/34.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/30.png"),linear-gradient(110deg,#03202f 0%,#17131f 50%,#006778 100%)!important;
+}
+/* 6 — Steelers vs Saints — Paris */
+.kz-international-section .kz-international-feature-card:nth-child(6):before{
+  background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/23.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/18.png"),linear-gradient(110deg,#101820 0%,#17131f 50%,#d3bc8d 100%)!important;
+}
+/* 7 — Bengals vs Falcons — Madrid */
+.kz-international-section .kz-international-feature-card:nth-child(7):before{
+  background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/4.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/1.png"),linear-gradient(110deg,#fb4f14 0%,#17131f 50%,#a71930 100%)!important;
+}
+/* 8 — Patriots vs Lions — Munich */
+.kz-international-section .kz-international-feature-card:nth-child(8):before{
+  background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/17.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/8.png"),linear-gradient(110deg,#002244 0%,#17131f 50%,#0076b6 100%)!important;
+}
+/* 9 — Vikings vs 49ers — Mexico City */
+.kz-international-section .kz-international-feature-card:nth-child(9):before{
+  background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/16.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/25.png"),linear-gradient(110deg,#4f2683 0%,#17131f 50%,#aa0000 100%)!important;
+}
 
-/* Empty filtered categories look deliberate instead of broken. */
+.kz-international-section .kz-international-photo-tag,
+.kz-international-section .kz-international-card-copy{
+  position:relative!important;
+  z-index:2!important;
+  min-width:0!important;
+}
+.kz-international-section .kz-international-photo-tag{
+  position:absolute!important;
+  top:14px!important;
+  left:14px!important;
+  right:auto!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:7px!important;
+  width:max-content!important;
+  max-width:calc(100% - 28px)!important;
+  padding:7px 10px!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  border-radius:999px!important;
+  background:rgba(8,7,13,.66)!important;
+  backdrop-filter:blur(8px)!important;
+}
+.kz-international-section .kz-international-photo-tag b{
+  color:#fff!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  letter-spacing:.08em!important;
+}
+.kz-international-section .kz-international-card-copy{
+  width:100%!important;
+  padding:20px 18px 17px!important;
+  background:linear-gradient(to bottom,transparent,rgba(8,7,13,.72) 22%,rgba(8,7,13,.96))!important;
+}
+.kz-international-section .kz-international-card-copy strong{
+  display:block!important;
+  color:#fff!important;
+  font-size:20px!important;
+  line-height:1.05!important;
+  font-weight:950!important;
+  letter-spacing:-.025em!important;
+}
+.kz-international-section .kz-international-card-copy small{
+  display:block!important;
+  margin-top:6px!important;
+  color:#bcb6c8!important;
+  font-size:11px!important;
+  line-height:1.35!important;
+  font-weight:700!important;
+}
+.kz-international-section .kz-international-feature-card:hover{
+  transform:translateY(-3px)!important;
+  border-color:rgba(255,255,255,.16)!important;
+}
+
 .kz-game-type-section .kz-type-editorial-body:empty{
   min-height:88px!important;
   display:grid!important;
@@ -122,17 +240,13 @@
   text-align:center!important;
 }
 
-/* Game rows remain usable when team names get long. */
 .kz-home .kz-game-row{min-width:0!important;}
 .kz-home .kz-game-matchup>div{min-width:0!important;}
 .kz-home .kz-game-matchup strong{min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important;}
 .kz-home .kz-game-matchup img{flex:none!important;}
-
-/* Team/division rails can scroll instead of squeezing logos and labels. */
 .kz-home .kz-team-strip{overflow-x:auto!important;scrollbar-width:none!important;}
 .kz-home .kz-team-strip::-webkit-scrollbar{display:none!important;}
 
-/* Avoid hover transforms clipping neighboring cards on smaller screens. */
 @media (max-width:720px){
   .kz-home .kz-international-feature-card:hover,
   .kz-home .kz-marquee-card:hover,
@@ -140,7 +254,6 @@
   .kz-home .kz-college-card:hover,
   .kz-home .kz-sport-card:hover,
   .kz-home .kz-experience-card:hover{transform:none!important;}
-
   .kz-home .kz-type-editorial-grid{grid-template-columns:1fr!important;}
   .kz-home .kz-type-editorial-block{width:100%!important;}
   .kz-home .kz-international-section .kz-international-editorial-grid,
@@ -149,7 +262,6 @@
   .kz-home .kz-hero-game{left:24px!important;right:24px!important;bottom:18px!important;min-width:0!important;}
 }
 
-/* Narrow phones: stack search controls and dense card grids cleanly. */
 @media (max-width:560px){
   .kz-home .kz-international-section .kz-international-editorial-grid,
   .kz-home .kz-seasonal-section .kz-marquee-grid{grid-template-columns:1fr!important;}
@@ -164,6 +276,10 @@
   .kz-home .kz-game-row{grid-template-columns:auto minmax(0,1fr)!important;}
   .kz-home .kz-game-row .kz-demand,
   .kz-home .kz-game-row .kz-ticket-link{display:none!important;}
+  .kz-international-section .kz-international-feature-card,
+  .kz-international-section .kz-international-feature-card.kz-international-lead{height:250px!important;min-height:250px!important;}
+  .kz-international-section .kz-international-feature-card:before{background-size:82px 82px,82px 82px,100% 100%!important;}
+  .kz-international-section .kz-international-card-copy strong{font-size:18px!important;}
 }
 
 @media (max-width:380px){
@@ -183,7 +299,6 @@
   .kz-home .kz-section-heading>span{margin-left:auto!important;}
 }
 
-/* Respect reduced-motion preferences. */
 @media (prefers-reduced-motion:reduce){
   .kz-home *,.kz-home *::before,.kz-home *::after{
     scroll-behavior:auto!important;
