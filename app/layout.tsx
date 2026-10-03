@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./kz-overrides.css";
 import { SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
