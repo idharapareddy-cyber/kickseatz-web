@@ -1,3 +1,5 @@
+import { LIVE_NFL_GAMES } from "./live-games";
+
 export type Division = "AFC North" | "AFC South" | "AFC East" | "AFC West" | "NFC North" | "NFC South" | "NFC East" | "NFC West";
 export type SeatArea = "Lower Bowl" | "Club" | "Upper Bowl";
 
@@ -104,10 +106,12 @@ const gamePairs = [
   ["seattle-seahawks","kansas-city-chiefs","2026-10-25","8:20 PM","Premium","Sunday Night Football"],
 ] as const;
 
-export const GAMES: Game[] = gamePairs.map(([home,away,date,time,demand,reason], index) => {
+const fallbackGames: Game[] = gamePairs.map(([home,away,date,time,demand,reason], index) => {
   const homeTeam = TEAMS.find(t => t.slug === home)!;
   return { id: `game-${index + 1}`, home, away, date, time, venue: homeTeam.venue, city: homeTeam.city, demand: demand as Game["demand"], reason };
 });
+
+export const GAMES: Game[] = LIVE_NFL_GAMES.length ? LIVE_NFL_GAMES : fallbackGames;
 
 const sectionSets: Record<SeatArea, string[]> = {
   "Lower Bowl": ["102","108","115","124","131","139"],
@@ -132,7 +136,7 @@ export const TICKETS: Ticket[] = GAMES.flatMap((game, gameIndex) => {
       gameId: game.id,
       home: home.slug,
       away: away.slug,
-      venue: home.venue,
+      venue: game.venue || home.venue,
       section,
       row: area === "Upper Bowl" ? `${8 + (index % 7)}` : `${3 + (index % 6)}`,
       seatArea: area,
