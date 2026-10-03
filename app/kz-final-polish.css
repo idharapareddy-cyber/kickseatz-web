@@ -107,3 +107,21 @@
 /* International matchup cards: remove the stray heavy black shadow/overlay. */
 .kz-international-section .kz-international-feature-card{box-shadow:none!important}
 .kz-international-section .kz-international-feature-card:after{display:none!important;content:none!important}
+
+/* HOMEPAGE EVENT DENSITY: three event cards per row on desktop/tablet. */
+@media (min-width:721px){
+  .kz-home .kz-feature-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;align-items:stretch!important}
+  .kz-home .kz-feature-side{display:contents!important}
+  .kz-home .kz-feature-main{min-height:410px!important;height:100%!important}
+  .kz-home .kz-feature-main .kz-stadium-visual,.kz-home .kz-feature-main .kz-simple-matchup{min-height:410px!important;height:410px!important}
+  .kz-home .kz-feature-grid .kz-event-card{grid-template-rows:270px auto!important;height:100%!important}
+  .kz-home .kz-feature-grid .kz-event-image,.kz-home .kz-feature-grid .kz-event-image .kz-simple-matchup{height:270px!important;min-height:270px!important}
+  .kz-home .kz-feature-grid .kz-simple-team img{width:82px!important;height:82px!important}
+}
+
+@media (min-width:721px) and (max-width:1050px){
+  .kz-home .kz-feature-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .kz-home .kz-feature-grid .kz-event-card{grid-template-rows:220px auto!important}
+  .kz-home .kz-feature-grid .kz-event-image,.kz-home .kz-feature-grid .kz-event-image .kz-simple-matchup{height:220px!important;min-height:220px!important}
+  .kz-home .kz-feature-main,.kz-home .kz-feature-main .kz-stadium-visual,.kz-home .kz-feature-main .kz-simple-matchup{min-height:360px!important;height:360px!important}
+}
