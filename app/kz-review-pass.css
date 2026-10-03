@@ -1,0 +1,98 @@
+/* KickSeatz review pass — defensive fixes after the main visual system. */
+
+/* Never let a missing/slow image collapse a card's visual area. */
+.kz-home .kz-stadium-visual,
+.kz-home .kz-simple-matchup,
+.kz-home .kz-event-image,
+.kz-home .kz-marquee-image,
+.kz-home .kz-international-feature-card,
+.kz-home .kz-college-card,
+.kz-home .kz-sport-card,
+.kz-home .kz-experience-art{
+  min-width:0!important;
+  background:#111019!important;
+}
+
+.kz-home img{max-width:100%;}
+
+/* Links that contain complex cards should never introduce inline-layout gaps. */
+.kz-home .kz-feature-main,
+.kz-home .kz-event-card,
+.kz-home .kz-type-feature,
+.kz-home .kz-marquee-card,
+.kz-home .kz-international-feature-card,
+.kz-home .kz-college-card,
+.kz-home .kz-sport-card,
+.kz-home .kz-experience-card,
+.kz-home .kz-game-row,
+.kz-home .kz-team-tile,
+.kz-home .kz-division-card{
+  min-width:0!important;
+  text-decoration:none!important;
+}
+
+/* Prevent card text from creating accidental horizontal overflow. */
+.kz-home .kz-event-info,
+.kz-home .kz-feature-copy,
+.kz-home .kz-type-feature-copy,
+.kz-home .kz-marquee-body,
+.kz-home .kz-marquee-small-body,
+.kz-home .kz-international-card-copy,
+.kz-home .kz-college-copy,
+.kz-home .kz-sport-card>div:last-child,
+.kz-home .kz-experience-copy{
+  min-width:0!important;
+  overflow-wrap:anywhere!important;
+}
+
+/* Keep the international photo treatment readable without relying on generated text. */
+.kz-home .kz-international-feature-card img{
+  background:#171521!important;
+}
+
+/* Empty filtered categories should look intentional rather than like a broken blank panel. */
+.kz-game-type-section .kz-type-editorial-body:empty{
+  min-height:88px!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px dashed #302a3c!important;
+  border-radius:12px!important;
+  background:#0f0e16!important;
+}
+.kz-game-type-section .kz-type-editorial-body:empty::after{
+  content:"No upcoming games in this category";
+  color:#817a8b!important;
+  font-size:10px!important;
+  font-weight:800!important;
+  letter-spacing:.04em!important;
+}
+
+/* Avoid hover transforms clipping neighboring cards on small screens. */
+@media (max-width:720px){
+  .kz-home .kz-international-feature-card:hover,
+  .kz-home .kz-marquee-card:hover,
+  .kz-home .kz-event-card:hover,
+  .kz-home .kz-college-card:hover,
+  .kz-home .kz-sport-card:hover,
+  .kz-home .kz-experience-card:hover{
+    transform:none!important;
+  }
+}
+
+/* Very narrow phones: keep search controls usable instead of forcing three columns. */
+@media (max-width:460px){
+  .kz-home .kz-search-box{grid-template-columns:auto minmax(0,1fr)!important;}
+  .kz-home .kz-search-box button{grid-column:1/-1!important;width:100%!important;}
+  .kz-home .kz-section-heading{flex-wrap:wrap!important;}
+  .kz-home .kz-section-heading>a,.kz-home .kz-section-heading>span{margin-left:auto!important;}
+}
+
+/* Respect reduced-motion preferences for the marketplace UI. */
+@media (prefers-reduced-motion:reduce){
+  .kz-home *,.kz-home *::before,.kz-home *::after{
+    scroll-behavior:auto!important;
+    transition-duration:0.01ms!important;
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+  }
+}
