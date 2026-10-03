@@ -1,0 +1,42 @@
+/* Final homepage image cleanup: keep image content clean and give international cards room to breathe. */
+.kz-international-section .kz-international-editorial-grid{
+  gap:24px!important;
+}
+.kz-international-section .kz-international-feature-card{
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:0!important;
+  overflow:hidden!important;
+}
+.kz-international-section .kz-international-feature-card img{
+  position:relative!important;
+  inset:auto!important;
+  display:block!important;
+  width:100%!important;
+  height:220px!important;
+  min-height:220px!important;
+  object-fit:cover!important;
+}
+.kz-international-section .kz-international-photo-tag{
+  display:none!important;
+}
+.kz-international-section .kz-international-card-copy{
+  position:static!important;
+  inset:auto!important;
+  padding:14px 16px 16px!important;
+  background:var(--surface)!important;
+  border-top:1px solid var(--line)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:4px!important;
+}
+.kz-international-section .kz-international-card-copy strong,
+.kz-international-section .kz-international-card-copy small{
+  color:var(--text)!important;
+}
+.kz-international-section .kz-international-card-copy small{
+  color:var(--muted)!important;
+}
+@media(max-width:1000px){
+  .kz-international-section .kz-international-editorial-grid{gap:18px!important}
+}
