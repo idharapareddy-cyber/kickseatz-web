@@ -1,6 +1,7 @@
-/* KickSeatz review pass — defensive fixes after the main visual system. */
+/* KickSeatz final review pass — defensive visual and responsive fixes. */
 
-/* Never let a missing/slow image collapse a card's visual area. */
+/* Keep every visual slot stable while remote images load or fail. */
+.kz-home img{max-width:100%;}
 .kz-home .kz-stadium-visual,
 .kz-home .kz-simple-matchup,
 .kz-home .kz-event-image,
@@ -13,9 +14,7 @@
   background:#111019!important;
 }
 
-.kz-home img{max-width:100%;}
-
-/* Links that contain complex cards should never introduce inline-layout gaps. */
+/* Complex card links should behave as blocks and never create inline gaps. */
 .kz-home .kz-feature-main,
 .kz-home .kz-event-card,
 .kz-home .kz-type-feature,
@@ -31,7 +30,7 @@
   text-decoration:none!important;
 }
 
-/* Prevent card text from creating accidental horizontal overflow. */
+/* Text is allowed to wrap instead of pushing a card wider than its grid. */
 .kz-home .kz-event-info,
 .kz-home .kz-feature-copy,
 .kz-home .kz-type-feature-copy,
@@ -40,17 +39,72 @@
 .kz-home .kz-international-card-copy,
 .kz-home .kz-college-copy,
 .kz-home .kz-sport-card>div:last-child,
-.kz-home .kz-experience-copy{
+.kz-home .kz-experience-copy,
+.kz-home .kz-game-matchup{
   min-width:0!important;
   overflow-wrap:anywhere!important;
 }
 
-/* Keep the international photo treatment readable without relying on generated text. */
+/* One predictable image treatment per section. */
+.kz-home .kz-event-image{height:190px!important;min-height:190px!important;}
+.kz-home .kz-event-image .kz-simple-matchup{height:100%!important;min-height:190px!important;}
+.kz-home .kz-marquee-image{height:190px!important;min-height:190px!important;}
+.kz-home .kz-marquee-image img,
+.kz-home .kz-sport-card img,
+.kz-home .kz-experience-art img,
+.kz-home .kz-college-card img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
 .kz-home .kz-international-feature-card img{
+  display:block!important;
+  width:100%!important;
+  height:210px!important;
+  object-fit:cover!important;
   background:#171521!important;
 }
 
-/* Empty filtered categories should look intentional rather than like a broken blank panel. */
+/* Keep matchup graphics visually centered and consistent rather than letting long names alter geometry. */
+.kz-home .kz-simple-team img{flex:none!important;}
+.kz-home .kz-simple-matchup-label strong{
+  display:block!important;
+  max-width:100%!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+.kz-home .kz-simple-team span{white-space:nowrap!important;}
+
+/* Game-type panels use the same three-card rhythm at desktop sizes. */
+.kz-home .kz-type-editorial-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:16px!important;
+  align-items:start!important;
+}
+.kz-home .kz-type-editorial-block{min-width:0!important;}
+.kz-home .kz-type-editorial-body{min-width:0!important;}
+.kz-home .kz-type-feature{min-width:0!important;overflow:hidden!important;}
+.kz-home .kz-type-feature .kz-stadium-visual,
+.kz-home .kz-type-feature .kz-simple-matchup{
+  min-width:0!important;
+  min-height:190px!important;
+  height:190px!important;
+}
+.kz-home .kz-type-feature .kz-stadium-visual img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+
+/* International cards stay photo-first; no generated text or decorative pseudo-content over the photos. */
+.kz-international-section .kz-international-feature-card:after{content:none!important;display:none!important;}
+.kz-international-section .kz-international-feature-card:before{pointer-events:none!important;}
+.kz-international-section .kz-international-photo-tag,
+.kz-international-section .kz-international-card-copy{min-width:0!important;}
+
+/* Empty filtered categories look deliberate instead of broken. */
 .kz-game-type-section .kz-type-editorial-body:empty{
   min-height:88px!important;
   display:grid!important;
@@ -65,29 +119,61 @@
   font-size:10px!important;
   font-weight:800!important;
   letter-spacing:.04em!important;
+  text-align:center!important;
 }
 
-/* Avoid hover transforms clipping neighboring cards on small screens. */
+/* Game rows remain usable when team names get long. */
+.kz-home .kz-game-row{min-width:0!important;}
+.kz-home .kz-game-matchup>div{min-width:0!important;}
+.kz-home .kz-game-matchup strong{min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important;}
+.kz-home .kz-game-matchup img{flex:none!important;}
+
+/* Team/division rails can scroll instead of squeezing logos and labels. */
+.kz-home .kz-team-strip{overflow-x:auto!important;scrollbar-width:none!important;}
+.kz-home .kz-team-strip::-webkit-scrollbar{display:none!important;}
+
+/* Avoid hover transforms clipping neighboring cards on smaller screens. */
 @media (max-width:720px){
   .kz-home .kz-international-feature-card:hover,
   .kz-home .kz-marquee-card:hover,
   .kz-home .kz-event-card:hover,
   .kz-home .kz-college-card:hover,
   .kz-home .kz-sport-card:hover,
-  .kz-home .kz-experience-card:hover{
-    transform:none!important;
-  }
+  .kz-home .kz-experience-card:hover{transform:none!important;}
+
+  .kz-home .kz-type-editorial-grid{grid-template-columns:1fr!important;}
+  .kz-home .kz-type-editorial-block{width:100%!important;}
+  .kz-home .kz-international-section .kz-international-editorial-grid,
+  .kz-home .kz-seasonal-section .kz-marquee-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+  .kz-home .kz-hero-copy{left:24px!important;right:24px!important;bottom:28px!important;}
+  .kz-home .kz-hero-game{left:24px!important;right:24px!important;bottom:18px!important;min-width:0!important;}
 }
 
-/* Very narrow phones: keep search controls usable instead of forcing three columns. */
+/* Narrow phones: stack search controls and dense card grids cleanly. */
+@media (max-width:560px){
+  .kz-home .kz-international-section .kz-international-editorial-grid,
+  .kz-home .kz-seasonal-section .kz-marquee-grid{grid-template-columns:1fr!important;}
+  .kz-home .kz-feature-grid{grid-template-columns:1fr!important;}
+  .kz-home .kz-feature-side{grid-template-rows:none!important;grid-template-columns:1fr!important;}
+  .kz-home .kz-feature-main{min-height:400px!important;}
+  .kz-home .kz-feature-main .kz-stadium-visual,
+  .kz-home .kz-feature-main .kz-simple-matchup{min-height:400px!important;height:400px!important;}
+  .kz-home .kz-hero-copy h1{font-size:44px!important;}
+  .kz-home .kz-hero-game{position:absolute!important;}
+  .kz-home .kz-game-row{grid-template-columns:auto minmax(0,1fr)!important;}
+  .kz-home .kz-game-row .kz-demand,
+  .kz-home .kz-game-row .kz-ticket-link{display:none!important;}
+}
+
 @media (max-width:460px){
   .kz-home .kz-search-box{grid-template-columns:auto minmax(0,1fr)!important;}
   .kz-home .kz-search-box button{grid-column:1/-1!important;width:100%!important;}
   .kz-home .kz-section-heading{flex-wrap:wrap!important;}
-  .kz-home .kz-section-heading>a,.kz-home .kz-section-heading>span{margin-left:auto!important;}
+  .kz-home .kz-section-heading>a,
+  .kz-home .kz-section-heading>span{margin-left:auto!important;}
 }
 
-/* Respect reduced-motion preferences for the marketplace UI. */
+/* Respect reduced-motion preferences. */
 @media (prefers-reduced-motion:reduce){
   .kz-home *,.kz-home *::before,.kz-home *::after{
     scroll-behavior:auto!important;
