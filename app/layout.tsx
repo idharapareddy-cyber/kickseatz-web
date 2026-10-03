@@ -5,6 +5,7 @@ import "./kz-final-polish.css";
 import "./kz-review-pass.css";
 import "./kz-international-spacing.css";
 import "./kz-brand-polish.css";
+import "./kz-visual-final.css";
 import { SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
@@ -15,12 +16,7 @@ export const metadata: Metadata = {
   description:
     "KickSeatz helps fans discover NFL games and compare tickets using price, seat area, game vibe, and personalized preferences.",
   applicationName: "KickSeatz",
-  keywords: [
-    "NFL tickets",
-    "ticket discovery",
-    "sports tickets",
-    "KickSeatz",
-  ],
+  keywords: ["NFL tickets", "ticket discovery", "sports tickets", "KickSeatz"],
 };
 
 export const viewport: Viewport = {
