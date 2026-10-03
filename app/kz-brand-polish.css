@@ -1,4 +1,4 @@
-/* Final brand-mark polish: use the supplied KickSeatz artwork cleanly without overlays. */
+/* Final brand-mark polish: keep the supplied KickSeatz artwork clean and anchored to the left. */
 .brand-logo{
   display:flex;
   align-items:center;
@@ -16,6 +16,29 @@
   max-width:none;
   object-fit:contain;
   object-position:left center;
+}
+
+/* Light mode: keep the logo in the same top-left position while giving the header
+   a clean light surface and enough contrast for the navigation controls. */
+html[data-theme="light"] .topbar{
+  background:rgba(255,255,255,.92);
+  border-bottom-color:rgba(20,18,28,.10);
+}
+
+html[data-theme="light"] .nav-link{
+  color:#66616f;
+}
+
+html[data-theme="light"] .nav-link:hover,
+html[data-theme="light"] .nav-link.active{
+  color:#17141d;
+  background:rgba(20,18,28,.055);
+}
+
+html[data-theme="light"] .profile-pill{
+  color:#66616f;
+  border-color:#ddd9e3;
+  background:rgba(255,255,255,.7);
 }
 
 @media (max-width:700px){
