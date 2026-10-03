@@ -1,0 +1,61 @@
+/* International cards: give every game room to breathe. */
+.kz-international-section .kz-international-editorial-grid{
+  gap:22px!important;
+  row-gap:24px!important;
+}
+.kz-international-section .kz-international-feature-card,
+.kz-international-section .kz-international-feature-card.kz-international-lead{
+  height:300px!important;
+  min-height:300px!important;
+  overflow:hidden!important;
+}
+.kz-international-section .kz-international-feature-card:before{
+  background-size:108px 108px,108px 108px,100% 100%!important;
+}
+.kz-international-section .kz-international-card-copy{
+  margin-top:0!important;
+  padding:22px 18px 18px!important;
+  min-height:86px!important;
+  box-sizing:border-box!important;
+  background:linear-gradient(to bottom,transparent 0%,rgba(8,7,13,.78) 30%,rgba(8,7,13,.97) 100%)!important;
+}
+.kz-international-section .kz-international-card-copy strong{
+  font-size:19px!important;
+  line-height:1.15!important;
+}
+.kz-international-section .kz-international-card-copy small{
+  margin-top:7px!important;
+  font-size:11px!important;
+  line-height:1.4!important;
+}
+
+@media (max-width:1050px){
+  .kz-international-section .kz-international-editorial-grid{
+    gap:20px!important;
+    row-gap:22px!important;
+  }
+}
+@media (max-width:720px){
+  .kz-international-section .kz-international-editorial-grid{
+    gap:18px!important;
+    row-gap:20px!important;
+  }
+  .kz-international-section .kz-international-feature-card,
+  .kz-international-section .kz-international-feature-card.kz-international-lead{
+    height:285px!important;
+    min-height:285px!important;
+  }
+  .kz-international-section .kz-international-feature-card:before{
+    background-size:96px 96px,96px 96px,100% 100%!important;
+  }
+}
+@media (max-width:560px){
+  .kz-international-section .kz-international-editorial-grid{
+    gap:18px!important;
+  }
+  .kz-international-section .kz-international-feature-card,
+  .kz-international-section .kz-international-feature-card.kz-international-lead{
+    height:285px!important;
+    min-height:285px!important;
+  }
+}
