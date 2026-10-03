@@ -45,25 +45,19 @@ export function SiteShell({
     <div className="app-shell">
       <header className="topbar">
         <div className="topbar-inner">
-          <Link
-            href="/"
-            className="brand"
-            aria-label="KickSeatz home"
-          >
+          <Link href="/" className="brand" aria-label="KickSeatz home">
             <span className="brand-logo" aria-label="KickSeatz">
-              <span className="brand-logo-base" aria-hidden="true">
-                <Image src="/kickseatz-logo.png" alt="" width={225} height={65} priority />
-              </span>
-              <span className="brand-logo-k" aria-hidden="true">
-                <Image src="/kickseatz-logo.png" alt="" width={225} height={65} priority />
-              </span>
+              <Image
+                src="/kickseatz-logo.png"
+                alt="KickSeatz"
+                width={225}
+                height={65}
+                priority
+              />
             </span>
           </Link>
 
-          <nav
-            className="desktop-nav"
-            aria-label="Primary navigation"
-          >
+          <nav className="desktop-nav" aria-label="Primary navigation">
             {nav.map(({ href, label, icon: Icon }) => {
               const active =
                 href === "/"
@@ -75,9 +69,7 @@ export function SiteShell({
                   key={href}
                   href={href}
                   aria-current={active ? "page" : undefined}
-                  className={`nav-link ${
-                    active ? "active" : ""
-                  }`}
+                  className={`nav-link ${active ? "active" : ""}`}
                 >
                   <Icon size={16} strokeWidth={2} />
                   <span>{label}</span>
@@ -89,7 +81,9 @@ export function SiteShell({
           <button
             type="button"
             className="theme-toggle"
-            onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
+            onClick={() =>
+              setTheme((current) => (current === "dark" ? "light" : "dark"))
+            }
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
             title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
@@ -114,17 +108,10 @@ export function SiteShell({
 
       <main>{children}</main>
 
-      <nav
-        className="mobile-nav"
-        aria-label="Mobile navigation"
-      >
+      <nav className="mobile-nav" aria-label="Mobile navigation">
         {[
           ...nav,
-          {
-            href: "/profile",
-            label: "Profile",
-            icon: UserRound,
-          },
+          { href: "/profile", label: "Profile", icon: UserRound },
         ].map(({ href, label, icon: Icon }) => {
           const active =
             href === "/"
@@ -148,9 +135,7 @@ export function SiteShell({
       <footer className="footer">
         <div className="footer-brand">
           <span>KickSeatz</span>
-          <small>
-            Demo marketplace · synthetic inventory
-          </small>
+          <small>Demo marketplace · synthetic inventory</small>
         </div>
 
         <div className="footer-links">
@@ -162,9 +147,7 @@ export function SiteShell({
           <Link href="/contact">Contact</Link>
         </div>
 
-        <span>
-          Smarter discovery. Better ticket decisions.
-        </span>
+        <span>Smarter discovery. Better ticket decisions.</span>
       </footer>
     </div>
   );
