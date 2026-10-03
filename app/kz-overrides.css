@@ -1,42 +1,22 @@
-/* Final homepage image cleanup: keep image content clean and give international cards room to breathe. */
-.kz-international-section .kz-international-editorial-grid{
-  gap:24px!important;
-}
-.kz-international-section .kz-international-feature-card{
-  display:flex!important;
-  flex-direction:column!important;
-  min-height:0!important;
-  overflow:hidden!important;
-}
-.kz-international-section .kz-international-feature-card img{
-  position:relative!important;
-  inset:auto!important;
-  display:block!important;
-  width:100%!important;
-  height:220px!important;
-  min-height:220px!important;
-  object-fit:cover!important;
-}
-.kz-international-section .kz-international-photo-tag{
-  display:none!important;
-}
-.kz-international-section .kz-international-card-copy{
-  position:static!important;
-  inset:auto!important;
-  padding:14px 16px 16px!important;
-  background:var(--surface)!important;
-  border-top:1px solid var(--line)!important;
-  display:flex!important;
-  flex-direction:column!important;
-  gap:4px!important;
-}
-.kz-international-section .kz-international-card-copy strong,
-.kz-international-section .kz-international-card-copy small{
-  color:var(--text)!important;
-}
-.kz-international-section .kz-international-card-copy small{
-  color:var(--muted)!important;
-}
-@media(max-width:1000px){
-  .kz-international-section .kz-international-editorial-grid{gap:18px!important}
-}
+/* Homepage visual cleanup: keep international cards spaced, informative, and consistent. */
+.kz-international-section .kz-international-editorial-grid{gap:24px!important}
+.kz-international-section .kz-international-feature-card{display:flex!important;flex-direction:column!important;min-height:0!important;overflow:hidden!important;border-radius:16px!important;position:relative!important}
+.kz-international-section .kz-international-feature-card img{position:relative!important;inset:auto!important;display:block!important;width:100%!important;height:220px!important;min-height:220px!important;object-fit:cover!important}
+.kz-international-section .kz-international-photo-tag{display:flex!important;position:static!important;align-items:center!important;gap:7px!important;padding:10px 16px 0!important;background:var(--surface)!important;color:var(--muted)!important}
+.kz-international-section .kz-international-photo-tag b{font-size:11px!important;letter-spacing:.08em!important;color:var(--muted)!important}
+.kz-international-section .kz-international-card-copy{position:static!important;inset:auto!important;padding:8px 16px 16px!important;background:var(--surface)!important;border-top:0!important;display:flex!important;flex-direction:column!important;gap:4px!important}
+.kz-international-section .kz-international-card-copy strong{color:var(--text)!important;font-size:18px!important;line-height:1.15!important}
+.kz-international-section .kz-international-card-copy small{color:var(--muted)!important;font-size:12px!important}
+/* Bold, simple matchup strip inspired by the Melbourne matchup graphic. */
+.kz-international-section .kz-international-feature-card::after{content:"";position:absolute!important;left:16px!important;right:16px!important;top:174px!important;height:46px!important;border-radius:12px!important;background:linear-gradient(90deg,rgba(8,8,12,.9),rgba(8,8,12,.55),rgba(8,8,12,.9))!important;pointer-events:none!important;z-index:2!important}
+.kz-international-section .kz-international-feature-card:nth-child(1)::before,.kz-international-section .kz-international-feature-card:nth-child(2)::before,.kz-international-section .kz-international-feature-card:nth-child(3)::before,.kz-international-section .kz-international-feature-card:nth-child(4)::before,.kz-international-section .kz-international-feature-card:nth-child(5)::before,.kz-international-section .kz-international-feature-card:nth-child(6)::before,.kz-international-section .kz-international-feature-card:nth-child(7)::before,.kz-international-section .kz-international-feature-card:nth-child(8)::before,.kz-international-section .kz-international-feature-card:nth-child(9)::before{position:absolute!important;top:181px!important;left:50%!important;transform:translateX(-50%)!important;z-index:3!important;color:#fff!important;font-weight:900!important;font-size:13px!important;letter-spacing:.08em!important;text-shadow:0 2px 10px rgba(0,0,0,.6)!important;pointer-events:none!important;white-space:nowrap!important}
+.kz-international-section .kz-international-feature-card:nth-child(1)::before{content:"SF  •  VS  •  LAR"}
+.kz-international-section .kz-international-feature-card:nth-child(2)::before{content:"BAL  •  VS  •  DAL"}
+.kz-international-section .kz-international-feature-card:nth-child(3)::before{content:"HOU  •  VS  •  JAX"}
+.kz-international-section .kz-international-feature-card:nth-child(4)::before{content:"PHI  •  VS  •  JAX"}
+.kz-international-section .kz-international-feature-card:nth-child(5)::before{content:"PIT  •  VS  •  NO"}
+.kz-international-section .kz-international-feature-card:nth-child(6)::before{content:"CIN  •  VS  •  ATL"}
+.kz-international-section .kz-international-feature-card:nth-child(7)::before{content:"NE  •  VS  •  DET"}
+.kz-international-section .kz-international-feature-card:nth-child(8)::before{content:"MIN  •  VS  •  SF"}
+.kz-international-section .kz-international-feature-card:nth-child(9)::before{content:"IND  •  VS  •  WAS"}
+@media(max-width:1000px){.kz-international-section .kz-international-editorial-grid{gap:18px!important}}
