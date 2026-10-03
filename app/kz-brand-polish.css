@@ -25,6 +25,12 @@ html[data-theme="light"] .topbar{
   border-bottom-color:rgba(20,18,28,.10);
 }
 
+html[data-theme="light"] .brand-logo img{
+  /* The supplied artwork uses white lettering. Make the complete mark dark in
+     light mode so the wordmark never disappears into the light header. */
+  filter:brightness(0);
+}
+
 html[data-theme="light"] .nav-link{
   color:#66616f;
 }
