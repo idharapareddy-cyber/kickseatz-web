@@ -1,0 +1,37 @@
+name: Sync NFL schedule
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out KickSeatz
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sync NFL schedule
+        run: node scripts/sync-nfl.mjs
+
+      - name: Commit schedule changes
+        run: |
+          if git diff --quiet -- lib/live-games.ts; then
+            echo "No NFL schedule changes."
+            exit 0
+          fi
+
+          git config user.name "kickseatz-schedule-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lib/live-games.ts
+          git commit -m "Auto-sync NFL schedule"
+          git push
