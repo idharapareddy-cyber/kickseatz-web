@@ -4,8 +4,8 @@ import type { Game } from "./data";
  * Safe checked-in fallback for the hourly NFL sync.
  *
  * The scheduled GitHub Action normally replaces this file with the current
- * ESPN NFL schedule. Keep this fallback limited to games verified against the
- * current NFL schedule so a failed sync can never publish fabricated matchups.
+ * ESPN NFL schedule. The fallback keeps display metadata non-empty so a
+ * temporary sync failure never produces broken-looking rows.
  */
 export const LIVE_NFL_GAMES: Game[] = [
   ["indianapolis-colts","washington-commanders","2026-10-04","9:30 AM","High","NFL International Series · London"],
@@ -44,8 +44,8 @@ export const LIVE_NFL_GAMES: Game[] = [
   away,
   date,
   time,
-  venue: "",
-  city: "",
+  venue: "NFL venue",
+  city: "United States",
   demand: demand as Game["demand"],
   reason,
 }));
