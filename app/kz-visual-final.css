@@ -1,125 +1,64 @@
-/* Final visual cleanup: keep the simple layout, but restore relevant stadium photography where the homepage already has verified stadium assets. */
+/* Final visual cleanup: simple marketplace layout, consistent imagery, and no empty-looking cards. */
+
 .kz-home .kz-event-image .kz-stadium-visual,
 .kz-home .kz-type-feature .kz-stadium-visual{
-  width:100%!important;
-  height:100%!important;
-  min-height:190px!important;
-  overflow:hidden!important;
-  position:relative!important;
-  background:#111019!important;
+  width:100%!important;height:100%!important;min-height:190px!important;overflow:hidden!important;position:relative!important;background:#111019!important;
 }
-
 .kz-home .kz-event-image .kz-stadium-visual img,
-.kz-home .kz-type-feature .kz-stadium-visual img{
-  display:block!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-  object-position:center!important;
-}
-
+.kz-home .kz-type-feature .kz-stadium-visual img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;}
 .kz-home .kz-event-image .kz-stadium-shade,
-.kz-home .kz-type-feature .kz-stadium-shade{
-  position:absolute!important;
-  inset:0!important;
-  z-index:1!important;
-  background:linear-gradient(180deg,rgba(6,5,10,.04) 20%,rgba(6,5,10,.76) 100%)!important;
-}
-
+.kz-home .kz-type-feature .kz-stadium-shade{position:absolute!important;inset:0!important;z-index:1!important;background:linear-gradient(180deg,rgba(6,5,10,.04) 20%,rgba(6,5,10,.78) 100%)!important;}
 .kz-home .kz-event-image .kz-stadium-color,
-.kz-home .kz-type-feature .kz-stadium-color{
-  position:absolute!important;
-  inset:0!important;
-  z-index:1!important;
-  opacity:.16!important;
-  mix-blend-mode:multiply!important;
-}
-
+.kz-home .kz-type-feature .kz-stadium-color{position:absolute!important;inset:0!important;z-index:1!important;opacity:.14!important;mix-blend-mode:multiply!important;}
 .kz-home .kz-event-image .kz-stadium-label,
-.kz-home .kz-type-feature .kz-stadium-label{
-  position:absolute!important;
-  left:14px!important;
-  right:14px!important;
-  bottom:14px!important;
-  z-index:2!important;
-  display:flex!important;
-  flex-direction:column!important;
-  gap:3px!important;
-  min-width:0!important;
-  color:#fff!important;
-}
+.kz-home .kz-type-feature .kz-stadium-label{position:absolute!important;left:14px!important;right:14px!important;bottom:14px!important;z-index:2!important;display:flex!important;flex-direction:column!important;gap:3px!important;min-width:0!important;color:#fff!important;}
 .kz-home .kz-event-image .kz-stadium-label span,
-.kz-home .kz-type-feature .kz-stadium-label span{
-  font-size:9px!important;
-  font-weight:900!important;
-  letter-spacing:.1em!important;
-  opacity:.82!important;
-}
+.kz-home .kz-type-feature .kz-stadium-label span{font-size:9px!important;font-weight:900!important;letter-spacing:.1em!important;opacity:.82!important;}
 .kz-home .kz-event-image .kz-stadium-label strong,
-.kz-home .kz-type-feature .kz-stadium-label strong{
-  font-size:12px!important;
-  line-height:1.15!important;
-  white-space:nowrap!important;
-  overflow:hidden!important;
-  text-overflow:ellipsis!important;
-}
+.kz-home .kz-type-feature .kz-stadium-label strong{font-size:12px!important;line-height:1.15!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
 
-/* The existing matchup component carries each home team's color inline. Use that only to restore photos that are already vetted in page.tsx. */
-.kz-home .kz-simple-matchup[style*="#E31837"]{
-  background-image:linear-gradient(180deg,rgba(8,7,13,.12),rgba(8,7,13,.72)),url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Arrowhead_Stadium.jpg")!important;
-  background-size:cover!important;
-  background-position:center!important;
-}
-.kz-home .kz-simple-matchup[style*="#041E42"]{
-  background-image:linear-gradient(180deg,rgba(8,7,13,.12),rgba(8,7,13,.72)),url("https://images.unsplash.com/photo-1628630470727-b726b8a15a9d?auto=format&fit=crop&w=1600&q=85")!important;
-  background-size:cover!important;
-  background-position:center!important;
-}
-.kz-home .kz-simple-matchup[style*="#203731"]{
-  background-image:linear-gradient(180deg,rgba(8,7,13,.12),rgba(8,7,13,.72)),url("https://upload.wikimedia.org/wikipedia/commons/e/e3/Lambeau_Field.jpg")!important;
-  background-size:cover!important;
-  background-position:center!important;
-}
-.kz-home .kz-simple-matchup[style*="#AA0000"]{
-  background-image:linear-gradient(180deg,rgba(8,7,13,.12),rgba(8,7,13,.72)),url("https://upload.wikimedia.org/wikipedia/commons/7/79/Levi%27s_Stadium.JPG")!important;
-  background-size:cover!important;
-  background-position:center!important;
-}
-.kz-home .kz-simple-matchup[style*="#A71930"]{
-  background-image:linear-gradient(180deg,rgba(8,7,13,.12),rgba(8,7,13,.72)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz_Stadium%2C_Atlanta%2C_GA_%2846558862285%29.jpg?width=1600")!important;
-  background-size:cover!important;
-  background-position:center!important;
-}
+/* Regular NFL cards: keep the simple matchup design, but use vetted stadium photography when available. */
+.kz-home .kz-simple-matchup[style*="#E31837"]{background-image:linear-gradient(180deg,rgba(8,7,13,.10),rgba(8,7,13,.74)),url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Arrowhead_Stadium.jpg")!important;background-size:cover!important;background-position:center!important;}
+.kz-home .kz-simple-matchup[style*="#041E42"]{background-image:linear-gradient(180deg,rgba(8,7,13,.10),rgba(8,7,13,.74)),url("https://images.unsplash.com/photo-1628630470727-b726b8a15a9d?auto=format&fit=crop&w=1600&q=85")!important;background-size:cover!important;background-position:center!important;}
+.kz-home .kz-simple-matchup[style*="#203731"]{background-image:linear-gradient(180deg,rgba(8,7,13,.10),rgba(8,7,13,.74)),url("https://upload.wikimedia.org/wikipedia/commons/e/e3/Lambeau_Field.jpg")!important;background-size:cover!important;background-position:center!important;}
+.kz-home .kz-simple-matchup[style*="#AA0000"]{background-image:linear-gradient(180deg,rgba(8,7,13,.10),rgba(8,7,13,.74)),url("https://upload.wikimedia.org/wikipedia/commons/7/79/Levi%27s_Stadium.JPG")!important;background-size:cover!important;background-position:center!important;}
+.kz-home .kz-simple-matchup[style*="#A71930"]{background-image:linear-gradient(180deg,rgba(8,7,13,.10),rgba(8,7,13,.74)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz_Stadium%2C_Atlanta%2C_GA_%2846558862285%29.jpg?width=1600")!important;background-size:cover!important;background-position:center!important;}
+.kz-home .kz-simple-matchup::after{opacity:.24!important;}
+.kz-home .kz-simple-team,.kz-home .kz-simple-vs,.kz-home .kz-simple-matchup-label{position:relative!important;z-index:2!important;}
 
-/* Keep logos/text readable without making the cards look like dark UI panels. */
-.kz-home .kz-simple-matchup::after{opacity:.28!important;}
-.kz-home .kz-simple-team,
-.kz-home .kz-simple-vs,
-.kz-home .kz-simple-matchup-label{position:relative!important;z-index:2!important;}
+/* International Series: one consistent Rams-vs-49ers-style matchup graphic language for every card. */
+.kz-home .kz-international-feature-card{position:relative!important;overflow:hidden!important;background:#111!important;border:1px solid rgba(255,255,255,.12)!important;}
+.kz-home .kz-international-feature-card>img{display:none!important;}
+.kz-home .kz-international-feature-card::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(110deg,var(--intl-away,#151515),#111 48%,var(--intl-home,#151515));}
+.kz-home .kz-international-feature-card::after{content:"VS";position:absolute;z-index:1;left:50%;top:42%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#111;font-size:11px;font-weight:950;letter-spacing:.04em;box-shadow:0 8px 28px rgba(0,0,0,.28);}
+.kz-home .kz-international-feature-card:nth-child(1){--intl-away:#aa1f2d;--intl-home:#b51f35;background-image:linear-gradient(90deg,rgba(170,31,45,.22),rgba(181,31,53,.22));}
+.kz-home .kz-international-feature-card:nth-child(2){--intl-away:#241f57;--intl-home:#0b162f;}
+.kz-home .kz-international-feature-card:nth-child(3){--intl-away:#03234b;--intl-home:#00539c;}
+.kz-home .kz-international-feature-card:nth-child(4){--intl-away:#ffb612;--intl-home:#d71920;}
+.kz-home .kz-international-feature-card:nth-child(5){--intl-away:#fb4f14;--intl-home:#a71930;}
+.kz-home .kz-international-feature-card:nth-child(6){--intl-away:#002244;--intl-home:#007a33;}
+.kz-home .kz-international-feature-card:nth-child(7){--intl-away:#4f2683;--intl-home:#aa0000;}
+.kz-home .kz-international-feature-card:nth-child(8){--intl-away:#002c5f;--intl-home:#c8102e;}
+.kz-home .kz-international-feature-card:nth-child(9){--intl-away:#004c54;--intl-home:#004c97;}
+.kz-home .kz-international-feature-card .kz-international-photo-tag{z-index:3!important;}
+.kz-home .kz-international-feature-card .kz-international-card-copy{position:relative!important;z-index:3!important;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.72))!important;padding-top:78px!important;min-height:150px!important;}
+.kz-home .kz-international-feature-card .kz-international-card-copy strong{display:block!important;font-size:17px!important;line-height:1.1!important;color:#fff!important;text-shadow:0 2px 10px rgba(0,0,0,.4)!important;}
+.kz-home .kz-international-feature-card .kz-international-card-copy small{color:rgba(255,255,255,.78)!important;}
+.kz-home .kz-international-feature-card .kz-international-photo-tag{background:rgba(0,0,0,.38)!important;backdrop-filter:blur(6px)!important;}
+
+/* Do not show an empty Playoff Watch panel. This prevents a large blank box when the synced schedule has no late-season games yet. */
+.kz-home .kz-type-playoff:has(.kz-type-editorial-body:empty){display:none!important;}
+.kz-home .kz-type-editorial-grid:has(.kz-type-playoff:only-child){display:none!important;}
 
 /* Consistent card geometry and spacing across desktop/tablet/mobile. */
-.kz-home .kz-feature-grid,
-.kz-home .kz-card-grid,
-.kz-home .kz-college-grid,
-.kz-home .kz-sports-grid,
-.kz-home .kz-experience-grid,
-.kz-home .kz-division-grid{align-items:stretch!important;}
-.kz-home .kz-event-card{height:100%!important;}
-.kz-home .kz-event-image{overflow:hidden!important;}
-.kz-home .kz-event-info{min-height:72px!important;display:flex!important;flex-direction:column!important;justify-content:center!important;}
-.kz-home .kz-event-info strong{line-height:1.2!important;}
-.kz-home .kz-event-info span{line-height:1.35!important;}
+.kz-home .kz-feature-grid,.kz-home .kz-card-grid,.kz-home .kz-college-grid,.kz-home .kz-sports-grid,.kz-home .kz-experience-grid,.kz-home .kz-division-grid{align-items:stretch!important;}
+.kz-home .kz-event-card{height:100%!important;min-width:0!important;overflow:hidden!important;}
+.kz-home .kz-event-image{overflow:hidden!important;min-width:0!important;}
+.kz-home .kz-event-info{min-height:72px!important;display:flex!important;flex-direction:column!important;justify-content:center!important;min-width:0!important;}
+.kz-home .kz-event-info strong{line-height:1.2!important;overflow:hidden!important;text-overflow:ellipsis!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;}
+.kz-home .kz-event-info span{line-height:1.35!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;}
 .kz-home .kz-section-heading>a{white-space:nowrap!important;}
+.kz-home img{max-width:100%;}
 
-@media(max-width:720px){
-  .kz-home .kz-section-heading{align-items:flex-start!important;}
-  .kz-home .kz-section-heading>a{margin-top:4px!important;}
-}
-
-@media(max-width:560px){
-  .kz-home .kz-section-heading{display:flex!important;flex-direction:column!important;gap:7px!important;}
-  .kz-home .kz-section-heading>a{align-self:flex-start!important;}
-  .kz-home .kz-event-image,
-  .kz-home .kz-event-image .kz-simple-matchup,
-  .kz-home .kz-event-image .kz-stadium-visual{height:190px!important;min-height:190px!important;}
-}
+@media(max-width:720px){.kz-home .kz-section-heading{align-items:flex-start!important;}.kz-home .kz-section-heading>a{margin-top:4px!important;}}
+@media(max-width:560px){.kz-home .kz-section-heading{display:flex!important;flex-direction:column!important;gap:7px!important;}.kz-home .kz-section-heading>a{align-self:flex-start!important;}.kz-home .kz-event-image,.kz-home .kz-event-image .kz-simple-matchup,.kz-home .kz-event-image .kz-stadium-visual{height:190px!important;min-height:190px!important;}.kz-home .kz-international-feature-card .kz-international-card-copy{padding-top:66px!important;}}
