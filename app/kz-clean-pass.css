@@ -1,0 +1,113 @@
+/* KickSeatz controlled visual cleanup — intentionally loaded last. */
+
+.kz-home{--kz-gap:16px;}
+
+/* Desktop: every normal event row is three equal cards. The existing featured wrapper is flattened so its three cards share one grid. */
+.kz-home .kz-feature-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:var(--kz-gap)!important;
+  align-items:stretch!important;
+}
+.kz-home .kz-feature-side{display:contents!important;}
+.kz-home .kz-feature-main,
+.kz-home .kz-feature-side .kz-event-card{
+  min-width:0!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+}
+.kz-home .kz-feature-main .kz-stadium-visual,
+.kz-home .kz-feature-main .kz-simple-matchup,
+.kz-home .kz-feature-side .kz-event-image,
+.kz-home .kz-feature-side .kz-event-image .kz-simple-matchup{
+  height:220px!important;
+  min-height:220px!important;
+}
+.kz-home .kz-feature-main .kz-feature-copy{min-height:92px!important;}
+
+/* Regular event rows stay three across and use one predictable card language. */
+.kz-home .kz-card-grid,
+.kz-home .kz-sports-grid,
+.kz-home .kz-college-grid,
+.kz-home .kz-experience-grid,
+.kz-home .kz-division-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:var(--kz-gap)!important;
+}
+
+/* Do not let old color-based stadium selectors invent a venue image for a different matchup. */
+.kz-home .kz-simple-matchup{
+  background-image:none!important;
+}
+.kz-home .kz-simple-matchup::before,
+.kz-home .kz-simple-matchup::after{pointer-events:none!important;}
+
+/* Keep matchup graphics intentional: team logos + team colors are the safe fallback when no exact photo is assigned. */
+.kz-home .kz-simple-matchup{
+  background:
+    radial-gradient(circle at 18% 50%,color-mix(in srgb,var(--away-color) 52%,transparent),transparent 38%),
+    radial-gradient(circle at 82% 50%,color-mix(in srgb,var(--home-color) 52%,transparent),transparent 38%),
+    linear-gradient(110deg,#0b0a10 0%,#17131f 48%,#0b0a10 100%)!important;
+}
+
+/* International Series: one consistent Rams-vs-49ers-style matchup graphic system. */
+.kz-international-section .kz-international-feature-card{
+  height:260px!important;
+  min-height:260px!important;
+  border-radius:16px!important;
+}
+.kz-international-section .kz-international-feature-card img{display:none!important;}
+.kz-international-section .kz-international-feature-card::before{
+  background-position:22% 42%,78% 42%,center!important;
+  background-size:104px 104px,104px 104px,100% 100%!important;
+}
+
+/* Correct mappings to the actual JSX order: 49ers/Rams, Ravens/Cowboys, Texans/Jaguars, Steelers/Saints, Bengals/Falcons, Patriots/Lions, Vikings/49ers, Colts/Commanders, Eagles/Jaguars. */
+.kz-international-section .kz-international-feature-card:nth-child(1)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/25.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/14.png"),linear-gradient(110deg,#aa0000 0%,#17131f 50%,#003594 100%)!important;}
+.kz-international-section .kz-international-feature-card:nth-child(2)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/33.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/6.png"),linear-gradient(110deg,#241773 0%,#17131f 50%,#041e42 100%)!important;}
+.kz-international-section .kz-international-feature-card:nth-child(3)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/34.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/30.png"),linear-gradient(110deg,#03202f 0%,#17131f 50%,#006778 100%)!important;}
+.kz-international-section .kz-international-feature-card:nth-child(4)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/23.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/18.png"),linear-gradient(110deg,#101820 0%,#17131f 50%,#d3bc8d 100%)!important;}
+.kz-international-section .kz-international-feature-card:nth-child(5)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/4.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/1.png"),linear-gradient(110deg,#fb4f14 0%,#17131f 50%,#a71930 100%)!important;}
+.kz-international-section .kz-international-feature-card:nth-child(6)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/17.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/8.png"),linear-gradient(110deg,#002244 0%,#17131f 50%,#0076b6 100%)!important;}
+.kz-international-section .kz-international-feature-card:nth-child(7)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/16.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/25.png"),linear-gradient(110deg,#4f2683 0%,#17131f 50%,#aa0000 100%)!important;}
+.kz-international-section .kz-international-feature-card:nth-child(8)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/11.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/28.png"),linear-gradient(110deg,#002c5f 0%,#17131f 50%,#5a1414 100%)!important;}
+.kz-international-section .kz-international-feature-card:nth-child(9)::before{background-image:url("https://a.espncdn.com/i/teamlogos/nfl/500/21.png"),url("https://a.espncdn.com/i/teamlogos/nfl/500/30.png"),linear-gradient(110deg,#004c54 0%,#17131f 50%,#006778 100%)!important;}
+
+/* Keep copy readable without burying the matchup artwork. */
+.kz-international-section .kz-international-card-copy{padding:18px 16px 16px!important;}
+.kz-international-section .kz-international-card-copy strong{font-size:18px!important;}
+
+/* Type sections are three columns; each column contains three evenly sized events. */
+.kz-game-type-section .kz-type-editorial-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:var(--kz-gap)!important;}
+.kz-game-type-section .kz-type-editorial-body{display:grid!important;grid-template-columns:1fr!important;gap:12px!important;}
+.kz-game-type-section .kz-type-feature{height:auto!important;min-height:0!important;}
+
+/* Prevent awkward wrapping in normal desktop cards. */
+.kz-home .kz-event-info strong,
+.kz-home .kz-type-feature-copy strong{line-height:1.2!important;}
+
+@media (max-width:1050px){
+  .kz-home .kz-feature-grid,
+  .kz-home .kz-card-grid,
+  .kz-home .kz-college-grid,
+  .kz-home .kz-sports-grid,
+  .kz-home .kz-experience-grid,
+  .kz-home .kz-division-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+  .kz-game-type-section .kz-type-editorial-grid{grid-template-columns:1fr!important;}
+}
+
+@media (max-width:720px){
+  .kz-home .kz-feature-grid,
+  .kz-home .kz-card-grid,
+  .kz-home .kz-college-grid,
+  .kz-home .kz-sports-grid,
+  .kz-home .kz-experience-grid,
+  .kz-home .kz-division-grid{grid-template-columns:1fr!important;}
+  .kz-home .kz-feature-main .kz-stadium-visual,
+  .kz-home .kz-feature-main .kz-simple-matchup,
+  .kz-home .kz-feature-side .kz-event-image,
+  .kz-home .kz-feature-side .kz-event-image .kz-simple-matchup{height:210px!important;min-height:210px!important;}
+  .kz-international-section .kz-international-editorial-grid{grid-template-columns:1fr!important;}
+  .kz-game-type-section .kz-type-editorial-grid{grid-template-columns:1fr!important;}
+}
