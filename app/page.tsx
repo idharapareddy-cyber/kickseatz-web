@@ -381,13 +381,13 @@ export default function HomePage() {
       </Link>
 
       <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-        <img src="https://resources.thfc.pulselive.com/photo-migration/migration/d8475abb-90cb-42df-8179-0e9af278fd4d/newstadium-september1-6.jpg?height=412&width=752" alt="Tottenham Hotspur Stadium interior in London" />
+        <img src="https://stadiumdb.com/pictures/stadiums/eng/tottenham_hotspur_stadium/tottenham_hotspur_stadium05.jpg" alt="Tottenham Hotspur Stadium exterior in London" />
         <div className="kz-international-photo-tag"><span>🇬🇧</span><b>LONDON · NFL</b></div>
         <div className="kz-international-card-copy"><strong>Colts vs Commanders</strong><small>Oct 4 · Tottenham Hotspur Stadium</small></div>
       </Link>
 
       <Link href="/find-tickets?category=international" className="kz-international-feature-card">
-        <img src="https://resources.thfc.pulselive.com/photo-migration/migration/c9418c41-09ad-4019-92bf-0bcc9654c547/newstadium-september1-4.jpg?height=412&width=752" alt="Tottenham Hotspur Stadium bowl in London" />
+        <img src="https://static.independent.co.uk/2021/12/08/23/50bc4524002b921e7bbd1720f0743252Y29udGVudHNlYXJjaGFwaSwxNjM5MDkyOTkx-2.62046825.jpg" alt="Tottenham Hotspur Stadium interior in London" />
         <div className="kz-international-photo-tag"><span>🇬🇧</span><b>LONDON · NFL</b></div>
         <div className="kz-international-card-copy"><strong>Eagles vs Jaguars</strong><small>Oct 11 · Tottenham Hotspur Stadium</small></div>
       </Link>
