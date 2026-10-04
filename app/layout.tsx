@@ -8,6 +8,7 @@ import "./kz-brand-polish.css";
 import "./kz-visual-final.css";
 import "./kz-clean-pass.css";
 import "./kz-aesthetic-pass.css";
+import "./kz-matchup-photo-fix.css";
 import { SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
