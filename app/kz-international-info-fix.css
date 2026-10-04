@@ -1,4 +1,4 @@
-/* Final International Series pass: use the same clean marketplace card language as the rest of the homepage. */
+/* Final International Series visual pass: consistent KickSeatz marketplace cards. */
 .kz-home .kz-international-section .kz-international-editorial-grid{
   display:grid!important;
   grid-template-columns:repeat(3,minmax(0,1fr))!important;
@@ -23,7 +23,7 @@
   transform:none!important;
 }
 
-/* Keep the real event photography. Do not replace it with CSS-generated artwork. */
+/* Keep real international venue/event photography — no generated matchup art. */
 .kz-home .kz-international-section .kz-international-feature-card > img{
   position:relative!important;
   inset:auto!important;
@@ -34,9 +34,11 @@
   object-fit:cover!important;
   object-position:center!important;
   margin:0!important;
+  opacity:1!important;
+  filter:none!important;
 }
 
-/* Same compact location pill treatment across every card. */
+/* Same location pill on every card. */
 .kz-home .kz-international-section .kz-international-feature-card .kz-international-photo-tag{
   position:absolute!important;
   top:11px!important;
@@ -58,7 +60,7 @@
 .kz-home .kz-international-section .kz-international-photo-tag span{font-size:12px!important;line-height:1!important;}
 .kz-home .kz-international-section .kz-international-photo-tag b{font-size:9px!important;font-weight:850!important;letter-spacing:.08em!important;line-height:1!important;color:#fff!important;}
 
-/* Every card gets the full event details — matchup, date, city, and venue. */
+/* Every one of the nine cards gets the same full event-information block. */
 .kz-home .kz-international-section .kz-international-card-copy{
   position:relative!important;
   z-index:2!important;
@@ -100,6 +102,7 @@
   white-space:normal!important;
 }
 
+/* Kill any older pseudo-element graphics that could override the real photos. */
 .kz-home .kz-international-section .kz-international-feature-card::before,
 .kz-home .kz-international-section .kz-international-feature-card::after{
   display:none!important;
@@ -112,41 +115,18 @@
 }
 
 @media(max-width:1050px){
-  .kz-home .kz-international-section .kz-international-editorial-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
-  }
+  .kz-home .kz-international-section .kz-international-editorial-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
 }
-
 @media(max-width:720px){
-  .kz-home .kz-international-section .kz-international-editorial-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    gap:12px!important;
-  }
+  .kz-home .kz-international-section .kz-international-editorial-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;}
   .kz-home .kz-international-section .kz-international-feature-card,
-  .kz-home .kz-international-section .kz-international-feature-card.kz-international-lead{
-    height:278px!important;
-  }
-  .kz-home .kz-international-section .kz-international-feature-card > img{
-    flex-basis:190px!important;
-    height:190px!important;
-  }
-  .kz-home .kz-international-section .kz-international-card-copy{
-    min-height:88px!important;
-    padding:10px 11px 11px!important;
-  }
+  .kz-home .kz-international-section .kz-international-feature-card.kz-international-lead{height:278px!important;}
+  .kz-home .kz-international-section .kz-international-feature-card > img{flex-basis:190px!important;height:190px!important;}
+  .kz-home .kz-international-section .kz-international-card-copy{min-height:88px!important;padding:10px 11px 11px!important;}
 }
-
 @media(max-width:520px){
-  .kz-home .kz-international-section .kz-international-editorial-grid{
-    grid-template-columns:1fr!important;
-    gap:14px!important;
-  }
+  .kz-home .kz-international-section .kz-international-editorial-grid{grid-template-columns:1fr!important;gap:14px!important;}
   .kz-home .kz-international-section .kz-international-feature-card,
-  .kz-home .kz-international-section .kz-international-feature-card.kz-international-lead{
-    height:290px!important;
-  }
-  .kz-home .kz-international-section .kz-international-feature-card > img{
-    flex-basis:202px!important;
-    height:202px!important;
-  }
+  .kz-home .kz-international-section .kz-international-feature-card.kz-international-lead{height:290px!important;}
+  .kz-home .kz-international-section .kz-international-feature-card > img{flex-basis:202px!important;height:202px!important;}
 }
