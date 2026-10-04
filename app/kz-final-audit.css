@@ -98,11 +98,41 @@
   background-color:#100d17!important;
 }
 
+/* NBA homepage: compact cards matching the existing event-card proportions. */
+.kz-home .kz-nba-home-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+.kz-home .kz-nba-home-card{
+  display:flex!important;
+  flex-direction:column!important;
+  min-width:0!important;
+  overflow:hidden!important;
+  border-radius:16px!important;
+}
+.kz-home .kz-nba-home-art{
+  height:160px!important;
+  min-height:160px!important;
+  flex:none!important;
+  position:relative!important;
+}
+.kz-home .kz-nba-home-info{
+  min-height:78px!important;
+  padding:12px 14px!important;
+}
+.kz-home .kz-nba-home-team img{
+  width:54px!important;
+  height:54px!important;
+  object-fit:contain!important;
+}
+
 @media(max-width:1050px){
   .kz-home .kz-feature-grid,
   .kz-home .kz-card-grid,
   .kz-home .kz-college-grid,
-  .kz-home .kz-game-type-section .kz-type-editorial-body{
+  .kz-home .kz-game-type-section .kz-type-editorial-body,
+  .kz-home .kz-nba-home-grid{
     grid-template-columns:repeat(2,minmax(0,1fr))!important;
   }
   .kz-home > .kz-section:nth-child(9) > div:last-child{
@@ -119,7 +149,12 @@
   .kz-home .kz-card-grid,
   .kz-home .kz-college-grid,
   .kz-home .kz-game-type-section .kz-type-editorial-body,
+  .kz-home .kz-nba-home-grid,
   .kz-home > .kz-section:nth-child(9) > div:last-child{
     grid-template-columns:1fr!important;
+  }
+  .kz-home .kz-nba-home-art{
+    height:150px!important;
+    min-height:150px!important;
   }
 }
