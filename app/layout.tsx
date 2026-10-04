@@ -17,6 +17,7 @@ import "./kz-nba-home.css";
 import "./kz-home-rebalance.css";
 import "./kz-no-ai-slop.css";
 import "./kz-no-hero-pass.css";
+import "./kz-remove-hero-final.css";
 import { SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
