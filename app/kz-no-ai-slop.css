@@ -44,7 +44,7 @@
 .kz-home .kz-simple-team img{filter:none!important}
 .kz-home .kz-simple-vs{box-shadow:none!important;background:#171321!important;border-color:#3a3150!important}
 
-/* NBA cards: clean court treatment instead of glossy generated-looking effects. */
+/* NBA cards: clean treatment instead of glossy generated-looking effects. */
 .kz-home .kz-nba-home-art{
   background:#0b0911!important;
 }
@@ -54,6 +54,37 @@
   background-size:28px 28px!important;
 }
 .kz-home .kz-nba-home-team img{filter:none!important}
+
+/* Replace the AI-looking NBA artwork with real basketball/arena photography. */
+.kz-home .kz-nba-event-card img[alt*="Denver Nuggets"],
+.kz-home .kz-nba-feature-art[alt*="Denver Nuggets"]{
+  content:url('https://commons.wikimedia.org/wiki/Special:FilePath/Minnesota_Timberwolves_vs._Denver_Nuggets_(May_4,_2024)_3.jpg?width=1600')!important;
+}
+.kz-home .kz-nba-event-card img[alt*="LA Clippers"],
+.kz-home .kz-nba-feature-art[alt*="LA Clippers"]{
+  content:url('https://commons.wikimedia.org/wiki/Special:FilePath/Intuit_Dome_Basketball.jpg?width=1600')!important;
+}
+.kz-home .kz-nba-event-card img[alt*="Atlanta Hawks"],
+.kz-home .kz-nba-feature-art[alt*="Atlanta Hawks"]{
+  content:url('https://commons.wikimedia.org/wiki/Special:FilePath/State_Farm_Arena_-_Bulls_VS_Hawks_NBA_Game.jpg?width=1600')!important;
+}
+.kz-home .kz-nba-event-card img[alt*="Philadelphia 76ers"],
+.kz-home .kz-nba-feature-art[alt*="Philadelphia 76ers"]{
+  content:url('https://commons.wikimedia.org/wiki/Special:FilePath/76ers_WFC_2016.jpg?width=1600')!important;
+}
+.kz-home .kz-nba-event-card img[alt*="Sacramento Kings"],
+.kz-home .kz-nba-feature-art[alt*="Sacramento Kings"]{
+  content:url('https://commons.wikimedia.org/wiki/Special:FilePath/G1C_Interior_(cropped).jpg?width=1600')!important;
+}
+.kz-home .kz-nba-event-card img[alt*="Golden State Warriors"],
+.kz-home .kz-nba-feature-art[alt*="Golden State Warriors"]{
+  content:url('https://commons.wikimedia.org/wiki/Special:FilePath/Chase_Center_-_Warriors.jpg?width=1600')!important;
+}
+
+/* Keep real photos crisp and avoid synthetic overlays on NBA imagery. */
+.kz-home .kz-nba-event-card .kz-stadium-shade,
+.kz-home .kz-nba-event-card .kz-stadium-color,
+.kz-home .kz-nba-feature-shade{background:linear-gradient(180deg,transparent 35%,rgba(5,4,8,.72) 100%)!important}
 
 /* Remove excessive glass/blur treatment from homepage cards. */
 .kz-home .kz-feature-badge,
