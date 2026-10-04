@@ -1,0 +1,22 @@
+/* Controlled homepage rebalance: neutral marketplace hero + stronger NBA presence. */
+.kz-home .kz-marketplace-hero-art{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch;height:100%;min-height:360px;padding:34px;background:linear-gradient(135deg,#0c0a12,#171126 58%,#26154a);overflow:hidden}
+.kz-home .kz-marketplace-hero-art::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-100px;top:-150px;background:rgba(124,58,237,.18);filter:blur(2px)}
+.kz-home .kz-marketplace-ticket-panel,.kz-home .kz-marketplace-ticket-stack{position:relative;z-index:1}
+.kz-home .kz-marketplace-ticket-panel{display:flex;flex-direction:column;justify-content:center;padding:34px;border:1px solid rgba(255,255,255,.1);border-radius:20px;background:rgba(255,255,255,.045);box-shadow:0 24px 60px rgba(0,0,0,.24)}
+.kz-home .kz-marketplace-ticket-panel .kz-eyebrow{margin-bottom:10px}
+.kz-home .kz-marketplace-ticket-panel strong{font-size:clamp(28px,3vw,46px);line-height:1.02;max-width:430px}
+.kz-home .kz-marketplace-ticket-panel span:last-child{margin-top:14px;color:rgba(255,255,255,.62);max-width:390px}
+.kz-home .kz-marketplace-ticket-stack{display:flex;align-items:center;justify-content:center;min-width:0}
+.kz-home .kz-marketplace-ticket{width:min(100%,430px);padding:22px 24px;border-radius:18px;background:#fff;color:#111;box-shadow:0 25px 60px rgba(0,0,0,.3);transform:rotate(-4deg)}
+.kz-home .kz-marketplace-ticket:nth-child(2){position:absolute;width:min(88%,380px);transform:rotate(5deg) translate(34px,18px);opacity:.82;background:#8b5cf6;color:#fff}
+.kz-home .kz-marketplace-ticket small{display:block;text-transform:uppercase;letter-spacing:.12em;font-weight:800;font-size:10px;margin-bottom:12px;opacity:.7}
+.kz-home .kz-marketplace-ticket strong{display:block;font-size:24px;margin-bottom:8px}
+.kz-home .kz-marketplace-ticket span{font-size:12px;opacity:.68}
+.kz-home .kz-nba-home-section,.kz-home .kz-nba-trending-section{padding-top:34px;padding-bottom:34px}
+.kz-home .kz-nba-home-section .kz-section-heading,.kz-home .kz-nba-trending-section .kz-section-heading{margin-bottom:18px}
+.kz-home .kz-nba-home-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.kz-home .kz-nba-home-art{height:160px}
+.kz-home .kz-nba-home-card{min-height:0}
+.kz-home .kz-nba-home-info{min-height:78px;padding:12px 14px}
+@media(max-width:900px){.kz-home .kz-marketplace-hero-art{grid-template-columns:1fr;min-height:320px}.kz-home .kz-marketplace-ticket-stack{min-height:190px}.kz-home .kz-nba-home-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.kz-home .kz-marketplace-hero-art{padding:20px}.kz-home .kz-marketplace-ticket-panel{padding:24px}.kz-home .kz-nba-home-grid{grid-template-columns:1fr}.kz-home .kz-nba-home-art{height:150px}}
