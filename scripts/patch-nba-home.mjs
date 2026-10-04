@@ -21,31 +21,36 @@ function removeSectionByClass(className) {
 removeSectionByClass("kz-nba-home-section");
 removeSectionByClass("kz-nba-trending-section");
 
-// The previous pass made the hero a CSS-only ticket. Replace it with a simple, real marketplace visual in JSX.
-const heroStart = source.indexOf('      <section className="kz-hero">');
-if (heroStart === -1) throw new Error("Hero section not found");
-const heroEnd = source.indexOf("</section>", heroStart);
-if (heroEnd === -1) throw new Error("Hero section end not found");
-const neutralHero = `      <section className="kz-hero">
-        <div className="kz-hero-image">
-          <div className="kz-marketplace-hero-art">
-            <div className="kz-marketplace-ticket-panel"><span className="kz-eyebrow">KICKSEATZ · LIVE SPORTS & EVENTS</span><strong>One place for every seat.</strong><span>Discover games, concerts, and live events across the sports you follow.</span></div>
-            <div className="kz-marketplace-ticket-stack"><div className="kz-marketplace-ticket"><small>KickSeatz ticket</small><strong>Live sports & events</strong><span>Compare seats · Find your event · Explore tickets</span></div><div className="kz-marketplace-ticket"><small>Now discovering</small><strong>NBA · NFL · More</strong><span>One marketplace, more ways to go.</span></div></div>
-          </div>
-        </div>
-        <div className="kz-hero-info"><div><span className="kz-eyebrow">TICKETS, WITHOUT THE GUESSWORK</span><h1>Find your seat <em>for the moment.</em></h1><p>Discover sports and live events, compare options, and find the experience that fits you.</p></div><Link href="/find-tickets" className="kz-primary-button">Explore Sports & Tickets <ArrowRight size={17} /></Link></div>
-        <div className="kz-hero-search"><div><span className="kz-eyebrow">SEARCH KICKSEATZ</span><strong>What are you looking for?</strong></div><form action="/find-tickets" method="get" className="kz-search-box"><Search size={19} /><input name="search" type="search" placeholder="Team, sport, event, city, or stadium" aria-label="Search teams, games, cities, or stadiums" /><button type="submit">Search</button></form><div className="kz-search-links"><Link href="/find-tickets">All games</Link><Link href="/teams">All teams</Link><Link href="/find-my-game">Find My Game</Link></div></div>
-      </section>`;
-source = source.slice(0, heroStart) + neutralHero + source.slice(heroEnd + "</section>".length);
+// Add real NBA venue photography instead of the old CSS-only logo matchup art.
+const nbaImageBlock = `\nconst nbaVenueImages: Record<string, string> = {\n  DEN: "https://commons.wikimedia.org/wiki/Special:FilePath/Ball_Arena%20Denver.jpg?width=1400",\n  LAC: "https://commons.wikimedia.org/wiki/Special:FilePath/Intuit_Dome.jpg?width=1400",\n  ATL: "https://commons.wikimedia.org/wiki/Special:FilePath/State_Farm_Arena_Atlanta.jpg?width=1400",\n  PHI: "https://commons.wikimedia.org/wiki/Special:FilePath/Wells_Fargo_Center.jpg?width=1400",\n  SAC: "https://commons.wikimedia.org/wiki/Special:FilePath/Golden_1_Center.jpg?width=1400",\n  GSW: "https://commons.wikimedia.org/wiki/Special:FilePath/Chase_Center.jpg?width=1400",\n  CHI: "https://commons.wikimedia.org/wiki/Special:FilePath/United_Center_Chicago.jpg?width=1400",\n  CLE: "https://commons.wikimedia.org/wiki/Special:FilePath/Rocket_Mortgage_FieldHouse.jpg?width=1400",\n  DAL: "https://commons.wikimedia.org/wiki/Special:FilePath/American_Airlines_Center.jpg?width=1400",\n  NY: "https://commons.wikimedia.org/wiki/Special:FilePath/Madison_Square_Garden_2015.jpg?width=1400",\n};\n`;
+if (!source.includes("const nbaVenueImages")) {
+  const marker = "function nbaLogo(abbr: string) {";
+  const markerIndex = source.indexOf(marker);
+  if (markerIndex === -1) throw new Error("NBA logo helper not found");
+  source = source.slice(0, markerIndex) + nbaImageBlock + "\n" + source.slice(markerIndex);
+}
 
-// Replace repetitive NFL team browsing real estate with NBA discovery instead of extending the page.
-removeSectionByClass("kz-team-strip-section");
-removeSectionByClass("kz-division-grid");
+const oldNbaCardStart = source.indexOf("function NbaHomeCard({ game }");
+if (oldNbaCardStart === -1) throw new Error("NBA home card not found");
+const oldNbaCardEnd = source.indexOf("\n}\n\nfunction GameRow", oldNbaCardStart);
+if (oldNbaCardEnd === -1) throw new Error("NBA home card end not found");
+const nbaCard = `function NbaHomeCard({ game }: { game: (typeof NBA_GAMES)[number] }) {\n  const away = nbaTeam(game.away);\n  const home = nbaTeam(game.home);\n  const image = nbaVenueImages[game.home];\n  return (\n    <Link href="/nba" className="kz-nba-home-card">\n      <div className="kz-nba-home-art">\n        {image && <img src={image} alt={home ? `${home.name} arena` : "NBA arena"} />}\n        <div className="kz-nba-home-shade" />\n        <div className="kz-nba-home-team"><img src={nbaLogo(game.away)} alt="" /><span>{away?.abbr}</span></div>\n        <b>VS</b>\n        <div className="kz-nba-home-team"><img src={nbaLogo(game.home)} alt="" /><span>{home?.abbr}</span></div>\n      </div>\n      <div className="kz-nba-home-info">\n        <span>{game.date} · {game.time}</span>\n        <strong>{away?.name} @ {home?.name}</strong>\n        <small>{game.demand} demand · Explore NBA tickets</small>\n      </div>\n    </Link>\n  );\n}`;
+source = source.slice(0, oldNbaCardStart) + nbaCard + source.slice(oldNbaCardEnd + 2);
 
+// NBA is live now; remove any stale "coming soon" language without touching other sport sections.
+source = source.replace(/NBA\s*·\s*COMING SOON/gi, "NBA");
+source = source.replace(/NBA\s+coming\s+soon/gi, "NBA");
+source = source.replace(/NBA\s+arrives\s+soon/gi, "NBA");
+
+// The neutral marketplace hero stays intentionally sport-neutral; do not replace it with an NFL or NBA hero.
 const collegeMarker = '      <section className="kz-section kz-college-section">';
 const collegeStart = source.indexOf(collegeMarker);
 if (collegeStart === -1) throw new Error("College section marker not found");
-source = source.slice(0, collegeStart) + nbaWeek + "\n\n" + nbaTrending + "\n\n" + source.slice(collegeStart);
+
+// Keep NBA as part of the homepage rather than adding a separate long page of content.
+if (!source.includes("kz-nba-home-section")) {
+  source = source.slice(0, collegeStart) + nbaWeek + "\n\n" + nbaTrending + "\n\n" + source.slice(collegeStart);
+}
 
 fs.writeFileSync(path, source);
-console.log("Rebalanced homepage: neutral marketplace hero, two compact NBA sections, and removed repetitive NFL team/division blocks.");
+console.log("Updated homepage NBA cards with real venue photography and kept NBA live instead of coming soon.");
