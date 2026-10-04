@@ -1,4 +1,4 @@
-/* Controlled homepage rebalance: neutral marketplace hero + stronger NBA presence. */
+/* Controlled homepage balance: NFL and NBA get equal section treatment. */
 .kz-home .kz-marketplace-hero-art{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch;height:100%;min-height:360px;padding:34px;background:linear-gradient(135deg,#0c0a12,#171126 58%,#26154a);overflow:hidden}
 .kz-home .kz-marketplace-hero-art::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-100px;top:-150px;background:rgba(124,58,237,.18);filter:blur(2px)}
 .kz-home .kz-marketplace-ticket-panel,.kz-home .kz-marketplace-ticket-stack{position:relative;z-index:1}
@@ -12,15 +12,21 @@
 .kz-home .kz-marketplace-ticket small{display:block;text-transform:uppercase;letter-spacing:.12em;font-weight:800;font-size:10px;margin-bottom:12px;opacity:.7}
 .kz-home .kz-marketplace-ticket strong{display:block;font-size:24px;margin-bottom:8px}
 .kz-home .kz-marketplace-ticket span{font-size:12px;opacity:.68}
-.kz-home .kz-nba-home-section,.kz-home .kz-nba-trending-section{padding-top:34px;padding-bottom:34px}
-.kz-home .kz-nba-home-section .kz-section-heading,.kz-home .kz-nba-trending-section .kz-section-heading{margin-bottom:18px}
-.kz-home .kz-nba-home-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.kz-home .kz-nba-home-art{height:160px;position:relative;overflow:hidden;background:#0b0910;display:flex;align-items:center;justify-content:center;gap:12px}
+
+/* NBA mirrors the homepage's established NFL card rhythm instead of becoming a smaller add-on. */
+.kz-home .kz-nba-home-section,.kz-home .kz-nba-trending-section,.kz-home .kz-nba-spotlight-section{padding-top:38px;padding-bottom:38px}
+.kz-home .kz-nba-home-section .kz-section-heading,.kz-home .kz-nba-trending-section .kz-section-heading,.kz-home .kz-nba-spotlight-section .kz-section-heading{margin-bottom:20px}
+.kz-home .kz-nba-home-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.kz-home .kz-nba-home-art{height:190px;position:relative;overflow:hidden;background:#0b0910;display:flex;align-items:center;justify-content:center;gap:12px}
 .kz-home .kz-nba-home-art>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.kz-home .kz-nba-home-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,6,14,.18),rgba(8,6,14,.82));z-index:1}
+.kz-home .kz-nba-home-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,6,14,.12),rgba(8,6,14,.84));z-index:1}
 .kz-home .kz-nba-home-team,.kz-home .kz-nba-home-art>b{position:relative;z-index:2;text-shadow:0 2px 10px rgba(0,0,0,.85)}
 .kz-home .kz-nba-home-team img{filter:drop-shadow(0 7px 14px rgba(0,0,0,.6))}
-.kz-home .kz-nba-home-card{min-height:0}
-.kz-home .kz-nba-home-info{min-height:78px;padding:12px 14px}
+.kz-home .kz-nba-home-card{min-height:0;display:flex;flex-direction:column}
+.kz-home .kz-nba-home-info{min-height:84px;padding:13px 14px;display:flex;flex-direction:column;justify-content:center}
+
+/* The old NBA "coming soon" presentation is no longer allowed on the live homepage. */
+.kz-home .kz-sport-card:has(span:first-child){ }
+
 @media(max-width:900px){.kz-home .kz-marketplace-hero-art{grid-template-columns:1fr;min-height:320px}.kz-home .kz-marketplace-ticket-stack{min-height:190px}.kz-home .kz-nba-home-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:640px){.kz-home .kz-marketplace-hero-art{padding:20px}.kz-home .kz-marketplace-ticket-panel{padding:24px}.kz-home .kz-nba-home-grid{grid-template-columns:1fr}.kz-home .kz-nba-home-art{height:150px}}
+@media(max-width:640px){.kz-home .kz-marketplace-hero-art{padding:20px}.kz-home .kz-marketplace-ticket-panel{padding:24px}.kz-home .kz-nba-home-grid{grid-template-columns:1fr}.kz-home .kz-nba-home-art{height:160px}}
