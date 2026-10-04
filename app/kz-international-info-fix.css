@@ -1,0 +1,67 @@
+/* International Series: every card gets the same visible event information treatment. */
+.kz-home .kz-international-feature-card{
+  position:relative!important;
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:280px!important;
+  overflow:hidden!important;
+}
+.kz-home .kz-international-feature-card > img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  display:block!important;
+}
+.kz-home .kz-international-feature-card .kz-international-photo-tag{
+  position:absolute!important;
+  top:14px!important;
+  left:14px!important;
+  z-index:3!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:7px!important;
+  width:max-content!important;
+  padding:7px 10px!important;
+  border-radius:999px!important;
+  background:rgba(9,7,15,.86)!important;
+  color:#fff!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  backdrop-filter:none!important;
+}
+.kz-home .kz-international-feature-card .kz-international-card-copy{
+  position:relative!important;
+  z-index:3!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-end!important;
+  gap:5px!important;
+  width:100%!important;
+  min-height:112px!important;
+  margin-top:auto!important;
+  padding:46px 18px 17px!important;
+  color:#fff!important;
+  background:linear-gradient(180deg,transparent 0%,rgba(7,6,12,.72) 32%,rgba(7,6,12,.96) 100%)!important;
+}
+.kz-home .kz-international-feature-card .kz-international-card-copy strong{
+  display:block!important;
+  color:#fff!important;
+  font-size:18px!important;
+  line-height:1.15!important;
+  font-weight:850!important;
+}
+.kz-home .kz-international-feature-card .kz-international-card-copy small{
+  display:block!important;
+  color:rgba(255,255,255,.82)!important;
+  font-size:12px!important;
+  line-height:1.35!important;
+}
+.kz-home .kz-international-feature-card::after{
+  display:none!important;
+  content:none!important;
+}
+@media(max-width:720px){
+  .kz-home .kz-international-feature-card{min-height:250px!important}
+  .kz-home .kz-international-feature-card .kz-international-card-copy{min-height:100px!important;padding:40px 15px 15px!important}
+}
