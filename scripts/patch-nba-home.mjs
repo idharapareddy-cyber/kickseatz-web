@@ -3,33 +3,26 @@ import fs from "node:fs";
 const path = "app/page.tsx";
 let source = fs.readFileSync(path, "utf8");
 
-if (source.includes("const NBA_HOME_GAMES")) {
-  console.log("NBA homepage already integrated");
-  process.exit(0);
-}
+const nbaWeek = `
+      <section className="kz-section kz-nba-home-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · THIS WEEK</span><h2>NBA matchups to watch</h2></div><Link href="/nba">See all NBA games <ArrowRight size={15} /></Link></div><div className="kz-nba-home-grid">{NBA_HOME_GAMES.slice(0, 3).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></section>`;
 
-source = source.replace(
-  'import { GAMES, TEAMS, teamName } from "../lib/data";',
-  'import { GAMES, TEAMS, teamName } from "../lib/data";\nimport { NBA_GAMES, nbaTeam } from "../lib/nba-data";'
-);
+const nbaTrending = `
+      <section className="kz-section kz-nba-trending-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · TRENDING</span><h2>Games basketball fans are watching</h2></div><Link href="/nba">Browse NBA <ArrowRight size={15} /></Link></div><div className="kz-nba-home-grid">{NBA_HOME_GAMES.slice(3, 6).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></section>`;
 
-const helpers = `\nconst NBA_HOME_GAMES = NBA_GAMES.slice(0, 6);\n\nfunction nbaLogo(abbr: string) {\n  return nbaTeam(abbr)?.logo ?? "";\n}\n\nfunction NbaHomeCard({ game }: { game: (typeof NBA_GAMES)[number] }) {\n  const away = nbaTeam(game.away);\n  const home = nbaTeam(game.home);\n  return (\n    <Link href="/nba" className="kz-nba-home-card">\n      <div className="kz-nba-home-art">\n        <div className="kz-nba-home-court" />\n        <div className="kz-nba-home-team"><img src={nbaLogo(game.away)} alt="" /><span>{away?.abbr}</span></div>\n        <b>VS</b>\n        <div className="kz-nba-home-team"><img src={nbaLogo(game.home)} alt="" /><span>{home?.abbr}</span></div>\n      </div>\n      <div className="kz-nba-home-info">\n        <span>{game.date} · {game.time}</span>\n        <strong>{away?.name} @ {home?.name}</strong>\n        <small>{game.demand} demand · Explore NBA tickets</small>\n      </div>\n    </Link>\n  );\n}\n`;
+// Remove the standalone NBA section so NBA replaces existing homepage real estate instead of adding more length.
+source = source.replace(/\n      <section className="kz-section kz-nba-home-section">.*?<\/section>\n/s, "\n");
 
-source = source.replace("function GameRow", helpers + "\nfunction GameRow");
+// Replace the large NFL "Browse the schedule by moment" block with a compact NBA section.
+const gameTypeStart = source.indexOf('      <section className="kz-section kz-game-type-section">');
+if (gameTypeStart === -1) throw new Error("NFL game-type section not found");
+const gameTypeEnd = source.indexOf("</section>", gameTypeStart);
+if (gameTypeEnd === -1) throw new Error("NFL game-type section end not found");
+source = source.slice(0, gameTypeStart) + nbaWeek + source.slice(gameTypeEnd + "</section>".length);
 
-const heroOld = "Discover NFL and college football now, with more sports and live events coming to KickSeatz.";
-source = source.replace(heroOld, "Discover NFL and NBA now, with more sports and live events coming to KickSeatz.");
-
-const gamesWorthSeeing = `      {leadGame && <section className="kz-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">FEATURED</span><h2>Games worth seeing</h2></div><Link href="/find-tickets">See all games <ArrowRight size={15} /></Link></div><div className="kz-feature-grid"><Link href={`/find-tickets?game=${leadGame.id}`} className="kz-feature-main"><GameVisual game={leadGame} hero /><div className="kz-feature-copy"><span>{formatDate(leadGame.date)} · {leadGame.city}</span><h3>{teamName(leadGame.away)} @ {teamName(leadGame.home)}</h3><p>{leadGame.reason}</p><b>Find tickets <ArrowRight size={15} /></b></div></Link><div className="kz-feature-side">{featured.slice(1, 3).map((game) => <EventCard key={game.id} game={game} />)}</div></div></section>}`;
-
-const nbaSection = `\n\n      <section className="kz-section kz-nba-home-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · NOW LIVE ON KICKSEATZ</span><h2>Games worth seeing in basketball</h2></div><Link href="/nba">Explore NBA <ArrowRight size={15} /></Link></div><div className="kz-nba-home-grid">{NBA_HOME_GAMES.slice(0, 3).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></section>`;
-
-if (!source.includes(nbaSection.trim())) {
-  source = source.replace(gamesWorthSeeing, gamesWorthSeeing + nbaSection);
-}
-
-const moreNfl = `      <section className="kz-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">UPCOMING</span><h2>More NFL games</h2></div><Link href="/find-tickets">View all tickets <ArrowRight size={15} /></Link></div><div className="kz-game-list">{upcoming.map((game) => <GameRow key={game.id} game={game} />)}</div></section>\n`;
-source = source.replace(moreNfl, "");
+// Replace the repetitive NFL trending section with a second NBA section.
+const trendingPattern = /\n      <section className="kz-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">TRENDING NOW · NFL<\/span><h2>Games people are watching<\/h2><\/div><Link href="\/find-tickets">Browse all <ArrowRight size={15} \/><\/Link><\/div><div className="kz-card-grid">\{trending\.slice\(0, 3\)\.map\(\(game\) => <EventCard key=\{game\.id\} game=\{game\} \/>\)\}<\/div><\/section>\n/;
+if (!trendingPattern.test(source)) throw new Error("NFL trending section not found");
+source = source.replace(trendingPattern, `\n${nbaTrending}\n`);
 
 fs.writeFileSync(path, source);
-console.log("NBA homepage integration applied");
+console.log("NBA homepage rebalanced: replaced two NFL-only sections instead of adding new page length.");
