@@ -14,6 +14,7 @@ import "./kz-browse-moment-fix.css";
 import "./kz-osu-logo-fix.css";
 import "./kz-final-audit.css";
 import "./kz-nba-home.css";
+import "./kz-home-balance.css";
 import { SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
