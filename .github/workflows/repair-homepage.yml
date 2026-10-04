@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   repair:
-    if: ${{ contains(github.event.head_commit.message, 'Load controlled homepage rebalance styling') || contains(github.event.head_commit.message, 'Add one-time homepage repair workflow') }}
+    if: ${{ contains(github.event.head_commit.message, 'Load controlled homepage rebalance styling') || contains(github.event.head_commit.message, 'Add one-time homepage repair workflow') || contains(github.event.head_commit.message, 'Trigger homepage repair workflow once') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
