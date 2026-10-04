@@ -1,0 +1,86 @@
+name: Rebalance NBA homepage
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  rebalance:
+    if: ${{ !contains(github.event.head_commit.message, 'Rebalance NBA homepage sections') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Replace repetitive NFL homepage sections with NBA
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('app/page.tsx')
+          s = p.read_text()
+
+          # Remove the standalone NBA block so NBA replaces existing homepage real estate.
+          s = re.sub(
+              r'\n      <section className="kz-section kz-nba-home-section">.*?</section>\n',
+              '\n',
+              s,
+              count=1,
+              flags=re.S,
+          )
+
+          nba_week = '''
+      <section className="kz-section kz-nba-home-section">
+        <div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · THIS WEEK</span><h2>NBA matchups to watch</h2></div><Link href="/nba">See all NBA games <ArrowRight size={15} /></Link></div>
+        <div className="kz-nba-home-grid">{NBA_HOME_GAMES.slice(0, 3).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div>
+      </section>
+'''
+
+          nba_trending = '''
+      <section className="kz-section kz-nba-trending-section">
+        <div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · TRENDING</span><h2>Games basketball fans are watching</h2></div><Link href="/nba">Browse NBA <ArrowRight size={15} /></Link></div>
+        <div className="kz-nba-home-grid">{NBA_HOME_GAMES.slice(3, 6).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div>
+      </section>
+'''
+
+          # Replace the large NFL game-type editorial block with NBA matchups.
+          s, n = re.subn(
+              r'\n      <section className="kz-section kz-game-type-section">.*?</section>\n',
+              nba_week,
+              s,
+              count=1,
+              flags=re.S,
+          )
+          if n != 1:
+              raise SystemExit('Could not find NFL game-type section')
+
+          # Replace the repetitive NFL trending section with a second NBA section.
+          s, n = re.subn(
+              r'\n      <section className="kz-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">TRENDING NOW · NFL</span><h2>Games people are watching</h2></div><Link href="/find-tickets">Browse all <ArrowRight size=15 /></Link></div><div className="kz-card-grid">\{trending\.slice\(0, 3\)\.map\(\(game\) => <EventCard key=\{game\.id\} game=\{game\} />\)\}</div></section>\n',
+              nba_trending,
+              s,
+              count=1,
+          )
+          if n != 1:
+              raise SystemExit('Could not find NFL trending section')
+
+          p.write_text(s)
+
+          css = Path('app/kz-final-audit.css')
+          c = css.read_text()
+          marker = '/* NBA homepage rebalance: use the same compact card proportions as the established event cards. */'
+          if marker not in c:
+              c += '''\n\n/* NBA homepage rebalance: use the same compact card proportions as the established event cards. */\n.kz-home .kz-nba-home-grid{\n  display:grid!important;\n  grid-template-columns:repeat(3,minmax(0,1fr))!important;\n  gap:14px!important;\n}\n.kz-home .kz-nba-home-card{\n  display:flex!important;\n  flex-direction:column!important;\n  min-width:0!important;\n  overflow:hidden!important;\n  border-radius:16px!important;\n}\n.kz-home .kz-nba-home-art{\n  height:195px!important;\n  min-height:195px!important;\n  flex:none!important;\n  position:relative!important;\n}\n.kz-home .kz-nba-home-info{\n  min-height:78px!important;\n  padding:12px 14px!important;\n}\n.kz-home .kz-nba-home-team img{\n  width:58px!important;\n  height:58px!important;\n  object-fit:contain!important;\n}\n@media(max-width:1050px){.kz-home .kz-nba-home-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}\n@media(max-width:720px){.kz-home .kz-nba-home-grid{grid-template-columns:1fr!important;}.kz-home .kz-nba-home-art{height:180px!important;min-height:180px!important;}}\n'''
+              css.write_text(c)
+          PY
+
+      - name: Remove one-off workflow and commit
+        run: |
+          rm -f .github/workflows/rebalance-nba-home.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/page.tsx app/kz-final-audit.css .github/workflows/rebalance-nba-home.yml
+          git commit -m "Rebalance NBA homepage sections"
+          git push
