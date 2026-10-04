@@ -82,6 +82,7 @@
 .kz-game-type-section .kz-type-editorial-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:var(--kz-gap)!important;}
 .kz-game-type-section .kz-type-editorial-body{display:grid!important;grid-template-columns:1fr!important;gap:12px!important;}
 .kz-game-type-section .kz-type-feature{height:auto!important;min-height:0!important;}
+.kz-game-type-section .kz-type-playoff:not(:has(.kz-type-feature)){display:none!important;}
 
 /* Prevent awkward wrapping in normal desktop cards. */
 .kz-home .kz-event-info strong,
