@@ -158,6 +158,28 @@ function NbaHomeCard({ game }: { game: (typeof NBA_GAMES)[number] }) {
   );
 }
 
+function NbaFeatureCard({ game, image, label }: { game: (typeof NBA_GAMES)[number]; image: string; label: string }) {
+  const away = nbaTeam(game.away);
+  const home = nbaTeam(game.home);
+  return (
+    <Link href="/nba" className="kz-nba-feature">
+      <img className="kz-nba-feature-art" src={image} alt={`${away?.name} at ${home?.name} featured artwork`} />
+      <div className="kz-nba-feature-shade" aria-hidden="true" />
+      <div className="kz-nba-feature-copy">
+        <span className="kz-nba-feature-label">{label}</span>
+        <div className="kz-nba-feature-logos" aria-hidden="true">
+          <img src={nbaLogo(game.away)} alt="" />
+          <i>@</i>
+          <img src={nbaLogo(game.home)} alt="" />
+        </div>
+        <h3>{away?.name} <em>@</em> {home?.name}</h3>
+        <p>{formatDate(game.date)} · {game.time} · {home?.city} · {game.demand} demand</p>
+        <b>Find tickets <ArrowRight size={15} /></b>
+      </div>
+    </Link>
+  );
+}
+
 function GameRow({ game }: { game: (typeof GAMES)[number] }) {
   return <Link href={`/find-tickets?game=${game.id}`} className="kz-game-row"><div className="kz-game-date"><strong>{new Date(`${game.date}T12:00:00`).toLocaleDateString("en-US", { month: "short" })}</strong><b>{new Date(`${game.date}T12:00:00`).getDate()}</b></div><div className="kz-game-matchup"><div><img src={logoUrl(game.away)} alt="" /><strong>{teamName(game.away)}</strong><span>@</span><strong>{teamName(game.home)}</strong><img src={logoUrl(game.home)} alt="" /></div><small><MapPin size={13} /> {game.venue} · {game.city} · {game.time}</small></div><span className="kz-demand">{game.demand}</span><span className="kz-ticket-link">Find Tickets <ArrowRight size={15} /></span></Link>;
 }
@@ -205,10 +227,10 @@ export default function HomePage() {
 
 
 
-      <section className="kz-section kz-nba-home-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · THIS WEEK</span><h2>NBA matchups to watch</h2></div><Link href="/nba">See all NBA games <ArrowRight size={15} /></Link></div><div className="kz-feature-grid kz-nba-feature-grid"><div className="kz-feature-side">{NBA_HOME_GAMES.slice(0, 3).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></div></section>
+      <section className="kz-section kz-nba-home-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · THIS WEEK</span><h2>NBA matchups to watch</h2></div><Link href="/nba">See all NBA games <ArrowRight size={15} /></Link></div><div className="kz-feature-grid kz-nba-feature-grid"><NbaFeatureCard game={NBA_HOME_GAMES[0]} image="/images/nba/feature-den.png" label="Game of the week" /><div className="kz-feature-side">{NBA_HOME_GAMES.slice(1, 3).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></div></section>
 
 
-      <section className="kz-section kz-nba-trending-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · TRENDING</span><h2>Games basketball fans are watching</h2></div><Link href="/nba">Browse NBA <ArrowRight size={15} /></Link></div><div className="kz-feature-grid kz-nba-feature-grid"><div className="kz-feature-side">{NBA_HOME_GAMES.slice(3, 6).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></div></section>
+      <section className="kz-section kz-nba-trending-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · TRENDING</span><h2>Games basketball fans are watching</h2></div><Link href="/nba">Browse NBA <ArrowRight size={15} /></Link></div><div className="kz-feature-grid kz-nba-feature-grid kz-nba-feature-grid-flip"><NbaFeatureCard game={NBA_HOME_GAMES[3]} image="/images/nba/feature-phi.png" label="Trending now" /><div className="kz-feature-side">{NBA_HOME_GAMES.slice(4, 6).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></div></section>
 
       <section className="kz-section kz-college-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NEXT UP</span><h2>College football</h2></div><Link href="/find-tickets?category=college-football">Explore college football <ArrowRight size={15} /></Link></div><div className="kz-college-grid">{collegeFootball.map((school)=><Link href="/find-tickets?category=college-football" className="kz-college-card" key={school.short}><img src={school.image} alt="" /><div className="kz-college-shade" /><div className="kz-college-copy"><span>COLLEGE FOOTBALL</span><strong>{school.name}</strong><small>Games, rivalries & game-day experiences</small></div></Link>)}</div></section>
 
