@@ -1,20 +1,33 @@
 .kz-nba-home-section{margin-top:0}
 .kz-category-nba{font-weight:800!important;color:#a855f7!important}
-.kz-nba-home-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.kz-nba-home-card{display:block;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--surface);text-decoration:none;transition:transform .2s ease,border-color .2s ease}
-.kz-nba-home-card:hover{transform:translateY(-3px);border-color:#6f5aa8}
-.kz-nba-home-art{position:relative;min-height:220px;overflow:hidden;background:#0d0b13;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;padding:24px}
-.kz-nba-home-art:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,7,12,.9),rgba(18,14,27,.5),rgba(8,7,12,.9));pointer-events:none}
-.kz-nba-home-court{position:absolute;inset:0;opacity:.22;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
-.kz-nba-home-team{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;color:#fff;font-weight:800;text-align:center}
-.kz-nba-home-team img{width:92px;height:92px;object-fit:contain;filter:none}
-.kz-nba-home-team span{font-size:12px;letter-spacing:.08em}
-.kz-nba-home-art>b{position:relative;z-index:1;width:42px;height:42px;display:grid;place-items:center;border:1px solid #443a57;border-radius:50%;background:#171321;color:#fff;font-size:11px;letter-spacing:.08em}
-.kz-nba-home-info{display:flex;flex-direction:column;gap:6px;padding:16px 18px 18px;background:var(--surface)}
-.kz-nba-home-info span{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.kz-nba-home-info strong{font-size:17px;line-height:1.2;color:var(--text)}
-.kz-nba-home-info small{font-size:12px;color:var(--muted)}
 .kz-nba-home-section,.kz-nba-trending-section{color:var(--text)}
-.kz-nba-home-section .kz-section-heading,.kz-nba-trending-section .kz-section-heading{margin-bottom:16px}
-@media(max-width:900px){.kz-nba-home-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:620px){.kz-nba-home-grid{grid-template-columns:1fr}.kz-nba-home-art{min-height:200px}}
+.kz-nba-event-card .kz-event-image{position:relative}
+.kz-nba-logo-pair{position:absolute;left:14px;bottom:14px;z-index:2;display:flex;gap:8px}
+.kz-home .kz-nba-feature-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.kz-nba-feature{position:relative;grid-column:span 2;grid-row:span 2;min-height:520px;border-radius:14px;overflow:hidden;border:1px solid var(--kz-line,rgba(255,255,255,.1));background:#0b0a12;color:#fff;text-decoration:none;display:flex;align-items:flex-end;isolation:isolate}
+.kz-nba-feature-grid-flip .kz-nba-feature{grid-column:2 / span 2;grid-row:1 / span 2}
+.kz-nba-feature-grid-flip .kz-feature-side .kz-event-card{grid-column:1}
+.kz-nba-feature-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .6s ease}
+.kz-nba-feature:hover .kz-nba-feature-art{transform:scale(1.04)}
+.kz-nba-feature-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,7,13,0) 30%,rgba(8,7,13,.55) 60%,rgba(8,7,13,.94) 100%),linear-gradient(90deg,rgba(76,29,149,.35),transparent 60%)}
+.kz-nba-feature-copy{padding:28px 30px 30px;display:flex;flex-direction:column;gap:12px;max-width:560px}
+.kz-nba-feature-label{align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#e9d5ff;padding:6px 10px;border-radius:999px;background:rgba(168,85,247,.22);border:1px solid rgba(168,85,247,.45);backdrop-filter:blur(6px)}
+.kz-nba-feature-logos{display:flex;align-items:center;gap:10px}
+.kz-nba-feature-logos img{width:60px;height:60px;object-fit:contain;padding:8px;border-radius:14px;background:rgba(10,9,16,.6);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px)}
+.kz-nba-feature-logos i{font-style:normal;font-weight:700;color:rgba(255,255,255,.6)}
+.kz-nba-feature h3{margin:0;font-size:clamp(26px,3vw,40px);line-height:1.05;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+.kz-nba-feature h3 em{font-style:normal;color:#c084fc;font-weight:600}
+.kz-nba-feature p{margin:0;font-size:14px;color:rgba(255,255,255,.75)}
+.kz-nba-feature b{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-top:4px;padding:10px 16px;border-radius:999px;background:#fff;color:#0b0a12;font-size:13px;font-weight:700}
+@media (max-width:1050px){
+  .kz-home .kz-nba-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .kz-nba-feature,.kz-nba-feature-grid-flip .kz-nba-feature{grid-column:1 / -1;grid-row:auto;min-height:440px}
+  .kz-nba-feature-grid-flip .kz-feature-side .kz-event-card{grid-column:auto}
+}
+@media (max-width:720px){
+  .kz-home .kz-nba-feature-grid{grid-template-columns:1fr!important}
+  .kz-nba-feature{min-height:400px}
+  .kz-nba-feature-copy{padding:20px}
+  .kz-nba-feature-logos img{width:48px;height:48px}
+}
+.kz-nba-logo-pair img{width:44px;height:44px;object-fit:contain;padding:6px;border-radius:12px;background:rgba(10,9,16,.72);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(6px)}
