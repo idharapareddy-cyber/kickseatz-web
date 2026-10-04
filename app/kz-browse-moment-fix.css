@@ -1,0 +1,86 @@
+/* Browse the schedule by moment — full-width category rows with three neat cards each. */
+.kz-home .kz-game-type-section .kz-type-editorial-grid{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:28px!important;
+  width:100%!important;
+  align-items:stretch!important;
+}
+
+.kz-home .kz-game-type-section .kz-type-editorial-block{
+  width:100%!important;
+  min-width:0!important;
+}
+
+.kz-home .kz-game-type-section .kz-type-editorial-body{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+  width:100%!important;
+  align-items:stretch!important;
+}
+
+.kz-home .kz-game-type-section .kz-type-feature{
+  width:100%!important;
+  min-width:0!important;
+  height:100%!important;
+  border-radius:14px!important;
+  overflow:hidden!important;
+  background:#11101a!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+}
+
+.kz-home .kz-game-type-section .kz-type-feature .kz-stadium-visual,
+.kz-home .kz-game-type-section .kz-type-feature .kz-simple-matchup{
+  width:100%!important;
+  height:180px!important;
+  min-height:180px!important;
+}
+
+.kz-home .kz-game-type-section .kz-type-feature .kz-type-feature-copy{
+  min-height:76px!important;
+  padding:12px 14px 14px!important;
+  background:#11101a!important;
+  border-top:1px solid rgba(255,255,255,.07)!important;
+}
+
+.kz-home .kz-game-type-section .kz-type-feature .kz-type-feature-copy strong{
+  display:block!important;
+  font-size:12px!important;
+  line-height:1.2!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+
+.kz-home .kz-game-type-section .kz-type-feature .kz-type-feature-copy span,
+.kz-home .kz-game-type-section .kz-type-feature .kz-type-feature-copy small{
+  display:block!important;
+  margin-top:5px!important;
+  font-size:9px!important;
+  line-height:1.35!important;
+  color:#827c8d!important;
+}
+
+.kz-home .kz-game-type-section .kz-type-editorial-block > header,
+.kz-home .kz-game-type-section .kz-type-editorial-block > div:first-child{
+  margin-bottom:10px!important;
+}
+
+@media(max-width:1050px){
+  .kz-home .kz-game-type-section .kz-type-editorial-body{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+
+@media(max-width:720px){
+  .kz-home .kz-game-type-section .kz-type-editorial-grid{gap:22px!important;}
+  .kz-home .kz-game-type-section .kz-type-editorial-body{
+    grid-template-columns:1fr!important;
+  }
+  .kz-home .kz-game-type-section .kz-type-feature .kz-stadium-visual,
+  .kz-home .kz-game-type-section .kz-type-feature .kz-simple-matchup{
+    height:190px!important;
+    min-height:190px!important;
+  }
+}
