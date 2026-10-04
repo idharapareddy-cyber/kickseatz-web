@@ -1,32 +1,48 @@
-/* Targeted homepage image fix: replace fallback matchup art with relevant NFL venue photography. */
+/* Targeted homepage image fix: relevant NFL venue photography with a consistent card system. */
 .kz-home .kz-simple-matchup{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;}
 .kz-home .kz-simple-matchup>*{display:none!important;}
 
-/* Hero + featured: these are the actual first three games in the current schedule. */
-.kz-home .kz-hero-image .kz-simple-matchup,
-.kz-home .kz-feature-main>.kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.12),rgba(76,29,149,.34)),url("https://stadiumdb.com/pictures/stadiums/eng/tottenham_hotspur_stadium/tottenham_hotspur_stadium05.jpg")!important;}
-.kz-home .kz-feature-side .kz-event-card:nth-child(1) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.32)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Nissan%20Stadium%202022.jpg?width=1800")!important;}
-.kz-home .kz-feature-side .kz-event-card:nth-child(2) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.32)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Gillette%20Stadium.JPG?width=1800")!important;}
+/* Hero */
+.kz-home .kz-hero-image .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.12),rgba(76,29,149,.34)),url("https://stadiumdb.com/pictures/stadiums/eng/tottenham_hotspur_stadium/tottenham_hotspur_stadium05.jpg")!important;}
 
-/* Trending: Washington/Indianapolis, Buffalo/New England, Cincinnati/Jacksonville. */
+/* Games worth seeing: three identical card proportions, with all copy below the image. */
+.kz-home .kz-feature-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important;align-items:stretch!important;}
+.kz-home .kz-feature-main,
+.kz-home .kz-feature-side .kz-event-card{display:flex!important;flex-direction:column!important;height:100%!important;min-height:0!important;}
+.kz-home .kz-feature-main>.kz-stadium-visual,
+.kz-home .kz-feature-main>.kz-simple-matchup,
+.kz-home .kz-feature-side .kz-event-image{height:210px!important;min-height:210px!important;flex:0 0 210px!important;}
+.kz-home .kz-feature-copy,
+.kz-home .kz-feature-side .kz-event-info{height:102px!important;min-height:102px!important;box-sizing:border-box!important;padding:13px 15px!important;background:#11101a!important;border-top:1px solid #272231!important;display:flex!important;flex-direction:column!important;justify-content:center!important;}
+.kz-home .kz-feature-copy>span{font-size:9px!important;line-height:1.35!important;color:#827c8d!important;order:2!important;margin-top:5px!important;}
+.kz-home .kz-feature-copy h3{font-size:12px!important;line-height:1.25!important;color:#f5f2fa!important;margin:0!important;order:1!important;font-weight:800!important;}
+.kz-home .kz-feature-copy p,
+.kz-home .kz-feature-copy b{display:none!important;}
+
+.kz-home .kz-feature-side{display:contents!important;}
+.kz-home .kz-feature-side .kz-event-info strong{font-size:12px!important;line-height:1.25!important;}
+
+/* Keep the three featured photos distinct and relevant. */
+.kz-home .kz-feature-main>.kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.30)),url("https://stadiumdb.com/pictures/stadiums/eng/tottenham_hotspur_stadium/tottenham_hotspur_stadium05.jpg")!important;}
+.kz-home .kz-feature-side .kz-event-card:nth-child(1) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.30)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Nissan%20Stadium%202022.jpg?width=1800")!important;}
+.kz-home .kz-feature-side .kz-event-card:nth-child(2) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.30)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Gillette%20Stadium.JPG?width=1800")!important;}
+
+/* Trending */
 .kz-home .kz-card-grid .kz-event-card:nth-child(1) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.32)),url("https://stadiumdb.com/pictures/stadiums/eng/tottenham_hotspur_stadium/tottenham_hotspur_stadium05.jpg")!important;}
 .kz-home .kz-card-grid .kz-event-card:nth-child(2) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.32)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Gillette%20Stadium.JPG?width=1800")!important;}
 .kz-home .kz-card-grid .kz-event-card:nth-child(3) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.32)),url("https://commons.wikimedia.org/wiki/Special:FilePath/EverBank%20Stadium%20aerial%20view.jpg?width=1800")!important;}
 
-/* Schedule-by-moment blocks: use the real venue for each visible matchup. */
+/* Schedule-by-moment blocks */
 .kz-home .kz-type-division .kz-type-feature:nth-child(1) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.30)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Gillette%20Stadium.JPG?width=1800")!important;}
 .kz-home .kz-type-prime .kz-type-feature:nth-child(1) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.30)),url("https://commons.wikimedia.org/wiki/Special:FilePath/FordField.jpg?width=1800")!important;}
 .kz-home .kz-type-prime .kz-type-feature:nth-child(3) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.30)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Raymondjamesstadium.jpg?width=1800")!important;}
 
-/* Keep the photo treatment clean and never let fallback logos reappear. */
+/* Clean photo treatment; no fallback logos/text on the image. */
 .kz-home .kz-simple-matchup::after{content:""!important;position:absolute!important;inset:0!important;pointer-events:none!important;background:linear-gradient(135deg,rgba(91,46,255,.10),transparent 55%,rgba(20,10,40,.22))!important;}
 .kz-home .kz-hero-image .kz-simple-matchup{height:100%!important;min-height:100%!important;}
-
-/* Less visual bulk: let the hero breathe while keeping the photo dominant. */
 .kz-home .kz-hero-image{height:360px!important;min-height:360px!important;}
-.kz-home .kz-feature-main>.kz-simple-matchup,
-.kz-home .kz-feature-side .kz-event-image{height:210px!important;min-height:210px!important;flex-basis:210px!important;}
 
 @media(max-width:720px){
   .kz-home .kz-hero-image,.kz-home .kz-hero-image .kz-simple-matchup{height:280px!important;min-height:280px!important;}
+  .kz-home .kz-feature-grid{grid-template-columns:1fr!important;}
 }
