@@ -4,12 +4,38 @@ import type { Game } from "./data";
  * Safe checked-in fallback for the hourly NFL sync.
  *
  * The scheduled GitHub Action normally replaces this file with the current
- * ESPN NFL schedule. The fallback keeps display metadata non-empty so a
- * temporary sync failure never produces broken-looking rows.
+ * ESPN NFL schedule. The fallback keeps display metadata complete so a
+ * temporary sync failure never produces generic-looking venue rows.
  */
 const FALLBACK_METADATA: Record<string, { venue: string; city: string }> = {
+  "arizona-cardinals": { venue: "State Farm Stadium", city: "Glendale, Arizona" },
+  "atlanta-falcons": { venue: "Mercedes-Benz Stadium", city: "Atlanta, Georgia" },
+  "baltimore-ravens": { venue: "M&T Bank Stadium", city: "Baltimore, Maryland" },
+  "buffalo-bills": { venue: "Highmark Stadium", city: "Orchard Park, New York" },
+  "carolina-panthers": { venue: "Bank of America Stadium", city: "Charlotte, North Carolina" },
+  "chicago-bears": { venue: "Soldier Field", city: "Chicago, Illinois" },
+  "cincinnati-bengals": { venue: "Paycor Stadium", city: "Cincinnati, Ohio" },
+  "dallas-cowboys": { venue: "AT&T Stadium", city: "Arlington, Texas" },
+  "denver-broncos": { venue: "Empower Field at Mile High", city: "Denver, Colorado" },
+  "detroit-lions": { venue: "Ford Field", city: "Detroit, Michigan" },
+  "green-bay-packers": { venue: "Lambeau Field", city: "Green Bay, Wisconsin" },
   "indianapolis-colts": { venue: "Tottenham Hotspur Stadium", city: "London, United Kingdom" },
+  "jacksonville-jaguars": { venue: "EverBank Stadium", city: "Jacksonville, Florida" },
+  "kansas-city-chiefs": { venue: "GEHA Field at Arrowhead Stadium", city: "Kansas City, Missouri" },
+  "las-vegas-raiders": { venue: "Allegiant Stadium", city: "Las Vegas, Nevada" },
+  "los-angeles-chargers": { venue: "SoFi Stadium", city: "Inglewood, California" },
+  "los-angeles-rams": { venue: "SoFi Stadium", city: "Inglewood, California" },
+  "miami-dolphins": { venue: "Hard Rock Stadium", city: "Miami Gardens, Florida" },
+  "minnesota-vikings": { venue: "U.S. Bank Stadium", city: "Minneapolis, Minnesota" },
+  "new-england-patriots": { venue: "Gillette Stadium", city: "Foxborough, Massachusetts" },
+  "new-york-giants": { venue: "MetLife Stadium", city: "East Rutherford, New Jersey" },
+  "new-york-jets": { venue: "MetLife Stadium", city: "East Rutherford, New Jersey" },
   "philadelphia-eagles": { venue: "Tottenham Hotspur Stadium", city: "London, United Kingdom" },
+  "san-francisco-49ers": { venue: "Levi's Stadium", city: "Santa Clara, California" },
+  "seattle-seahawks": { venue: "Lumen Field", city: "Seattle, Washington" },
+  "tampa-bay-buccaneers": { venue: "Raymond James Stadium", city: "Tampa, Florida" },
+  "tennessee-titans": { venue: "Nissan Stadium", city: "Nashville, Tennessee" },
+  "washington-commanders": { venue: "Northwest Stadium", city: "Landover, Maryland" },
 };
 
 export const LIVE_NFL_GAMES: Game[] = [
