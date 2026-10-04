@@ -1,0 +1,67 @@
+/* Clean visual pass: real sports imagery, restrained UI, no synthetic hero artwork. */
+
+.kz-home .kz-marketplace-hero-art{
+  position:absolute!important;
+  inset:0!important;
+  overflow:hidden!important;
+  background:#09070f url('https://commons.wikimedia.org/wiki/Special:FilePath/M%26T_Bank_Stadium_at_night.jpg?width=1800') center 58% / cover no-repeat!important;
+}
+.kz-home .kz-marketplace-hero-art:before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  background:linear-gradient(90deg,rgba(6,5,10,.96) 0%,rgba(8,6,14,.78) 38%,rgba(12,7,22,.42) 70%,rgba(10,6,18,.72) 100%)!important;
+  pointer-events:none!important;
+}
+.kz-home .kz-marketplace-hero-art:after{display:none!important;content:none!important}
+.kz-home .kz-marketplace-ticket-panel,
+.kz-home .kz-marketplace-ticket-stack{display:none!important}
+
+/* Let the real photo carry the hero. Keep the purple/black identity in the UI, not in fake artwork. */
+.kz-home .kz-hero-info{
+  padding:0 42px 42px!important;
+  max-width:720px!important;
+}
+.kz-home .kz-hero-info h1{
+  color:#fff!important;
+  text-shadow:0 3px 22px rgba(0,0,0,.55)!important;
+}
+.kz-home .kz-hero-info h1 em{color:#b9a7ff!important}
+.kz-home .kz-hero-info p{color:#e2dce9!important;text-shadow:0 2px 12px rgba(0,0,0,.55)!important}
+.kz-home .kz-hero-info .kz-primary-button{
+  background:#7658ff!important;
+  color:#fff!important;
+  box-shadow:none!important;
+}
+
+/* Matchup art should read like a clean ticket UI, not generated poster art. */
+.kz-home .kz-simple-matchup{
+  background:#0b0911!important;
+  border-top:1px solid rgba(255,255,255,.06)!important;
+  border-bottom:1px solid rgba(255,255,255,.06)!important;
+}
+.kz-home .kz-simple-matchup:before{display:none!important;content:none!important}
+.kz-home .kz-simple-team img{filter:none!important}
+.kz-home .kz-simple-vs{box-shadow:none!important;background:#171321!important;border-color:#3a3150!important}
+
+/* NBA cards: clean court treatment instead of glossy generated-looking effects. */
+.kz-home .kz-nba-home-art{
+  background:#0b0911!important;
+}
+.kz-home .kz-nba-home-court{
+  opacity:.16!important;
+  background-image:linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px)!important;
+  background-size:28px 28px!important;
+}
+.kz-home .kz-nba-home-team img{filter:none!important}
+
+/* Remove excessive glass/blur treatment from homepage cards. */
+.kz-home .kz-feature-badge,
+.kz-home .kz-event-badge,
+.kz-home .kz-heart,
+.kz-home .kz-hero-game{backdrop-filter:none!important}
+
+@media (max-width:720px){
+  .kz-home .kz-marketplace-hero-art{background-position:center center!important}
+  .kz-home .kz-hero-info{padding:0 22px 28px!important}
+}
