@@ -1,0 +1,84 @@
+/* Final homepage audit: simple marketplace structure, no hero artwork, stronger NBA holiday moment. */
+
+/* The homepage should open with discovery, not a giant marketing hero. Keep the useful search UI and remove the artificial hero presentation. */
+.kz-home .kz-hero{
+  display:block!important;
+  min-height:0!important;
+  padding:0!important;
+  margin:0 0 8px!important;
+  background:transparent!important;
+  border:0!important;
+}
+.kz-home .kz-hero-image,
+.kz-home .kz-hero-info{display:none!important}
+.kz-home .kz-hero-search{
+  display:grid!important;
+  grid-template-columns:minmax(180px,.7fr) minmax(320px,2fr) auto!important;
+  align-items:center!important;
+  gap:18px!important;
+  margin:0 auto 18px!important;
+  padding:18px 20px!important;
+  max-width:1180px!important;
+  border:1px solid var(--line)!important;
+  border-radius:16px!important;
+  background:var(--surface)!important;
+  box-shadow:none!important;
+}
+.kz-home .kz-hero-search > div:first-child{display:flex!important;flex-direction:column!important;gap:4px!important}
+.kz-home .kz-hero-search > div:first-child strong{font-size:16px!important;color:var(--text)!important}
+.kz-home .kz-search-box{min-width:0!important}
+.kz-home .kz-search-links{display:flex!important;gap:14px!important;justify-content:flex-end!important;flex-wrap:wrap!important}
+
+/* Consistent marketplace rhythm. */
+.kz-home .kz-section{margin-top:28px!important}
+.kz-home .kz-section-heading{margin-bottom:14px!important}
+.kz-home .kz-section-heading h2{letter-spacing:-.025em!important}
+.kz-home .kz-feature-main,
+.kz-home .kz-nba-feature{border-radius:16px!important;box-shadow:none!important}
+.kz-home .kz-event-card{border-radius:14px!important;box-shadow:none!important}
+.kz-home .kz-event-image,
+.kz-home .kz-feature-main > .kz-stadium-visual{overflow:hidden!important}
+.kz-home img{max-width:100%!important}
+
+/* NBA should use the same clean marketplace language as NFL. */
+.kz-home .kz-nba-home-section,
+.kz-home .kz-nba-trending-section{margin-top:30px!important}
+.kz-home .kz-nba-feature-grid{align-items:stretch!important}
+.kz-home .kz-nba-feature-art{filter:none!important;transform:none!important}
+.kz-home .kz-nba-feature-shade{background:linear-gradient(180deg,transparent 34%,rgba(7,6,11,.84) 100%)!important}
+.kz-home .kz-nba-feature-copy{backdrop-filter:none!important}
+.kz-home .kz-nba-logo-pair img{filter:none!important}
+
+/* Small NBA holiday strip: festive without turning the homepage into another complex grid. */
+.kz-home .kz-nba-trending-section::after{
+  content:"NBA HOLIDAY NIGHTS   •   HALLOWEEN   •   CHRISTMAS DAY   •   NEW YEAR'S EVE";
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:48px!important;
+  margin:16px 0 0!important;
+  padding:0 18px!important;
+  border:1px solid rgba(118,88,255,.25)!important;
+  border-radius:12px!important;
+  background:linear-gradient(90deg,rgba(118,88,255,.08),rgba(118,88,255,.16),rgba(118,88,255,.08))!important;
+  color:var(--text)!important;
+  font-size:11px!important;
+  font-weight:800!important;
+  letter-spacing:.12em!important;
+  text-align:center!important;
+}
+
+/* Remove the large blank rhythm accidentally created between international and NBA. */
+.kz-home .kz-international-section + .kz-nba-home-section{margin-top:26px!important}
+
+/* Mobile: stack the search cleanly and keep the page compact. */
+@media(max-width:820px){
+  .kz-home .kz-hero-search{grid-template-columns:1fr!important;gap:12px!important}
+  .kz-home .kz-search-links{justify-content:flex-start!important}
+}
+
+@media(max-width:620px){
+  .kz-home .kz-hero-search{padding:14px!important;border-radius:14px!important}
+  .kz-home .kz-section{margin-top:24px!important}
+  .kz-home .kz-nba-trending-section::after{line-height:1.5!important;padding:9px 14px!important}
+}
