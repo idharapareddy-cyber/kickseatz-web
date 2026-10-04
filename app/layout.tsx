@@ -11,6 +11,7 @@ import "./kz-aesthetic-pass.css";
 import "./kz-matchup-photo-fix.css";
 import "./kz-final-layout-fix.css";
 import "./kz-browse-moment-fix.css";
+import "./kz-osu-logo-fix.css";
 import { SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
