@@ -1,0 +1,32 @@
+/* Targeted homepage image fix: replace fallback matchup art with relevant NFL venue photography. */
+.kz-home .kz-simple-matchup{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;}
+.kz-home .kz-simple-matchup>*{display:none!important;}
+
+/* Hero + featured: these are the actual first three games in the current schedule. */
+.kz-home .kz-hero-image .kz-simple-matchup,
+.kz-home .kz-feature-main>.kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.12),rgba(76,29,149,.34)),url("https://stadiumdb.com/pictures/stadiums/eng/tottenham_hotspur_stadium/tottenham_hotspur_stadium05.jpg")!important;}
+.kz-home .kz-feature-side .kz-event-card:nth-child(1) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.32)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Nissan%20Stadium%202022.jpg?width=1800")!important;}
+.kz-home .kz-feature-side .kz-event-card:nth-child(2) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.32)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Gillette%20Stadium.JPG?width=1800")!important;}
+
+/* Trending: Washington/Indianapolis, Buffalo/New England, Cincinnati/Jacksonville. */
+.kz-home .kz-card-grid .kz-event-card:nth-child(1) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.32)),url("https://stadiumdb.com/pictures/stadiums/eng/tottenham_hotspur_stadium/tottenham_hotspur_stadium05.jpg")!important;}
+.kz-home .kz-card-grid .kz-event-card:nth-child(2) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.32)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Gillette%20Stadium.JPG?width=1800")!important;}
+.kz-home .kz-card-grid .kz-event-card:nth-child(3) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.32)),url("https://commons.wikimedia.org/wiki/Special:FilePath/EverBank%20Stadium%20aerial%20view.jpg?width=1800")!important;}
+
+/* Schedule-by-moment blocks: use the real venue for each visible matchup. */
+.kz-home .kz-type-division .kz-type-feature:nth-child(1) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.30)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Gillette%20Stadium.JPG?width=1800")!important;}
+.kz-home .kz-type-prime .kz-type-feature:nth-child(1) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.30)),url("https://commons.wikimedia.org/wiki/Special:FilePath/FordField.jpg?width=1800")!important;}
+.kz-home .kz-type-prime .kz-type-feature:nth-child(3) .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.10),rgba(76,29,149,.30)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Raymondjamesstadium.jpg?width=1800")!important;}
+
+/* Keep the photo treatment clean and never let fallback logos reappear. */
+.kz-home .kz-simple-matchup::after{content:""!important;position:absolute!important;inset:0!important;pointer-events:none!important;background:linear-gradient(135deg,rgba(91,46,255,.10),transparent 55%,rgba(20,10,40,.22))!important;}
+.kz-home .kz-hero-image .kz-simple-matchup{height:100%!important;min-height:100%!important;}
+
+/* Less visual bulk: let the hero breathe while keeping the photo dominant. */
+.kz-home .kz-hero-image{height:360px!important;min-height:360px!important;}
+.kz-home .kz-feature-main>.kz-simple-matchup,
+.kz-home .kz-feature-side .kz-event-image{height:210px!important;min-height:210px!important;flex-basis:210px!important;}
+
+@media(max-width:720px){
+  .kz-home .kz-hero-image,.kz-home .kz-hero-image .kz-simple-matchup{height:280px!important;min-height:280px!important;}
+}
