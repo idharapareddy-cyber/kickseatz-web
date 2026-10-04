@@ -1,0 +1,125 @@
+/* Final visual cleanup — conservative overrides only. Keep the established KickSeatz design intact. */
+
+.kz-home .kz-hero-image{
+  height:360px!important;
+  min-height:360px!important;
+}
+
+/* Games worth seeing: three equal cards, one shared image height and one shared info treatment. */
+.kz-home .kz-feature-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+  align-items:stretch!important;
+}
+.kz-home .kz-feature-main,
+.kz-home .kz-feature-side .kz-event-card{
+  min-height:0!important;
+  height:100%!important;
+}
+.kz-home .kz-feature-main>.kz-stadium-visual,
+.kz-home .kz-feature-main>.kz-simple-matchup,
+.kz-home .kz-feature-side .kz-event-image{
+  height:195px!important;
+  min-height:195px!important;
+  flex-basis:195px!important;
+}
+.kz-home .kz-feature-copy,
+.kz-home .kz-feature-side .kz-event-info{
+  min-height:82px!important;
+  height:auto!important;
+}
+.kz-home .kz-feature-copy h3{margin:4px 0!important;line-height:1.15!important;}
+.kz-home .kz-feature-copy p{margin:0!important;line-height:1.35!important;}
+
+/* Trending / Games people are watching: same card proportions, without oversized repeated artwork. */
+.kz-home .kz-card-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+.kz-home .kz-card-grid .kz-event-image{
+  height:195px!important;
+  min-height:195px!important;
+}
+.kz-home .kz-card-grid .kz-event-info{
+  min-height:78px!important;
+}
+
+/* Browse by moment: preserve the requested rows of three, but give each mini-card enough visual weight. */
+.kz-home .kz-game-type-section .kz-type-editorial-grid{
+  grid-template-columns:1fr!important;
+  gap:22px!important;
+}
+.kz-home .kz-game-type-section .kz-type-editorial-body{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:12px!important;
+}
+.kz-home .kz-game-type-section .kz-type-feature{
+  grid-template-columns:46% 54%!important;
+  height:122px!important;
+  min-height:122px!important;
+}
+.kz-home .kz-game-type-section .kz-type-feature>.kz-stadium-visual,
+.kz-home .kz-game-type-section .kz-type-feature>.kz-simple-matchup{
+  min-height:122px!important;
+  height:122px!important;
+}
+.kz-home .kz-game-type-section .kz-type-feature-copy{
+  padding:11px 12px!important;
+}
+
+/* College cards: keep the four-team row balanced and prevent clipped logos. */
+.kz-home .kz-college-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+.kz-home .kz-college-card{
+  height:190px!important;
+  min-height:190px!important;
+}
+
+/* Coming beyond football: a clean 2x2 category grid avoids a stranded final card. */
+.kz-home > .kz-section:nth-child(9) > div:last-child{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+.kz-home > .kz-section:nth-child(9) > div:last-child > *{
+  min-width:0!important;
+  width:100%!important;
+  height:190px!important;
+}
+
+/* Keep artwork intentional: no text, badges or matchup copy over photography. */
+.kz-home .kz-event-image,
+.kz-home .kz-feature-main>.kz-stadium-visual,
+.kz-home .kz-feature-main>.kz-simple-matchup,
+.kz-home .kz-type-feature>.kz-stadium-visual,
+.kz-home .kz-type-feature>.kz-simple-matchup{
+  background-color:#100d17!important;
+}
+
+@media(max-width:1050px){
+  .kz-home .kz-feature-grid,
+  .kz-home .kz-card-grid,
+  .kz-home .kz-college-grid,
+  .kz-home .kz-game-type-section .kz-type-editorial-body{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  .kz-home > .kz-section:nth-child(9) > div:last-child{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+
+@media(max-width:720px){
+  .kz-home .kz-hero-image{
+    height:300px!important;
+    min-height:300px!important;
+  }
+  .kz-home .kz-feature-grid,
+  .kz-home .kz-card-grid,
+  .kz-home .kz-college-grid,
+  .kz-home .kz-game-type-section .kz-type-editorial-body,
+  .kz-home > .kz-section:nth-child(9) > div:last-child{
+    grid-template-columns:1fr!important;
+  }
+}
