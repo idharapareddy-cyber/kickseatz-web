@@ -1,189 +1,95 @@
-/* Final aesthetic pass: clean imagery, black/purple brand treatment, and bottom-aligned information. */
-.kz-home{
-  --kz-purple:#7c3aed;
-  --kz-deep-purple:#4c1d95;
-  --kz-black:#08070d;
-  --kz-panel:#100d17;
-  --kz-line:rgba(255,255,255,.09);
-}
+/* KickSeatz final visual pass: photo-first, simple, black/purple marketplace language. */
+.kz-home{--kz-purple:#7c3aed;--kz-panel:#100d17;--kz-line:rgba(255,255,255,.09);}
 
-/* Hero: image first, information underneath. Never show a giant matchup graphic here. */
-.kz-home .kz-hero{
-  background:linear-gradient(180deg,#09070e 0%,#100b18 100%)!important;
-  border:1px solid var(--kz-line)!important;
-  border-radius:24px!important;
-  overflow:hidden!important;
-}
-.kz-home .kz-hero-image{
-  position:relative!important;
-  min-height:430px!important;
-  background:
-    linear-gradient(115deg,rgba(8,7,13,.2),rgba(76,29,149,.36)),
-    url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Arrowhead_Stadium.jpg") center/cover no-repeat!important;
-}
-.kz-home .kz-hero-image .kz-stadium-visual,
-.kz-home .kz-hero-image .kz-simple-matchup{
-  width:100%!important;
-  height:100%!important;
-  min-height:430px!important;
-}
-.kz-home .kz-hero-image .kz-stadium-visual img{
-  filter:saturate(.9) brightness(.72)!important;
-}
-.kz-home .kz-hero-image .kz-stadium-shade{
-  background:linear-gradient(180deg,rgba(9,7,14,.05),rgba(9,7,14,.48))!important;
-}
-.kz-home .kz-hero-image .kz-simple-matchup{
-  display:none!important;
-}
-.kz-home .kz-hero-info{
-  display:grid!important;
-  grid-template-columns:minmax(0,1.35fr) minmax(280px,.9fr) auto!important;
-  gap:24px!important;
-  align-items:end!important;
-  padding:28px 30px!important;
-  background:linear-gradient(180deg,#120d1b,#0b0910)!important;
-}
-.kz-home .kz-hero-info h1{
-  margin:4px 0 8px!important;
-  font-size:clamp(34px,4vw,58px)!important;
-  line-height:.98!important;
-  letter-spacing:-.045em!important;
-}
-.kz-home .kz-hero-info p{max-width:650px!important;margin:0!important;color:#b9b1c8!important;}
-.kz-home .kz-hero-game{
-  position:static!important;
-  display:flex!important;
-  flex-direction:column!important;
-  gap:5px!important;
-  padding:16px 18px!important;
-  border:1px solid rgba(139,92,246,.28)!important;
-  border-radius:14px!important;
-  background:rgba(124,58,237,.08)!important;
-}
-.kz-home .kz-hero-game strong{font-size:18px!important;}
-.kz-home .kz-hero-game small{color:#aaa1b8!important;}
-.kz-home .kz-hero-info .kz-primary-button{white-space:nowrap!important;}
+/* HERO — one strong photo, then information underneath. */
+.kz-home .kz-hero{display:grid!important;grid-template-columns:1fr!important;gap:0!important;padding-top:18px!important;background:#09070e!important;border:1px solid var(--kz-line)!important;border-radius:22px!important;overflow:hidden!important;}
+.kz-home .kz-hero-image{width:100%!important;height:420px!important;min-height:420px!important;position:relative!important;overflow:hidden!important;background:#11101a!important;}
+.kz-home .kz-hero-image .kz-stadium-visual,.kz-home .kz-hero-image .kz-simple-matchup{width:100%!important;height:100%!important;min-height:100%!important;border-radius:0!important;}
+.kz-home .kz-hero-image .kz-stadium-label,.kz-home .kz-hero-image .kz-simple-team,.kz-home .kz-hero-image .kz-simple-vs,.kz-home .kz-hero-image .kz-simple-matchup-label{display:none!important;}
+.kz-home .kz-hero-image .kz-simple-matchup{background:linear-gradient(115deg,rgba(8,7,13,.18),rgba(76,29,149,.38)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Lucas%20Oil%20Stadium.jpg?width=1800") center/cover no-repeat!important;}
+.kz-home .kz-hero-image .kz-stadium-visual img{filter:saturate(.88) brightness(.72)!important;}
+.kz-home .kz-hero-image .kz-stadium-shade{background:linear-gradient(180deg,rgba(8,7,13,.04),rgba(8,7,13,.45))!important;}
 
-/* Remove text/badges from photo surfaces. All event information lives in the bottom panel. */
-.kz-home .kz-stadium-label,
-.kz-home .kz-event-badge,
-.kz-home .kz-simple-team span,
-.kz-home .kz-simple-vs,
-.kz-home .kz-simple-matchup-label,
-.kz-home .kz-feature-badge,
-.kz-home .kz-international-photo-tag,
-.kz-home .kz-college-shade,
-.kz-home .kz-sport-shade,
-.kz-home .kz-experience-shade{
-  display:none!important;
-}
-.kz-home .kz-event-image,
-.kz-home .kz-feature-main > .kz-stadium-visual,
-.kz-home .kz-feature-main > .kz-simple-matchup{
-  overflow:hidden!important;
-  border-radius:14px 14px 0 0!important;
-}
-.kz-home .kz-event-info,
-.kz-home .kz-feature-copy,
-.kz-home .kz-international-card-copy,
-.kz-home .kz-college-copy,
-.kz-home .kz-sport-card > div:last-child,
-.kz-home .kz-experience-copy{
-  position:static!important;
-  inset:auto!important;
-  transform:none!important;
-  background:#100d17!important;
-  color:#fff!important;
-}
+.kz-home .kz-hero-info{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important;padding:24px 28px!important;background:linear-gradient(135deg,#14101e,#0d0a12)!important;border-top:1px solid #292238!important;}
+.kz-home .kz-hero-info>div:first-child{max-width:540px!important;}
+.kz-home .kz-hero-info h1{margin:4px 0 7px!important;font-size:clamp(34px,4vw,58px)!important;line-height:.95!important;letter-spacing:-.055em!important;}
+.kz-home .kz-hero-info h1 em{color:#a78bfa!important;font-style:italic!important;}
+.kz-home .kz-hero-info p{margin:0!important;color:#aaa1b8!important;font-size:13px!important;max-width:500px!important;}
+.kz-home .kz-hero-game{min-width:250px!important;padding:14px 16px!important;background:rgba(124,58,237,.08)!important;border:1px solid rgba(139,92,246,.28)!important;border-radius:13px!important;}
+.kz-home .kz-hero-game span{color:#a78bfa!important;font-size:9px!important;font-weight:900!important;letter-spacing:.12em!important;}
+.kz-home .kz-hero-game strong{display:block!important;margin-top:4px!important;font-size:14px!important;}
+.kz-home .kz-hero-game small{display:block!important;margin-top:3px!important;color:#888091!important;font-size:10px!important;line-height:1.3!important;}
+.kz-home .kz-hero-info .kz-primary-button{white-space:nowrap!important;flex:none!important;}
 
-/* Photo cards: consistent image height and quiet black/purple bottom information area. */
-.kz-home .kz-event-card,
-.kz-home .kz-feature-main,
-.kz-home .kz-international-feature-card,
-.kz-home .kz-college-card,
-.kz-home .kz-sport-card,
-.kz-home .kz-experience-card{
-  background:#100d17!important;
-  border:1px solid var(--kz-line)!important;
-  border-radius:16px!important;
-  overflow:hidden!important;
-  box-shadow:0 10px 30px rgba(0,0,0,.16)!important;
-}
-.kz-home .kz-event-image{height:210px!important;min-height:210px!important;background:#0b0910!important;}
-.kz-home .kz-event-image .kz-stadium-visual,
-.kz-home .kz-event-image .kz-simple-matchup{height:210px!important;min-height:210px!important;}
-.kz-home .kz-event-image .kz-simple-matchup{
-  background:
-    linear-gradient(115deg,rgba(8,7,13,.28),rgba(76,29,149,.45)),
-    url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Arrowhead_Stadium.jpg") center/cover no-repeat!important;
-}
-.kz-home .kz-event-image .kz-simple-matchup > *{display:none!important;}
-.kz-home .kz-event-info,
-.kz-home .kz-feature-copy,
-.kz-home .kz-international-card-copy,
-.kz-home .kz-college-copy,
-.kz-home .kz-sport-card > div:last-child,
-.kz-home .kz-experience-copy{
-  padding:15px 16px 17px!important;
-}
-.kz-home .kz-event-info strong,
-.kz-home .kz-feature-copy h3,
-.kz-home .kz-international-card-copy strong,
-.kz-home .kz-college-copy strong,
-.kz-home .kz-sport-card > div:last-child strong,
-.kz-home .kz-experience-copy strong{color:#fff!important;}
-.kz-home .kz-event-info span,
-.kz-home .kz-event-info small,
-.kz-home .kz-feature-copy > span,
-.kz-home .kz-feature-copy p,
-.kz-home .kz-international-card-copy small,
-.kz-home .kz-college-copy small,
-.kz-home .kz-sport-card > div:last-child small,
-.kz-home .kz-experience-copy small{color:#aaa1b8!important;}
+/* SEARCH is its own block; nothing floats on top of the hero photo. */
+.kz-home .kz-hero-search{order:3!important;margin:14px!important;padding:17px 19px!important;background:#11101a!important;border:1px solid var(--kz-line)!important;border-radius:15px!important;}
+.kz-home .kz-hero-search>div:first-child{display:flex!important;align-items:baseline!important;justify-content:space-between!important;gap:12px!important;}
+.kz-home .kz-hero-search>div:first-child strong{font-size:14px!important;}
+.kz-home .kz-search-box{margin-top:9px!important;background:#0b0a11!important;border-color:#312a40!important;}
+.kz-home .kz-search-box button{background:var(--kz-purple)!important;}
 
-/* Featured row remains three equal cards instead of one oversized matchup treatment. */
+/* Nothing except the image belongs on the photo surface. */
+.kz-home .kz-stadium-label,.kz-home .kz-event-badge,.kz-home .kz-feature-badge,.kz-home .kz-simple-team span,.kz-home .kz-simple-vs,.kz-home .kz-simple-matchup-label{display:none!important;}
+.kz-home .kz-event-image,.kz-home .kz-feature-main>.kz-stadium-visual,.kz-home .kz-feature-main>.kz-simple-matchup,.kz-home .kz-type-feature>.kz-stadium-visual,.kz-home .kz-type-feature>.kz-simple-matchup{overflow:hidden!important;position:relative!important;}
+
+/* Any card without a mapped exact stadium gets a real NFL stadium photo — never a giant logo matchup graphic. */
+.kz-home .kz-event-image .kz-simple-matchup,.kz-home .kz-feature-main>.kz-simple-matchup,.kz-home .kz-type-feature>.kz-simple-matchup{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;background-image:linear-gradient(115deg,rgba(8,7,13,.12),rgba(76,29,149,.42)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Lucas%20Oil%20Stadium.jpg?width=1800")!important;}
+.kz-home .kz-event-image .kz-simple-matchup>* ,.kz-home .kz-feature-main>.kz-simple-matchup>* ,.kz-home .kz-type-feature>.kz-simple-matchup>*{display:none!important;}
+
+/* Different real stadiums keep long rows from looking duplicated. */
+.kz-home .kz-feature-side .kz-event-card:nth-child(1) .kz-simple-matchup{background-image:linear-gradient(115deg,rgba(8,7,13,.10),rgba(76,29,149,.38)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Nissan%20Stadium%202022.jpg?width=1800")!important;}
+.kz-home .kz-feature-side .kz-event-card:nth-child(2) .kz-simple-matchup{background-image:linear-gradient(115deg,rgba(8,7,13,.10),rgba(76,29,149,.38)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Gillette%20Stadium.JPG?width=1800")!important;}
+.kz-home .kz-card-grid .kz-event-card:nth-child(1) .kz-simple-matchup{background-image:linear-gradient(115deg,rgba(8,7,13,.10),rgba(76,29,149,.38)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Nissan%20Stadium%202022.jpg?width=1800")!important;}
+.kz-home .kz-card-grid .kz-event-card:nth-child(2) .kz-simple-matchup{background-image:linear-gradient(115deg,rgba(8,7,13,.10),rgba(76,29,149,.38)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Gillette%20Stadium.JPG?width=1800")!important;}
+.kz-home .kz-card-grid .kz-event-card:nth-child(3) .kz-simple-matchup{background-image:linear-gradient(115deg,rgba(8,7,13,.10),rgba(76,29,149,.38)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Metlife%20stadium.jpg?width=1800")!important;}
+.kz-home .kz-card-grid .kz-event-card:nth-child(4) .kz-simple-matchup{background-image:linear-gradient(115deg,rgba(8,7,13,.10),rgba(76,29,149,.38)),url("https://commons.wikimedia.org/wiki/Special:FilePath/EverBank%20Stadium%20aerial%20view.jpg?width=1800")!important;}
+.kz-home .kz-card-grid .kz-event-card:nth-child(5) .kz-simple-matchup{background-image:linear-gradient(115deg,rgba(8,7,13,.10),rgba(76,29,149,.38)),url("https://commons.wikimedia.org/wiki/Special:FilePath/AT%26T%20Stadium.jpg?width=1800")!important;}
+.kz-home .kz-card-grid .kz-event-card:nth-child(6) .kz-simple-matchup{background-image:linear-gradient(115deg,rgba(8,7,13,.10),rgba(76,29,149,.38)),url("https://commons.wikimedia.org/wiki/Special:FilePath/State%20Farm%20Stadium%202022.jpg?width=1800")!important;}
+
+/* Purple grade is subtle, not a fake purple picture. */
+.kz-home .kz-event-image::after,.kz-home .kz-feature-main>.kz-stadium-visual::after,.kz-home .kz-feature-main>.kz-simple-matchup::after,.kz-home .kz-type-feature>.kz-stadium-visual::after,.kz-home .kz-type-feature>.kz-simple-matchup::after{content:""!important;position:absolute!important;inset:0!important;pointer-events:none!important;background:linear-gradient(135deg,rgba(91,46,255,.10),transparent 52%,rgba(20,10,40,.22))!important;}
+
+/* Three equal featured cards. */
+.kz-home .kz-feature-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px!important;align-items:stretch!important;}
+.kz-home .kz-feature-side{display:contents!important;}
+.kz-home .kz-feature-main,.kz-home .kz-feature-side .kz-event-card{width:100%!important;height:100%!important;min-width:0!important;background:#11101a!important;border:1px solid var(--kz-line)!important;border-radius:14px!important;overflow:hidden!important;}
 .kz-home .kz-feature-main{display:flex!important;flex-direction:column!important;}
-.kz-home .kz-feature-main > .kz-stadium-visual,
-.kz-home .kz-feature-main > .kz-simple-matchup{flex:0 0 220px!important;height:220px!important;min-height:220px!important;}
-.kz-home .kz-feature-copy{min-height:0!important;}
-.kz-home .kz-feature-copy b{display:inline-flex!important;margin-top:10px!important;color:#c4b5fd!important;}
+.kz-home .kz-feature-main>.kz-stadium-visual,.kz-home .kz-feature-main>.kz-simple-matchup,.kz-home .kz-feature-side .kz-event-image{height:220px!important;min-height:220px!important;flex:0 0 220px!important;}
+.kz-home .kz-feature-copy,.kz-home .kz-feature-side .kz-event-info{background:#11101a!important;padding:14px 15px 16px!important;min-height:80px!important;}
 
-/* Keep international cards as the intentional matchup graphic system; text is still below the art. */
-.kz-home .kz-international-feature-card::before{border-radius:16px 16px 0 0!important;}
-.kz-home .kz-international-card-copy{min-height:78px!important;}
+/* All information belongs below images. */
+.kz-home .kz-event-info{background:#11101a!important;border-top:1px solid #272231!important;padding:12px 13px 14px!important;display:flex!important;flex-direction:column!important;justify-content:center!important;min-height:76px!important;}
+.kz-home .kz-event-info strong{font-size:12px!important;line-height:1.2!important;color:#f5f2fa!important;}
+.kz-home .kz-event-info span,.kz-home .kz-event-info small{font-size:9px!important;line-height:1.35!important;color:#827c8d!important;}
+.kz-home .kz-heart{top:10px!important;right:10px!important;background:rgba(8,7,13,.72)!important;border:1px solid rgba(255,255,255,.12)!important;backdrop-filter:blur(8px)!important;}
 
-/* College, other sports, and experience cards use image-top / information-bottom instead of text over photos. */
-.kz-home .kz-college-card,
-.kz-home .kz-sport-card,
-.kz-home .kz-experience-card{display:flex!important;flex-direction:column!important;}
-.kz-home .kz-college-card > img,
-.kz-home .kz-sport-card > img,
-.kz-home .kz-experience-art{position:relative!important;inset:auto!important;width:100%!important;height:190px!important;flex:0 0 190px!important;object-fit:cover!important;}
-.kz-home .kz-college-copy,
-.kz-home .kz-sport-card > div:last-child,
-.kz-home .kz-experience-copy{flex:1!important;}
+/* Holiday cards stay photographic but use the same dark information treatment. */
+.kz-home .kz-marquee-card{background:#11101a!important;border-color:var(--kz-line)!important;overflow:hidden!important;}
+.kz-home .kz-marquee-image img{filter:saturate(.86) brightness(.86)!important;}
 
-/* Black/purple brand treatment without tinting every sport photo into an artificial graphic. */
-.kz-home .kz-section-heading h2{letter-spacing:-.025em!important;}
+/* College football: logos become intentional visual anchors instead of clipped/empty cards. */
+.kz-home .kz-college-card{position:relative!important;min-height:180px!important;background:linear-gradient(145deg,#181324,#0d0b12)!important;border:1px solid #2c2540!important;overflow:hidden!important;}
+.kz-home .kz-college-card img{position:absolute!important;width:120px!important;height:120px!important;object-fit:contain!important;left:50%!important;top:43%!important;transform:translate(-50%,-50%)!important;z-index:1!important;filter:drop-shadow(0 12px 24px rgba(0,0,0,.45))!important;}
+.kz-home .kz-college-shade{display:block!important;position:absolute!important;inset:0!important;background:linear-gradient(180deg,transparent 20%,rgba(8,7,13,.96) 100%)!important;z-index:2!important;}
+.kz-home .kz-college-copy{position:absolute!important;left:0!important;right:0!important;bottom:0!important;padding:13px!important;z-index:3!important;}
+
+/* International is the deliberate exception: matchup graphics remain, but copy is below the artwork. */
+.kz-home .kz-international-section .kz-international-card-copy{background:#11101a!important;padding:12px 14px!important;min-height:70px!important;}
+.kz-home .kz-international-section .kz-international-card-copy strong{text-shadow:none!important;}
+
+/* Brand polish. */
 .kz-home .kz-eyebrow{color:#a78bfa!important;}
-.kz-home .kz-section-heading > a,
-.kz-home .kz-search-links a{color:#c4b5fd!important;}
+.kz-home .kz-section-heading>a,.kz-home .kz-search-links a{color:#c4b5fd!important;}
 .kz-home .kz-primary-button{background:linear-gradient(135deg,#7c3aed,#5b21b6)!important;box-shadow:0 10px 28px rgba(124,58,237,.24)!important;}
 .kz-home .kz-category-rail a.active{background:#7c3aed!important;color:#fff!important;}
-.kz-home .kz-category-rail a:hover{border-color:rgba(167,139,250,.55)!important;color:#ddd6fe!important;}
 
-@media (max-width:1050px){
-  .kz-home .kz-hero-info{grid-template-columns:1fr 1fr!important;}
-  .kz-home .kz-hero-info .kz-primary-button{grid-column:1 / -1;justify-self:start;}
+@media(max-width:1050px){
+  .kz-home .kz-hero-info{display:grid!important;grid-template-columns:1fr 1fr!important;}
+  .kz-home .kz-hero-info .kz-primary-button{grid-column:1/-1;justify-self:start;}
 }
-@media (max-width:720px){
-  .kz-home .kz-hero-image,
-  .kz-home .kz-hero-image .kz-stadium-visual,
-  .kz-home .kz-hero-image .kz-simple-matchup{min-height:300px!important;height:300px!important;}
-  .kz-home .kz-hero-info{grid-template-columns:1fr!important;padding:22px!important;gap:16px!important;}
-  .kz-home .kz-hero-info .kz-primary-button{grid-column:auto;}
-  .kz-home .kz-event-image{height:190px!important;min-height:190px!important;}
-  .kz-home .kz-event-image .kz-stadium-visual,
-  .kz-home .kz-event-image .kz-simple-matchup{height:190px!important;min-height:190px!important;}
+@media(max-width:720px){
+  .kz-home .kz-hero-image,.kz-home .kz-hero-image .kz-stadium-visual,.kz-home .kz-hero-image .kz-simple-matchup{height:300px!important;min-height:300px!important;}
+  .kz-home .kz-hero-info{display:flex!important;flex-direction:column!important;align-items:stretch!important;padding:21px!important;}
+  .kz-home .kz-hero-game,.kz-home .kz-hero-info .kz-primary-button{width:100%!important;}
+  .kz-home .kz-feature-grid{grid-template-columns:1fr!important;}
 }
