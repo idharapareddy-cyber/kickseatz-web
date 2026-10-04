@@ -9,20 +9,24 @@ const nbaWeek = `
 const nbaTrending = `
       <section className="kz-section kz-nba-trending-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · TRENDING</span><h2>Games basketball fans are watching</h2></div><Link href="/nba">Browse NBA <ArrowRight size={15} /></Link></div><div className="kz-nba-home-grid">{NBA_HOME_GAMES.slice(3, 6).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></section>`;
 
-// Remove the standalone NBA section so NBA replaces existing homepage real estate instead of adding more length.
+// Remove the standalone NBA section: NBA should replace existing NFL real estate, not make the homepage longer.
 source = source.replace(/\n      <section className="kz-section kz-nba-home-section">.*?<\/section>\n/s, "\n");
 
-// Replace the large NFL "Browse the schedule by moment" block with a compact NBA section.
+// Replace the large NFL game-type block with one compact NBA section.
 const gameTypeStart = source.indexOf('      <section className="kz-section kz-game-type-section">');
-if (gameTypeStart === -1) throw new Error("NFL game-type section not found");
-const gameTypeEnd = source.indexOf("</section>", gameTypeStart);
-if (gameTypeEnd === -1) throw new Error("NFL game-type section end not found");
-source = source.slice(0, gameTypeStart) + nbaWeek + source.slice(gameTypeEnd + "</section>".length);
+if (gameTypeStart !== -1) {
+  const gameTypeEnd = source.indexOf("</section>", gameTypeStart);
+  if (gameTypeEnd === -1) throw new Error("NFL game-type section end not found");
+  source = source.slice(0, gameTypeStart) + nbaWeek + source.slice(gameTypeEnd + "</section>".length);
+}
 
-// Replace the repetitive NFL trending section with a second NBA section.
-const trendingPattern = /\n      <section className="kz-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">TRENDING NOW · NFL<\/span><h2>Games people are watching<\/h2><\/div><Link href="\/find-tickets">Browse all <ArrowRight size={15} \/><\/Link><\/div><div className="kz-card-grid">\{trending\.slice\(0, 3\)\.map\(\(game\) => <EventCard key=\{game\.id\} game=\{game\} \/>\)\}<\/div><\/section>\n/;
-if (!trendingPattern.test(source)) throw new Error("NFL trending section not found");
-source = source.replace(trendingPattern, `\n${nbaTrending}\n`);
+// Replace the NFL trending block by locating its stable heading instead of relying on brittle full-line regex matching.
+const trendingStart = source.indexOf('      <section className="kz-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">TRENDING NOW · NFL</span>');
+if (trendingStart !== -1) {
+  const trendingEnd = source.indexOf("</section>", trendingStart);
+  if (trendingEnd === -1) throw new Error("NFL trending section end not found");
+  source = source.slice(0, trendingStart) + nbaTrending + source.slice(trendingEnd + "</section>".length);
+}
 
 fs.writeFileSync(path, source);
-console.log("NBA homepage rebalanced: replaced two NFL-only sections instead of adding new page length.");
+console.log("NBA homepage rebalanced: two repetitive NFL sections replaced with compact NBA sections.");
