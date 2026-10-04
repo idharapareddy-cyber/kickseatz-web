@@ -1,0 +1,7 @@
+/* Ohio State college-football logo fix.
+   Keep the existing card markup/layout, but replace the unreliable ESPN asset
+   with a clean transparent Buckeyes football logo. */
+img[src*="a.espncdn.com/i/teamlogos/ncaa/500/194.png"] {
+  content: url("https://commons.wikimedia.org/wiki/Special:FilePath/Ohio_State_Football_Logo_Transparent_Background.png?width=700");
+  object-fit: contain;
+}
