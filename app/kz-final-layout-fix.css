@@ -1,0 +1,185 @@
+/* Final homepage layout correction — clean, full-width, consistent marketplace grid. */
+
+.kz-home .kz-section{
+  width:100%!important;
+  max-width:none!important;
+}
+
+/* International: three equal columns across the available section width. */
+.kz-home .kz-international-editorial-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+  width:100%!important;
+  max-width:none!important;
+}
+.kz-home .kz-international-section .kz-international-feature-card{
+  width:100%!important;
+  height:300px!important;
+  min-height:300px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  overflow:hidden!important;
+  background:#11101a!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  border-radius:14px!important;
+}
+.kz-home .kz-international-section .kz-international-feature-card::before{
+  flex:1 1 auto!important;
+  min-height:0!important;
+}
+.kz-home .kz-international-section .kz-international-photo-tag{
+  top:12px!important;
+  left:12px!important;
+}
+.kz-home .kz-international-section .kz-international-card-copy{
+  flex:0 0 72px!important;
+  min-height:72px!important;
+  padding:12px 14px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  gap:3px!important;
+  background:#11101a!important;
+  border-top:1px solid rgba(255,255,255,.08)!important;
+}
+.kz-home .kz-international-section .kz-international-card-copy strong{
+  font-size:15px!important;
+  line-height:1.15!important;
+}
+.kz-home .kz-international-section .kz-international-card-copy small{
+  font-size:9px!important;
+  color:#888091!important;
+}
+
+/* Schedule-by-moment: three equal columns, each with three compact horizontal cards. */
+.kz-home .kz-game-type-section .kz-type-editorial-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+  width:100%!important;
+  max-width:none!important;
+}
+.kz-home .kz-game-type-section .kz-type-editorial-block{
+  min-width:0!important;
+  width:100%!important;
+  padding:14px!important;
+  background:#0f0d15!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  border-radius:14px!important;
+}
+.kz-home .kz-game-type-section .kz-type-editorial-head{
+  margin-bottom:12px!important;
+  min-height:42px!important;
+}
+.kz-home .kz-game-type-section .kz-type-editorial-body{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:9px!important;
+}
+.kz-home .kz-game-type-section .kz-type-feature{
+  display:grid!important;
+  grid-template-columns:42% 58%!important;
+  width:100%!important;
+  height:108px!important;
+  min-height:108px!important;
+  overflow:hidden!important;
+  background:#15121c!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+  border-radius:10px!important;
+}
+.kz-home .kz-game-type-section .kz-type-feature>.kz-stadium-visual,
+.kz-home .kz-game-type-section .kz-type-feature>.kz-simple-matchup{
+  width:100%!important;
+  height:100%!important;
+  min-height:108px!important;
+  border-radius:0!important;
+}
+.kz-home .kz-game-type-section .kz-type-feature-copy{
+  min-width:0!important;
+  padding:10px 11px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  gap:3px!important;
+  background:#15121c!important;
+}
+.kz-home .kz-game-type-section .kz-type-feature-copy span,
+.kz-home .kz-game-type-section .kz-type-feature-copy small{
+  font-size:8px!important;
+  line-height:1.25!important;
+  color:#827c8d!important;
+}
+.kz-home .kz-game-type-section .kz-type-feature-copy strong{
+  font-size:11px!important;
+  line-height:1.2!important;
+  color:#f5f2fa!important;
+}
+
+/* Trending: exact same card language as Games worth seeing. */
+.kz-home .kz-card-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+  width:100%!important;
+}
+.kz-home .kz-card-grid .kz-event-card{
+  min-width:0!important;
+  width:100%!important;
+  background:#11101a!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  border-radius:14px!important;
+  overflow:hidden!important;
+}
+.kz-home .kz-card-grid .kz-event-image{
+  height:220px!important;
+  min-height:220px!important;
+}
+
+/* College football: four teams means four balanced cards, not an orphaned fourth card. */
+.kz-home .kz-college-grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:14px!important;
+  width:100%!important;
+}
+.kz-home .kz-college-card{
+  min-width:0!important;
+  width:100%!important;
+  height:190px!important;
+  min-height:190px!important;
+}
+
+/* Photo treatment: darker, cooler, and subtly purple without turning photos into fake graphics. */
+.kz-home .kz-event-image .kz-stadium-visual img,
+.kz-home .kz-feature-main .kz-stadium-visual img,
+.kz-home .kz-type-feature .kz-stadium-visual img{
+  filter:saturate(.78) brightness(.72) contrast(1.02)!important;
+}
+.kz-home .kz-event-image::after,
+.kz-home .kz-feature-main>.kz-stadium-visual::after,
+.kz-home .kz-type-feature>.kz-stadium-visual::after{
+  background:linear-gradient(135deg,rgba(76,29,149,.16),rgba(8,7,13,.05) 48%,rgba(5,4,10,.26))!important;
+}
+
+/* Keep all copy below artwork; never print matchup text over the photography. */
+.kz-home .kz-event-image .kz-simple-matchup>* ,
+.kz-home .kz-feature-main>.kz-simple-matchup>* ,
+.kz-home .kz-type-feature>.kz-simple-matchup>*{
+  display:none!important;
+}
+
+@media(max-width:1050px){
+  .kz-home .kz-international-editorial-grid,
+  .kz-home .kz-game-type-section .kz-type-editorial-grid,
+  .kz-home .kz-card-grid,
+  .kz-home .kz-college-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+
+@media(max-width:720px){
+  .kz-home .kz-international-editorial-grid,
+  .kz-home .kz-game-type-section .kz-type-editorial-grid,
+  .kz-home .kz-card-grid,
+  .kz-home .kz-college-grid{grid-template-columns:1fr!important;}
+  .kz-home .kz-international-section .kz-international-feature-card{height:270px!important;min-height:270px!important;}
+}
