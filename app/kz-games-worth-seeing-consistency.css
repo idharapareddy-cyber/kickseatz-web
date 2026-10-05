@@ -1,0 +1,65 @@
+/* Keep the three NFL cards in "Games worth seeing" visually consistent.
+   The lead card uses the same logo-vs-logo language as the two cards beside it. */
+.kz-home .kz-feature-main .kz-stadium-visual {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+}
+
+/* Current lead matchup: Saints @ Falcons. */
+.kz-home .kz-feature-main .kz-stadium-visual::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+  background-image:
+    url("https://a.espncdn.com/i/teamlogos/nfl/500/18.png"),
+    url("https://a.espncdn.com/i/teamlogos/nfl/500/1.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: 25% 45%, 75% 45% !important;
+  background-size: clamp(105px, 13vw, 180px) clamp(105px, 13vw, 180px) !important;
+  filter: drop-shadow(0 14px 24px rgba(0,0,0,.38)) !important;
+}
+
+.kz-home .kz-feature-main .kz-stadium-visual::after {
+  content: "VS" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 45% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 4 !important;
+  width: 58px !important;
+  height: 58px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.96) !important;
+  color: #111018 !important;
+  font-size: 12px !important;
+  font-weight: 950 !important;
+  letter-spacing: .05em !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.38) !important;
+  pointer-events: none !important;
+}
+
+/* Make the stadium photo support the matchup treatment instead of competing with it. */
+.kz-home .kz-feature-main .kz-stadium-shade {
+  z-index: 1 !important;
+  background: linear-gradient(90deg, rgba(12,10,18,.48), rgba(12,10,18,.16) 50%, rgba(12,10,18,.48)) !important;
+}
+.kz-home .kz-feature-main .kz-stadium-color {
+  z-index: 2 !important;
+}
+
+@media (max-width: 760px) {
+  .kz-home .kz-feature-main .kz-stadium-visual::before {
+    background-size: 82px 82px !important;
+    background-position: 24% 43%, 76% 43% !important;
+  }
+  .kz-home .kz-feature-main .kz-stadium-visual::after {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 10px !important;
+  }
+}
