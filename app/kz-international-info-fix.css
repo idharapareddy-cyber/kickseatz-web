@@ -38,6 +38,11 @@
   filter:none!important;
 }
 
+/* Replace the mismatched Melbourne matchup graphic with the real game photo, without touching the rest of the homepage. */
+.kz-home .kz-international-section .kz-international-feature-card:first-child > img{
+  content:url("https://commons.wikimedia.org/wiki/Special:FilePath/MRF-D_Marines_and_Sailors_participate_in_showcase_at_NFL_game_in_Melbourne_%289926672%29.jpg?width=1600")!important;
+}
+
 /* Same location pill on every card. */
 .kz-home .kz-international-section .kz-international-feature-card .kz-international-photo-tag{
   position:absolute!important;
