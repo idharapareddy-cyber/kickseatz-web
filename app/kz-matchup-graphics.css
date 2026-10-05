@@ -1,4 +1,4 @@
-/* Marquee matchup treatment: replaces the old hidden-logo/stadium fallback with a clear sports-poster composition. */
+/* Final sports-graphic treatment: big, clean, vibrant, and event-focused. */
 .kz-home .kz-simple-matchup {
   position: relative !important;
   isolation: isolate !important;
@@ -10,8 +10,8 @@
   overflow: hidden !important;
   padding: 28px 34px 68px !important;
   background:
-    radial-gradient(circle at 18% 48%, color-mix(in srgb, var(--away-color) 72%, transparent), transparent 42%),
-    radial-gradient(circle at 82% 48%, color-mix(in srgb, var(--home-color) 72%, transparent), transparent 42%),
+    radial-gradient(circle at 18% 48%, color-mix(in srgb, var(--away-color) 78%, transparent), transparent 44%),
+    radial-gradient(circle at 82% 48%, color-mix(in srgb, var(--home-color) 78%, transparent), transparent 44%),
     linear-gradient(110deg, #111018 0%, #1b1822 50%, #111018 100%) !important;
 }
 .kz-home .kz-simple-matchup::before {
@@ -19,7 +19,7 @@
   position: absolute !important;
   inset: 0 !important;
   z-index: -1 !important;
-  background: linear-gradient(90deg, color-mix(in srgb, var(--away-color) 28%, transparent), transparent 50%, color-mix(in srgb, var(--home-color) 28%, transparent)) !important;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--away-color) 30%, transparent), transparent 50%, color-mix(in srgb, var(--home-color) 30%, transparent)) !important;
 }
 .kz-home .kz-simple-matchup > .kz-simple-team,
 .kz-home .kz-simple-matchup > .kz-simple-vs {
@@ -63,7 +63,7 @@
 }
 .kz-home .kz-simple-matchup .kz-simple-matchup-label { display: none !important; }
 
-/* Real player photography for the three marquee matchups already represented in KickSeatz data. */
+/* Marquee NFL player treatment. */
 .kz-home .kz-simple-matchup[style*="#E31837"][style*="#00338D"] .kz-simple-team-away,
 .kz-home .kz-simple-matchup[style*="#00338D"][style*="#E31837"] .kz-simple-team-home { background: url("https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png") center bottom / contain no-repeat !important; }
 .kz-home .kz-simple-matchup[style*="#E31837"][style*="#00338D"] .kz-simple-team-home,
@@ -78,6 +78,7 @@
 .kz-home .kz-simple-matchup[style*="#241773"][style*="#FB4F14"] .kz-simple-team img,
 .kz-home .kz-simple-matchup[style*="#FB4F14"][style*="#241773"] .kz-simple-team img { visibility: hidden !important; }
 
+/* Cowboys/Eagles player treatment. */
 .kz-home .kz-simple-matchup[style*="#041E42"][style*="#004C54"] .kz-simple-team-away,
 .kz-home .kz-simple-matchup[style*="#004C54"][style*="#041E42"] .kz-simple-team-home { background: url("https://a.espncdn.com/i/headshots/nfl/players/full/2577417.png") center bottom / contain no-repeat !important; }
 .kz-home .kz-simple-matchup[style*="#041E42"][style*="#004C54"] .kz-simple-team-home,
@@ -85,8 +86,37 @@
 .kz-home .kz-simple-matchup[style*="#041E42"][style*="#004C54"] .kz-simple-team img,
 .kz-home .kz-simple-matchup[style*="#004C54"][style*="#041E42"] .kz-simple-team img { visibility: hidden !important; }
 
+/* NBA feature art: real basketball action/arena photography instead of flat poster-only artwork.
+   These are free Unsplash photographs; team colors supply the matchup-specific visual identity. */
+.kz-home .kz-nba-feature:nth-child(1) .kz-nba-feature-art {
+  content: url("https://images.unsplash.com/photo-1752166671323-203fb70dda3a?auto=format&fit=crop&w=1800&q=88") !important;
+  object-position: center !important;
+}
+.kz-home .kz-nba-feature-grid-flip .kz-nba-feature .kz-nba-feature-art {
+  content: url("https://images.unsplash.com/photo-1674327175233-51f4d1430eac?auto=format&fit=crop&w=1800&q=88") !important;
+  object-position: center !important;
+}
+.kz-home .kz-nba-feature-shade {
+  background:
+    linear-gradient(180deg, rgba(8,7,13,.04) 15%, rgba(8,7,13,.20) 43%, rgba(8,7,13,.94) 100%),
+    linear-gradient(90deg, rgba(76,29,149,.42), rgba(0,0,0,0) 55%, rgba(37,99,235,.22)) !important;
+}
+.kz-home .kz-nba-feature-copy { max-width: 610px !important; }
+.kz-home .kz-nba-feature-label { background: rgba(168,85,247,.32) !important; border-color: rgba(255,255,255,.26) !important; }
+
+/* Small NBA cards get a little more arena color without becoming noisy. */
+.kz-home .kz-nba-event-card .kz-event-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(168,85,247,.16), transparent 55%, rgba(37,99,235,.16));
+  pointer-events: none;
+}
+
 @media (max-width: 760px) {
   .kz-home .kz-simple-matchup { padding: 20px 16px 54px !important; }
   .kz-home .kz-simple-matchup .kz-simple-team img { width: 92px !important; height: 92px !important; }
   .kz-home .kz-simple-matchup .kz-simple-team span { font-size: 12px !important; }
+  .kz-home .kz-nba-feature { min-height: 390px !important; }
+  .kz-home .kz-nba-feature-copy { padding: 20px !important; }
 }
