@@ -1,0 +1,372 @@
+/* KickSeatz mobile marketplace pass — final mobile layout system.
+   Goal: preserve visual density and marketplace browsing on phones.
+   No desktop grid is allowed to collapse every card into a long single-column feed. */
+
+@media (max-width: 760px) {
+  .kz-home {
+    padding: 16px 14px 76px !important;
+    overflow-x: hidden !important;
+  }
+
+  .kz-home .kz-section {
+    margin-top: 34px !important;
+  }
+
+  .kz-home .kz-section-heading {
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .kz-home .kz-section-heading h2 {
+    font-size: 23px !important;
+    line-height: 1.08 !important;
+  }
+
+  .kz-home .kz-section-heading > a {
+    font-size: 10px !important;
+  }
+
+  /* Category rail should feel like a mobile marketplace filter strip. */
+  .kz-home .kz-category-rail {
+    margin: 0 -14px 26px !important;
+    padding: 9px 14px !important;
+    gap: 7px !important;
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain !important;
+  }
+
+  .kz-home .kz-category-rail a {
+    flex: 0 0 auto !important;
+    padding: 8px 11px !important;
+    font-size: 10px !important;
+  }
+
+  /* Search stays compact and useful. */
+  .kz-home .kz-hero-search {
+    margin: 8px 0 10px !important;
+    padding: 13px !important;
+    gap: 10px !important;
+  }
+
+  .kz-home .kz-hero-search > div:first-child strong {
+    font-size: 15px !important;
+  }
+
+  .kz-home .kz-search-links {
+    display: flex !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding-bottom: 1px !important;
+  }
+
+  .kz-home .kz-search-links a {
+    flex: 0 0 auto !important;
+    font-size: 10px !important;
+  }
+
+  /* Featured NFL: one large lead followed by two compact cards side-by-side. */
+  .kz-home .kz-feature-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .kz-home .kz-feature-main {
+    grid-column: 1 / -1 !important;
+    min-width: 0 !important;
+  }
+
+  .kz-home .kz-feature-main > .kz-stadium-visual,
+  .kz-home .kz-feature-main > .kz-simple-matchup {
+    height: 230px !important;
+    min-height: 230px !important;
+  }
+
+  .kz-home .kz-feature-copy {
+    padding: 13px 14px 14px !important;
+  }
+
+  .kz-home .kz-feature-copy h3 {
+    font-size: 19px !important;
+  }
+
+  .kz-home .kz-feature-side {
+    display: contents !important;
+  }
+
+  .kz-home .kz-feature-side .kz-event-card {
+    min-width: 0 !important;
+    grid-template-rows: 132px auto !important;
+    border-radius: 12px !important;
+  }
+
+  .kz-home .kz-feature-side .kz-event-image,
+  .kz-home .kz-feature-side .kz-event-image .kz-simple-matchup {
+    height: 132px !important;
+    min-height: 132px !important;
+  }
+
+  .kz-home .kz-feature-side .kz-event-info {
+    padding: 10px 11px 12px !important;
+    min-height: 74px !important;
+  }
+
+  .kz-home .kz-feature-side .kz-event-info strong {
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+  }
+
+  .kz-home .kz-feature-side .kz-event-info span,
+  .kz-home .kz-feature-side .kz-event-info small {
+    font-size: 9.5px !important;
+  }
+
+  /* Standard discovery/card grids: two-up on phones, like a real ticket marketplace. */
+  .kz-home .kz-card-grid,
+  .kz-home .kz-division-grid,
+  .kz-home .kz-college-grid,
+  .kz-home .kz-sports-grid,
+  .kz-home .kz-game-type-section .kz-type-editorial-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .kz-home .kz-college-card,
+  .kz-home .kz-sport-card {
+    min-width: 0 !important;
+  }
+
+  /* Holiday / marquee cards remain visual and compact instead of becoming a tall feed. */
+  .kz-home .kz-seasonal-section .kz-marquee-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .kz-home .kz-seasonal-section .kz-marquee-card {
+    min-width: 0 !important;
+    border-radius: 12px !important;
+  }
+
+  .kz-home .kz-seasonal-section .kz-marquee-card:first-child,
+  .kz-home .kz-seasonal-section .kz-marquee-card:nth-child(2) {
+    min-height: 0 !important;
+  }
+
+  .kz-home .kz-seasonal-section .kz-marquee-image {
+    height: 120px !important;
+  }
+
+  .kz-home .kz-seasonal-section .kz-marquee-body,
+  .kz-home .kz-seasonal-section .kz-marquee-small-body {
+    padding: 10px !important;
+  }
+
+  .kz-home .kz-seasonal-section .kz-marquee-body strong,
+  .kz-home .kz-seasonal-section .kz-marquee-small-body strong {
+    font-size: 13px !important;
+  }
+
+  .kz-home .kz-seasonal-section .kz-marquee-games span {
+    font-size: 9px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* International is browseable horizontally on a phone instead of nine giant stacked cards. */
+  .kz-home .kz-international-section .kz-international-grid {
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 10px !important;
+    overflow-x: auto !important;
+    margin-right: -14px !important;
+    padding-right: 14px !important;
+    padding-bottom: 5px !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+  }
+
+  .kz-home .kz-international-section .kz-international-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .kz-home .kz-international-section .kz-international-card {
+    flex: 0 0 78vw !important;
+    max-width: 310px !important;
+    height: 330px !important;
+    min-height: 330px !important;
+    scroll-snap-align: start !important;
+    border-radius: 13px !important;
+  }
+
+  .kz-home .kz-international-section .kz-international-card-image {
+    height: 175px !important;
+    min-height: 175px !important;
+    max-height: 175px !important;
+    flex-basis: 175px !important;
+  }
+
+  .kz-home .kz-international-section .kz-international-card-body {
+    height: 155px !important;
+    min-height: 155px !important;
+    flex-basis: 155px !important;
+    padding: 12px 13px !important;
+    gap: 8px !important;
+  }
+
+  .kz-home .kz-international-section .kz-international-matchup {
+    font-size: 15px !important;
+  }
+
+  .kz-home .kz-international-section .kz-international-matchup img {
+    width: 27px !important;
+    height: 27px !important;
+    min-width: 27px !important;
+    min-height: 27px !important;
+  }
+
+  .kz-home .kz-international-section .kz-international-meta {
+    font-size: 11.5px !important;
+  }
+
+  .kz-home .kz-international-section .kz-international-action {
+    font-size: 11.5px !important;
+  }
+
+  /* NBA homepage cards stay two-up rather than collapsing into a feed. */
+  .kz-home .kz-nba-home-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .kz-home .kz-nba-home-art {
+    height: 140px !important;
+  }
+
+  .kz-home .kz-nba-home-info {
+    min-height: 78px !important;
+    padding: 10px 11px !important;
+  }
+
+  .kz-home .kz-nba-home-info strong {
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+  }
+
+  .kz-home .kz-nba-feature-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .kz-home .kz-nba-feature-grid > .kz-nba-feature:first-child {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* Popular rows remain dense and scannable. */
+  .kz-home .market-popular-row {
+    min-height: 94px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .kz-home .kz-home-section,
+  .kz-home .kz-section {
+    margin-top: 30px !important;
+  }
+
+  .kz-home .kz-section-heading h2 {
+    font-size: 21px !important;
+  }
+
+  /* Two-up compact cards for secondary content. */
+  .kz-home .kz-college-grid,
+  .kz-home .kz-sports-grid,
+  .kz-home .kz-card-grid,
+  .kz-home .kz-division-grid,
+  .kz-home .kz-game-type-section .kz-type-editorial-grid,
+  .kz-home .kz-nba-home-grid,
+  .kz-home .kz-seasonal-section .kz-marquee-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  .kz-home .kz-feature-side .kz-event-card {
+    grid-template-rows: 116px auto !important;
+  }
+
+  .kz-home .kz-feature-side .kz-event-image,
+  .kz-home .kz-feature-side .kz-event-image .kz-simple-matchup {
+    height: 116px !important;
+    min-height: 116px !important;
+  }
+
+  .kz-home .kz-feature-side .kz-event-info {
+    padding: 9px 9px 10px !important;
+  }
+
+  .kz-home .kz-feature-side .kz-event-info strong {
+    font-size: 11px !important;
+  }
+
+  .kz-home .kz-feature-side .kz-event-info span,
+  .kz-home .kz-feature-side .kz-event-info small {
+    font-size: 8.5px !important;
+  }
+
+  .kz-home .kz-nba-home-art {
+    height: 118px !important;
+  }
+
+  .kz-home .kz-nba-home-info {
+    min-height: 70px !important;
+    padding: 8px 9px !important;
+  }
+
+  .kz-home .kz-nba-home-info strong {
+    font-size: 11px !important;
+  }
+
+  .kz-home .kz-seasonal-section .kz-marquee-image {
+    height: 96px !important;
+  }
+
+  .kz-home .kz-seasonal-section .kz-marquee-body,
+  .kz-home .kz-seasonal-section .kz-marquee-small-body {
+    padding: 8px !important;
+  }
+
+  .kz-home .kz-seasonal-section .kz-marquee-body strong,
+  .kz-home .kz-seasonal-section .kz-marquee-small-body strong {
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .kz-home {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .kz-home .kz-category-rail {
+    margin-left: -12px !important;
+    margin-right: -12px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .kz-home .kz-international-section .kz-international-grid {
+    margin-right: -12px !important;
+    padding-right: 12px !important;
+  }
+
+  .kz-home .kz-international-section .kz-international-card {
+    flex-basis: 82vw !important;
+  }
+
+  .kz-home .kz-feature-main > .kz-stadium-visual,
+  .kz-home .kz-feature-main > .kz-simple-matchup {
+    height: 205px !important;
+    min-height: 205px !important;
+  }
+}
