@@ -187,3 +187,34 @@
   max-height:none!important;
   overflow:visible!important;
 }
+
+/* Simple marketplace typography for international cards. */
+.kz-home .kz-international-section .kz-international-card-body{
+  height:170px!important;
+  min-height:170px!important;
+  padding:16px 17px 15px!important;
+  gap:10px!important;
+}
+.kz-home .kz-international-section .kz-international-matchup{
+  font-size:16px!important;
+  line-height:1.2!important;
+}
+.kz-home .kz-international-section .kz-international-matchup img{
+  width:28px!important;
+  height:28px!important;
+  min-width:28px!important;
+  min-height:28px!important;
+  max-width:28px!important;
+  max-height:28px!important;
+}
+.kz-home .kz-international-section .kz-international-meta{
+  font-size:12px!important;
+  line-height:1.45!important;
+  gap:4px!important;
+  color:#d2cedb!important;
+}
+.kz-home .kz-international-section .kz-international-action{
+  font-size:12px!important;
+  line-height:1!important;
+  margin-top:auto!important;
+}
