@@ -1,0 +1,25 @@
+/* Final homepage audit: keep the marketplace simple, current, and image-led. */
+.kz-home .kz-section-heading h2 { letter-spacing: -0.02em; }
+.kz-home .kz-sports-section,
+.kz-home .kz-discover { margin-top: 56px; }
+.kz-home .kz-sports-grid,
+.kz-home .kz-experience-grid { gap: 16px; }
+.kz-home .kz-sport-card,
+.kz-home .kz-experience-card { min-height: 250px; }
+.kz-home .kz-sport-card img,
+.kz-home .kz-experience-art img,
+.kz-home .kz-marquee-image img,
+.kz-home .kz-international-card-image img { filter: none !important; transform: none; }
+.kz-home .kz-sport-shade,
+.kz-home .kz-experience-shade { opacity: .28; }
+.kz-home .kz-feature-main { min-height: 520px; }
+.kz-home .kz-feature-copy h3 { max-width: 780px; }
+.kz-home .kz-international-card { min-width: 0; }
+.kz-home .kz-international-card-image { aspect-ratio: 16 / 9; }
+@media (max-width: 760px) {
+  .kz-home .kz-section { margin-top: 42px; }
+  .kz-home .kz-feature-main { min-height: 420px; }
+  .kz-home .kz-sport-card,
+  .kz-home .kz-experience-card { min-height: 210px; }
+  .kz-home .kz-marquee-image { aspect-ratio: 16 / 9; }
+}
