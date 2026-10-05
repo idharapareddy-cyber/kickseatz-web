@@ -44,6 +44,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="/kz-international-reference.css" />
+      </head>
       <body>
         <SiteShell>{children}</SiteShell>
       </body>
