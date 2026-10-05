@@ -213,21 +213,155 @@ export default function HomePage() {
 
       <section className="kz-section kz-seasonal-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NFL · HOLIDAYS & MARQUEE</span><h2>Big NFL dates</h2></div><Link href="/find-tickets?category=seasonal">View all <ArrowRight size={15} /></Link></div><div className="kz-marquee-grid"><Link href="/find-tickets?category=thanksgiving" className="kz-marquee-card kz-marquee-holiday"><div className="kz-marquee-image"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Veterans_Day_ceremonies_at_NFL_game_in_Chicago_131110-G-PL299-128.jpg" alt="Chicago Bears and Detroit Lions NFL game" /></div><div className="kz-marquee-body"><div><small>THREE GAMES · NOV 26</small><strong>Thanksgiving Day</strong></div><div className="kz-marquee-games"><span>Bears @ Lions · 1:00 PM</span><span>Eagles @ Cowboys · 4:30 PM</span><span>Chiefs @ Bills · 8:20 PM</span></div></div></Link><Link href="/find-tickets?category=christmas" className="kz-marquee-card kz-marquee-holiday"><div className="kz-marquee-image"><img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Packvbears.jpg" alt="Green Bay Packers and Chicago Bears NFL game" /></div><div className="kz-marquee-body"><div><small>THREE GAMES · DEC 25</small><strong>Christmas Day</strong></div><div className="kz-marquee-games"><span>Packers @ Bears · 1:00 PM</span><span>Bills @ Broncos · 4:30 PM</span><span>Rams @ Seahawks · 8:15 PM</span></div></div></Link><Link href="/find-tickets?category=super-bowl" className="kz-marquee-card kz-marquee-small"><div className="kz-marquee-image"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/SoFi_Stadium.jpg" alt="SoFi Stadium in Inglewood, California" /></div><div className="kz-marquee-small-body"><small>FEB 14, 2027 · INGLEWOOD</small><strong>Super Bowl LXI</strong><span>SoFi Stadium · Los Angeles</span></div></Link></div></section>
 
-      <section className="kz-section kz-international-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NFL · INTERNATIONAL SERIES</span><h2>Games around the world</h2></div><Link href="/find-tickets?category=international">View all 9 games <ArrowRight size={15} /></Link></div><div className="kz-international-feature-grid kz-international-editorial-grid"><Link href="/find-tickets?category=international" className="kz-international-feature-card kz-international-lead"><img src="https://static.www.nfl.com/image/upload/f_auto/league/ixy8c3hynxmxz9vdrboj" alt="NFL 2026 Melbourne Game featuring the 49ers and Rams" /><div className="kz-international-photo-tag"><span>🇦🇺</span><b>MELBOURNE · NFL</b></div><div className="kz-international-card-copy"><strong>49ers vs Rams</strong><small>Sept 10 · Melbourne Cricket Ground</small></div></Link><Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/New_Maracana_Stadium.jpg" alt="Maracanã Stadium in Rio de Janeiro" /><div className="kz-international-photo-tag"><span>🇧🇷</span><b>RIO · NFL</b></div><div className="kz-international-card-copy"><strong>Ravens vs Cowboys</strong><small>Sept 27 · Maracanã Stadium</small></div></Link><Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Wembley_Stadium%2C_London%2C_UK.jpg" alt="Wembley Stadium in London" /><div className="kz-international-photo-tag"><span>🇬🇧</span><b>LONDON · NFL</b></div><div className="kz-international-card-copy"><strong>Texans vs Jaguars</strong><small>Oct 18 · Wembley Stadium</small></div></Link><Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Stade_de_France.jpg" alt="Stade de France in Paris" /><div className="kz-international-photo-tag"><span>🇫🇷</span><b>PARIS · NFL</b></div><div className="kz-international-card-copy"><strong>Steelers vs Saints</strong><small>Oct 25 · Stade de France</small></div></Link><Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Santiago_Bernabeu_Stadium.jpg" alt="Bernabéu Stadium in Madrid" /><div className="kz-international-photo-tag"><span>🇪🇸</span><b>MADRID · NFL</b></div><div className="kz-international-card-copy"><strong>Bengals vs Falcons</strong><small>Nov 8 · Bernabéu Stadium</small></div></Link><Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Allianz_Arena.jpg" alt="Allianz Arena in Munich" /><div className="kz-international-photo-tag"><span>🇩🇪</span><b>MUNICH · NFL</b></div><div className="kz-international-card-copy"><strong>Patriots vs Lions</strong><small>Nov 15 · FC Bayern Munich Arena</small></div></Link><Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Estadio_Azteca_2026_-_06.jpg" alt="Estadio Banorte in Mexico City after its 2026 renovation" /><div className="kz-international-photo-tag"><span>🇲🇽</span><b>MEXICO CITY · NFL</b></div><div className="kz-international-card-copy"><strong>Vikings vs 49ers</strong><small>Nov 22 · Estadio Banorte</small></div></Link><Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://stadiumdb.com/pictures/stadiums/eng/tottenham_hotspur_stadium/tottenham_hotspur_stadium05.jpg" alt="Tottenham Hotspur Stadium exterior in London" /><div className="kz-international-photo-tag"><span>🇬🇧</span><b>LONDON · NFL</b></div><div className="kz-international-card-copy"><strong>Colts vs Commanders</strong><small>Oct 4 · Tottenham Hotspur Stadium</small></div></Link><Link href="/find-tickets?category=international" className="kz-international-feature-card"><img src="https://static.independent.co.uk/2021/12/08/23/50bc4524002b921e7bbd1720f0743252Y29udGVudHNlYXJjaGFwaSwxNjM5MDkyOTkx-2.62046825.jpg" alt="Tottenham Hotspur Stadium interior in London" /><div className="kz-international-photo-tag"><span>🇬🇧</span><b>LONDON · NFL</b></div><div className="kz-international-card-copy"><strong>Eagles vs Jaguars</strong><small>Oct 11 · Tottenham Hotspur Stadium</small></div></Link></div></section>
+      <section className="kz-section kz-international-section">
+  <div className="kz-section-heading">
+    <div>
+      <span className="kz-eyebrow">NFL · INTERNATIONAL SERIES</span>
+      <h2>Games around the world</h2>
+    </div>
+    <Link href="/find-tickets?category=international">View all 9 games <ArrowRight size={15} /></Link>
+  </div>
+  <div className="kz-international-grid">
+    {[
+      {
+        city: "Melbourne",
+        country: "Australia",
+        flag: "🇦🇺",
+        matchup: "49ers vs Rams",
+        away: "san-francisco-49ers",
+        home: "los-angeles-rams",
+        date: "Sept 10",
+        time: "1:00 AM ET",
+        venue: "Melbourne Cricket Ground",
+        description: "The NFL opens its international slate at the MCG in a showcase between two NFC West rivals.",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/MRF-D_Marines_and_Sailors_participate_in_showcase_at_NFL_game_in_Melbourne_%289926672%29.jpg?width=1600"
+      },
+      {
+        city: "Rio",
+        country: "Brazil",
+        flag: "🇧🇷",
+        matchup: "Ravens vs Cowboys",
+        away: "baltimore-ravens",
+        home: "dallas-cowboys",
+        date: "Sept 27",
+        time: "9:30 AM ET",
+        venue: "Maracanã Stadium",
+        description: "Baltimore and Dallas bring a marquee NFL matchup to the legendary Maracanã in Rio de Janeiro.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/c/c9/New_Maracana_Stadium.jpg"
+      },
+      {
+        city: "London",
+        country: "England",
+        flag: "🇬🇧",
+        matchup: "Colts vs Commanders",
+        away: "indianapolis-colts",
+        home: "washington-commanders",
+        date: "Oct 4",
+        time: "9:30 AM ET",
+        venue: "Tottenham Hotspur Stadium",
+        description: "The Colts and Commanders meet in London as the series returns to Tottenham Hotspur Stadium.",
+        image: "https://stadiumdb.com/pictures/stadiums/eng/tottenham_hotspur_stadium/tottenham_hotspur_stadium05.jpg"
+      },
+      {
+        city: "London",
+        country: "England",
+        flag: "🇬🇧",
+        matchup: "Eagles vs Jaguars",
+        away: "philadelphia-eagles",
+        home: "jacksonville-jaguars",
+        date: "Oct 11",
+        time: "9:30 AM ET",
+        venue: "Tottenham Hotspur Stadium",
+        description: "Philadelphia and Jacksonville add another London matchup to the international schedule.",
+        image: "https://static.independent.co.uk/2021/12/08/23/50bc4524002b921e7bbd1720f0743252Y29udGVudHNlYXJjaGFwaSwxNjM5MDkyOTkx-2.62046825.jpg"
+      },
+      {
+        city: "London",
+        country: "England",
+        flag: "🇬🇧",
+        matchup: "Texans vs Jaguars",
+        away: "houston-texans",
+        home: "jacksonville-jaguars",
+        date: "Oct 18",
+        time: "9:30 AM ET",
+        venue: "Wembley Stadium",
+        description: "A divisional matchup heads across the Atlantic for an NFL Sunday at Wembley.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Wembley_Stadium%2C_London%2C_UK.jpg"
+      },
+      {
+        city: "Paris",
+        country: "France",
+        flag: "🇫🇷",
+        matchup: "Steelers vs Saints",
+        away: "pittsburgh-steelers",
+        home: "new-orleans-saints",
+        date: "Oct 25",
+        time: "9:30 AM ET",
+        venue: "Stade de France",
+        description: "Pittsburgh and New Orleans take the NFL experience to Paris for a first-class international game day.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/f/f4/Stade_de_France.jpg"
+      },
+      {
+        city: "Madrid",
+        country: "Spain",
+        flag: "🇪🇸",
+        matchup: "Bengals vs Falcons",
+        away: "cincinnati-bengals",
+        home: "atlanta-falcons",
+        date: "Nov 8",
+        time: "9:30 AM ET",
+        venue: "Santiago Bernabéu Stadium",
+        description: "Cincinnati and Atlanta bring the NFL to Madrid and the home of Real Madrid.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/0/08/Santiago_Bernabeu_Stadium.jpg"
+      },
+      {
+        city: "Munich",
+        country: "Germany",
+        flag: "🇩🇪",
+        matchup: "Patriots vs Lions",
+        away: "new-england-patriots",
+        home: "detroit-lions",
+        date: "Nov 15",
+        time: "9:30 AM ET",
+        venue: "FC Bayern Munich Arena",
+        description: "New England and Detroit meet in Munich for one of the season's standout overseas games.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Allianz_Arena.jpg"
+      },
+      {
+        city: "Mexico City",
+        country: "Mexico",
+        flag: "🇲🇽",
+        matchup: "Vikings vs 49ers",
+        away: "minnesota-vikings",
+        home: "san-francisco-49ers",
+        date: "Nov 22",
+        time: "6:00 AM ET",
+        venue: "Estadio Banorte",
+        description: "The international series closes its current slate in Mexico City with Minnesota facing San Francisco.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Estadio_Azteca_2026_-_06.jpg"
+      }
+    ].map((game) => (
+      <Link href="/find-tickets?category=international" className="kz-international-card" key={game.matchup + game.date}>
+        <div className="kz-international-card-image">
+          <img src={game.image} alt={game.venue} />
+          <span className="kz-international-photo-tag"><span>{game.flag}</span><b>{game.city.toUpperCase()} · NFL</b></span>
+        </div>
+        <div className="kz-international-card-body">
+          <div className="kz-international-matchup">
+            <span><img src={logoUrl(game.away)} alt="" />{game.matchup.split(" vs ")[0]}</span>
+            <b>VS</b>
+            <span>{game.matchup.split(" vs ")[1]}<img src={logoUrl(game.home)} alt="" /></span>
+          </div>
+          <div className="kz-international-meta"><span>📅 {game.date} · {game.time}</span><span>📍 {game.venue}</span></div>
+          <p>{game.description}</p>
+          <span className="kz-international-action">Find tickets <ArrowRight size={14} /></span>
+        </div>
+      </Link>
+    ))}
+  </div>
+</section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-      <section className="kz-section kz-nba-home-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · THIS WEEK</span><h2>NBA matchups to watch</h2></div><Link href="/nba">See all NBA games <ArrowRight size={15} /></Link></div><div className="kz-feature-grid kz-nba-feature-grid"><NbaFeatureCard game={NBA_HOME_GAMES[0]} image="/images/nba/feature-den.png" label="Game of the week" /><div className="kz-feature-side">{NBA_HOME_GAMES.slice(1, 3).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></div></section>
+            <section className="kz-section kz-nba-home-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · THIS WEEK</span><h2>NBA matchups to watch</h2></div><Link href="/nba">See all NBA games <ArrowRight size={15} /></Link></div><div className="kz-feature-grid kz-nba-feature-grid"><NbaFeatureCard game={NBA_HOME_GAMES[0]} image="/images/nba/feature-den.png" label="Game of the week" /><div className="kz-feature-side">{NBA_HOME_GAMES.slice(1, 3).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></div></section>
 
 
       <section className="kz-section kz-nba-trending-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · TRENDING</span><h2>Games basketball fans are watching</h2></div><Link href="/nba">Browse NBA <ArrowRight size={15} /></Link></div><div className="kz-feature-grid kz-nba-feature-grid kz-nba-feature-grid-flip"><NbaFeatureCard game={NBA_HOME_GAMES[3]} image="/images/nba/feature-phi.png" label="Trending now" /><div className="kz-feature-side">{NBA_HOME_GAMES.slice(4, 6).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></div></section>
