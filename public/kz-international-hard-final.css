@@ -218,3 +218,29 @@
   line-height:1!important;
   margin-top:auto!important;
 }
+
+/* Final readability bump — keep international cards simple and marketplace-sized. */
+.kz-home .kz-international-section .kz-international-matchup{
+  font-size:18px!important;
+  line-height:1.25!important;
+  letter-spacing:-.01em!important;
+}
+.kz-home .kz-international-section .kz-international-matchup>b{
+  font-size:11px!important;
+}
+.kz-home .kz-international-section .kz-international-matchup img{
+  width:30px!important;height:30px!important;
+  min-width:30px!important;min-height:30px!important;
+  max-width:30px!important;max-height:30px!important;
+}
+.kz-home .kz-international-section .kz-international-meta{
+  font-size:13px!important;
+  line-height:1.5!important;
+  gap:5px!important;
+}
+.kz-home .kz-international-section .kz-international-action{
+  font-size:13px!important;
+}
+.kz-home .kz-international-section .kz-international-photo-tag{
+  font-size:11px!important;
+}
