@@ -1,0 +1,155 @@
+.kz-home{
+  --kz-art-radius:16px;
+}
+
+/* Unified clear matchup artwork: large image first, readable information second. */
+.kz-home .kz-event-card,
+.kz-home .kz-international-card,
+.kz-home .kz-nba-event-card{
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.kz-home .kz-event-image,
+.kz-home .kz-international-card-image,
+.kz-home .kz-nba-event-card .kz-event-image{
+  aspect-ratio:16 / 10;
+  min-height:0;
+  overflow:hidden;
+  background:#111;
+}
+
+.kz-home .kz-event-image > img,
+.kz-home .kz-event-image .kz-stadium-visual,
+.kz-home .kz-event-image .kz-simple-matchup,
+.kz-home .kz-international-card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.kz-home .kz-event-info{
+  padding:16px 17px 17px;
+  gap:7px;
+}
+.kz-home .kz-event-info strong{
+  font-size:16px;
+  line-height:1.2;
+  letter-spacing:-.015em;
+}
+.kz-home .kz-event-info span,
+.kz-home .kz-event-info small{
+  font-size:13px;
+  line-height:1.35;
+}
+
+/* Make the primary graphic feel like the Jazz/Nuggets reference: big, clean, confident. */
+.kz-home .kz-feature-main{
+  min-height:560px;
+  border-radius:18px;
+  overflow:hidden;
+}
+.kz-home .kz-feature-main .kz-stadium-visual,
+.kz-home .kz-feature-main .kz-simple-matchup{
+  position:absolute;
+  inset:0;
+  height:100%;
+}
+.kz-home .kz-feature-copy{
+  max-width:680px;
+  padding:30px 32px 32px;
+}
+.kz-home .kz-feature-copy h3{
+  font-size:clamp(30px,4vw,48px);
+  line-height:1.02;
+  letter-spacing:-.035em;
+}
+
+/* Keep matchup art crisp: no blur, no excessive glass, no tiny information baked into imagery. */
+.kz-home .kz-stadium-visual img,
+.kz-home .kz-nba-feature-art,
+.kz-home .kz-international-card-image img{
+  filter:none;
+  transform:none;
+}
+.kz-home .kz-event-image .kz-stadium-shade{
+  background:linear-gradient(180deg,rgba(5,4,8,0) 45%,rgba(5,4,8,.55) 100%);
+}
+.kz-home .kz-event-image .kz-stadium-color{opacity:.08}
+.kz-home .kz-international-photo-tag{
+  backdrop-filter:none;
+}
+
+/* Mobile: preserve the large-art feel instead of shrinking everything into tiles. */
+@media (max-width:760px){
+  .kz-home .kz-feature-main{
+    min-height:430px;
+    border-radius:16px;
+  }
+  .kz-home .kz-feature-copy{
+    padding:22px;
+  }
+  .kz-home .kz-feature-copy h3{
+    font-size:30px;
+  }
+  .kz-home .kz-event-image,
+  .kz-home .kz-international-card-image{
+    aspect-ratio:16 / 10;
+  }
+  .kz-home .kz-event-info{
+    padding:14px 15px 16px;
+  }
+
+  /* Secondary graphics browse horizontally, like a marketplace carousel. */
+  .kz-home .kz-feature-side{
+    display:flex!important;
+    overflow-x:auto;
+    gap:12px;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    padding-bottom:3px;
+  }
+  .kz-home .kz-feature-side::-webkit-scrollbar{display:none}
+  .kz-home .kz-feature-side > .kz-event-card{
+    flex:0 0 78%;
+    max-width:310px;
+    scroll-snap-align:start;
+  }
+
+  .kz-home .kz-international-grid{
+    display:flex!important;
+    overflow-x:auto;
+    gap:14px;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    grid-template-columns:none!important;
+  }
+  .kz-home .kz-international-grid::-webkit-scrollbar{display:none}
+  .kz-home .kz-international-card{
+    flex:0 0 82%;
+    max-width:330px;
+    scroll-snap-align:start;
+  }
+
+  .kz-home .kz-nba-feature{
+    min-height:430px;
+    border-radius:16px;
+  }
+  .kz-home .kz-nba-feature-art{
+    object-position:center;
+  }
+}
+
+@media (max-width:430px){
+  .kz-home .kz-feature-main,
+  .kz-home .kz-nba-feature{
+    min-height:390px;
+  }
+  .kz-home .kz-feature-copy h3{
+    font-size:27px;
+  }
+  .kz-home .kz-feature-side > .kz-event-card,
+  .kz-home .kz-international-card{
+    flex-basis:84%;
+  }
+}
