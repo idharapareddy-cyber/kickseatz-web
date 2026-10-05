@@ -233,7 +233,6 @@ export default function HomePage() {
         date: "Sept 10",
         time: "1:00 AM ET",
         venue: "Melbourne Cricket Ground",
-        description: "The NFL opens its international slate at the MCG in a showcase between two NFC West rivals.",
         image: "https://commons.wikimedia.org/wiki/Special:FilePath/MRF-D_Marines_and_Sailors_participate_in_showcase_at_NFL_game_in_Melbourne_%289926672%29.jpg?width=1600"
       },
       {
@@ -246,7 +245,6 @@ export default function HomePage() {
         date: "Sept 27",
         time: "9:30 AM ET",
         venue: "Maracanã Stadium",
-        description: "Baltimore and Dallas bring a marquee NFL matchup to the legendary Maracanã in Rio de Janeiro.",
         image: "https://upload.wikimedia.org/wikipedia/commons/c/c9/New_Maracana_Stadium.jpg"
       },
       {
@@ -259,7 +257,6 @@ export default function HomePage() {
         date: "Oct 4",
         time: "9:30 AM ET",
         venue: "Tottenham Hotspur Stadium",
-        description: "The Colts and Commanders meet in London as the series returns to Tottenham Hotspur Stadium.",
         image: "https://stadiumdb.com/pictures/stadiums/eng/tottenham_hotspur_stadium/tottenham_hotspur_stadium05.jpg"
       },
       {
@@ -272,7 +269,6 @@ export default function HomePage() {
         date: "Oct 11",
         time: "9:30 AM ET",
         venue: "Tottenham Hotspur Stadium",
-        description: "Philadelphia and Jacksonville add another London matchup to the international schedule.",
         image: "https://static.independent.co.uk/2021/12/08/23/50bc4524002b921e7bbd1720f0743252Y29udGVudHNlYXJjaGFwaSwxNjM5MDkyOTkx-2.62046825.jpg"
       },
       {
@@ -285,7 +281,6 @@ export default function HomePage() {
         date: "Oct 18",
         time: "9:30 AM ET",
         venue: "Wembley Stadium",
-        description: "A divisional matchup heads across the Atlantic for an NFL Sunday at Wembley.",
         image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Wembley_Stadium%2C_London%2C_UK.jpg"
       },
       {
@@ -298,7 +293,6 @@ export default function HomePage() {
         date: "Oct 25",
         time: "9:30 AM ET",
         venue: "Stade de France",
-        description: "Pittsburgh and New Orleans take the NFL experience to Paris for a first-class international game day.",
         image: "https://upload.wikimedia.org/wikipedia/commons/f/f4/Stade_de_France.jpg"
       },
       {
@@ -311,7 +305,6 @@ export default function HomePage() {
         date: "Nov 8",
         time: "9:30 AM ET",
         venue: "Santiago Bernabéu Stadium",
-        description: "Cincinnati and Atlanta bring the NFL to Madrid and the home of Real Madrid.",
         image: "https://upload.wikimedia.org/wikipedia/commons/0/08/Santiago_Bernabeu_Stadium.jpg"
       },
       {
@@ -324,7 +317,6 @@ export default function HomePage() {
         date: "Nov 15",
         time: "9:30 AM ET",
         venue: "FC Bayern Munich Arena",
-        description: "New England and Detroit meet in Munich for one of the season's standout overseas games.",
         image: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Allianz_Arena.jpg"
       },
       {
@@ -337,7 +329,6 @@ export default function HomePage() {
         date: "Nov 22",
         time: "6:00 AM ET",
         venue: "Estadio Banorte",
-        description: "The international series closes its current slate in Mexico City with Minnesota facing San Francisco.",
         image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Estadio_Azteca_2026_-_06.jpg"
       }
     ].map((game) => (
@@ -353,7 +344,6 @@ export default function HomePage() {
             <span>{game.matchup.split(" vs ")[1]}<img src={logoUrl(game.home)} alt="" /></span>
           </div>
           <div className="kz-international-meta"><span>📅 {game.date} · {game.time}</span><span>📍 {game.venue}</span></div>
-          <p>{game.description}</p>
           <span className="kz-international-action">Find tickets <ArrowRight size={14} /></span>
         </div>
       </Link>
