@@ -244,3 +244,87 @@
 .kz-home .kz-international-section .kz-international-photo-tag{
   font-size:11px!important;
 }
+
+/* Mobile-first international card layout: one comfortable card per row. */
+@media (max-width: 760px){
+  .kz-home .kz-international-section .kz-international-grid{
+    grid-template-columns:1fr!important;
+    gap:14px!important;
+    grid-auto-rows:auto!important;
+  }
+  .kz-home .kz-international-section .kz-international-card{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    border-radius:12px!important;
+  }
+  .kz-home .kz-international-section .kz-international-card-image{
+    height:210px!important;
+    min-height:210px!important;
+    max-height:210px!important;
+    flex:0 0 210px!important;
+  }
+  .kz-home .kz-international-section .kz-international-card-body{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    flex:0 0 auto!important;
+    padding:14px 15px 15px!important;
+    gap:9px!important;
+  }
+  .kz-home .kz-international-section .kz-international-matchup{
+    justify-content:flex-start!important;
+    gap:8px!important;
+    font-size:17px!important;
+  }
+  .kz-home .kz-international-section .kz-international-matchup span{
+    flex:1 1 0!important;
+    white-space:normal!important;
+    overflow:visible!important;
+    text-overflow:clip!important;
+  }
+  .kz-home .kz-international-section .kz-international-matchup span:last-child{
+    justify-content:flex-end!important;
+    text-align:right!important;
+  }
+  .kz-home .kz-international-section .kz-international-matchup img{
+    width:30px!important;
+    height:30px!important;
+    min-width:30px!important;
+    min-height:30px!important;
+    max-width:30px!important;
+    max-height:30px!important;
+  }
+  .kz-home .kz-international-section .kz-international-meta{
+    font-size:13px!important;
+    line-height:1.45!important;
+  }
+  .kz-home .kz-international-section .kz-international-action{
+    font-size:13px!important;
+  }
+  .kz-home .kz-international-section .kz-international-photo-tag{
+    top:9px!important;
+    left:9px!important;
+    padding:6px 9px!important;
+    font-size:10px!important;
+  }
+}
+@media (max-width:420px){
+  .kz-home .kz-international-section .kz-international-card-image{
+    height:185px!important;
+    min-height:185px!important;
+    max-height:185px!important;
+    flex-basis:185px!important;
+  }
+  .kz-home .kz-international-section .kz-international-matchup{
+    font-size:16px!important;
+  }
+  .kz-home .kz-international-section .kz-international-matchup img{
+    width:27px!important;
+    height:27px!important;
+    min-width:27px!important;
+    min-height:27px!important;
+    max-width:27px!important;
+    max-height:27px!important;
+  }
+}
