@@ -117,3 +117,73 @@
 .kz-home .kz-international-section .kz-international-editorial-grid{display:none!important;}
 @media(max-width:1050px){.kz-home .kz-international-section .kz-international-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}
 @media(max-width:620px){.kz-home .kz-international-section .kz-international-grid{grid-template-columns:1fr!important;}.kz-home .kz-international-section .kz-international-card-image{height:210px!important;flex-basis:210px!important;}}
+
+/* FINAL OVERRIDE: prevent legacy homepage image rules from touching matchup logos. */
+.kz-home .kz-international-section .kz-international-grid{
+  grid-auto-rows:390px!important;
+}
+.kz-home .kz-international-section .kz-international-card{
+  position:relative!important;
+  height:390px!important;
+  min-height:390px!important;
+  max-height:none!important;
+}
+.kz-home .kz-international-section .kz-international-card-image{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  height:220px!important;
+  min-height:220px!important;
+  max-height:220px!important;
+  flex:0 0 220px!important;
+}
+.kz-home .kz-international-section .kz-international-card-image > img{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  transform:none!important;
+}
+.kz-home .kz-international-section .kz-international-card-body{
+  position:relative!important;
+  z-index:2!important;
+  width:100%!important;
+  height:170px!important;
+  min-height:170px!important;
+  max-height:none!important;
+  flex:0 0 170px!important;
+}
+.kz-home .kz-international-section .kz-international-card-body img,
+.kz-home .kz-international-section .kz-international-matchup img{
+  position:static!important;
+  inset:auto!important;
+  display:block!important;
+  width:25px!important;
+  height:25px!important;
+  min-width:25px!important;
+  min-height:25px!important;
+  max-width:25px!important;
+  max-height:25px!important;
+  object-fit:contain!important;
+  transform:none!important;
+  border:0!important;
+}
+.kz-home .kz-international-section .kz-international-matchup span{
+  position:static!important;
+  width:auto!important;
+  height:auto!important;
+}
+.kz-home .kz-international-section .kz-international-card-body p{
+  position:static!important;
+  width:auto!important;
+  height:auto!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
