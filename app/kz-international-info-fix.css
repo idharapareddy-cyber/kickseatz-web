@@ -38,9 +38,9 @@
   filter:none!important;
 }
 
-/* Replace the mismatched Melbourne matchup graphic with the real game photo, without touching the rest of the homepage. */
+/* Rams vs 49ers: use an actual Melbourne Cricket Ground stadium photo instead of the old matchup graphic. */
 .kz-home .kz-international-section .kz-international-feature-card:first-child > img{
-  content:url("https://commons.wikimedia.org/wiki/Special:FilePath/MRF-D_Marines_and_Sailors_participate_in_showcase_at_NFL_game_in_Melbourne_%289926672%29.jpg?width=1600")!important;
+  content:url("https://commons.wikimedia.org/wiki/Special:FilePath/Melbourne_Cricket_Ground.png?width=1600")!important;
 }
 
 /* Same location pill on every card. */
@@ -65,7 +65,7 @@
 .kz-home .kz-international-section .kz-international-photo-tag span{font-size:12px!important;line-height:1!important;}
 .kz-home .kz-international-section .kz-international-photo-tag b{font-size:9px!important;font-weight:850!important;letter-spacing:.08em!important;line-height:1!important;color:#fff!important;}
 
-/* Every one of the nine cards gets the same full event-information block. */
+/* All nine cards use the same complete event-information block. */
 .kz-home .kz-international-section .kz-international-card-copy{
   position:relative!important;
   z-index:2!important;
@@ -96,15 +96,21 @@
   white-space:normal!important;
   overflow-wrap:anywhere!important;
 }
-.kz-home .kz-international-section .kz-international-card-copy small{
+.kz-home .kz-international-section .kz-international-card-copy small,
+.kz-home .kz-international-section .kz-international-feature-card:nth-child(-n+6) .kz-international-card-copy small{
   display:block!important;
+  visibility:visible!important;
   width:100%!important;
+  height:auto!important;
+  max-height:none!important;
   margin:0!important;
   color:var(--muted)!important;
   font-size:10px!important;
   line-height:1.35!important;
   font-weight:650!important;
   white-space:normal!important;
+  overflow:visible!important;
+  opacity:1!important;
 }
 
 /* Kill any older pseudo-element graphics that could override the real photos. */
