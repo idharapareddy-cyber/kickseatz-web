@@ -1,0 +1,92 @@
+/* Marquee matchup treatment: replaces the old hidden-logo/stadium fallback with a clear sports-poster composition. */
+.kz-home .kz-simple-matchup {
+  position: relative !important;
+  isolation: isolate !important;
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) !important;
+  align-items: center !important;
+  min-height: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  padding: 28px 34px 68px !important;
+  background:
+    radial-gradient(circle at 18% 48%, color-mix(in srgb, var(--away-color) 72%, transparent), transparent 42%),
+    radial-gradient(circle at 82% 48%, color-mix(in srgb, var(--home-color) 72%, transparent), transparent 42%),
+    linear-gradient(110deg, #111018 0%, #1b1822 50%, #111018 100%) !important;
+}
+.kz-home .kz-simple-matchup::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--away-color) 28%, transparent), transparent 50%, color-mix(in srgb, var(--home-color) 28%, transparent)) !important;
+}
+.kz-home .kz-simple-matchup > .kz-simple-team,
+.kz-home .kz-simple-matchup > .kz-simple-vs {
+  display: flex !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+.kz-home .kz-simple-matchup .kz-simple-team {
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+}
+.kz-home .kz-simple-matchup .kz-simple-team img {
+  display: block !important;
+  width: clamp(88px, 15vw, 190px) !important;
+  height: clamp(88px, 15vw, 190px) !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 16px 24px rgba(0,0,0,.32)) !important;
+}
+.kz-home .kz-simple-matchup .kz-simple-team span {
+  display: block !important;
+  color: #fff !important;
+  font-size: clamp(14px, 1.4vw, 21px) !important;
+  font-weight: 900 !important;
+  letter-spacing: .08em !important;
+}
+.kz-home .kz-simple-matchup .kz-simple-vs {
+  width: clamp(46px, 5vw, 64px) !important;
+  height: clamp(46px, 5vw, 64px) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.96) !important;
+  color: #121016 !important;
+  font-size: clamp(11px, 1vw, 14px) !important;
+  font-weight: 950 !important;
+  letter-spacing: .04em !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,.3) !important;
+}
+.kz-home .kz-simple-matchup .kz-simple-matchup-label { display: none !important; }
+
+/* Real player photography for the three marquee matchups already represented in KickSeatz data. */
+.kz-home .kz-simple-matchup[style*="#E31837"][style*="#00338D"] .kz-simple-team-away,
+.kz-home .kz-simple-matchup[style*="#00338D"][style*="#E31837"] .kz-simple-team-home { background: url("https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png") center bottom / contain no-repeat !important; }
+.kz-home .kz-simple-matchup[style*="#E31837"][style*="#00338D"] .kz-simple-team-home,
+.kz-home .kz-simple-matchup[style*="#00338D"][style*="#E31837"] .kz-simple-team-away { background: url("https://a.espncdn.com/i/headshots/nfl/players/full/3918298.png") center bottom / contain no-repeat !important; }
+.kz-home .kz-simple-matchup[style*="#E31837"][style*="#00338D"] .kz-simple-team img,
+.kz-home .kz-simple-matchup[style*="#00338D"][style*="#E31837"] .kz-simple-team img { visibility: hidden !important; }
+
+.kz-home .kz-simple-matchup[style*="#241773"][style*="#FB4F14"] .kz-simple-team-away,
+.kz-home .kz-simple-matchup[style*="#FB4F14"][style*="#241773"] .kz-simple-team-home { background: url("https://a.espncdn.com/i/headshots/nfl/players/full/3916387.png") center bottom / contain no-repeat !important; }
+.kz-home .kz-simple-matchup[style*="#241773"][style*="#FB4F14"] .kz-simple-team-home,
+.kz-home .kz-simple-matchup[style*="#FB4F14"][style*="#241773"] .kz-simple-team-away { background: url("https://a.espncdn.com/i/headshots/nfl/players/full/3915511.png") center bottom / contain no-repeat !important; }
+.kz-home .kz-simple-matchup[style*="#241773"][style*="#FB4F14"] .kz-simple-team img,
+.kz-home .kz-simple-matchup[style*="#FB4F14"][style*="#241773"] .kz-simple-team img { visibility: hidden !important; }
+
+.kz-home .kz-simple-matchup[style*="#041E42"][style*="#004C54"] .kz-simple-team-away,
+.kz-home .kz-simple-matchup[style*="#004C54"][style*="#041E42"] .kz-simple-team-home { background: url("https://a.espncdn.com/i/headshots/nfl/players/full/2577417.png") center bottom / contain no-repeat !important; }
+.kz-home .kz-simple-matchup[style*="#041E42"][style*="#004C54"] .kz-simple-team-home,
+.kz-home .kz-simple-matchup[style*="#004C54"][style*="#041E42"] .kz-simple-team-away { background: url("https://a.espncdn.com/i/headshots/nfl/players/full/4040715.png") center bottom / contain no-repeat !important; }
+.kz-home .kz-simple-matchup[style*="#041E42"][style*="#004C54"] .kz-simple-team img,
+.kz-home .kz-simple-matchup[style*="#004C54"][style*="#041E42"] .kz-simple-team img { visibility: hidden !important; }
+
+@media (max-width: 760px) {
+  .kz-home .kz-simple-matchup { padding: 20px 16px 54px !important; }
+  .kz-home .kz-simple-matchup .kz-simple-team img { width: 92px !important; height: 92px !important; }
+  .kz-home .kz-simple-matchup .kz-simple-team span { font-size: 12px !important; }
+}
