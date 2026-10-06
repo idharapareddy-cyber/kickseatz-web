@@ -1,5 +1,8 @@
 /* Preserve the original NBA feature artwork and carry its visual language into the rest of the homepage. */
 .kz-home .kz-nba-feature-art {
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
   display:block !important;
   width:100% !important;
   height:100% !important;
@@ -10,7 +13,20 @@
 }
 
 .kz-home .kz-nba-feature {
+  position:relative !important;
   overflow:hidden !important;
+  isolation:isolate !important;
+}
+
+.kz-home .kz-nba-feature-shade {
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+}
+
+.kz-home .kz-nba-feature-copy {
+  position:relative !important;
+  z-index:2 !important;
 }
 
 /* Large, vibrant event photography: photo first, clean information second. */
