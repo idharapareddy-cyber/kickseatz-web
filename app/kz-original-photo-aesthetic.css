@@ -84,3 +84,178 @@
     min-height:230px !important;
   }
 }
+
+
+/* NFL experience/event cards: use the same photo-first hierarchy as the original NBA features.
+   These rules intentionally target experience/event classes only and do not touch NBA feature artwork. */
+.kz-home .kz-experience-card {
+  position:relative !important;
+  min-height:300px !important;
+  border-radius:18px !important;
+  overflow:hidden !important;
+  background:#111018 !important;
+  isolation:isolate !important;
+}
+
+.kz-home .kz-experience-art {
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
+  width:100% !important;
+  height:100% !important;
+  min-height:300px !important;
+  aspect-ratio:auto !important;
+  overflow:hidden !important;
+}
+
+.kz-home .kz-experience-art img {
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  filter:none !important;
+  transform:none !important;
+}
+
+.kz-home .kz-experience-shade {
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+  background:linear-gradient(180deg,rgba(7,6,12,.02) 18%,rgba(7,6,12,.16) 42%,rgba(7,6,12,.9) 100%) !important;
+}
+
+.kz-home .kz-experience-art > svg {
+  left:auto !important;
+  right:16px !important;
+  top:16px !important;
+  bottom:auto !important;
+  z-index:3 !important;
+  width:38px !important;
+  height:38px !important;
+  padding:9px !important;
+  box-sizing:border-box !important;
+  border:1px solid rgba(255,255,255,.2) !important;
+  border-radius:999px !important;
+  background:rgba(10,8,18,.52) !important;
+  backdrop-filter:blur(8px) !important;
+}
+
+.kz-home .kz-experience-copy {
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  z-index:2 !important;
+  padding:18px 19px 20px !important;
+  color:#fff !important;
+  background:transparent !important;
+}
+
+.kz-home .kz-experience-copy span {
+  color:#c8baff !important;
+  font-size:9px !important;
+  letter-spacing:.13em !important;
+  font-weight:900 !important;
+}
+
+.kz-home .kz-experience-copy strong {
+  margin-top:6px !important;
+  font-size:20px !important;
+  line-height:1.12 !important;
+  letter-spacing:-.025em !important;
+  color:#fff !important;
+  text-shadow:0 2px 12px rgba(0,0,0,.35) !important;
+}
+
+.kz-home .kz-experience-copy small {
+  max-width:470px !important;
+  margin-top:7px !important;
+  color:rgba(255,255,255,.78) !important;
+  font-size:10px !important;
+  line-height:1.45 !important;
+}
+
+.kz-home .kz-experience-card:hover .kz-experience-art img {
+  transform:scale(1.025) !important;
+}
+
+@media (max-width:1000px) {
+  .kz-home .kz-experience-card { min-height:280px !important; }
+  .kz-home .kz-experience-art { min-height:280px !important; }
+}
+
+@media (max-width:650px) {
+  .kz-home .kz-experience-card { min-height:260px !important; }
+  .kz-home .kz-experience-art { min-height:260px !important; }
+  .kz-home .kz-experience-copy strong { font-size:18px !important; }
+}
+
+/* Keep the NFL holiday/marquee cards photo-led too, while leaving NBA features untouched. */
+.kz-home .kz-seasonal-section .kz-marquee-card {
+  position:relative !important;
+  min-height:300px !important;
+  overflow:hidden !important;
+  border-radius:18px !important;
+  isolation:isolate !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-image {
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  aspect-ratio:auto !important;
+  z-index:0 !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-image img {
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  filter:none !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-image::after {
+  background:linear-gradient(180deg,rgba(7,6,12,.02) 20%,rgba(7,6,12,.18) 44%,rgba(7,6,12,.9) 100%) !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-body,
+.kz-home .kz-seasonal-section .kz-marquee-small-body {
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  z-index:2 !important;
+  min-height:0 !important;
+  padding:18px 18px 19px !important;
+  background:transparent !important;
+  color:#fff !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-body strong,
+.kz-home .kz-seasonal-section .kz-marquee-small-body strong {
+  color:#fff !important;
+  font-size:20px !important;
+  text-shadow:0 2px 12px rgba(0,0,0,.35) !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-body small,
+.kz-home .kz-seasonal-section .kz-marquee-small-body small {
+  color:#c8baff !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-games {
+  color:rgba(255,255,255,.78) !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-games span,
+.kz-home .kz-seasonal-section .kz-marquee-small-body > span {
+  color:rgba(255,255,255,.78) !important;
+}
+
+@media (max-width:760px) {
+  .kz-home .kz-seasonal-section .kz-marquee-card { min-height:260px !important; }
+}
