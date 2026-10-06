@@ -25,6 +25,7 @@ import "./kz-matchup-graphics.css";
 import "./kz-final-home-audit.css";
 import "./kz-games-worth-seeing-consistency.css";
 import "./kz-unified-card-aesthetic.css";
+import "./kz-original-photo-aesthetic.css";
 import { SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
@@ -32,21 +33,14 @@ export const metadata: Metadata = {
     default: "KickSeatz — Find better tickets",
     template: "%s | KickSeatz",
   },
-  description:
-    "KickSeatz helps fans discover NFL games and compare tickets using price, seat area, game vibe, and personalized preferences.",
+  description: "KickSeatz helps fans discover NFL games and compare tickets using price, seat area, game vibe, and personalized preferences.",
   applicationName: "KickSeatz",
   keywords: ["NFL tickets", "ticket discovery", "sports tickets", "KickSeatz"],
 };
 
-export const viewport: Viewport = {
-  themeColor: "#0B0A12",
-};
+export const viewport: Viewport = { themeColor: "#0B0A12" };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
@@ -54,9 +48,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/kz-international-hard-final.css?v=1" />
         <link rel="stylesheet" href="/kz-mobile-marketplace-final.css?v=1" />
       </head>
-      <body>
-        <SiteShell>{children}</SiteShell>
-      </body>
+      <body><SiteShell>{children}</SiteShell></body>
     </html>
   );
 }
