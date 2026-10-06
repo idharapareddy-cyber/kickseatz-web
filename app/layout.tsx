@@ -26,6 +26,7 @@ import "./kz-final-home-audit.css";
 import "./kz-games-worth-seeing-consistency.css";
 import "./kz-unified-card-aesthetic.css";
 import "./kz-original-photo-aesthetic.css";
+import "./kz-visual-master-pass.css";
 import { SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
