@@ -1,0 +1,70 @@
+/* Preserve the original NBA feature artwork and carry its visual language into the rest of the homepage. */
+.kz-home .kz-nba-feature-art {
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  filter:none !important;
+  transform:none !important;
+}
+
+.kz-home .kz-nba-feature {
+  overflow:hidden !important;
+}
+
+/* Large, vibrant event photography: photo first, clean information second. */
+.kz-home .kz-experience-card,
+.kz-home .kz-sport-card,
+.kz-home .kz-college-card {
+  overflow:hidden !important;
+  border-radius:18px !important;
+}
+
+.kz-home .kz-experience-art,
+.kz-home .kz-sport-card > img,
+.kz-home .kz-college-card > img {
+  min-height:260px !important;
+}
+
+.kz-home .kz-experience-art img,
+.kz-home .kz-sport-card > img,
+.kz-home .kz-college-card > img {
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  filter:none !important;
+  transform:none !important;
+}
+
+.kz-home .kz-experience-shade,
+.kz-home .kz-sport-shade,
+.kz-home .kz-college-shade {
+  background:linear-gradient(180deg, rgba(8,7,14,.02) 25%, rgba(8,7,14,.72) 100%) !important;
+}
+
+.kz-home .kz-experience-copy,
+.kz-home .kz-sport-card > div:last-child,
+.kz-home .kz-college-copy {
+  padding:18px 19px 20px !important;
+}
+
+/* Game-day experiences should feel like real event cards, not generic utility tiles. */
+.kz-home .kz-experience-grid {
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:18px !important;
+}
+
+@media (max-width:900px) {
+  .kz-home .kz-experience-grid {
+    grid-template-columns:1fr !important;
+  }
+}
+
+@media (max-width:760px) {
+  .kz-home .kz-experience-art,
+  .kz-home .kz-sport-card > img,
+  .kz-home .kz-college-card > img {
+    min-height:230px !important;
+  }
+}
