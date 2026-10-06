@@ -1,0 +1,173 @@
+/* Unified marketplace card language: preserve original artwork, standardize composition. */
+.kz-home {
+  --kz-card-radius: 18px;
+}
+
+/* NBA: keep the original large feature photos intact. Do not replace them with stadiums or new artwork. */
+.kz-home .kz-nba-feature {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  border-radius: var(--kz-card-radius);
+}
+.kz-home .kz-nba-feature-art {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  filter: none !important;
+  transform: none !important;
+}
+.kz-home .kz-nba-feature-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7,7,12,.02) 25%, rgba(7,7,12,.18) 48%, rgba(7,7,12,.84) 100%);
+  z-index: 1;
+}
+.kz-home .kz-nba-feature-copy { z-index: 2; }
+
+/* All matchup cards use one centered visual language. */
+.kz-home .kz-event-image,
+.kz-home .kz-international-card-image,
+.kz-home .kz-nba-event-card .kz-event-image,
+.kz-home .kz-experience-art,
+.kz-home .kz-sport-card > img,
+.kz-home .kz-college-card > img,
+.kz-home .kz-marquee-image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.kz-home .kz-event-image img,
+.kz-home .kz-international-card-image img,
+.kz-home .kz-nba-event-card .kz-event-image img,
+.kz-home .kz-experience-art img,
+.kz-home .kz-sport-card > img,
+.kz-home .kz-college-card > img,
+.kz-home .kz-marquee-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: none;
+  transform: none;
+}
+
+/* Team logo pair: exact symmetry on every card. */
+.kz-home .kz-nba-logo-pair,
+.kz-home .kz-international-matchup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 4vw, 42px);
+}
+.kz-home .kz-nba-logo-pair {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.kz-home .kz-nba-logo-pair img {
+  width: clamp(48px, 7vw, 82px) !important;
+  height: clamp(48px, 7vw, 82px) !important;
+  object-fit: contain !important;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 5px 14px rgba(0,0,0,.5));
+}
+.kz-home .kz-nba-logo-pair img:first-child { transform: translateX(-2px); }
+.kz-home .kz-nba-logo-pair img:last-child { transform: translateX(2px); }
+
+.kz-home .kz-international-matchup {
+  gap: 12px;
+}
+.kz-home .kz-international-matchup > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+.kz-home .kz-international-matchup > span:last-child { justify-content: flex-end; text-align: right; }
+.kz-home .kz-international-matchup img {
+  width: 34px !important;
+  height: 34px !important;
+  object-fit: contain !important;
+  flex: 0 0 34px;
+}
+.kz-home .kz-international-matchup > b {
+  flex: 0 0 auto;
+  min-width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(124,58,237,.95);
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: .08em;
+}
+
+/* Stadium/photo matchup cards: keep the image large, add the same team-pair language without replacing it. */
+.kz-home .kz-feature-main .kz-stadium-visual::after,
+.kz-home .kz-feature-main .kz-simple-matchup::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(48%, 250px);
+  height: 1px;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,.24);
+  pointer-events: none;
+}
+
+/* Marquee/experience cards should feel like event marketplace cards, not unrelated stock-photo tiles. */
+.kz-home .kz-marquee-card,
+.kz-home .kz-experience-card,
+.kz-home .kz-sport-card,
+.kz-home .kz-college-card {
+  border-radius: var(--kz-card-radius);
+  overflow: hidden;
+}
+.kz-home .kz-marquee-image,
+.kz-home .kz-experience-art {
+  position: relative;
+}
+.kz-home .kz-marquee-image img,
+.kz-home .kz-experience-art img {
+  transition: transform .25s ease;
+}
+.kz-home .kz-marquee-card:hover .kz-marquee-image img,
+.kz-home .kz-experience-card:hover .kz-experience-art img {
+  transform: scale(1.025);
+}
+
+/* Consistent information hierarchy: image -> event title -> supporting metadata -> action. */
+.kz-home .kz-event-info,
+.kz-home .kz-international-card-body,
+.kz-home .kz-marquee-body,
+.kz-home .kz-marquee-small-body {
+  background: var(--kz-card-bg, #fff);
+}
+.kz-home .kz-event-info strong,
+.kz-home .kz-international-matchup,
+.kz-home .kz-marquee-body strong,
+.kz-home .kz-marquee-small-body strong {
+  letter-spacing: -.02em;
+}
+
+@media (max-width: 760px) {
+  .kz-home .kz-nba-feature { min-height: 430px; }
+  .kz-home .kz-nba-logo-pair { gap: 20px; }
+  .kz-home .kz-nba-logo-pair img { width: 54px !important; height: 54px !important; }
+  .kz-home .kz-international-matchup img { width: 30px !important; height: 30px !important; flex-basis: 30px; }
+  .kz-home .kz-international-matchup { gap: 8px; font-size: 13px; }
+}
+
+@media (max-width: 430px) {
+  .kz-home .kz-nba-feature { min-height: 390px; }
+  .kz-home .kz-nba-logo-pair img { width: 46px !important; height: 46px !important; }
+}
