@@ -144,10 +144,6 @@ function NbaHomeCard({ game }: { game: (typeof NBA_GAMES)[number] }) {
           <div className="kz-stadium-shade" />
           <div className="kz-stadium-color" />
         </div>
-        <div className="kz-nba-logo-pair" aria-hidden="true">
-          <img src={nbaLogo(game.away)} alt="" />
-          <img src={nbaLogo(game.home)} alt="" />
-        </div>
       </div>
       <div className="kz-event-info">
         <strong>{away?.name} @ {home?.name}</strong>
@@ -167,11 +163,6 @@ function NbaFeatureCard({ game, image, label }: { game: (typeof NBA_GAMES)[numbe
       <div className="kz-nba-feature-shade" aria-hidden="true" />
       <div className="kz-nba-feature-copy">
         <span className="kz-nba-feature-label">{label}</span>
-        <div className="kz-nba-feature-logos" aria-hidden="true">
-          <img src={nbaLogo(game.away)} alt="" />
-          <i>@</i>
-          <img src={nbaLogo(game.home)} alt="" />
-        </div>
         <h3>{away?.name} <em>@</em> {home?.name}</h3>
         <p>{formatDate(game.date)} · {game.time} · {home?.city} · {game.demand} demand</p>
         <b>Find tickets <ArrowRight size={15} /></b>
@@ -338,11 +329,7 @@ export default function HomePage() {
           <span className="kz-international-photo-tag"><span>{game.flag}</span><b>{game.city.toUpperCase()} · NFL</b></span>
         </div>
         <div className="kz-international-card-body">
-          <div className="kz-international-matchup">
-            <span><img src={logoUrl(game.away)} alt="" />{game.matchup.split(" vs ")[0]}</span>
-            <b>VS</b>
-            <span>{game.matchup.split(" vs ")[1]}<img src={logoUrl(game.home)} alt="" /></span>
-          </div>
+          <div className="kz-international-matchup">{game.matchup}</div>
           <div className="kz-international-meta"><span>📅 {game.date} · {game.time}</span><span>📍 {game.venue}</span></div>
           <span className="kz-international-action">Find tickets <ArrowRight size={14} /></span>
         </div>
