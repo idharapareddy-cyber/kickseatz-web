@@ -27,6 +27,7 @@ import "./kz-games-worth-seeing-consistency.css";
 import "./kz-unified-card-aesthetic.css";
 import "./kz-original-photo-aesthetic.css";
 import "./kz-jazz-template-pass.css";
+import "./kz-clean-photo-cards.css";
 import { SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
