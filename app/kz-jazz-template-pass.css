@@ -1,0 +1,441 @@
+/* KickSeatz: unified "Jazz vs Nuggets" visual template.
+   Photo-first, one large feature + smaller supporting cards, clean overlay copy,
+   crisp logos, vibrant team color accents. Loaded last intentionally. */
+
+.kz-home{
+  --kz-template-radius:18px;
+  --kz-template-gap:16px;
+  --kz-template-purple:#a855f7;
+  --kz-template-ink:#fff;
+}
+
+.kz-home .kz-feature-grid,
+.kz-home .kz-nba-feature-grid{
+  display:grid !important;
+  grid-template-columns:minmax(0,2fr) minmax(280px,1fr) !important;
+  gap:var(--kz-template-gap) !important;
+  align-items:stretch !important;
+}
+
+.kz-home .kz-feature-main,
+.kz-home .kz-nba-feature{
+  position:relative !important;
+  min-height:560px !important;
+  grid-column:auto !important;
+  grid-row:auto !important;
+  border-radius:var(--kz-template-radius) !important;
+  overflow:hidden !important;
+  isolation:isolate !important;
+}
+
+.kz-home .kz-feature-side{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  grid-template-rows:repeat(2,minmax(0,1fr)) !important;
+  gap:var(--kz-template-gap) !important;
+  min-width:0 !important;
+}
+
+.kz-home .kz-feature-side .kz-event-card,
+.kz-home .kz-nba-feature-grid .kz-feature-side .kz-nba-event-card{
+  position:relative !important;
+  min-height:0 !important;
+  height:auto !important;
+  border-radius:var(--kz-template-radius) !important;
+  overflow:hidden !important;
+  isolation:isolate !important;
+  display:block !important;
+  background:#111018 !important;
+  border:1px solid rgba(255,255,255,.10) !important;
+}
+
+.kz-home .kz-feature-main>.kz-stadium-visual,
+.kz-home .kz-feature-main>.kz-simple-matchup,
+.kz-home .kz-feature-side .kz-event-image,
+.kz-home .kz-feature-side .kz-nba-event-card .kz-event-image{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  aspect-ratio:auto !important;
+  overflow:hidden !important;
+}
+
+.kz-home .kz-feature-main>.kz-stadium-visual img,
+.kz-home .kz-feature-main>.kz-simple-matchup,
+.kz-home .kz-feature-side .kz-event-image img,
+.kz-home .kz-feature-side .kz-nba-event-card .kz-event-image img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  filter:none !important;
+  transform:none !important;
+}
+
+.kz-home .kz-feature-main>.kz-stadium-visual::after,
+.kz-home .kz-feature-main>.kz-simple-matchup::after,
+.kz-home .kz-feature-side .kz-event-image::after,
+.kz-home .kz-feature-side .kz-nba-event-card .kz-event-image::after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+  background:
+    linear-gradient(180deg,rgba(5,4,10,.02) 20%,rgba(5,4,10,.12) 45%,rgba(5,4,10,.94) 100%),
+    linear-gradient(115deg,rgba(112,48,255,.18),transparent 55%) !important;
+  pointer-events:none !important;
+}
+
+.kz-home .kz-feature-copy,
+.kz-home .kz-feature-side .kz-event-info,
+.kz-home .kz-nba-feature-copy,
+.kz-home .kz-nba-feature-grid .kz-nba-event-card .kz-event-info{
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  z-index:4 !important;
+  height:auto !important;
+  min-height:0 !important;
+  padding:22px 22px 21px !important;
+  background:transparent !important;
+  color:#fff !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-end !important;
+  gap:7px !important;
+}
+
+.kz-home .kz-feature-copy>span,
+.kz-home .kz-nba-feature-label,
+.kz-home .kz-feature-side .kz-event-info>span:first-of-type{
+  color:#e9d5ff !important;
+  font-size:10px !important;
+  font-weight:900 !important;
+  letter-spacing:.12em !important;
+  text-transform:uppercase !important;
+}
+
+.kz-home .kz-feature-copy h3,
+.kz-home .kz-nba-feature h3{
+  margin:0 !important;
+  color:#fff !important;
+  font-size:clamp(28px,3.2vw,44px) !important;
+  line-height:1.02 !important;
+  font-weight:900 !important;
+  letter-spacing:-.035em !important;
+  text-shadow:0 3px 18px rgba(0,0,0,.42) !important;
+}
+
+.kz-home .kz-feature-copy p{
+  margin:0 !important;
+  max-width:620px !important;
+  color:rgba(255,255,255,.82) !important;
+  font-size:13px !important;
+  line-height:1.45 !important;
+}
+
+.kz-home .kz-feature-copy b,
+.kz-home .kz-nba-feature-copy b{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:6px !important;
+  align-self:flex-start !important;
+  margin-top:5px !important;
+  padding:10px 15px !important;
+  border-radius:999px !important;
+  background:#fff !important;
+  color:#0b0a12 !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+}
+
+.kz-home .kz-feature-side .kz-event-info strong,
+.kz-home .kz-nba-feature-grid .kz-nba-event-card .kz-event-info strong{
+  color:#fff !important;
+  font-size:18px !important;
+  line-height:1.08 !important;
+  letter-spacing:-.025em !important;
+  text-shadow:0 2px 12px rgba(0,0,0,.45) !important;
+}
+
+.kz-home .kz-feature-side .kz-event-info small,
+.kz-home .kz-nba-feature-grid .kz-nba-event-card .kz-event-info small{
+  color:rgba(255,255,255,.72) !important;
+  font-size:10px !important;
+}
+
+.kz-home .kz-feature-side .kz-heart{z-index:5 !important;}
+
+/* Restore matchup logos that an older override was hiding. */
+.kz-home .kz-simple-matchup>*{
+  display:flex !important;
+}
+.kz-home .kz-simple-matchup{
+  position:absolute !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:clamp(20px,5vw,54px) !important;
+  background-color:#17121f !important;
+  background-image:linear-gradient(125deg,rgba(111,45,189,.45),rgba(17,16,24,.16) 55%,rgba(14,12,20,.7)) !important;
+}
+.kz-home .kz-simple-team{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:clamp(76px,9vw,120px) !important;
+  height:clamp(76px,9vw,120px) !important;
+  padding:15px !important;
+  border-radius:22px !important;
+  background:rgba(8,7,13,.54) !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  box-shadow:0 12px 32px rgba(0,0,0,.32) !important;
+  backdrop-filter:blur(8px) !important;
+}
+.kz-home .kz-simple-team img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+}
+.kz-home .kz-simple-team span{display:none !important;}
+.kz-home .kz-simple-vs{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:38px !important;
+  height:38px !important;
+  flex:0 0 38px !important;
+  border-radius:999px !important;
+  background:rgba(168,85,247,.94) !important;
+  color:#fff !important;
+  font-size:10px !important;
+  font-weight:900 !important;
+  letter-spacing:.08em !important;
+  box-shadow:0 8px 24px rgba(80,30,150,.4) !important;
+  z-index:3 !important;
+}
+
+/* NBA small cards use the same photo + overlay treatment as the hero. */
+.kz-home .kz-nba-feature-grid .kz-nba-event-card{
+  min-height:0 !important;
+}
+.kz-home .kz-nba-feature-grid .kz-nba-event-card .kz-nba-logo-pair{
+  left:18px !important;
+  bottom:auto !important;
+  top:18px !important;
+  z-index:4 !important;
+}
+.kz-home .kz-nba-feature-grid .kz-nba-event-card .kz-nba-logo-pair img{
+  width:46px !important;
+  height:46px !important;
+}
+.kz-home .kz-nba-feature-grid .kz-nba-event-card .kz-event-info{
+  z-index:5 !important;
+}
+
+/* Consistent logo pair on photo cards. */
+.kz-home .kz-nba-logo-pair img{
+  filter:drop-shadow(0 5px 14px rgba(0,0,0,.55)) !important;
+}
+
+/* One large visual + smaller supporting visuals for all discovery groups. */
+.kz-home .kz-seasonal-section .kz-marquee-grid,
+.kz-home .kz-international-grid,
+.kz-home .kz-college-grid,
+.kz-home .kz-sports-grid,
+.kz-home .kz-experience-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  grid-auto-rows:190px !important;
+  gap:var(--kz-template-gap) !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-card:first-child,
+.kz-home .kz-international-card:first-child,
+.kz-home .kz-college-card:first-child,
+.kz-home .kz-sport-card:first-child,
+.kz-home .kz-experience-card:first-child{
+  grid-column:span 2 !important;
+  grid-row:span 2 !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-card,
+.kz-home .kz-international-card,
+.kz-home .kz-college-card,
+.kz-home .kz-sport-card,
+.kz-home .kz-experience-card{
+  position:relative !important;
+  min-height:0 !important;
+  height:auto !important;
+  border-radius:var(--kz-template-radius) !important;
+  overflow:hidden !important;
+  isolation:isolate !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-image,
+.kz-home .kz-international-card-image,
+.kz-home .kz-college-card>img,
+.kz-home .kz-sport-card>img,
+.kz-home .kz-experience-art{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  aspect-ratio:auto !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-image img,
+.kz-home .kz-international-card-image img,
+.kz-home .kz-college-card>img,
+.kz-home .kz-sport-card>img,
+.kz-home .kz-experience-art img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  filter:none !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-image:after,
+.kz-home .kz-international-card-image:after,
+.kz-home .kz-college-card:after,
+.kz-home .kz-sport-card:after,
+.kz-home .kz-experience-card:after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+  background:linear-gradient(180deg,rgba(6,5,11,.02) 18%,rgba(6,5,11,.14) 46%,rgba(6,5,11,.94) 100%) !important;
+  pointer-events:none !important;
+}
+
+.kz-home .kz-seasonal-section .kz-marquee-body,
+.kz-home .kz-seasonal-section .kz-marquee-small-body,
+.kz-home .kz-international-card-body,
+.kz-home .kz-college-copy,
+.kz-home .kz-sport-card>div:last-child,
+.kz-home .kz-experience-copy{
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  z-index:3 !important;
+  padding:18px !important;
+  background:transparent !important;
+  color:#fff !important;
+}
+
+.kz-home .kz-marquee-body strong,
+.kz-home .kz-marquee-small-body strong,
+.kz-home .kz-international-matchup,
+.kz-home .kz-college-copy strong,
+.kz-home .kz-sport-card strong,
+.kz-home .kz-experience-copy strong{
+  color:#fff !important;
+  text-shadow:0 2px 14px rgba(0,0,0,.4) !important;
+}
+
+.kz-home .kz-college-copy span,
+.kz-home .kz-sport-card span,
+.kz-home .kz-experience-copy span,
+.kz-home .kz-marquee-body small,
+.kz-home .kz-marquee-small-body small{
+  color:#e9d5ff !important;
+}
+
+.kz-home .kz-college-copy strong,
+.kz-home .kz-sport-card strong,
+.kz-home .kz-experience-copy strong{
+  font-size:20px !important;
+  line-height:1.08 !important;
+}
+
+.kz-home .kz-college-copy small,
+.kz-home .kz-sport-card small,
+.kz-home .kz-experience-copy small{
+  color:rgba(255,255,255,.75) !important;
+}
+
+.kz-home .kz-international-card-body{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:7px !important;
+}
+.kz-home .kz-international-matchup{
+  font-size:18px !important;
+  font-weight:900 !important;
+}
+.kz-home .kz-international-meta{
+  color:rgba(255,255,255,.75) !important;
+}
+.kz-home .kz-international-action{
+  align-self:flex-start !important;
+  padding:8px 12px !important;
+  border-radius:999px !important;
+  background:#fff !important;
+  color:#0b0a12 !important;
+  font-weight:800 !important;
+  font-size:11px !important;
+}
+
+.kz-home .kz-experience-art>svg{
+  z-index:4 !important;
+}
+.kz-home .kz-marquee-games{
+  color:rgba(255,255,255,.78) !important;
+}
+
+/* Crisp hover: subtle, not a gimmick. */
+.kz-home .kz-feature-main:hover img,
+.kz-home .kz-feature-side .kz-event-card:hover img,
+.kz-home .kz-nba-feature:hover .kz-nba-feature-art,
+.kz-home .kz-international-card:hover img,
+.kz-home .kz-college-card:hover img,
+.kz-home .kz-sport-card:hover img,
+.kz-home .kz-experience-card:hover img,
+.kz-home .kz-marquee-card:hover img{
+  transform:scale(1.025) !important;
+  transition:transform .35s ease !important;
+}
+
+@media (max-width:900px){
+  .kz-home .kz-feature-grid,
+  .kz-home .kz-nba-feature-grid{
+    grid-template-columns:1fr !important;
+  }
+  .kz-home .kz-feature-main,
+  .kz-home .kz-nba-feature{
+    min-height:460px !important;
+  }
+  .kz-home .kz-feature-side{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-rows:240px !important;
+  }
+}
+
+@media (max-width:700px){
+  .kz-home .kz-feature-side{
+    grid-template-columns:1fr !important;
+    grid-template-rows:repeat(2,230px) !important;
+  }
+  .kz-home .kz-seasonal-section .kz-marquee-grid,
+  .kz-home .kz-international-grid,
+  .kz-home .kz-college-grid,
+  .kz-home .kz-sports-grid,
+  .kz-home .kz-experience-grid{
+    grid-template-columns:1fr !important;
+    grid-auto-rows:240px !important;
+  }
+  .kz-home .kz-seasonal-section .kz-marquee-card:first-child,
+  .kz-home .kz-international-card:first-child,
+  .kz-home .kz-college-card:first-child,
+  .kz-home .kz-sport-card:first-child,
+  .kz-home .kz-experience-card:first-child{
+    grid-column:auto !important;
+    grid-row:auto !important;
+  }
+}
