@@ -352,3 +352,30 @@
     max-height:76px!important;
   }
 }
+
+
+/* No floating team-logo fallback: use a clean team-color matchup treatment. */
+.kz-home .kz-simple-matchup {
+  min-height:100%;
+  width:100%;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:16px!important;
+  padding:32px!important;
+  background:linear-gradient(110deg, color-mix(in srgb, var(--away-color) 88%, #000 12%), color-mix(in srgb, var(--home-color) 88%, #000 12%))!important;
+  color:#fff!important;
+  box-sizing:border-box!important;
+}
+.kz-home .kz-simple-matchup > span {
+  font-size:clamp(15px,2vw,25px)!important;
+  font-weight:800!important;
+  line-height:1.05!important;
+  text-align:center!important;
+  text-wrap:balance!important;
+}
+.kz-home .kz-simple-matchup > b {
+  font-size:12px!important;
+  letter-spacing:.14em!important;
+  opacity:.8!important;
+}
