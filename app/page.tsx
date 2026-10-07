@@ -16,10 +16,10 @@ import { GAMES, TEAMS, teamName } from "../lib/data";
 import { NBA_GAMES, nbaTeam } from "../lib/nba-data";
 
 const collegeFootball = [
-  { name: "Georgia Bulldogs", short: "UGA", image: "https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" },
-  { name: "Alabama Crimson Tide", short: "BAMA", image: "https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" },
-  { name: "Ohio State Buckeyes", short: "OSU", image: "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" },
-  { name: "Texas Longhorns", short: "TEXAS", image: "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png" },
+  { name: "Georgia Bulldogs", short: "UGA", image: "https://commons.wikimedia.org/wiki/Special:FilePath/2026_G-Day_at_Sanford_Stadium.jpg?width=2400" },
+  { name: "Alabama Crimson Tide", short: "BAMA", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Bryant-Denny_night.jpg?width=2400" },
+  { name: "Ohio State Buckeyes", short: "OSU", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Ohio_Stadium_%2823663942948%29.jpg?width=2400" },
+  { name: "Texas Longhorns", short: "TEXAS", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Darrell_K_Royal%E2%80%93Texas_Memorial_Stadium_-_Texas_Longhorns_%2854983869867%29.jpg?width=2400" },
 ];
 
 const sportCategories = [
