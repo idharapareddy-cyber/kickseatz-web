@@ -9,7 +9,7 @@
 }
 
 .kz-home > .kz-section{
-  margin-top:42px !important;
+  margin-top:30px !important;
   margin-bottom:0 !important;
 }
 
@@ -204,20 +204,28 @@
 /* ---------- seasonal / international / college / sports / experiences ----------
    Same editorial rhythm: one large visual + smaller supporting visuals. */
 .kz-home .kz-seasonal-section .kz-marquee-grid,
-.kz-home .kz-international-grid,
 .kz-home .kz-college-grid,
 .kz-home .kz-sports-grid,
 .kz-home .kz-experience-grid{
   display:grid !important;
-  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
-  grid-auto-rows:210px !important;
+  grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr) !important;
+  grid-template-rows:repeat(2,170px) !important;
+  gap:14px !important;
+}
+.kz-home .kz-international-grid{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  grid-template-rows:repeat(3,170px) !important;
   gap:14px !important;
 }
 .kz-home .kz-seasonal-section .kz-marquee-card:first-child,
-.kz-home .kz-international-card:first-child,
 .kz-home .kz-college-card:first-child,
 .kz-home .kz-sport-card:first-child,
 .kz-home .kz-experience-card:first-child{
+  grid-column:span 2 !important;
+  grid-row:span 2 !important;
+}
+.kz-home .kz-international-card:first-child{
   grid-column:span 2 !important;
   grid-row:span 2 !important;
 }
@@ -311,7 +319,7 @@
 .kz-home .kz-nba-trending-section,
 .kz-home .kz-college-section,
 .kz-home .kz-sports-section{
-  margin-top:42px !important;
+  margin-top:30px !important;
 }
 
 /* ---------- responsive ---------- */
@@ -346,6 +354,7 @@
   .kz-home .kz-sports-grid,
   .kz-home .kz-experience-grid{
     grid-template-columns:1fr !important;
+    grid-template-rows:none !important;
     grid-auto-rows:250px !important;
   }
   .kz-home .kz-seasonal-section .kz-marquee-card:first-child,
