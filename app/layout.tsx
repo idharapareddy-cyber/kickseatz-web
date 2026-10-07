@@ -47,9 +47,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="/kz-international-reference.css?v=2" />
-        <link rel="stylesheet" href="/kz-international-hard-final.css?v=1" />
-        <link rel="stylesheet" href="/kz-mobile-marketplace-final.css?v=1" />
       </head>
       <body><SiteShell>{children}</SiteShell></body>
     </html>
