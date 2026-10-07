@@ -1,0 +1,13 @@
+/* Final clean photo-card pass: no overlaid matchup logos on photographic cards. */
+.kz-home .kz-nba-feature-logos,
+.kz-home .kz-nba-logo-pair,
+.kz-home .kz-international-card-body img{
+  display:none !important;
+}
+.kz-home .kz-international-matchup{
+  display:block !important;
+  color:#fff !important;
+  font-size:18px !important;
+  font-weight:900 !important;
+  line-height:1.08 !important;
+}
