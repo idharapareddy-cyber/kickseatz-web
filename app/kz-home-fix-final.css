@@ -276,3 +276,79 @@
   .kz-home .kz-sport-card:first-child,
   .kz-home .kz-experience-card:first-child{grid-column:auto!important;grid-row:auto!important;}
 }
+
+/* Final matchup-logo alignment: keep both team marks on one exact baseline. */
+.kz-home .kz-feature-main .kz-simple-matchup,
+.kz-home .kz-feature-side .kz-simple-matchup {
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 52px minmax(0,1fr)!important;
+  align-items:center!important;
+  justify-items:center!important;
+  gap:8px!important;
+  padding:24px!important;
+}
+
+.kz-home .kz-feature-main .kz-simple-matchup .kz-simple-team,
+.kz-home .kz-feature-side .kz-simple-matchup .kz-simple-team {
+  position:relative!important;
+  z-index:4!important;
+  width:100%!important;
+  height:132px!important;
+  min-width:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:9px!important;
+  margin:0!important;
+  transform:none!important;
+}
+
+.kz-home .kz-feature-main .kz-simple-matchup .kz-simple-team img,
+.kz-home .kz-feature-side .kz-simple-matchup .kz-simple-team img {
+  display:block!important;
+  width:92px!important;
+  height:92px!important;
+  max-width:92px!important;
+  max-height:92px!important;
+  object-fit:contain!important;
+  margin:0 auto!important;
+  transform:none!important;
+}
+
+.kz-home .kz-feature-main .kz-simple-matchup .kz-simple-team span,
+.kz-home .kz-feature-side .kz-simple-matchup .kz-simple-team span {
+  display:block!important;
+  margin:0!important;
+  line-height:1!important;
+  text-align:center!important;
+}
+
+.kz-home .kz-feature-main .kz-simple-matchup .kz-simple-vs,
+.kz-home .kz-feature-side .kz-simple-matchup .kz-simple-vs {
+  position:relative!important;
+  z-index:5!important;
+  align-self:center!important;
+  justify-self:center!important;
+  margin:0!important;
+  flex:none!important;
+}
+
+@media(max-width:620px){
+  .kz-home .kz-feature-main .kz-simple-matchup,
+  .kz-home .kz-feature-side .kz-simple-matchup {
+    grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr)!important;
+    padding:16px!important;
+  }
+  .kz-home .kz-feature-main .kz-simple-matchup .kz-simple-team,
+  .kz-home .kz-feature-side .kz-simple-matchup .kz-simple-team {
+    height:112px!important;
+  }
+  .kz-home .kz-feature-main .kz-simple-matchup .kz-simple-team img,
+  .kz-home .kz-feature-side .kz-simple-matchup .kz-simple-team img {
+    width:76px!important;
+    height:76px!important;
+    max-width:76px!important;
+    max-height:76px!important;
+  }
+}
