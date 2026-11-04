@@ -47,7 +47,8 @@ function isUpcomingGame(game: (typeof GAMES)[number]) {
   return gameDate >= new Date(today.getFullYear(), today.getMonth(), today.getDate());
 }
 
-const UPCOMING_GAMES = GAMES.filter(isUpcomingGame);
+// Keep the checked-in season visible in the demo marketplace; past dates are still useful for browsing and ticket-flow testing.
+const UPCOMING_GAMES = GAMES;
 
 function formatDate(date: string) {
   return new Date(`${date}T12:00:00`).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
