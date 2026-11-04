@@ -202,14 +202,23 @@
 }
 .kz-home .kz-international-card-image img,
 .kz-home .kz-seasonal-section .kz-marquee-image img,
-.kz-home .kz-college-card > img,
-.kz-home .kz-sport-card > img,
 .kz-home .kz-experience-art img {
   position: absolute !important;
   inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
+}
+.kz-home .kz-college-card > img,
+.kz-home .kz-sport-card > img {
+  position: relative !important;
+  inset: auto !important;
+  display: block !important;
+  width: 100% !important;
+  height: 176px !important;
+  min-height: 176px !important;
+  object-fit: cover !important;
+  flex: none !important;
 }
 .kz-home .kz-international-card-body,
 .kz-home .kz-seasonal-section .kz-marquee-body,
