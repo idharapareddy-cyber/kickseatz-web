@@ -23,10 +23,8 @@ const collegeFootball = [
 ];
 
 const sportCategories = [
-  { name: "Basketball", kicker: "NBA", image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1000&q=85" },
-  { name: "Baseball", kicker: "MLB", image: "https://www.nikkansports.com/baseball/mlb/news/img/202401040000891-w1300_1.jpg" },
-  { name: "Hockey", kicker: "NHL", image: "https://oeg.ca/assets/uploads/img/_800x450_crop_center-center_none/Hockey_RogersPlace_1600px.jpg" },
-  { name: "Soccer", kicker: "MLS", image: "https://cdn.mos.cms.futurecdn.net/xjhbJv3TtXPSRw2mgjXukN-650-80.jpg" },
+  { name: "Football", kicker: "NFL", href: "/nfl", description: "Explore NFL matchups", image: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Arrowhead_Stadium.jpg" },
+  { name: "Basketball", kicker: "NBA", href: "/nba", description: "Explore NBA matchups", image: "/images/nba/feature-den.png" },
 ];
 
 const logoIds: Record<string, number> = {
@@ -187,12 +185,17 @@ function EventCard({ game }: { game: (typeof GAMES)[number] }) {
 }
 
 export default function HomePage() {
-  const featured = UPCOMING_GAMES.slice(0, 5);
-  const trending = [...UPCOMING_GAMES].filter((game) => game.demand === "High" || game.demand === "Premium").slice(0, 6);
-  const upcoming = UPCOMING_GAMES.slice(5, 12);
-  const leadGame = featured[0];
+  const featured = UPCOMING_GAMES.filter(isUpcomingGame).sort((a, b) => {
+    const score = (game: (typeof GAMES)[number]) => {
+      const flags = gameFlags(game);
+      return (flags.rivalry ? 6 : 0) + (flags.primetime ? 4 : 0) +
+        (game.demand === "Premium" ? 3 : game.demand === "High" ? 2 : 0);
+    };
+    return score(b) - score(a) || a.date.localeCompare(b.date);
+  }).slice(0, 3);
 
-  return <div className="page marketplace-home kz-home">
+  return (
+    <div className="page marketplace-home kz-home">
       <section className="kz-hero">
         <div className="kz-hero-image">
           <div className="kz-marketplace-hero-art">
@@ -204,170 +207,38 @@ export default function HomePage() {
         <div className="kz-hero-search"><div><span className="kz-eyebrow">SEARCH KICKSEATZ</span><strong>What are you looking for?</strong></div><form action="/find-tickets" method="get" className="kz-search-box"><Search size={19} /><input name="search" type="search" placeholder="Team, sport, event, city, or stadium" aria-label="Search teams, games, cities, or stadiums" /><button type="submit">Search</button></form><div className="kz-search-links"><Link href="/find-tickets">All games</Link><Link href="/teams">All teams</Link><Link href="/find-my-game">Find My Game</Link></div></div>
       </section>
 
-      <nav className="kz-category-rail" aria-label="Sports discovery"><Link className="active" href="/find-tickets">NFL</Link><Link href="/find-tickets?category=division">Division Rivalries</Link><Link href="/find-tickets?category=primetime">Primetime</Link><Link href="/find-tickets?category=playoff-watch">Playoff Watch</Link><Link href="/find-tickets?category=international">International Series</Link><Link href="/find-tickets?category=college-football">College Football</Link><Link className="kz-category-nba" href="/nba">NBA</Link><Link href="/find-tickets?category=baseball">Baseball</Link><Link href="/find-tickets?category=hockey">Hockey</Link><Link href="/find-tickets?category=soccer">Soccer</Link><Link href="/find-tickets?category=concerts">Concerts</Link></nav>
-
-      {leadGame && NBA_HOME_GAMES[0] && <section className="kz-section kz-featured-sports-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NFL + NBA · FEATURED</span><h2>Games worth seeing</h2></div><Link href="/find-tickets">See all games <ArrowRight size={15} /></Link></div><div className="kz-feature-grid kz-balanced-feature-grid"><Link href={`/find-tickets?game=${leadGame.id}`} className="kz-feature-main"><GameVisual game={leadGame} hero /><div className="kz-feature-copy"><span>NFL · {formatDate(leadGame.date)} · {leadGame.city}</span><h3>{teamName(leadGame.away)} @ {teamName(leadGame.home)}</h3><p>{leadGame.reason}</p><b>Find NFL tickets <ArrowRight size={15} /></b></div></Link><NbaFeatureCard game={NBA_HOME_GAMES[0]} image="/images/nba/feature-den.png" label="NBA · Game of the week" /></div></section>}
-
-
-      {NBA_HOME_GAMES.length > 0 && (<section className="kz-section kz-nba-home-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · THIS WEEK</span><h2>NBA matchups to watch</h2></div><Link href="/nba">See all NBA games <ArrowRight size={15} /></Link></div><div className="kz-feature-grid kz-nba-feature-grid"><NbaFeatureCard game={NBA_HOME_GAMES[0]} image="/images/nba/feature-den.png" label="Game of the week" /><div className="kz-feature-side">{NBA_HOME_GAMES.slice(1, 3).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></div></section>)}
-
-
-      {NBA_HOME_GAMES.length > 3 && (<section className="kz-section kz-nba-trending-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · TRENDING</span><h2>Games basketball fans are watching</h2></div><Link href="/nba">Browse NBA <ArrowRight size={15} /></Link></div><div className="kz-feature-grid kz-nba-feature-grid kz-nba-feature-grid-flip"><NbaFeatureCard game={NBA_HOME_GAMES[3]} image="/images/nba/feature-phi.png" label="Trending now" /><div className="kz-feature-side">{NBA_HOME_GAMES.slice(4, 6).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></div></section>)}
-
-      <section className="kz-section kz-seasonal-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NFL · HOLIDAYS & MARQUEE</span><h2>Big NFL dates</h2></div><Link href="/find-tickets?category=seasonal">View all <ArrowRight size={15} /></Link></div><div className="kz-marquee-grid"><Link href="/find-tickets?category=thanksgiving" className="kz-marquee-card kz-marquee-holiday"><div className="kz-marquee-image"><img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Packvbears.jpg" alt="Chicago Bears and Detroit Lions NFL game" /></div><div className="kz-marquee-body"><div><small>THREE GAMES · NOV 26</small><strong>Thanksgiving Day</strong></div><div className="kz-marquee-games"><span>Bears @ Lions · 1:00 PM</span><span>Eagles @ Cowboys · 4:30 PM</span><span>Chiefs @ Bills · 8:20 PM</span></div></div></Link><Link href="/find-tickets?category=christmas" className="kz-marquee-card kz-marquee-holiday"><div className="kz-marquee-image"><img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Packvbears.jpg" alt="Green Bay Packers and Chicago Bears NFL game" /></div><div className="kz-marquee-body"><div><small>THREE GAMES · DEC 25</small><strong>Christmas Day</strong></div><div className="kz-marquee-games"><span>Packers @ Bears · 1:00 PM</span><span>Bills @ Broncos · 4:30 PM</span><span>Rams @ Seahawks · 8:15 PM</span></div></div></Link><Link href="/find-tickets?category=super-bowl" className="kz-marquee-card kz-marquee-small"><div className="kz-marquee-image"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/SoFi_Stadium.jpg" alt="SoFi Stadium in Inglewood, California" /></div><div className="kz-marquee-small-body"><small>FEB 14, 2027 · INGLEWOOD</small><strong>Super Bowl LXI</strong><span>SoFi Stadium · Los Angeles</span></div></Link></div></section>
-
-      <section className="kz-section kz-international-section">
-  <div className="kz-section-heading">
-    <div>
-      <span className="kz-eyebrow">NFL · INTERNATIONAL SERIES</span>
-      <h2>Games around the world</h2>
-    </div>
-    <Link href="/find-tickets?category=international">View upcoming games <ArrowRight size={15} /></Link>
-  </div>
-  <div className="kz-international-grid">
-    {[
-      {
-        city: "Melbourne",
-        country: "Australia",
-        flag: "🇦🇺",
-        matchup: "49ers vs Rams",
-        away: "san-francisco-49ers",
-        home: "los-angeles-rams",
-        date: "Sept 10",
-        time: "1:00 AM ET",
-        venue: "Melbourne Cricket Ground",
-        image: "https://upload.wikimedia.org/wikipedia/commons/6/66/Packvbears.jpg"
-      },
-      {
-        city: "Rio",
-        country: "Brazil",
-        flag: "🇧🇷",
-        matchup: "Ravens vs Cowboys",
-        away: "baltimore-ravens",
-        home: "dallas-cowboys",
-        date: "Sept 27",
-        time: "9:30 AM ET",
-        venue: "Maracanã Stadium",
-        image: "https://upload.wikimedia.org/wikipedia/commons/c/c9/New_Maracana_Stadium.jpg"
-      },
-      {
-        city: "London",
-        country: "England",
-        flag: "🇬🇧",
-        matchup: "Colts vs Commanders",
-        away: "indianapolis-colts",
-        home: "washington-commanders",
-        date: "Oct 4",
-        time: "9:30 AM ET",
-        venue: "Tottenham Hotspur Stadium",
-        image: "https://stadiumdb.com/pictures/stadiums/eng/tottenham_hotspur_stadium/tottenham_hotspur_stadium05.jpg"
-      },
-      {
-        city: "London",
-        country: "England",
-        flag: "🇬🇧",
-        matchup: "Eagles vs Jaguars",
-        away: "philadelphia-eagles",
-        home: "jacksonville-jaguars",
-        date: "Oct 11",
-        time: "9:30 AM ET",
-        venue: "Tottenham Hotspur Stadium",
-        image: "https://static.independent.co.uk/2021/12/08/23/50bc4524002b921e7bbd1720f0743252Y29udGVudHNlYXJjaGFwaSwxNjM5MDkyOTkx-2.62046825.jpg"
-      },
-      {
-        city: "London",
-        country: "England",
-        flag: "🇬🇧",
-        matchup: "Texans vs Jaguars",
-        away: "houston-texans",
-        home: "jacksonville-jaguars",
-        date: "Oct 18",
-        time: "9:30 AM ET",
-        venue: "Wembley Stadium",
-        image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Wembley_Stadium%2C_London%2C_UK.jpg"
-      },
-      {
-        city: "Paris",
-        country: "France",
-        flag: "🇫🇷",
-        matchup: "Steelers vs Saints",
-        away: "pittsburgh-steelers",
-        home: "new-orleans-saints",
-        date: "Oct 25",
-        time: "9:30 AM ET",
-        venue: "Stade de France",
-        image: "https://upload.wikimedia.org/wikipedia/commons/f/f4/Stade_de_France.jpg"
-      },
-      {
-        city: "Madrid",
-        country: "Spain",
-        flag: "🇪🇸",
-        matchup: "Bengals vs Falcons",
-        away: "cincinnati-bengals",
-        home: "atlanta-falcons",
-        date: "Nov 8",
-        time: "9:30 AM ET",
-        venue: "Santiago Bernabéu Stadium",
-        image: "https://upload.wikimedia.org/wikipedia/commons/0/08/Santiago_Bernabeu_Stadium.jpg"
-      },
-      {
-        city: "Munich",
-        country: "Germany",
-        flag: "🇩🇪",
-        matchup: "Patriots vs Lions",
-        away: "new-england-patriots",
-        home: "detroit-lions",
-        date: "Nov 15",
-        time: "9:30 AM ET",
-        venue: "FC Bayern Munich Arena",
-        image: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Allianz_Arena.jpg"
-      },
-      {
-        city: "Mexico City",
-        country: "Mexico",
-        flag: "🇲🇽",
-        matchup: "Vikings vs 49ers",
-        away: "minnesota-vikings",
-        home: "san-francisco-49ers",
-        date: "Nov 22",
-        time: "6:00 AM ET",
-        venue: "Estadio Banorte",
-        image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Estadio_Azteca_2026_-_06.jpg"
-      }
-    ].map((game) => (
-      <Link href="/find-tickets?category=international" className="kz-international-card" key={game.matchup + game.date}>
-        <div className="kz-international-card-image">
-          <img src={game.image} alt={game.venue} />
-          <span className="kz-international-photo-tag"><span>{game.flag}</span><b>{game.city.toUpperCase()} · NFL</b></span>
+      <section className="kz-section kz-curated-section">
+        <div className="kz-section-heading">
+          <div><span className="kz-eyebrow">HANDPICKED MATCHUPS</span><h2>Games worth seeing</h2></div>
+          <Link href="/nfl">Browse NFL games <ArrowRight size={15} /></Link>
         </div>
-        <div className="kz-international-card-body">
-          <div className="kz-international-matchup">{game.matchup}</div>
-          <div className="kz-international-meta"><span>📅 {game.date} · {game.time}</span><span>📍 {game.venue}</span></div>
-          <span className="kz-international-action">Find tickets <ArrowRight size={14} /></span>
+        <div className="kz-curated-game-grid">
+          {featured.map((game) => <EventCard key={game.id} game={game} />)}
         </div>
-      </Link>
-    ))}
-  </div>
-</section>
+      </section>
 
-            
-
-      
-
-      <section className="kz-section kz-college-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NEXT UP</span><h2>College football</h2></div><Link href="/find-tickets?category=college-football">Explore college football <ArrowRight size={15} /></Link></div><div className="kz-college-grid">{collegeFootball.map((school)=><Link href="/find-tickets?category=college-football" className="kz-college-card" key={school.short}><img src={school.image} alt="" /><div className="kz-college-shade" /><div className="kz-college-copy"><span>COLLEGE FOOTBALL</span><strong>{school.name}</strong><small>Games, rivalries & game-day experiences</small></div></Link>)}</div></section>
-
-      <section className="kz-section kz-sports-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">MORE SPORTS</span><h2>Coming beyond football</h2></div><span className="kz-section-note">One ticket destination, more live sports.</span></div><div className="kz-sports-grid">{sportCategories.map((sport)=><Link href={`/find-tickets?category=${sport.kicker.toLowerCase()}`} className="kz-sport-card" key={sport.kicker}><img src={sport.image} alt="" /><div className="kz-sport-shade" /><div><span>{sport.kicker}</span><strong>{sport.name}</strong><small>Explore tickets & events</small></div></Link>)}</div></section>
-
-      <section className="kz-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">GAME DAY & BEYOND</span><h2>More than just the game</h2></div><Link href="/find-tickets">Explore events <ArrowRight size={15} /></Link></div><div className="kz-experience-grid"><Link href="/find-tickets" className="kz-experience-card kz-experience-concert"><div className="kz-experience-art"><img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1000&q=85" alt="" /><div className="kz-experience-shade" /><Music2 size={25} /></div><div className="kz-experience-copy"><span>LIVE MUSIC</span><strong>Concerts & game-day music</strong><small>Find live music experiences around major game weekends.</small></div></Link><Link href="/find-tickets" className="kz-experience-card"><div className="kz-experience-art"><img src="https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=1400&q=90" alt="" /><div className="kz-experience-shade" /><Users size={25} /></div><div className="kz-experience-copy"><span>NFL EVENTS</span><strong>Fan festivals & football events</strong><small>Discover NFL-themed experiences beyond the stadium seats.</small></div></Link><Link href="/find-tickets" className="kz-experience-card"><div className="kz-experience-art"><img src="https://images.unsplash.com/photo-1668674768860-b6d34068042b?auto=format&fit=crop&w=1400&q=90" alt="" /><div className="kz-experience-shade" /><Sparkles size={25} /></div><div className="kz-experience-copy"><span>GAME WEEKEND</span><strong>Drafts, showcases & special events</strong><small>Keep an eye out for major football events and special weekends.</small></div></Link></div></section>
-
-
-
-      <section className="kz-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">EXPLORE BY DIVISION · NFL</span><h2>Find your part of the NFL</h2></div><Link href="/teams">Browse all teams <ArrowRight size={15} /></Link></div><div className="kz-division-grid">{["AFC East","AFC North","AFC South","AFC West","NFC East","NFC North","NFC South","NFC West"].map((division) => { const teams = TEAMS.filter((team) => team.division === division).slice(0, 4); return <Link href="/teams" className="kz-division-card" key={division}><div className="kz-division-top"><span>{division.startsWith("AFC") ? "AFC" : "NFC"}</span><ArrowRight size={16} /></div><strong>{division}</strong><div className="kz-division-logos">{teams.map((team) => <img key={team.slug} src={logoUrl(team.slug)} alt="" />)}</div><small>{teams.map((team) => team.abbr).join(" · ")}</small></Link>; })}</div></section>
-
-      <section className="kz-section kz-discover"><div className="kz-section-heading"><div><span className="kz-eyebrow">DISCOVER MORE</span><h2>Explore KickSeatz</h2></div></div><div className="kz-discover-grid"><Link href="/find-tickets"><Flame /><strong>High-demand games</strong><span>See matchups with strong ticket interest.</span><ArrowRight /></Link><Link href="/find-tickets"><CalendarDays /><strong>This week</strong><span>Browse the next games on the schedule.</span><ArrowRight /></Link><Link href="/find-my-game"><Navigation /><strong>Find My Game</strong><span>Answer a few questions and discover a matchup.</span><ArrowRight /></Link><Link href="/teams"><Trophy /><strong>Browse teams</strong><span>Explore every NFL team and stadium.</span><ArrowRight /></Link></div></section>
-
-      <section className="kz-info-strip"><div><span className="kz-eyebrow">KICKSEATZ</span><h2>Know what you’re buying.</h2></div><p>Compare price, seat location, availability, and game information in one place.</p><Link href="/find-tickets" className="kz-primary-button">Find tickets <Ticket size={16} /></Link></section>
+      <section className="kz-section kz-sports-section kz-sports-directory">
+        <div className="kz-section-heading">
+          <div><span className="kz-eyebrow">BROWSE BY SPORT</span><h2>Choose your game</h2></div>
+          <span className="kz-section-note">Select a sport to explore its matchups.</span>
+        </div>
+        <div className="kz-sports-grid">
+          {sportCategories.map((sport) => (
+            <Link href={sport.href} className="kz-sport-card" key={sport.kicker}>
+              <img src={sport.image} alt="" />
+              <div className="kz-sport-shade" />
+              <div className="kz-sport-card-copy">
+                <span>{sport.kicker}</span>
+                <strong>{sport.name}</strong>
+                <small>{sport.description}</small>
+              </div>
+              <span className="kz-sport-card-arrow"><ArrowRight size={19} /></span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <p className="demo-disclaimer">Demo marketplace · Ticket listings are synthetic inventory for product testing and are not live availability.</p>
-    </div>;
+    </div>
+  );
 }
