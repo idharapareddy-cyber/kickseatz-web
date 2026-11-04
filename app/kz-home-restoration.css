@@ -1,0 +1,302 @@
+/* KickSeatz homepage restoration: clean hero + consistent photo-card system. */
+.kz-home { padding-top: 0 !important; }
+
+/* Restore the full hero that the previous CSS passes hid. */
+.kz-home .kz-hero {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr) !important;
+  grid-template-areas: "image info" "search search" !important;
+  gap: 16px !important;
+  min-height: 0 !important;
+  margin: 0 0 20px !important;
+  padding: 20px 0 0 !important;
+}
+.kz-home .kz-hero-image {
+  display: block !important;
+  grid-area: image !important;
+  height: 360px !important;
+  min-height: 360px !important;
+  overflow: hidden !important;
+  border: 1px solid #30283f !important;
+  border-radius: 18px !important;
+  background: #11101a !important;
+}
+.kz-home .kz-marketplace-hero-art {
+  display: block !important;
+  position: relative !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  overflow: hidden !important;
+  background:
+    linear-gradient(180deg, rgba(6,5,11,.02) 10%, rgba(6,5,11,.14) 48%, rgba(6,5,11,.82) 100%),
+    url("https://upload.wikimedia.org/wikipedia/commons/7/79/Levi%27s_Stadium.JPG") center 48% / cover no-repeat !important;
+}
+.kz-home .kz-marketplace-hero-art::after {
+  content: "NFL · LIVE & UPCOMING" !important;
+  position: absolute !important;
+  left: 22px !important;
+  bottom: 20px !important;
+  z-index: 3 !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  font-weight: 900 !important;
+  letter-spacing: .13em !important;
+}
+.kz-home .kz-marketplace-ticket-panel,
+.kz-home .kz-marketplace-ticket-stack { display: none !important; }
+.kz-home .kz-hero-info {
+  display: flex !important;
+  grid-area: info !important;
+  min-height: 360px !important;
+  height: 360px !important;
+  padding: 30px !important;
+  border: 1px solid #30283f !important;
+  border-radius: 18px !important;
+  background: #11101a !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+.kz-home .kz-hero-info h1 {
+  max-width: 540px !important;
+  margin: 12px 0 !important;
+  font-size: clamp(36px, 4vw, 54px) !important;
+  line-height: .99 !important;
+  letter-spacing: -.055em !important;
+}
+.kz-home .kz-hero-info h1 em { color: #a78bfa !important; font-style: normal !important; }
+.kz-home .kz-hero-info p { max-width: 430px !important; color: #aaa4b7 !important; font-size: 14px !important; line-height: 1.65 !important; }
+.kz-home .kz-hero-search {
+  display: grid !important;
+  grid-area: search !important;
+  grid-template-columns: minmax(190px, .65fr) minmax(280px, 1.8fr) auto !important;
+  align-items: center !important;
+  gap: 18px !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 17px 19px !important;
+  border: 1px solid #30283f !important;
+  border-radius: 15px !important;
+  background: #11101a !important;
+}
+.kz-home .kz-category-rail { margin: 0 0 28px !important; }
+
+/* Consistent page rhythm. */
+.kz-home > .kz-section { margin-top: 34px !important; }
+.kz-home .kz-section-heading { margin-bottom: 15px !important; }
+.kz-home .kz-section-heading h2 { letter-spacing: -.03em !important; }
+
+/* Reusable 3-column graphic card layout. */
+.kz-home .kz-featured-card-grid,
+.kz-home .kz-nba-card-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  align-items: stretch !important;
+}
+.kz-home .kz-event-card,
+.kz-home .kz-nba-event-card {
+  display: flex !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  border: 1px solid #2a2535 !important;
+  border-radius: 15px !important;
+  background: #11101a !important;
+  box-shadow: none !important;
+}
+.kz-home .kz-event-image,
+.kz-home .kz-nba-event-card .kz-event-image {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 16 / 9 !important;
+  overflow: hidden !important;
+  flex: none !important;
+}
+.kz-home .kz-event-image .kz-stadium-visual,
+.kz-home .kz-nba-event-card .kz-event-image .kz-stadium-visual {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+}
+.kz-home .kz-event-image img,
+.kz-home .kz-nba-event-card .kz-event-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+.kz-home .kz-event-info {
+  display: flex !important;
+  min-height: 104px !important;
+  height: auto !important;
+  padding: 13px 15px 15px !important;
+  flex: 1 0 auto !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  background: #11101a !important;
+}
+.kz-home .kz-event-info strong { color: #f7f5fb !important; font-size: 14px !important; line-height: 1.3 !important; }
+.kz-home .kz-event-info span { color: #aaa4b7 !important; font-size: 11px !important; }
+.kz-home .kz-event-info small { color: #817b8d !important; font-size: 10px !important; }
+
+/* NBA cards use the same photo-first, information-below treatment. */
+.kz-home .kz-nba-event-card .kz-event-image { height: auto !important; aspect-ratio: 16 / 9 !important; }
+.kz-home .kz-nba-event-card .kz-event-info { min-height: 104px !important; padding: 13px 15px 15px !important; }
+
+/* Equal-width photo cards for international games, holidays, college, sports and experiences. */
+.kz-home .kz-international-grid,
+.kz-home .kz-seasonal-section .kz-marquee-grid,
+.kz-home .kz-college-grid,
+.kz-home .kz-sports-grid,
+.kz-home .kz-experience-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-auto-rows: auto !important;
+  gap: 18px !important;
+}
+.kz-home .kz-international-card:first-child,
+.kz-home .kz-sport-card:first-child,
+.kz-home .kz-experience-card:first-child {
+  grid-column: auto !important;
+  grid-row: auto !important;
+}
+.kz-home .kz-international-card,
+.kz-home .kz-seasonal-section .kz-marquee-card,
+.kz-home .kz-college-card,
+.kz-home .kz-sport-card,
+.kz-home .kz-experience-card {
+  position: relative !important;
+  display: flex !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  border: 1px solid #2a2535 !important;
+  border-radius: 15px !important;
+  background: #11101a !important;
+  isolation: auto !important;
+}
+.kz-home .kz-international-card-image,
+.kz-home .kz-seasonal-section .kz-marquee-image,
+.kz-home .kz-college-card > img,
+.kz-home .kz-sport-card > img,
+.kz-home .kz-experience-art {
+  position: relative !important;
+  inset: auto !important;
+  display: block !important;
+  width: 100% !important;
+  height: 176px !important;
+  min-height: 176px !important;
+  flex: none !important;
+  aspect-ratio: auto !important;
+  overflow: hidden !important;
+}
+.kz-home .kz-international-card-image img,
+.kz-home .kz-seasonal-section .kz-marquee-image img,
+.kz-home .kz-college-card > img,
+.kz-home .kz-sport-card > img,
+.kz-home .kz-experience-art img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+.kz-home .kz-international-card-body,
+.kz-home .kz-seasonal-section .kz-marquee-body,
+.kz-home .kz-seasonal-section .kz-marquee-small-body,
+.kz-home .kz-college-copy,
+.kz-home .kz-sport-card > div:last-child,
+.kz-home .kz-experience-copy {
+  position: relative !important;
+  inset: auto !important;
+  display: flex !important;
+  min-height: 112px !important;
+  padding: 14px 15px 16px !important;
+  flex: 1 0 auto !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  color: #f7f5fb !important;
+  background: #11101a !important;
+}
+.kz-home .kz-college-shade,
+.kz-home .kz-sport-shade,
+.kz-home .kz-experience-shade,
+.kz-home .kz-seasonal-section .kz-marquee-image::after {
+  display: none !important;
+  content: none !important;
+}
+.kz-home .kz-international-matchup,
+.kz-home .kz-seasonal-section .kz-marquee-body strong,
+.kz-home .kz-seasonal-section .kz-marquee-small-body strong,
+.kz-home .kz-college-copy strong,
+.kz-home .kz-sport-card strong,
+.kz-home .kz-experience-copy strong {
+  color: #f7f5fb !important;
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+}
+.kz-home .kz-international-meta,
+.kz-home .kz-seasonal-section .kz-marquee-games,
+.kz-home .kz-college-copy small,
+.kz-home .kz-sport-card small,
+.kz-home .kz-experience-copy small {
+  color: #aaa4b7 !important;
+  font-size: 10px !important;
+  line-height: 1.45 !important;
+}
+.kz-home .kz-seasonal-section .kz-marquee-games { display: flex !important; flex-direction: column !important; gap: 3px !important; }
+.kz-home .kz-international-action { margin-top: 6px !important; color: #b9a9ff !important; font-size: 11px !important; font-weight: 800 !important; }
+.kz-home .kz-college-copy span,
+.kz-home .kz-sport-card > div:last-child > span,
+.kz-home .kz-experience-copy span,
+.kz-home .kz-seasonal-section .kz-marquee-body small,
+.kz-home .kz-seasonal-section .kz-marquee-small-body small {
+  color: #b9a9ff !important;
+  font-size: 9px !important;
+  font-weight: 900 !important;
+  letter-spacing: .1em !important;
+}
+
+/* Do not let large feature-card styles leak into the restored 3x3 grid. */
+.kz-home .kz-featured-sports-section .kz-feature-grid { display: none !important; }
+
+/* Tablet and mobile layouts remain balanced. */
+@media (max-width: 980px) {
+  .kz-home .kz-hero { grid-template-columns: 1fr !important; grid-template-areas: "image" "info" "search" !important; }
+  .kz-home .kz-hero-image { height: 300px !important; min-height: 300px !important; }
+  .kz-home .kz-hero-info { height: auto !important; min-height: 250px !important; }
+  .kz-home .kz-featured-card-grid,
+  .kz-home .kz-nba-card-grid,
+  .kz-home .kz-international-grid,
+  .kz-home .kz-seasonal-section .kz-marquee-grid,
+  .kz-home .kz-college-grid,
+  .kz-home .kz-sports-grid,
+  .kz-home .kz-experience-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .kz-home .kz-hero-search { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 620px) {
+  .kz-home .kz-hero { padding-top: 12px !important; gap: 12px !important; }
+  .kz-home .kz-hero-image { height: 220px !important; min-height: 220px !important; }
+  .kz-home .kz-hero-info { min-height: 220px !important; padding: 22px !important; }
+  .kz-home .kz-hero-info h1 { font-size: 38px !important; }
+  .kz-home .kz-featured-card-grid,
+  .kz-home .kz-nba-card-grid,
+  .kz-home .kz-international-grid,
+  .kz-home .kz-seasonal-section .kz-marquee-grid,
+  .kz-home .kz-college-grid,
+  .kz-home .kz-sports-grid,
+  .kz-home .kz-experience-grid { grid-template-columns: 1fr !important; }
+  .kz-home .kz-section-heading { align-items: flex-start !important; }
+}
