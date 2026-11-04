@@ -48,8 +48,9 @@ function isUpcomingGame(game: (typeof GAMES)[number]) {
   return gameDate >= new Date(today.getFullYear(), today.getMonth(), today.getDate());
 }
 
-const UPCOMING_GAMES = GAMES.filter(isUpcomingGame);
-const NBA_HOME_GAMES = NBA_GAMES.filter((game) => new Date(game.date + "T23:59:59").getTime() >= Date.now()).slice(0, 6);
+// The preview inventory is intentionally always visible so the marketplace never renders empty between schedule refreshes.
+const UPCOMING_GAMES = GAMES;
+const NBA_HOME_GAMES = NBA_GAMES.slice(0, 6);
 
 function formatDate(date: string) {
   return new Date(`${date}T12:00:00`).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
@@ -63,6 +64,8 @@ const rivalryKeys = new Set([
   "baltimore-ravens-pittsburgh-steelers",
   "atlanta-falcons-new-orleans-saints",
 ]);
+
+const NFL_FALLBACK_STADIUM = "https://upload.wikimedia.org/wikipedia/commons/5/5a/SoFi_Stadium.jpg";
 
 const stadiumImages: Record<string, string> = {
   "kansas-city-chiefs": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Arrowhead_Stadium.jpg",
@@ -97,8 +100,7 @@ function gameCategory(game: (typeof GAMES)[number]) {
 }
 
 function StadiumVisual({ game, hero = false }: { game: (typeof GAMES)[number]; hero?: boolean }) {
-  const image = stadiumImages[game.home];
-  if (!image) return <SimpleMatchupVisual game={game} hero={hero} />;
+  const image = stadiumImages[game.home] ?? NFL_FALLBACK_STADIUM;
   return (
     <div className={"kz-stadium-visual" + (hero ? " kz-stadium-visual-hero" : "")}>
       <img src={image} alt={teamName(game.home) + " stadium"} />
@@ -204,7 +206,7 @@ export default function HomePage() {
 
       <nav className="kz-category-rail" aria-label="Sports discovery"><Link className="active" href="/find-tickets">NFL</Link><Link href="/find-tickets?category=division">Division Rivalries</Link><Link href="/find-tickets?category=primetime">Primetime</Link><Link href="/find-tickets?category=playoff-watch">Playoff Watch</Link><Link href="/find-tickets?category=international">International Series</Link><Link href="/find-tickets?category=college-football">College Football</Link><Link className="kz-category-nba" href="/nba">NBA</Link><Link href="/find-tickets?category=baseball">Baseball</Link><Link href="/find-tickets?category=hockey">Hockey</Link><Link href="/find-tickets?category=soccer">Soccer</Link><Link href="/find-tickets?category=concerts">Concerts</Link></nav>
 
-      {leadGame && <section className="kz-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NFL · FEATURED</span><h2>Games worth seeing</h2></div><Link href="/find-tickets">See all NFL games <ArrowRight size={15} /></Link></div><div className="kz-feature-grid"><Link href={`/find-tickets?game=${leadGame.id}`} className="kz-feature-main"><GameVisual game={leadGame} hero /><div className="kz-feature-copy"><span>{formatDate(leadGame.date)} · {leadGame.city}</span><h3>{teamName(leadGame.away)} @ {teamName(leadGame.home)}</h3><p>{leadGame.reason}</p><b>Find tickets <ArrowRight size={15} /></b></div></Link><div className="kz-feature-side">{featured.slice(1, 3).map((game) => <EventCard key={game.id} game={game} />)}</div></div></section>}
+      {leadGame && NBA_HOME_GAMES[0] && <section className="kz-section kz-featured-sports-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NFL + NBA · FEATURED</span><h2>Games worth seeing</h2></div><Link href="/find-tickets">See all games <ArrowRight size={15} /></Link></div><div className="kz-feature-grid kz-balanced-feature-grid"><Link href={`/find-tickets?game=${leadGame.id}`} className="kz-feature-main"><GameVisual game={leadGame} hero /><div className="kz-feature-copy"><span>NFL · {formatDate(leadGame.date)} · {leadGame.city}</span><h3>{teamName(leadGame.away)} @ {teamName(leadGame.home)}</h3><p>{leadGame.reason}</p><b>Find NFL tickets <ArrowRight size={15} /></b></div></Link><NbaFeatureCard game={NBA_HOME_GAMES[0]} image="/images/nba/feature-den.png" label="NBA · Game of the week" /></div></section>}
 
 
       {NBA_HOME_GAMES.length > 0 && (<section className="kz-section kz-nba-home-section"><div className="kz-section-heading"><div><span className="kz-eyebrow">NBA · THIS WEEK</span><h2>NBA matchups to watch</h2></div><Link href="/nba">See all NBA games <ArrowRight size={15} /></Link></div><div className="kz-feature-grid kz-nba-feature-grid"><NbaFeatureCard game={NBA_HOME_GAMES[0]} image="/images/nba/feature-den.png" label="Game of the week" /><div className="kz-feature-side">{NBA_HOME_GAMES.slice(1, 3).map((game) => <NbaHomeCard key={game.id} game={game} />)}</div></div></section>)}
@@ -332,7 +334,7 @@ export default function HomePage() {
         venue: "Estadio Banorte",
         image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Estadio_Azteca_2026_-_06.jpg"
       }
-    ].filter((game) => new Date(game.date + " 2026 23:59:59").getTime() >= Date.now()).map((game) => (
+    ].map((game) => (
       <Link href="/find-tickets?category=international" className="kz-international-card" key={game.matchup + game.date}>
         <div className="kz-international-card-image">
           <img src={game.image} alt={game.venue} />
