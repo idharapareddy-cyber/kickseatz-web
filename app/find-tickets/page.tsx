@@ -185,6 +185,7 @@ export default function FindTicketsPage() {
       <div className="finder-layout">
         <aside className="filter-panel">
           <div className="filter-title"><SlidersHorizontal size={17} /><strong>Filter tickets</strong></div>
+          <label>Sport or event<select value={category} onChange={(event) => { setCategory(event.target.value as TicketCategory); setGameId("all"); }}><option value="all">All sports & events</option>{(Object.keys(CATEGORY_LABELS) as TicketCategory[]).filter((value) => !["all", "thanksgiving", "christmas", "super-bowl", "international", "seasonal"].includes(value)).map((value) => <option key={value} value={value}>{CATEGORY_LABELS[value]}</option>)}</select></label>
           <label>Team<select value={team} onChange={(event) => { setTeam(event.target.value); setGameId("all"); }}><option value="all">All available teams</option>{TEAMS.map((team) => <option key={team.slug} value={team.slug}>{team.name}</option>)}</select></label>
           <label>Matchup<select value={gameId} onChange={(event) => setGameId(event.target.value)}><option value="all">Any matchup</option>{gameOptions.map((game) => <option key={game.id} value={game.id}>{teamName(game.away)} @ {teamName(game.home)}</option>)}</select></label>
           <label>Max price <span className="range-value">${budget}</span><input type="range" min="35" max="350" step="5" value={budget} onChange={(event) => setBudget(Number(event.target.value))} /></label>
@@ -192,6 +193,7 @@ export default function FindTicketsPage() {
           <label>Seat area<select value={seatArea} onChange={(event) => setSeatArea(event.target.value as Preferences["seatArea"])}><option>Any</option><option>Lower Bowl</option><option>Club</option><option>Upper Bowl</option></select></label>
           <label>Sort by<select value={priority} onChange={(event) => setPriority(event.target.value as Preferences["priority"])}><option>Best Overall Value</option><option>Lowest Price</option><option>Best Game</option></select></label>
           <button className="reset-button" onClick={() => { setTeam("all"); setGameId("all"); setBudget(DEFAULT_PREFERENCES.budget); setCount(DEFAULT_PREFERENCES.ticketCount); setSeatArea("Any"); setPriority(DEFAULT_PREFERENCES.priority); setSearch(""); setCategory("all"); window.history.replaceState(null, "", window.location.pathname); }}><Filter size={14} />Reset filters</button>
+          <p className="finder-note">KickSeatz currently shows synthetic demo inventory. Live provider listings will be added without changing this marketplace.</p>
         </aside>
 
         <section>

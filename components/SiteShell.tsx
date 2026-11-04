@@ -8,7 +8,6 @@ import { Compass, Heart, Search, Ticket, UserRound, Users } from "lucide-react";
 const nav = [
   { href: "/", label: "Home", icon: Compass },
   { href: "/find-tickets", label: "Find Tickets", icon: Ticket },
-  { href: "/nba", label: "NBA", icon: Ticket },
   { href: "/find-my-game", label: "Find My Game", icon: Search },
   { href: "/teams", label: "Teams", icon: Users },
   { href: "/my-tickets", label: "My Tickets", icon: Heart },
@@ -65,7 +64,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         </div>
         <div className="footer-links">
           <Link href="/teams">All teams</Link>
-          <Link href="/nba">NBA</Link>
           <Link href="/find-tickets">Find Tickets</Link>
           <Link href="/find-my-game">Find My Game</Link>
           <Link href="/profile">Profile</Link>
