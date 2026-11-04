@@ -36,6 +36,11 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
               );
             })}
           </nav>
+          <form className="topbar-search" action="/find-tickets" method="get" role="search">
+            <Search size={17} />
+            <input name="search" type="search" placeholder="Search teams, games, venues..." aria-label="Search teams, games, and venues" />
+            <button type="submit">Search</button>
+          </form>
           <Link href="/profile" className={`profile-pill ${pathname.startsWith("/profile") ? "active" : ""}`} aria-current={pathname.startsWith("/profile") ? "page" : undefined}>
             <UserRound size={16} strokeWidth={2} />
             <span>Profile</span>
