@@ -52,3 +52,6 @@
 .kz-home img{max-width:100%;}
 @media(max-width:720px){.kz-home .kz-section-heading{align-items:flex-start!important;}.kz-home .kz-section-heading>a{margin-top:4px!important;}}
 @media(max-width:560px){.kz-home .kz-section-heading{display:flex!important;flex-direction:column!important;gap:7px!important;}.kz-home .kz-section-heading>a{align-self:flex-start!important;}.kz-home .kz-event-image,.kz-home .kz-event-image .kz-simple-matchup,.kz-home .kz-event-image .kz-stadium-visual{height:190px!important;min-height:190px!important;}.kz-home .kz-international-feature-card .kz-international-card-copy{padding-top:66px!important;}}
+
+/* Keep the hero focused on sports, never military or ceremonial imagery. */
+.kz-home .kz-hero-image .kz-simple-matchup{background-image:linear-gradient(115deg,rgba(8,7,13,.18),rgba(76,29,149,.38)),url("https://upload.wikimedia.org/wikipedia/commons/6/66/Packvbears.jpg")!important;background-size:cover!important;background-position:center!important;}
