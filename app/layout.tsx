@@ -16,9 +16,7 @@ import "./kz-final-audit.css";
 import "./kz-nba-home.css";
 import "./kz-home-rebalance.css";
 import "./kz-no-ai-slop.css";
-import "./kz-no-hero-pass.css";
 import "./kz-remove-hero-final.css";
-import "./kz-home-final-audit.css";
 import "./kz-international-info-fix.css";
 import "./kz-clear-graphic-pass.css";
 import "./kz-matchup-graphics.css";
@@ -30,6 +28,7 @@ import "./kz-jazz-template-pass.css";
 import "./kz-clean-photo-cards.css";
 import "./kz-final-clean-layout.css";
 import "./kz-home-fix-final.css";
+import "./kz-home-restoration.css";
 import { SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
