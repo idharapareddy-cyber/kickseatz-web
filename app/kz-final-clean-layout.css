@@ -8,18 +8,6 @@
   padding-bottom:72px !important;
 }
 
-.kz-home > .kz-section{
-  margin-top:30px !important;
-  margin-bottom:0 !important;
-}
-
-.kz-home > .kz-section:first-of-type{margin-top:34px !important;}
-
-.kz-home .kz-section-heading{
-  margin-bottom:14px !important;
-  min-height:44px !important;
-  align-items:flex-end !important;
-}
 .kz-home .kz-section-heading h2{
   margin:2px 0 0 !important;
   line-height:1.05 !important;
@@ -365,4 +353,26 @@
     grid-column:auto !important;
     grid-row:auto !important;
   }
+}
+
+/* ---------- FINAL MARKETPLACE CONSISTENCY PASS ---------- */
+.kz-home .kz-upcoming-section { margin-top: 30px !important; }
+.kz-home .kz-upcoming-list { border-top: 1px solid rgba(255,255,255,.1); }
+.kz-home .kz-upcoming-list .kz-game-row { min-height: 74px; border-bottom: 1px solid rgba(255,255,255,.1); }
+.kz-home .kz-upcoming-list .kz-game-row:hover { background: rgba(125,92,255,.08); }
+.kz-home .kz-upcoming-list .kz-game-row:last-child { border-bottom: 0; }
+.kz-home .kz-seasonal-section,
+.kz-home .kz-international-section,
+.kz-home .kz-college-section,
+.kz-home .kz-sports-section,
+.kz-home > .kz-section:has(.kz-experience-grid),
+.kz-home > .kz-section:has(.kz-division-grid),
+.kz-home > .kz-section:has(.kz-discover-grid) { display: none !important; }
+.kz-category-rail { overflow-x: auto; scrollbar-width: none; }
+.kz-category-rail::-webkit-scrollbar { display: none; }
+.kz-category-rail a { white-space: nowrap; }
+@media (max-width: 700px) {
+  .kz-home .kz-upcoming-list .kz-game-row { grid-template-columns: 58px minmax(0, 1fr); gap: 10px; }
+  .kz-home .kz-upcoming-list .kz-demand,
+  .kz-home .kz-upcoming-list .kz-ticket-link { display: none; }
 }
