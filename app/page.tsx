@@ -161,23 +161,6 @@ function NbaHomeCard({ game }: { game: (typeof NBA_GAMES)[number] }) {
   );
 }
 
-function NbaFeatureCard({ game, image, label }: { game: (typeof NBA_GAMES)[number]; image: string; label: string }) {
-  const away = nbaTeam(game.away);
-  const home = nbaTeam(game.home);
-  return (
-    <Link href="/nba" className="kz-nba-feature">
-      <img className="kz-nba-feature-art" src={image} alt={`${away?.name} at ${home?.name} featured artwork`} />
-      <div className="kz-nba-feature-shade" aria-hidden="true" />
-      <div className="kz-nba-feature-copy">
-        <span className="kz-nba-feature-label">{label}</span>
-        <h3>{away?.name} <em>@</em> {home?.name}</h3>
-        <p>{formatDate(game.date)} · {game.time} · {home?.city} · {game.demand} demand</p>
-        <b>Find tickets <ArrowRight size={15} /></b>
-      </div>
-    </Link>
-  );
-}
-
 function GameRow({ game }: { game: (typeof GAMES)[number] }) {
   return <Link href={`/find-tickets?game=${game.id}`} className="kz-game-row"><div className="kz-game-date"><strong>{new Date(`${game.date}T12:00:00`).toLocaleDateString("en-US", { month: "short" })}</strong><b>{new Date(`${game.date}T12:00:00`).getDate()}</b></div><div className="kz-game-matchup"><div><img src={logoUrl(game.away)} alt="" /><strong>{teamName(game.away)}</strong><span>@</span><strong>{teamName(game.home)}</strong><img src={logoUrl(game.home)} alt="" /></div><small><MapPin size={13} /> {game.venue} · {game.city} · {game.time}</small></div><span className="kz-demand">{game.demand}</span><span className="kz-ticket-link">Find Tickets <ArrowRight size={15} /></span></Link>;
 }
