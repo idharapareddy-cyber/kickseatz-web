@@ -12,10 +12,17 @@ import { TicketCard } from "../../components/TicketCard";
 import { DEFAULT_PREFERENCES, Preferences } from "../../lib/logic";
 import { GAMES, TEAMS, TICKETS, gameById, teamName } from "../../lib/data";
 
-type TicketCategory = "all" | "thanksgiving" | "christmas" | "super-bowl" | "international" | "seasonal";
+type TicketCategory = "all" | "nfl" | "college-football" | "nba" | "mlb" | "nhl" | "mls" | "concerts" | "thanksgiving" | "christmas" | "super-bowl" | "international" | "seasonal";
 
 const CATEGORY_LABELS: Record<TicketCategory, string> = {
-  all: "NFL-wide demo inventory",
+  all: "All available demo inventory",
+  nfl: "NFL games",
+  "college-football": "College football",
+  nba: "NBA games",
+  mlb: "MLB games",
+  nhl: "NHL games",
+  mls: "MLS games",
+  concerts: "Concerts",
   thanksgiving: "Thanksgiving Day games",
   christmas: "Christmas Day games",
   "super-bowl": "Super Bowl LXI",
@@ -24,7 +31,8 @@ const CATEGORY_LABELS: Record<TicketCategory, string> = {
 };
 
 function gameMatchesCategory(game: ReturnType<typeof gameById>, category: TicketCategory) {
-  if (!game || category === "all") return category === "all";
+  if (!game || category === "all" || category === "nfl") return category === "all" || category === "nfl";
+  if (["college-football", "nba", "mlb", "nhl", "mls", "concerts"].includes(category)) return false;
 
   const matchup = `${game.away}|${game.home}`;
   const thanksgiving = new Set([
@@ -177,13 +185,15 @@ export default function FindTicketsPage() {
       <div className="finder-layout">
         <aside className="filter-panel">
           <div className="filter-title"><SlidersHorizontal size={17} /><strong>Filter tickets</strong></div>
-          <label>Team<select value={team} onChange={(event) => { setTeam(event.target.value); setGameId("all"); }}><option value="all">All NFL</option>{TEAMS.map((team) => <option key={team.slug} value={team.slug}>{team.name}</option>)}</select></label>
+          <label>Sport or event<select value={category} onChange={(event) => { setCategory(event.target.value as TicketCategory); setGameId("all"); }}><option value="all">All sports & events</option>{(Object.keys(CATEGORY_LABELS) as TicketCategory[]).filter((value) => !["all", "thanksgiving", "christmas", "super-bowl", "international", "seasonal"].includes(value)).map((value) => <option key={value} value={value}>{CATEGORY_LABELS[value]}</option>)}</select></label>
+          <label>Team<select value={team} onChange={(event) => { setTeam(event.target.value); setGameId("all"); }}><option value="all">All available teams</option>{TEAMS.map((team) => <option key={team.slug} value={team.slug}>{team.name}</option>)}</select></label>
           <label>Matchup<select value={gameId} onChange={(event) => setGameId(event.target.value)}><option value="all">Any matchup</option>{gameOptions.map((game) => <option key={game.id} value={game.id}>{teamName(game.away)} @ {teamName(game.home)}</option>)}</select></label>
           <label>Max price <span className="range-value">${budget}</span><input type="range" min="35" max="350" step="5" value={budget} onChange={(event) => setBudget(Number(event.target.value))} /></label>
           <label>Tickets needed<select value={count} onChange={(event) => setCount(Number(event.target.value))}><option value={1}>1</option><option value={2}>2</option><option value={3}>3</option><option value={4}>4</option></select></label>
           <label>Seat area<select value={seatArea} onChange={(event) => setSeatArea(event.target.value as Preferences["seatArea"])}><option>Any</option><option>Lower Bowl</option><option>Club</option><option>Upper Bowl</option></select></label>
           <label>Sort by<select value={priority} onChange={(event) => setPriority(event.target.value as Preferences["priority"])}><option>Best Overall Value</option><option>Lowest Price</option><option>Best Game</option></select></label>
           <button className="reset-button" onClick={() => { setTeam("all"); setGameId("all"); setBudget(DEFAULT_PREFERENCES.budget); setCount(DEFAULT_PREFERENCES.ticketCount); setSeatArea("Any"); setPriority(DEFAULT_PREFERENCES.priority); setSearch(""); setCategory("all"); window.history.replaceState(null, "", window.location.pathname); }}><Filter size={14} />Reset filters</button>
+          <p className="finder-note">KickSeatz currently shows synthetic demo inventory. Live provider listings will be added without changing this marketplace.</p>
         </aside>
 
         <section>
