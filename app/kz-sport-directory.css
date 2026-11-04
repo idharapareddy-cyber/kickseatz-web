@@ -1,0 +1,189 @@
+/* Focused sport-directory and curated-homepage styling.
+   Keeps the existing type system, photography, and Jazz-vs-Nuggets visual direction. */
+
+.kz-home .kz-curated-section{margin-top:34px!important}
+.kz-home .kz-curated-game-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:16px!important;
+  align-items:stretch!important;
+}
+.kz-home .kz-curated-game-grid .kz-event-card{
+  display:flex!important;
+  flex-direction:column!important;
+  min-width:0!important;
+  overflow:hidden!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+  border-radius:18px!important;
+  background:#11101a!important;
+  box-shadow:0 10px 30px rgba(0,0,0,.16)!important;
+}
+.kz-home .kz-curated-game-grid .kz-event-image{
+  position:relative!important;
+  display:block!important;
+  flex:0 0 218px!important;
+  height:218px!important;
+  min-height:218px!important;
+  overflow:hidden!important;
+}
+.kz-home .kz-curated-game-grid .kz-stadium-visual{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+}
+.kz-home .kz-curated-game-grid .kz-stadium-visual img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+.kz-home .kz-curated-game-grid .kz-event-info{
+  position:static!important;
+  display:flex!important;
+  flex:1 1 auto!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  gap:6px!important;
+  min-height:104px!important;
+  padding:15px 17px 17px!important;
+  background:#11101a!important;
+}
+.kz-home .kz-curated-game-grid .kz-event-info strong{
+  color:#f7f5fb!important;
+  font-size:16px!important;
+  line-height:1.2!important;
+  letter-spacing:-.025em!important;
+}
+.kz-home .kz-curated-game-grid .kz-event-info span{
+  color:#aaa4b7!important;
+  font-size:12px!important;
+}
+.kz-home .kz-curated-game-grid .kz-event-info small{
+  color:#817b8b!important;
+  font-size:11px!important;
+}
+.kz-home .kz-curated-game-grid .kz-heart{display:none!important}
+
+/* Sport cards share the same crisp photo, typography, and restrained overlay treatment. */
+.kz-home .kz-sports-directory .kz-sports-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-auto-rows:280px!important;
+  gap:16px!important;
+}
+.kz-home .kz-sports-directory .kz-sport-card{
+  position:relative!important;
+  display:block!important;
+  min-width:0!important;
+  min-height:280px!important;
+  height:280px!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+  border-radius:18px!important;
+  background:#11101a!important;
+  box-shadow:0 10px 30px rgba(0,0,0,.16)!important;
+}
+.kz-home .kz-sports-directory .kz-sport-card>img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  transition:transform .35s ease!important;
+}
+.kz-home .kz-sports-directory .kz-sport-card:hover>img{transform:scale(1.025)!important}
+.kz-home .kz-sports-directory .kz-sport-shade{
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  background:linear-gradient(90deg,rgba(7,6,12,.76),rgba(7,6,12,.08) 75%),linear-gradient(0deg,rgba(7,6,12,.78),transparent 58%)!important;
+}
+.kz-home .kz-sports-directory .kz-sport-card-copy{
+  position:absolute!important;
+  left:22px!important;
+  right:65px!important;
+  bottom:22px!important;
+  z-index:2!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  gap:5px!important;
+  padding:0!important;
+  background:transparent!important;
+}
+.kz-home .kz-sports-directory .kz-sport-card-copy>span{
+  color:#d8caff!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  letter-spacing:.15em!important;
+}
+.kz-home .kz-sports-directory .kz-sport-card-copy strong{
+  color:#fff!important;
+  font-size:clamp(26px,3vw,38px)!important;
+  line-height:1!important;
+  letter-spacing:-.045em!important;
+  text-shadow:0 2px 16px rgba(0,0,0,.4)!important;
+}
+.kz-home .kz-sports-directory .kz-sport-card-copy small{
+  color:rgba(255,255,255,.82)!important;
+  font-size:12px!important;
+}
+.kz-home .kz-sports-directory .kz-sport-card-arrow{
+  position:absolute!important;
+  right:22px!important;
+  bottom:22px!important;
+  z-index:3!important;
+  display:grid!important;
+  place-items:center!important;
+  width:42px!important;
+  height:42px!important;
+  border:1px solid rgba(255,255,255,.32)!important;
+  border-radius:50%!important;
+  color:#fff!important;
+  background:rgba(13,11,19,.38)!important;
+}
+.kz-home .kz-sports-directory .kz-sport-card:hover .kz-sport-card-arrow{
+  background:#7658ff!important;
+  border-color:#7658ff!important;
+}
+.kz-home .kz-curated-section .kz-section-heading,
+.kz-home .kz-sports-directory .kz-section-heading{margin-bottom:17px!important}
+
+.kz-sport-page{max-width:1240px!important;margin:0 auto!important;padding:42px 22px 76px!important}
+.kz-sport-page-head{margin-bottom:24px!important}
+.kz-sport-page-head .kz-eyebrow{color:#a78bfa!important;font-size:10px!important;font-weight:900!important;letter-spacing:.15em!important}
+.kz-sport-page-head h1{margin:7px 0 9px!important;color:#f7f5fb!important;font-size:clamp(36px,5vw,54px)!important;line-height:.98!important;letter-spacing:-.055em!important}
+.kz-sport-page-head p{max-width:650px!important;margin:0!important;color:#aaa4b7!important;font-size:14px!important;line-height:1.6!important}
+.kz-sport-page-head a{display:inline-flex!important;align-items:center!important;gap:7px!important;margin-bottom:18px!important;color:#bdb0ff!important;font-size:12px!important;font-weight:800!important}
+.kz-sport-game-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important}
+.kz-sport-game{
+  display:flex!important;flex-direction:column!important;min-width:0!important;overflow:hidden!important;
+  border:1px solid rgba(255,255,255,.10)!important;border-radius:18px!important;background:#11101a!important;
+  box-shadow:0 10px 30px rgba(0,0,0,.16)!important;transition:border-color .18s ease,transform .18s ease!important;
+}
+.kz-sport-game:hover{transform:translateY(-2px)!important;border-color:rgba(167,139,250,.48)!important}
+.kz-sport-game-art{position:relative!important;height:210px!important;overflow:hidden!important;background:#09070e!important}
+.kz-sport-game-art>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important}
+.kz-sport-game-shade{position:absolute!important;inset:0!important;background:linear-gradient(180deg,rgba(7,5,12,.12),rgba(7,5,12,.76))!important}
+.kz-sport-game-teams{position:absolute!important;inset:0!important;z-index:2!important;display:grid!important;grid-template-columns:1fr 38px 1fr!important;align-items:center!important;justify-items:center!important;gap:6px!important;padding:16px!important}
+.kz-sport-game-teams>div{display:flex!important;flex-direction:column!important;align-items:center!important;gap:7px!important;min-width:0!important}
+.kz-sport-game-teams img{width:clamp(48px,6vw,76px)!important;height:clamp(48px,6vw,76px)!important;object-fit:contain!important;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5))!important}
+.kz-sport-game-teams span{color:#fff!important;font-size:11px!important;font-weight:900!important;text-shadow:0 2px 10px #000!important}
+.kz-sport-game-teams>b{display:grid!important;place-items:center!important;width:34px!important;height:34px!important;border-radius:50%!important;background:#7658ff!important;color:#fff!important;font-size:9px!important;letter-spacing:.08em!important}
+.kz-sport-game-info{display:flex!important;flex-direction:column!important;gap:6px!important;padding:15px 17px 17px!important}
+.kz-sport-game-kicker{color:#c8b9ff!important;font-size:9px!important;font-weight:900!important;letter-spacing:.12em!important}
+.kz-sport-game-info h3{margin:0!important;color:#f7f5fb!important;font-size:16px!important;line-height:1.2!important;letter-spacing:-.025em!important}
+.kz-sport-game-info p{margin:0!important;color:#aaa4b7!important;font-size:12px!important}
+.kz-sport-game-info small{display:flex!important;align-items:center!important;gap:5px!important;color:#817b8b!important;font-size:10px!important}
+@media(max-width:900px){
+  .kz-home .kz-curated-game-grid,.kz-sport-game-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:700px){
+  .kz-home .kz-curated-game-grid,.kz-sport-game-grid{grid-template-columns:1fr!important}
+  .kz-home .kz-sports-directory .kz-sports-grid{grid-template-columns:1fr!important;grid-auto-rows:230px!important}
+  .kz-home .kz-sports-directory .kz-sport-card{height:230px!important;min-height:230px!important}
+  .kz-sport-page{padding:30px 14px 68px!important}
+}
