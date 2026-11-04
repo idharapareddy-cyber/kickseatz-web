@@ -3,7 +3,7 @@
 .kz-home .kz-simple-matchup>*{display:none!important;}
 
 /* Hero */
-.kz-home .kz-hero-image .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.12),rgba(76,29,149,.34)),url("https://stadiumdb.com/pictures/stadiums/eng/tottenham_hotspur_stadium/tottenham_hotspur_stadium05.jpg")!important;}
+ .kz-home .kz-hero-image .kz-simple-matchup{background-image:linear-gradient(120deg,rgba(8,7,13,.12),rgba(76,29,149,.34)),url("https://upload.wikimedia.org/wikipedia/commons/6/66/Packvbears.jpg")!important;}
 
 /* Games worth seeing: three identical card proportions, with all copy below the image. */
 .kz-home .kz-feature-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important;align-items:stretch!important;}

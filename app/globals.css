@@ -5863,3 +5863,40 @@ body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,syst
   .kz-hero-info h1{font-size:clamp(42px,13vw,58px)}
   .kz-category-rail{gap:20px}
 }
+
+/* Final marketplace polish: preserve the full KickSeatz structure while tightening rhythm and hierarchy. */
+.kz-home{background:linear-gradient(180deg,#0b0b0f 0%,#0b0b0f 72%,#101016 100%)}
+.kz-hero{padding-top:32px}
+.kz-hero-info{max-width:680px}
+.kz-hero-info p{max-width:560px;color:#aaaab4;line-height:1.65}
+.kz-hero-image{overflow:hidden;border:1px solid #292930;background:#111116}
+.kz-hero-image img,.kz-hero-image>div{min-height:100%;object-fit:cover}
+.kz-feature-main{overflow:hidden}
+.kz-feature-main .kz-stadium-visual{min-height:330px}
+.kz-event-card{overflow:hidden}
+.kz-event-image,.kz-international-card-image,.kz-marquee-image,.kz-college-card,.kz-sport-card{overflow:hidden}
+.kz-event-image img,.kz-international-card-image img,.kz-marquee-image img,.kz-college-card img,.kz-sport-card img{transition:transform .35s ease,filter .35s ease}
+.kz-event-card:hover .kz-event-image img,.kz-international-card:hover img,.kz-marquee-card:hover img,.kz-college-card:hover img,.kz-sport-card:hover img{transform:scale(1.035);filter:saturate(1.08)}
+.kz-section-heading{margin-bottom:20px}
+.kz-section-heading h2{font-size:clamp(25px,3vw,32px);line-height:1.05}
+.kz-section-heading>a{font-size:12px;white-space:nowrap}
+.kz-game-row{min-height:82px;padding-block:16px}
+.kz-game-row img{width:26px;height:26px;object-fit:contain}
+.kz-marquee-grid,.kz-international-grid,.kz-college-grid,.kz-sports-grid,.kz-experience-grid{align-items:stretch}
+.kz-marquee-card,.kz-international-card,.kz-college-card,.kz-sport-card,.kz-experience-card{border:1px solid #29292f}
+.kz-category-rail{position:relative;z-index:2;background:#0b0b0f}
+.kz-category-rail a{transition:color .16s ease,background .16s ease}
+.kz-category-rail a.active{background:#7657e8;color:#fff;border-radius:999px;padding:9px 14px;margin-block:-9px}
+.kz-primary-button,.kz-search-box button{transition:background .16s ease,transform .16s ease,box-shadow .16s ease}
+.kz-primary-button:hover,.kz-search-box button:hover{box-shadow:0 8px 22px rgba(118,87,232,.22)}
+@media(max-width:1000px){
+  .kz-hero{padding-top:24px}
+  .kz-feature-main .kz-stadium-visual{min-height:300px}
+}
+@media(max-width:650px){
+  .kz-section{margin-top:48px}
+  .kz-section-heading h2{font-size:25px}
+  .kz-feature-main .kz-stadium-visual{min-height:240px}
+  .kz-game-row{min-height:88px}
+  .kz-category-rail a.active{margin-block:-7px;padding:7px 12px}
+}

@@ -6,7 +6,7 @@
 .kz-home .kz-hero-image{width:100%!important;height:420px!important;min-height:420px!important;position:relative!important;overflow:hidden!important;background:#11101a!important;}
 .kz-home .kz-hero-image .kz-stadium-visual,.kz-home .kz-hero-image .kz-simple-matchup{width:100%!important;height:100%!important;min-height:100%!important;border-radius:0!important;}
 .kz-home .kz-hero-image .kz-stadium-label,.kz-home .kz-hero-image .kz-simple-team,.kz-home .kz-hero-image .kz-simple-vs,.kz-home .kz-hero-image .kz-simple-matchup-label{display:none!important;}
-.kz-home .kz-hero-image .kz-simple-matchup{background:linear-gradient(115deg,rgba(8,7,13,.18),rgba(76,29,149,.38)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Lucas%20Oil%20Stadium.jpg?width=1800") center/cover no-repeat!important;}
+.kz-home .kz-hero-image .kz-simple-matchup{background:linear-gradient(115deg,rgba(8,7,13,.18),rgba(76,29,149,.38)),url("https://upload.wikimedia.org/wikipedia/commons/6/66/Packvbears.jpg") center/cover no-repeat!important;}
 .kz-home .kz-hero-image .kz-stadium-visual img{filter:saturate(.88) brightness(.72)!important;}
 .kz-home .kz-hero-image .kz-stadium-shade{background:linear-gradient(180deg,rgba(8,7,13,.04),rgba(8,7,13,.45))!important;}
 

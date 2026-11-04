@@ -1,19 +1,4 @@
-/* FINAL: KickSeatz homepage has no hero. The first content is discovery/search. */
-.kz-home > .kz-hero,
-.kz-home .kz-hero,
-.kz-home .kz-hero-image,
-.kz-home .kz-hero-info{
-  display:none!important;
-  height:0!important;
-  min-height:0!important;
-  max-height:0!important;
-  margin:0!important;
-  padding:0!important;
-  border:0!important;
-  overflow:hidden!important;
-}
-
-/* Keep search as a normal marketplace toolbar, not a hero. */
+/* Keep the original homepage hero while preserving the cleaner search treatment. */
 .kz-home .kz-hero-search{
   display:grid!important;
   position:static!important;

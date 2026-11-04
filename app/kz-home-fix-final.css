@@ -28,7 +28,7 @@
   overflow:hidden!important;
   background:
     linear-gradient(180deg,rgba(6,5,11,.04) 18%,rgba(6,5,11,.2) 48%,rgba(6,5,11,.82) 100%),
-    url("https://commons.wikimedia.org/wiki/Special:FilePath/MRF-D_Marines_and_Sailors_participate_in_showcase_at_NFL_game_in_Melbourne_%289926672%29.jpg?width=1800") center/cover no-repeat!important;
+    url("https://upload.wikimedia.org/wikipedia/commons/7/79/Levi%27s_Stadium.JPG") center/cover no-repeat!important;
 }
 .kz-home .kz-marketplace-hero-art::after{
   content:"NFL · LIVE & UPCOMING"!important;
@@ -67,6 +67,17 @@
   margin:0!important;
   max-width:none!important;
 }
+
+/* Keep the primary marketplace split intentionally even: one NFL card and one NBA card. */
+.kz-home .kz-marketplace-hero-art::before{display:none!important;content:none!important;}
+.kz-home .kz-balanced-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:1fr!important;gap:16px!important;}
+.kz-home .kz-balanced-feature-grid>.kz-feature-main,
+.kz-home .kz-balanced-feature-grid>.kz-nba-feature{grid-column:auto!important;grid-row:auto!important;min-height:430px!important;height:430px!important;}
+.kz-home .kz-balanced-feature-grid>.kz-feature-main{display:flex!important;}
+.kz-home .kz-balanced-feature-grid>.kz-nba-feature{min-width:0!important;}
+.kz-home .kz-balanced-feature-grid .kz-feature-copy{flex-basis:104px!important;min-height:104px!important;}
+.kz-home .kz-balanced-feature-grid .kz-nba-feature-copy{max-width:100%!important;padding:22px!important;}
+.kz-home .kz-balanced-feature-grid .kz-nba-feature h3{font-size:clamp(23px,2.6vw,34px)!important;}
 
 /* Games Worth Seeing: one large visual and two supporting visuals. */
 .kz-home .kz-feature-grid{
@@ -162,6 +173,18 @@
 .kz-home .kz-international-card-body{padding:14px!important;}
 .kz-home .kz-international-matchup{font-size:16px!important;}
 .kz-home .kz-international-meta{font-size:9px!important;line-height:1.3!important;}
+
+/* College football and other sports use the same restrained editorial card rhythm. */
+.kz-home .kz-college-card img,
+.kz-home .kz-sport-card img,
+.kz-home .kz-experience-card img,
+.kz-home .kz-international-card-image img,
+.kz-home .kz-marquee-image img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;}
+.kz-home .kz-college-card,
+.kz-home .kz-sport-card,
+.kz-home .kz-experience-card,
+.kz-home .kz-international-card,
+.kz-home .kz-marquee-card{overflow:hidden!important;border-radius:16px!important;}
 
 /* College football: all four cards fit cleanly on desktop. */
 .kz-home .kz-college-grid{
@@ -261,6 +284,9 @@
   .kz-home .kz-experience-card:first-child{grid-column:span 2!important;}
 }
 @media(max-width:620px){
+  .kz-home .kz-balanced-feature-grid{grid-template-columns:1fr!important;}
+  .kz-home .kz-balanced-feature-grid>.kz-feature-main,
+  .kz-home .kz-balanced-feature-grid>.kz-nba-feature{height:360px!important;min-height:360px!important;}
   .kz-home .kz-hero-image{height:270px!important;min-height:270px!important;}
   .kz-home .kz-hero-info{height:auto!important;min-height:260px!important;}
   .kz-home .kz-feature-main,

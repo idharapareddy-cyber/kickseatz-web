@@ -361,13 +361,11 @@
 .kz-home .kz-upcoming-list .kz-game-row { min-height: 74px; border-bottom: 1px solid rgba(255,255,255,.1); }
 .kz-home .kz-upcoming-list .kz-game-row:hover { background: rgba(125,92,255,.08); }
 .kz-home .kz-upcoming-list .kz-game-row:last-child { border-bottom: 0; }
+/* Original homepage rows remain visible; this layer only refines their spacing. */
 .kz-home .kz-seasonal-section,
 .kz-home .kz-international-section,
 .kz-home .kz-college-section,
-.kz-home .kz-sports-section,
-.kz-home > .kz-section:has(.kz-experience-grid),
-.kz-home > .kz-section:has(.kz-division-grid),
-.kz-home > .kz-section:has(.kz-discover-grid) { display: none !important; }
+.kz-home .kz-sports-section { display: block !important; }
 .kz-category-rail { overflow-x: auto; scrollbar-width: none; }
 .kz-category-rail::-webkit-scrollbar { display: none; }
 .kz-category-rail a { white-space: nowrap; }
