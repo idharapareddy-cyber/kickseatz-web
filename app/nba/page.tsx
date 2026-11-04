@@ -42,8 +42,7 @@ function NbaGameCard({ game, featured = false }: { game: (typeof NBA_GAMES)[numb
 }
 
 export default function NbaPage() {
-  const featured = NBA_GAMES.slice(0, 3);
-  const upcoming = NBA_GAMES.slice(3);
+  const games = NBA_GAMES;
 
   return (
     <div className="page kz-nba-page">
@@ -66,11 +65,13 @@ export default function NbaPage() {
         <div><span className="kz-nba-eyebrow">KICKSEATZ · NBA</span><h1>Basketball is here.</h1><p>KickSeatz now brings NBA matchups into the same simple, visual ticket-discovery experience we built for football.</p><Link href="/find-tickets" className="kz-nba-cta">Explore tickets <Ticket size={15} /></Link></div>
       </section>
 
-      <section className="kz-nba-section"><div className="kz-nba-heading"><div><span className="kz-nba-eyebrow">FEATURED</span><h2>Games worth seeing</h2></div><Link href="#upcoming">See upcoming games <ArrowRight size={14} /></Link></div><div className="kz-nba-grid">{featured.map((game) => <NbaGameCard key={game.id} game={game} featured />)}</div></section>
-
-      <section className="kz-nba-section" id="upcoming"><div className="kz-nba-heading"><div><span className="kz-nba-eyebrow">UP NEXT</span><h2>More NBA games</h2></div></div><div className="kz-nba-grid">{upcoming.map((game) => <NbaGameCard key={game.id} game={game} />)}</div></section>
-
-      <section className="kz-nba-section"><div className="kz-nba-heading"><div><span className="kz-nba-eyebrow">EXPLORE</span><h2>NBA teams</h2></div></div><div className="kz-nba-team-grid">{NBA_GAMES.slice(0, 6).flatMap((game) => [game.away, game.home]).filter((abbr, index, list) => list.indexOf(abbr) === index).slice(0, 12).map((abbr) => { const team = nbaTeam(abbr)!; return <Link className="kz-nba-team-tile" href={`/nba?team=${abbr}`} key={abbr}><img src={team.logo} alt="" /><strong>{team.abbr}</strong><span>{team.city}</span></Link>; })}</div></section>
+      <section className="kz-nba-section" id="games">
+        <div className="kz-nba-heading">
+          <div><span className="kz-nba-eyebrow">UPCOMING MATCHUPS</span><h2>All NBA games</h2></div>
+          <span className="kz-nba-eyebrow">{games.length} GAMES</span>
+        </div>
+        <div className="kz-nba-grid">{games.map((game) => <NbaGameCard key={game.id} game={game} />)}</div>
+      </section>
     </div>
   );
 }
