@@ -30,6 +30,7 @@ import "./kz-jazz-template-pass.css";
 import "./kz-clean-photo-cards.css";
 import "./kz-final-clean-layout.css";
 import "./kz-home-fix-final.css";
+import "./kz-sport-directory.css";
 import { SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
